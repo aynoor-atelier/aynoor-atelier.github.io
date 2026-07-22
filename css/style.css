@@ -1,0 +1,194 @@
+/*==================================================
+  AYNOOR ATELIER
+  STYLE.CSS
+  PART 1 — FOUNDATION
+==================================================*/
+
+
+/*==================================================
+RESET
+==================================================*/
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    font-size:16px;
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+}
+
+
+/*==================================================
+ROOT VARIABLES
+==================================================*/
+
+:root{
+
+    --bg:#090909;
+    --bg2:#111111;
+
+    --leather:#2b170f;
+    --leather-dark:#170d09;
+
+    --gold:#d6b46b;
+    --gold-light:#f2df9b;
+
+    --paper:#efe5cf;
+    --paper-dark:#d5c2a4;
+
+    --text:#f5f2eb;
+    --muted:#b7ae9b;
+
+    --shadow:rgba(0,0,0,.55);
+
+    --transition:.45s ease;
+}
+
+
+/*==================================================
+BODY
+==================================================*/
+
+body{
+
+    font-family:"Cormorant Garamond",serif;
+    color:var(--text);
+
+    background:#000;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+}
+
+
+/*==================================================
+BACKGROUND
+==================================================*/
+
+.background{
+
+    position:fixed;
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top,
+    #202020 0%,
+    #111111 30%,
+    #080808 70%,
+    #000 100%);
+
+    z-index:-5;
+}
+
+
+/*==================================================
+AMBIENT LIGHT
+==================================================*/
+
+.ambient-light{
+
+    position:fixed;
+    inset:0;
+
+    background:
+
+    radial-gradient(circle,
+    rgba(255,214,150,.12),
+    transparent 65%);
+
+    filter:blur(90px);
+
+    pointer-events:none;
+
+    z-index:-4;
+}
+
+
+/*==================================================
+NOISE
+==================================================*/
+
+.noise{
+
+    position:fixed;
+    inset:0;
+
+    background:url("../noise.png");
+
+    opacity:.05;
+
+    mix-blend-mode:soft-light;
+
+    pointer-events:none;
+
+    z-index:-3;
+}
+
+
+/*==================================================
+VIGNETTE
+==================================================*/
+
+.vignette{
+
+    position:fixed;
+    inset:0;
+
+    box-shadow:
+    inset 0 0 220px rgba(0,0,0,.85);
+
+    pointer-events:none;
+
+    z-index:-2;
+}
+
+
+/*==================================================
+SCENE
+==================================================*/
+
+.scene{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    perspective:2200px;
+
+    position:relative;
+}
+
+
+/*==================================================
+BOOK CONTAINER
+==================================================*/
+
+.book{
+
+    position:relative;
+
+    width:340px;
+    height:480px;
+
+    transform-style:preserve-3d;
+
+    transition:1s;
+
+}
