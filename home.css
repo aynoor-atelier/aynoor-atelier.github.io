@@ -1,116 +1,96 @@
-*{
+.logo-title{
 
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-
-}
-
-body{
-
-    background:#0B0B0B;
-    color:#F3EFE7;
-
-    font-family:Georgia,serif;
-
-    overflow:hidden;
-
-}
-
-.hero{
-
-    height:100vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:40px;
-
-}
-
-.logo{
-
-    width:120px;
-
-    margin-bottom:30px;
-
-}
-
-h1{
-
-    font-size:52px;
-
-    font-weight:400;
-
-    letter-spacing:3px;
-
-    margin-bottom:10px;
+    font-family:'Cinzel', serif;
+    font-size:58px;
+    font-weight:500;
+    letter-spacing:5px;
+    color:#C9A66B;
+    text-transform:none;
+    line-height:1.2;
 
 }
 
 .tagline{
 
+    font-family:'Montserrat', sans-serif;
+    font-size:11px;
+    font-weight:300;
+    letter-spacing:9px;
+    text-transform:uppercase;
     color:#A67C52;
+    margin-top:10px;
 
-    letter-spacing:8px;
+}
 
-    font-size:12px;
+body{
 
-    margin-bottom:70px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    line-height:1.8;
+    color:#F3EFE7;
+    background:#0B0B0B;
+
+}
+
+h2{
+
+    font-family:'Cinzel', serif;
+    font-size:42px;
+    font-weight:500;
+    color:#F3EFE7;
+    margin-bottom:30px;
+
+}
+
+p{
+
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    line-height:1.9;
+    color:#D8D3CB;
 
 }
 
 .quote{
 
-    border-left:2px solid #A67C52;
-
-    padding-left:18px;
-
-    text-align:left;
-
-    margin-bottom:70px;
-
-}
-
-.quote p{
-
-    margin:12px 0;
-
-    font-size:20px;
-
-    line-height:1.8;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:42px;
+    line-height:1.5;
+    color:#F3EFE7;
 
 }
 
 .enter-btn{
 
-    text-decoration:none;
-
-    color:#0B0B0B;
+    font-family:'Montserrat', sans-serif;
+    font-size:13px;
+    letter-spacing:4px;
+    font-weight:500;
 
     background:#A67C52;
+    color:#0B0B0B;
 
-    padding:18px 48px;
+    padding:18px 42px;
 
-    letter-spacing:3px;
+    border:none;
+    cursor:pointer;
 
-    font-size:12px;
-
-    transition:.8s;
+    transition:.8s ease;
 
 }
 
 .enter-btn:hover{
 
-    background:#C69C6D;
+    background:#C9A66B;
 
-    transform:translateY(-2px);
+}
+
+nav{
+
+    font-family:'Montserrat', sans-serif;
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
 
 }
