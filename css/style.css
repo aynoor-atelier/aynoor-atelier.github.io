@@ -1,246 +1,167 @@
 /*==================================================
-  AYNOOR ATELIER
-  STYLE.CSS
-  PART 1 — FOUNDATION
+AYNOOR ATELIER V4
+STYLE.CSS
 ==================================================*/
 
-
-/*==================================================
+/*==============================
 RESET
-==================================================*/
+==============================*/
 
 *,
 *::before,
 *::after{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+margin:0;
+padding:0;
+
+box-sizing:border-box;
+
 }
 
 html{
-    font-size:16px;
-    scroll-behavior:smooth;
+
+font-size:16px;
+
+scroll-behavior:smooth;
+
 }
 
 body{
-    min-height:100vh;
-    overflow:hidden;
+
+min-height:100vh;
+
+overflow:hidden;
+
+font-family:
+"Cormorant Garamond",
+serif;
+
+background:#090909;
+
+color:#F5EFE2;
+
 }
 
-
-/*==================================================
-ROOT VARIABLES
-==================================================*/
+/*==============================
+ROOT
+==============================*/
 
 :root{
 
-    --bg:#090909;
-    --bg2:#111111;
+--black:#090909;
 
-    --leather:#2b170f;
-    --leather-dark:#170d09;
+--black-soft:#151515;
 
-    --gold:#d6b46b;
-    --gold-light:#f2df9b;
+--gold:#D4AF37;
 
-    --paper:#efe5cf;
-    --paper-dark:#d5c2a4;
+--gold-light:#F2D77C;
 
-    --text:#f5f2eb;
-    --muted:#b7ae9b;
+--paper:#F5EFE2;
 
-    --shadow:rgba(0,0,0,.55);
+--paper-dark:#E7DCC8;
 
-    --transition:.45s ease;
+--shadow:
+rgba(0,0,0,.45);
+
+--transition:
+
+.5s ease;
+
 }
 
-
-/*==================================================
-BODY
-==================================================*/
+/*==============================
+BACKGROUND
+==============================*/
 
 body{
 
-    font-family:"Cormorant Garamond",serif;
-    color:var(--text);
+background:
 
-    background:#000;
+radial-gradient(
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+circle at center,
 
-    position:relative;
+#1b1b1b,
+
+#090909 70%);
+
 }
 
 
-/*==================================================
-BACKGROUND
-==================================================*/
+/* Ambient */
 
 .background{
 
-    position:fixed;
-    inset:0;
+position:fixed;
 
-    background:
+inset:0;
 
-    radial-gradient(circle at top,
-    #202020 0%,
-    #111111 30%,
-    #080808 70%,
-    #000 100%);
+z-index:-10;
 
-    z-index:-5;
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(212,175,55,.08),
+
+transparent 60%);
+
 }
 
 
-/*==================================================
-AMBIENT LIGHT
-==================================================*/
-
-.ambient-light{
-
-    position:fixed;
-    inset:0;
-
-    background:
-
-    radial-gradient(circle,
-    rgba(255,214,150,.12),
-    transparent 65%);
-
-    filter:blur(90px);
-
-    pointer-events:none;
-
-    z-index:-4;
-}
-
-
-/*==================================================
-NOISE
-==================================================*/
-
-.noise{
-
-    position:fixed;
-    inset:0;
-
-    background:url("../noise.png");
-
-    opacity:.05;
-
-    mix-blend-mode:soft-light;
-
-    pointer-events:none;
-
-    z-index:-3;
-}
-
-
-/*==================================================
-VIGNETTE
-==================================================*/
+/* Vignette */
 
 .vignette{
 
-    position:fixed;
-    inset:0;
+position:fixed;
 
-    box-shadow:
-    inset 0 0 220px rgba(0,0,0,.85);
+inset:0;
 
-    pointer-events:none;
+pointer-events:none;
 
-    z-index:-2;
+box-shadow:
+
+inset 0 0 180px rgba(0,0,0,.9);
+
+z-index:-8;
+
 }
 
-
-/*==================================================
+/*==============================
 SCENE
-==================================================*/
+==============================*/
 
 .scene{
 
-    width:100%;
-    height:100vh;
+width:100%;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+height:100vh;
 
-    perspective:2200px;
+display:flex;
 
-    position:relative;
+justify-content:center;
+
+align-items:center;
+
+perspective:2600px;
+
 }
 
-
-/*==================================================
-BOOK CONTAINER
-==================================================*/
+/*==============================
+BOOK
+==============================*/
 
 .book{
 
-    position:relative;
+position:relative;
 
-    width:340px;
-    height:480px;
+width:430px;
 
-    transform-style:preserve-3d;
+height:640px;
 
-    transition:1s;
-
-}
-
-/*==================================================
-PART 2 — BOOK COVER
-==================================================*/
-
-.book{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-/* Cover */
-
-.cover{
-
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(135deg,#3a2217 0%,#2b170f 40%,#1b0f09 100%);
-
-    border-radius:12px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,.65),
-        inset 0 0 0 1px rgba(255,255,255,.04);
-
-}
-
-
-/* Gold Frame */
-
-.gold-frame{
-
-    position:absolute;
-
-    inset:16px;
-
-    border:2px solid var(--gold);
-
-    border-radius:8px;
-
-    pointer-events:none;
-
-    box-shadow:
-        0 0 8px rgba(214,180,107,.25),
-        inset 0 0 6px rgba(214,180,107,.18);
+transform-style:preserve-3d;
 
 }
 
@@ -249,49 +170,226 @@ PART 2 — BOOK COVER
 
 .spine{
 
-    position:absolute;
+position:absolute;
 
-    left:-18px;
+left:-18px;
 
-    width:18px;
+top:10px;
 
-    height:100%;
+bottom:10px;
 
-    background:linear-gradient(
-        to right,
-        #120a07,
-        #2b170f,
-        #1a0d08
-    );
+width:24px;
 
-    border-radius:10px 0 0 10px;
+border-radius:
 
-    box-shadow:
-        inset -3px 0 6px rgba(255,255,255,.05),
-        4px 0 12px rgba(0,0,0,.5);
+10px 0 0 10px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#050505,
+
+#2e2e2e,
+
+#090909);
+
+box-shadow:
+
+inset -3px 0 6px rgba(255,255,255,.05);
 
 }
 
+/*==============================
+LEATHER COVER
+==============================*/
+
+.cover{
+
+position:absolute;
+
+inset:0;
+
+z-index:20;
+
+border-radius:12px;
+
+overflow:hidden;
+
+background:
+
+linear-gradient(
+145deg,
+#1b1b1b 0%,
+#111111 25%,
+#181818 50%,
+#0c0c0c 75%,
+#1a1a1a 100%);
+
+border:1px solid rgba(212,175,55,.18);
+
+box-shadow:
+
+0 35px 70px rgba(0,0,0,.55),
+
+inset 0 0 40px rgba(255,255,255,.02),
+
+inset 0 0 80px rgba(0,0,0,.45);
+
+transform-origin:left center;
+
+backface-visibility:hidden;
+
+}
+
+
+/* Leather Grain */
+
+.cover::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+opacity:.08;
+
+background:
+
+repeating-radial-gradient(
+
+circle at 20% 30%,
+
+rgba(255,255,255,.10) 0,
+
+rgba(255,255,255,.10) 1px,
+
+transparent 2px,
+
+transparent 8px);
+
+pointer-events:none;
+
+}
+
+
+/* Light Reflection */
+
+.cover::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-45%;
+
+width:60%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.05),
+
+transparent);
+
+transform:skewX(-18deg);
+
+pointer-events:none;
+
+}
+
+/*==============================
+GOLD FRAME
+==============================*/
+
+.gold-frame{
+
+position:absolute;
+
+top:24px;
+
+left:24px;
+
+right:24px;
+
+bottom:24px;
+
+border:2px solid rgba(212,175,55,.9);
+
+border-radius:8px;
+
+pointer-events:none;
+
+box-shadow:
+
+0 0 12px rgba(212,175,55,.15),
+
+inset 0 0 12px rgba(212,175,55,.08);
+
+}
+
+
+/* Inner Frame */
+
+.gold-frame::before{
+
+content:"";
+
+position:absolute;
+
+top:10px;
+
+left:10px;
+
+right:10px;
+
+bottom:10px;
+
+border:1px solid rgba(212,175,55,.35);
+
+border-radius:5px;
+
+}
+
+/*==============================
+SECTION 8
+LOGO + TYPOGRAPHY
+==============================*/
 
 /* Cover Content */
 
 .cover-content{
 
-    position:absolute;
+position:absolute;
 
-    inset:0;
+inset:0;
 
-    display:flex;
+display:flex;
 
-    flex-direction:column;
+flex-direction:column;
 
-    align-items:center;
+justify-content:flex-start;
 
-    justify-content:flex-start;
+align-items:center;
 
-    padding:38px 28px;
+padding:48px 38px;
 
-    text-align:center;
+text-align:center;
+
+z-index:5;
+
 }
 
 
@@ -299,45 +397,59 @@ PART 2 — BOOK COVER
 
 .logo{
 
-    width:110px;
+width:88px;
 
-    height:auto;
+height:auto;
 
-    margin-top:20px;
+margin-bottom:28px;
 
-    margin-bottom:28px;
+user-select:none;
 
-    filter:
-        drop-shadow(0 0 10px rgba(214,180,107,.25));
+-webkit-user-drag:none;
 
 }
 
 
-/* Heading */
+/* Company */
 
 .cover-content h1{
 
-    font-family:"Cinzel",serif;
+font-family:"Cinzel",serif;
 
-    font-size:2rem;
+font-size:2.25rem;
 
-    letter-spacing:2px;
+font-weight:600;
 
-    line-height:1.2;
+letter-spacing:5px;
 
-    color:#f4efe5;
+line-height:1.15;
+
+color:var(--gold);
+
+text-transform:uppercase;
+
+text-shadow:
+
+0 0 10px rgba(212,175,55,.18);
 
 }
 
+
+/* Atelier */
+
 .cover-content h1 span{
 
-    display:block;
+display:block;
 
-    font-size:1rem;
+margin-top:8px;
 
-    margin-top:6px;
+font-size:.92rem;
 
-    color:var(--gold);
+font-weight:500;
+
+letter-spacing:10px;
+
+color:var(--paper);
 
 }
 
@@ -346,13 +458,17 @@ PART 2 — BOOK COVER
 
 .tagline{
 
-    margin-top:16px;
+margin-top:28px;
 
-    color:#d9ccb5;
+font-family:"Cormorant Garamond",serif;
 
-    font-size:1rem;
+font-size:1.18rem;
 
-    letter-spacing:1px;
+font-style:italic;
+
+letter-spacing:1px;
+
+color:rgba(245,239,226,.92);
 
 }
 
@@ -361,13 +477,23 @@ PART 2 — BOOK COVER
 
 .divider{
 
-    width:70px;
+width:110px;
 
-    height:2px;
+height:1px;
 
-    background:var(--gold);
+margin:30px 0;
 
-    margin:24px auto;
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+var(--gold),
+
+transparent);
 
 }
 
@@ -376,17 +502,26 @@ PART 2 — BOOK COVER
 
 .motto{
 
-    display:flex;
+display:flex;
 
-    flex-direction:column;
+flex-direction:column;
 
-    gap:10px;
+gap:8px;
 
-    color:#e8dfcf;
+}
 
-    font-size:.95rem;
 
-    letter-spacing:1px;
+.motto p{
+
+font-family:"Cinzel",serif;
+
+font-size:.78rem;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--paper);
 
 }
 
@@ -395,74 +530,519 @@ PART 2 — BOOK COVER
 
 .edition{
 
-    margin-top:28px;
+margin-top:38px;
 
-    color:#cdbd98;
+display:flex;
 
-    font-size:.95rem;
+flex-direction:column;
 
-    line-height:1.8;
+gap:8px;
 
 }
 
 
-/* Seal */
+.edition p{
+
+font-family:"Cinzel",serif;
+
+font-size:.92rem;
+
+letter-spacing:2px;
+
+color:var(--gold-light);
+
+}
+
+/*==============================
+SECTION 9
+ROYAL WAX SEAL
+==============================*/
 
 .seal-area{
 
-    margin-top:auto;
+margin-top:auto;
 
-    display:flex;
+display:flex;
 
-    flex-direction:column;
+flex-direction:column;
 
-    align-items:center;
+align-items:center;
 
-    gap:12px;
+justify-content:center;
+
+gap:18px;
+
+padding-bottom:32px;
+
+}
+
+
+/* Seal Button */
+
+.seal-button{
+
+width:96px;
+
+height:96px;
+
+border:none;
+
+outline:none;
+
+cursor:pointer;
+
+background:none;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+transition:
+
+transform .35s ease;
+
+}
+
+
+/* Seal Image */
+
+.seal-button img{
+
+width:100%;
+
+height:100%;
+
+display:block;
+
+user-select:none;
+
+-webkit-user-drag:none;
+
+filter:
+
+drop-shadow(0 8px 14px rgba(0,0,0,.45));
+
+}
+
+
+/* Hover */
+
+.seal-button:hover{
+
+transform:
+
+scale(1.05);
+
+}
+
+
+/* Click */
+
+.seal-button:active{
+
+transform:
+
+scale(.96);
+
+}
+
+
+/* Caption */
+
+.seal-text{
+
+font-family:"Cinzel",serif;
+
+font-size:.78rem;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--gold-light);
+
+opacity:.88;
+
+}
+
+/*==============================
+SECTION 10
+WELCOME PAGE
+==============================*/
+
+.page{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#f9f4ea,
+
+#efe4cf);
+
+border-radius:12px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:48px;
+
+z-index:10;
+
+box-shadow:
+
+inset 0 0 35px rgba(0,0,0,.08);
+
+}
+
+
+/* Paper Texture */
+
+.page::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+opacity:.05;
+
+background:
+
+repeating-linear-gradient(
+
+0deg,
+
+transparent 0,
+
+transparent 4px,
+
+rgba(0,0,0,.08) 5px);
+
+pointer-events:none;
+
+}
+
+
+/* Content */
+
+.page-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:320px;
+
+text-align:center;
+
+}
+
+
+/* Title */
+
+.page-content h2{
+
+font-family:"Cinzel",serif;
+
+font-size:2rem;
+
+letter-spacing:4px;
+
+color:#1b1b1b;
+
+margin-bottom:22px;
+
+}
+
+
+/* Divider */
+
+.page-divider{
+
+width:90px;
+
+height:1px;
+
+margin:0 auto 26px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+var(--gold),
+
+transparent);
+
+}
+
+
+/* Welcome */
+
+.welcome-text{
+
+font-size:1.2rem;
+
+line-height:1.8;
+
+color:#3b352d;
+
+margin-bottom:36px;
+
+}
+
+/*==============================
+SECTION 11
+ENTER BUTTON
+==============================*/
+
+.enter-button{
+
+display:inline-flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:16px 38px;
+
+border:1px solid rgba(212,175,55,.65);
+
+border-radius:999px;
+
+background:
+
+linear-gradient(
+180deg,
+rgba(212,175,55,.10),
+rgba(212,175,55,.03));
+
+color:var(--gold);
+
+font-family:"Cinzel",serif;
+
+font-size:.85rem;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+cursor:pointer;
+
+transition:
+
+all .35s ease;
+
+}
+
+
+.enter-button:hover{
+
+background:
+
+linear-gradient(
+180deg,
+rgba(212,175,55,.18),
+rgba(212,175,55,.08));
+
+transform:
+
+translateY(-2px);
+
+box-shadow:
+
+0 12px 24px rgba(0,0,0,.18),
+
+0 0 18px rgba(212,175,55,.18);
+
+}
+
+
+.enter-button:active{
+
+transform:
+
+translateY(0) scale(.98);
+
+}
+
+/*==============================
+TABLET
+==============================*/
+
+@media(max-width:992px){
+
+.book{
+
+width:380px;
+
+height:565px;
+
+}
+
+.cover-content{
+
+padding:42px 30px;
+
+}
+
+.logo{
+
+width:76px;
+
+}
+
+.cover-content h1{
+
+font-size:2rem;
+
+}
+
+.tagline{
+
+font-size:1.05rem;
+
+}
+
+}
+
+
+/*==============================
+MOBILE
+==============================*/
+
+@media(max-width:600px){
+
+.scene{
+
+padding:20px;
+
+}
+
+.book{
+
+width:92vw;
+
+max-width:380px;
+
+height:78vh;
+
+max-height:620px;
+
+}
+
+.cover-content{
+
+padding:34px 22px;
+
+}
+
+.logo{
+
+width:68px;
+
+margin-bottom:22px;
+
+}
+
+.cover-content h1{
+
+font-size:1.65rem;
+
+letter-spacing:3px;
+
+}
+
+.cover-content h1 span{
+
+font-size:.82rem;
+
+letter-spacing:6px;
+
+}
+
+.tagline{
+
+font-size:1rem;
+
+margin-top:22px;
+
+}
+
+.divider{
+
+margin:24px 0;
+
+width:90px;
+
+}
+
+.motto p{
+
+font-size:.70rem;
+
+letter-spacing:2px;
+
+}
+
+.edition{
+
+margin-top:28px;
+
+}
+
+.page{
+
+padding:32px 24px;
+
+}
+
+.page-content h2{
+
+font-size:1.6rem;
+
+}
+
+.welcome-text{
+
+font-size:1.05rem;
+
+line-height:1.7;
 
 }
 
 .seal-button{
 
-    background:none;
+width:82px;
 
-    border:none;
-
-    cursor:pointer;
+height:82px;
 
 }
 
-.seal-button img{
+.enter-button{
 
-    width:110px;
+width:100%;
 
-    display:block;
+padding:15px;
 
-    transition:.35s ease;
-
-}
-
-.seal-button:hover img{
-
-    transform:scale(1.05);
+font-size:.78rem;
 
 }
-
-.seal-text{
-
-    font-size:.9rem;
-
-    color:var(--gold-light);
-
-    letter-spacing:1px;
-
-}
-
-
-/* First page hidden */
-
-.page{
-
-    display:none;
 
 }
