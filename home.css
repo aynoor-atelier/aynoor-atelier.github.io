@@ -1,4 +1,4 @@
-.logo-title{
+h1{
 
     font-family:'Cinzel', serif;
     font-size:58px;
@@ -29,25 +29,6 @@ body{
     line-height:1.8;
     color:#F3EFE7;
     background:#0B0B0B;
-
-}
-
-h2{
-
-    font-family:'Cinzel', serif;
-    font-size:42px;
-    font-weight:500;
-    color:#F3EFE7;
-    margin-bottom:30px;
-
-}
-
-p{
-
-    font-family:'Cormorant Garamond', serif;
-    font-size:22px;
-    line-height:1.9;
-    color:#D8D3CB;
 
 }
 
@@ -92,5 +73,103 @@ nav{
     font-size:13px;
     letter-spacing:3px;
     text-transform:uppercase;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+.hero{
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+.logo{
+
+    width:120px;
+
+    margin-bottom:30px;
+
+}
+
+h1{
+
+    font-size:52px;
+
+    font-weight:400;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+}
+
+.tagline{
+
+    letter-spacing:8px;
+
+    font-size:12px;
+
+    margin-bottom:70px;
+
+}
+
+.quote{
+
+    border-left:2px 
+
+    padding-left:18px;
+
+    text-align:left;
+
+    margin-bottom:70px;
+
+}
+
+.quote p{
+
+    margin:12px 0;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+}
+
+.enter-btn{
+
+    text-decoration:none;
+
+    padding:18px 48px;
+
+    letter-spacing:3px;
+
+    font-size:12px;
+
+    transition:.8s;
+
+}
+
+.enter-btn:hover{
+
+    transform:translateY(-2px);
 
 }
