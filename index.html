@@ -3,49 +3,176 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <title>Aynoor Atelier</title>
+<title>AYNOOR ATELIER</title>
 
-    <link rel="stylesheet" href="home.css">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<link rel="stylesheet"
+href="css/animations.css">
 
 </head>
 
 <body>
 
-    <main class="hero">
+<!-- Background -->
 
-        <img src= logo.png"
-            alt="Aynoor Atelier"
-            class="logo">
+<div class="background"></div>
 
-        <h1>Aynoor Atelier</h1>
+<div class="ambient-light"></div>
 
-        <p class="tagline">
-            CAPITAL OF CHRONICLES
-        </p>
+<div class="noise"></div>
 
-        <div class="quote">
+<div class="vignette"></div>
 
-            <p>Custody before acquisition.</p>
+<!-- Scene -->
 
-            <p>Endurance before ownership.</p>
+<main class="scene">
+
+<div class="book" id="book">
+
+<!-- Spine -->
+
+<div class="spine"></div>
+
+<!-- ===========================
+COVER
+=========================== -->
+
+<section class="cover" id="cover">
+
+<div class="gold-frame"></div>
+
+<header class="cover-content">
+
+<img
+src="logo.png"
+alt="Logo"
+class="logo">
+
+<h1>
+
+AYNOOR
+
+<span>ATELIER</span>
+
+</h1>
+
+<p class="tagline">
+
+Capital of Chronicles
+
+</p>
+
+<div class="divider"></div>
+
+<div class="motto">
+
+<p>
+
+NOT ACQUISITION.
+
+</p>
+
+<p>
+
+CUSTODIANSHIP.
+
+</p>
+
+</div>
+
+<div class="edition">
+
+<p>Volume I</p>
+
+<p>MMXXVI</p>
+
+</div>
+
+            <!-- Royal Seal -->
+
+        <div class="seal-area">
+
+            <button
+                class="seal-button"
+                id="sealButton"
+                aria-label="Break the Royal Seal">
+
+                <img
+                    src="seal.png"
+                    alt="Royal Wax Seal">
+
+            </button>
+
+            <p class="seal-text">
+
+                Break the Royal Seal
+
+            </p>
 
         </div>
 
-        <a href="institution.html"
-            class="enter-btn">
+    </section>
 
-            ENTER THE MANUSCRIPT
+    <!-- ===========================
+         FIRST PAGE
+    =========================== -->
 
-        </a>
+    <section class="page" id="page">
 
-    </main>
+        <div class="page-content">
 
-    <script src="home.js"></script>
+            <h2>
+
+                Welcome
+
+            </h2>
+
+            <div class="page-divider"></div>
+
+            <p class="welcome-text">
+
+                Every chronicle begins with a single page.
+
+                You are not entering a website.
+
+                You are entering a living archive.
+
+            </p>
+
+            <button
+                class="enter-button"
+                id="enterButton">
+
+                Enter Aynoor's World
+
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+</main>
+
+<script src="js/main.js"></script>
 
 </body>
 
