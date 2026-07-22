@@ -1,41 +1,13 @@
-const button = document.getElementById("enter");
+const button = document.querySelector(".enter-btn");
 
+button.addEventListener("mouseenter",()=>{
 
-button.addEventListener("click",()=>{
-
-
-window.scrollTo({
-
-top:window.innerHeight,
-
-behavior:"smooth"
+    button.style.boxShadow="0 0 30px rgba(166,124,82,.35)";
 
 });
 
+button.addEventListener("mouseleave",()=>{
 
-});
-
-
-
-window.addEventListener("scroll",()=>{
-
-
-let sections=document.querySelectorAll("section");
-
-
-sections.forEach(sec=>{
-
-
-let position=sec.getBoundingClientRect().top;
-
-
-if(position < window.innerHeight-100){
-
-sec.style.opacity="1";
-
-}
-
-});
-
+    button.style.boxShadow="none";
 
 });
