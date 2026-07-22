@@ -192,3 +192,277 @@ BOOK CONTAINER
     transition:1s;
 
 }
+
+/*==================================================
+PART 2 — BOOK COVER
+==================================================*/
+
+.book{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Cover */
+
+.cover{
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(135deg,#3a2217 0%,#2b170f 40%,#1b0f09 100%);
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.65),
+        inset 0 0 0 1px rgba(255,255,255,.04);
+
+}
+
+
+/* Gold Frame */
+
+.gold-frame{
+
+    position:absolute;
+
+    inset:16px;
+
+    border:2px solid var(--gold);
+
+    border-radius:8px;
+
+    pointer-events:none;
+
+    box-shadow:
+        0 0 8px rgba(214,180,107,.25),
+        inset 0 0 6px rgba(214,180,107,.18);
+
+}
+
+
+/* Spine */
+
+.spine{
+
+    position:absolute;
+
+    left:-18px;
+
+    width:18px;
+
+    height:100%;
+
+    background:linear-gradient(
+        to right,
+        #120a07,
+        #2b170f,
+        #1a0d08
+    );
+
+    border-radius:10px 0 0 10px;
+
+    box-shadow:
+        inset -3px 0 6px rgba(255,255,255,.05),
+        4px 0 12px rgba(0,0,0,.5);
+
+}
+
+
+/* Cover Content */
+
+.cover-content{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    padding:38px 28px;
+
+    text-align:center;
+}
+
+
+/* Logo */
+
+.logo{
+
+    width:110px;
+
+    height:auto;
+
+    margin-top:20px;
+
+    margin-bottom:28px;
+
+    filter:
+        drop-shadow(0 0 10px rgba(214,180,107,.25));
+
+}
+
+
+/* Heading */
+
+.cover-content h1{
+
+    font-family:"Cinzel",serif;
+
+    font-size:2rem;
+
+    letter-spacing:2px;
+
+    line-height:1.2;
+
+    color:#f4efe5;
+
+}
+
+.cover-content h1 span{
+
+    display:block;
+
+    font-size:1rem;
+
+    margin-top:6px;
+
+    color:var(--gold);
+
+}
+
+
+/* Tagline */
+
+.tagline{
+
+    margin-top:16px;
+
+    color:#d9ccb5;
+
+    font-size:1rem;
+
+    letter-spacing:1px;
+
+}
+
+
+/* Divider */
+
+.divider{
+
+    width:70px;
+
+    height:2px;
+
+    background:var(--gold);
+
+    margin:24px auto;
+
+}
+
+
+/* Motto */
+
+.motto{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    color:#e8dfcf;
+
+    font-size:.95rem;
+
+    letter-spacing:1px;
+
+}
+
+
+/* Edition */
+
+.edition{
+
+    margin-top:28px;
+
+    color:#cdbd98;
+
+    font-size:.95rem;
+
+    line-height:1.8;
+
+}
+
+
+/* Seal */
+
+.seal-area{
+
+    margin-top:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.seal-button{
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+.seal-button img{
+
+    width:110px;
+
+    display:block;
+
+    transition:.35s ease;
+
+}
+
+.seal-button:hover img{
+
+    transform:scale(1.05);
+
+}
+
+.seal-text{
+
+    font-size:.9rem;
+
+    color:var(--gold-light);
+
+    letter-spacing:1px;
+
+}
+
+
+/* First page hidden */
+
+.page{
+
+    display:none;
+
+}
