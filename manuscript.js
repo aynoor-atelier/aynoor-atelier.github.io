@@ -182,3 +182,37 @@ console.log(
 "Volume I Loaded."
 
 );
+
+/*==================================================
+FINAL TOUCH
+==================================================*/
+
+document.querySelectorAll(".chapter").forEach((chapter)=>{
+
+chapter.addEventListener("focus",()=>{
+
+chapter.scrollIntoView({
+
+behavior:"smooth",
+
+block:"center"
+
+});
+
+});
+
+});
+
+
+console.log(
+
+"%cAYNOOR ATELIER",
+
+"color:#A67C52;font-size:20px;font-weight:bold;"
+
+);
+
+console.log(
+
+"Digital Manuscript Ready."
+);
