@@ -1,113 +1,43 @@
-/* =========================
-   AYNOOR ATELIER
-   HOME PAGE STYLE
-========================= */
-
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 
 body{
 
-    background:#0B0B0B;
-    color:#F3EFE7;
+background:#0B0B0B;
+color:#F3EFE7;
 
-    font-family:"Cormorant Garamond", serif;
-
-    overflow-x:hidden;
-}
-
-
-
-/* COMMON */
-
-section{
-
-    min-height:100vh;
-
-    padding:100px 10%;
+font-family:
+"Times New Roman",
+serif;
 
 }
 
-
-h1,h2{
-
-    letter-spacing:8px;
-
-    font-weight:400;
-
-}
-
-
-
-p{
-
-    line-height:1.8;
-
-    font-size:20px;
-
-    color:#d8d0c3;
-
-}
-
-
-
-
-
-/* =========================
-        HERO
-========================= */
 
 
 .hero{
 
-    display:flex;
+height:100vh;
 
-    flex-direction:column;
+display:flex;
+align-items:center;
+justify-content:center;
 
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
+text-align:center;
 
 }
 
 
 
-.hero-logo{
+.manuscript h1{
 
-    width:90px;
+font-size:70px;
+font-weight:400;
 
-    margin-bottom:40px;
-
-    animation:fade 2s ease;
-
-}
-
-
-
-.hero h1{
-
-    font-size:70px;
-
-    color:#A67C52;
-
-    animation:fade 2s ease;
-
-}
-
-
-
-.hero h2{
-
-    font-size:25px;
-
-    letter-spacing:15px;
+letter-spacing:4px;
 
 }
 
@@ -115,70 +45,49 @@ p{
 
 .tagline{
 
-    margin-top:60px;
+margin-top:20px;
 
-    font-style:italic;
+font-size:18px;
 
-    font-size:28px;
+letter-spacing:8px;
 
-}
-
-
-
-.divider{
-
-    width:120px;
-
-    height:1px;
-
-    background:#A67C52;
-
-    margin:40px;
+color:#A67C52;
 
 }
 
 
 
-blockquote{
+.line{
 
-    border-left:2px solid #A67C52;
+margin-top:80px;
 
-    padding-left:25px;
+font-size:24px;
 
-    font-size:22px;
-
-    line-height:2;
-
-    color:#F3EFE7;
+line-height:2;
 
 }
-
-
 
 
 
 button{
 
+margin-top:60px;
 
-    margin-top:60px;
+padding:18px 45px;
 
-    padding:18px 50px;
+background:none;
 
+border:1px solid #A67C52;
 
-    background:transparent;
+color:#F3EFE7;
 
-    color:#A67C52;
+font-size:16px;
 
+letter-spacing:3px;
 
-    border:1px solid #A67C52;
+cursor:pointer;
 
-    letter-spacing:4px;
-
-    cursor:pointer;
-
-
-    transition:.8s;
-
+transition:.8s;
 
 }
 
@@ -186,78 +95,9 @@ button{
 
 button:hover{
 
-    background:#A67C52;
+background:#A67C52;
 
-    color:#0B0B0B;
-
-}
-
-
-
-
-
-/* =========================
-     INSTITUTION
-========================= */
-
-
-.institution{
-
-    background:#F3EFE7;
-
-    color:#0B0B0B;
-
-}
-
-
-
-.institution h2{
-
-    color:#0B0B0B;
-
-}
-
-
-
-.institution-content{
-
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:50px;
-
-    margin-top:80px;
-
-
-}
-
-
-
-.text{
-
-    width:50%;
-
-}
-
-
-
-.text p{
-
-    color:#222;
-
-}
-
-
-
-.seal img{
-
-    width:250px;
-
-    filter:drop-shadow(0 0 30px #A67C52);
+color:#0B0B0B;
 
 }
 
@@ -265,77 +105,59 @@ button:hover{
 
 
 
-/* =========================
-   FOUNDATIONS
-========================= */
+section{
 
+padding:120px 10%;
 
-.foundation-list{
-
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
-    margin-top:70px;
-
+border-top:1px solid rgba(166,124,82,.2);
 
 }
 
 
 
-.foundation-list div{
+h2{
 
+font-size:48px;
 
-    border:1px solid rgba(166,124,82,.4);
+font-weight:400;
 
-    padding:40px;
-
-    text-align:center;
-
-    transition:.8s;
-
+margin-bottom:50px;
 
 }
 
 
 
-.foundation-list div:hover{
+.text-box{
 
-    box-shadow:0 0 30px rgba(166,124,82,.5);
+max-width:600px;
 
-    transform:translateY(-10px);
+font-size:22px;
 
-}
-
-
-
-
-
-/* =========================
-      WORK
-========================= */
-
-
-.archive-box{
-
-
-    margin-top:50px;
-
-    border:1px solid #A67C52;
-
-    padding:40px;
-
+line-height:2;
 
 }
 
 
 
-.archive-box p{
+.cards{
 
-    font-family:monospace;
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:30px;
+
+}
+
+
+
+.cards div{
+
+border:1px solid #A67C52;
+
+padding:40px;
+
+text-align:center;
 
 }
 
@@ -343,130 +165,49 @@ button:hover{
 
 
 
-/* =========================
-      LETTER
-========================= */
-
-
-.letter{
-
-
-    text-align:center;
-
-}
-
-
-
-.letter blockquote{
-
-
-    display:inline-block;
-
-    margin:50px;
-
-}
-
-
-
-
-
-/* =========================
-      FOOTER
-========================= */
-
-
-footer{
-
-
-    border-top:1px solid #A67C52;
-
-    padding:50px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:50px;
-
-    color:#A67C52;
-
-
-}
-
-
-
-
-/* =========================
-      ANIMATION
-========================= */
-
-
-@keyframes fade{
-
-
-from{
-
-opacity:0;
-
-transform:translateY(30px);
-
-}
-
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-
-}
-
-
-
-
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-
-.hero h1{
+blockquote{
 
 font-size:45px;
 
+line-height:1.5;
+
 }
 
 
-.institution-content{
+
+.closing{
+
+min-height:80vh;
+
+display:flex;
 
 flex-direction:column;
 
-}
-
-
-.text{
-
-width:100%;
+justify-content:center;
 
 }
 
 
 
-.foundation-list{
+@media(max-width:700px){
+
+.manuscript h1{
+
+font-size:40px;
+
+}
+
+
+.cards{
 
 grid-template-columns:1fr;
 
 }
 
 
-footer{
+blockquote{
 
-flex-direction:column;
-
-text-align:center;
+font-size:28px;
 
 }
 
