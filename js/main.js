@@ -1,19 +1,65 @@
-/*=========================================
+/*==================================================
 AYNOOR ATELIER
-VERSION V
 MAIN.JS
+VERSION VI
+==================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const book = document.getElementById("book");
+const seal = document.querySelector(".seal");
+const spotlight = document.querySelector(".spotlight");
+const enter = document.getElementById("enterVault");
+
+let opened = false;
+
+
+
+/*=========================================
+SPOTLIGHT
 =========================================*/
 
-document.addEventListener("DOMContentLoaded",()=>{
+function moveLight(x, y){
 
-const cover=document.getElementById("cover");
+spotlight.style.background =
 
-const seal=document.getElementById("seal");
+`radial-gradient(circle 220px at ${x}px ${y}px,
 
-let opened=false;
+rgba(255,225,170,.18),
+
+rgba(201,162,77,.08) 35%,
+
+transparent 72%)`;
+
+}
 
 
-/* Open Book */
+
+/* Desktop */
+
+document.addEventListener("mousemove",(e)=>{
+
+moveLight(e.clientX,e.clientY);
+
+});
+
+
+
+/* Mobile */
+
+document.addEventListener("touchmove",(e)=>{
+
+const t=e.touches[0];
+
+moveLight(t.clientX,t.clientY);
+
+},{passive:true});
+
+
+
+/*=========================================
+OPEN BOOK
+=========================================*/
 
 function openBook(){
 
@@ -21,18 +67,20 @@ if(opened) return;
 
 opened=true;
 
-cover.classList.add("open");
+book.classList.add("open");
 
 
-/* Soft Page Sound */
 
-const sound=new Audio("assets/audio/page-flip.mp3");
+/* Page Sound */
 
-sound.volume=.15;
+const flip = new Audio("page.mp3");
 
-sound.play().catch(()=>{});
+flip.volume = .18;
+
+flip.play().catch(()=>{});
 
 }
+
 
 
 /* Seal Click */
@@ -40,11 +88,18 @@ sound.play().catch(()=>{});
 seal.addEventListener("click",openBook);
 
 
+
+/* Double Click Book */
+
+book.addEventListener("dblclick",openBook);
+
+
+
 /* Keyboard */
 
 document.addEventListener("keydown",(e)=>{
 
-if(e.code==="Space"||e.key==="Enter"){
+if(e.code==="Space" || e.key==="Enter"){
 
 openBook();
 
@@ -53,35 +108,48 @@ openBook();
 });
 
 
-/* Double Click Cover */
 
-cover.addEventListener("dblclick",openBook);
+/*=========================================
+ENTER
+=========================================*/
 
+enter.addEventListener("click",()=>{
 
+document.body.classList.add("fade-out");
 
+setTimeout(()=>{
 
-/* Mouse Light */
+window.location.href="home.html";
 
-document.addEventListener("mousemove",(e)=>{
-
-const light=document.querySelector(".ambient-light");
-
-const x=e.clientX/window.innerWidth*100;
-
-const y=e.clientY/window.innerHeight*100;
-
-light.style.background=
-
-`radial-gradient(circle at ${x}% ${y}%,
-rgba(201,162,77,.12),
-transparent 45%)`;
+},700);
 
 });
 
 
+
+/*=========================================
+PERFORMANCE
+=========================================*/
+
+window.addEventListener("blur",()=>{
+
+document.body.classList.add("paused");
+
+});
+
+
+
+window.addEventListener("focus",()=>{
+
+document.body.classList.remove("paused");
+
+});
+
+
+
 console.log(
 
-"%cAynoor Atelier Version V",
+"%cAYNOOR ATELIER",
 
 "color:#C9A24D;font-size:18px;font-family:Cinzel;"
 
