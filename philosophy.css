@@ -1,50 +1,89 @@
 /*==================================================
 AYNOOR ATELIER
 PHILOSOPHY.CSS
-CHAPTER I
+VOLUME I
+OUR PHILOSOPHY
 ==================================================*/
 
 
 /*=========================================
-PAGE
+HERO
 =========================================*/
 
 .hero{
 
 text-align:center;
 
-margin-bottom:80px;
+max-width:900px;
+
+margin:0 auto 70px;
+
+padding-bottom:20px;
 
 }
-
 
 .hero h1{
 
-font-size:3.2rem;
+font-family:var(--font-heading);
 
-margin:18px 0 24px;
+font-size:3rem;
 
 letter-spacing:4px;
 
+font-weight:500;
+
+margin:0;
+
 }
 
+.hero .divider{
+
+width:120px;
+
+margin:28px auto;
+
+}
 
 .hero .roman{
 
-font-size:.9rem;
+font-size:.90rem;
 
 letter-spacing:6px;
 
-}
+margin:0 0 18px;
 
-
-.quote{
-
-max-width:760px;
-
-margin:40px auto 0;
+color:var(--bronze);
 
 }
+
+.hero h2{
+
+font-family:var(--font-heading);
+
+font-size:2.4rem;
+
+letter-spacing:3px;
+
+font-weight:500;
+
+margin:0 0 22px;
+
+}
+
+.hero p{
+
+max-width:640px;
+
+margin:0 auto;
+
+font-size:1rem;
+
+line-height:1.9;
+
+font-weight:300;
+
+}
+
 
 
 /*=========================================
@@ -53,65 +92,142 @@ INTRODUCTION
 
 .intro{
 
-max-width:820px;
+max-width:760px;
 
-margin:0 auto;
+margin:70px auto;
 
 }
 
-
 .intro p{
 
-font-size:1.08rem;
+font-size:1.05rem;
 
-line-height:2.1;
+line-height:2;
+
+font-weight:300;
+
+margin-bottom:28px;
 
 text-align:justify;
 
 }
 
 
+
 /*=========================================
-PRINCIPLES
+PHILOSOPHY ACCORDIONS
 =========================================*/
 
-.principles{
+.accordion{
 
-max-width:900px;
+margin-bottom:18px;
 
-margin:70px auto;
+border:1px solid var(--border);
+
+background:transparent;
+
+transition:.35s;
+
+}
+
+.accordion:hover{
+
+border-color:var(--bronze);
+
+}
+
+.accordion.active{
+
+border-color:var(--bronze);
+
+box-shadow:0 0 24px rgba(166,124,82,.08);
+
+}
+
+
+
+.accordion-header{
 
 display:flex;
 
-flex-direction:column;
+justify-content:space-between;
 
-gap:18px;
+align-items:center;
+
+padding:22px 28px;
+
+cursor:pointer;
 
 }
 
 
-/*=========================================
-ACCORDION
-=========================================*/
 
 .accordion-title{
 
-font-size:1.2rem;
+display:flex;
 
-letter-spacing:3px;
+align-items:center;
+
+gap:18px;
+
+font-family:var(--font-heading);
+
+letter-spacing:2px;
 
 }
+
+
+
+.accordion-title .roman{
+
+color:var(--bronze);
+
+min-width:42px;
+
+font-size:1.2rem;
+
+}
+
+
+
+.foundation-label{
+
+display:block;
+
+margin-top:6px;
+
+font-family:var(--font-body);
+
+font-size:.72rem;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+opacity:.7;
+
+}
+
+
+
+.accordion-content{
+
+padding:0 28px 24px;
+
+}
+
 
 
 .accordion-content p{
 
-padding-top:10px;
-
 line-height:2;
 
-color:#D9D2C8;
+font-size:1rem;
+
+font-weight:300;
 
 }
+
 
 
 /*=========================================
@@ -120,429 +236,48 @@ FOOTER
 
 footer{
 
-margin-top:100px;
+margin-top:90px;
+
+text-align:center;
 
 }
 
-
-.quote-author{
-
-margin-top:24px;
-
-font-size:.9rem;
-
-text-transform:uppercase;
-
-letter-spacing:4px;
-
-}
-
-
-/*=========================================
-SPACING
-=========================================*/
-
-.manuscript-divider{
-
-margin:70px auto;
-
-}
-
-
-/*=========================================
-RESPONSIVE
-=========================================*/
-
-@media(max-width:768px){
-
-.hero{
-
-margin-bottom:60px;
-
-}
-
-.hero h1{
-
-font-size:2.3rem;
-
-letter-spacing:2px;
-
-}
-
-.intro{
-
-width:100%;
-
-}
-
-.intro p{
-
-text-align:left;
-
-font-size:1rem;
-
-line-height:1.9;
-
-}
-
-.accordion-title{
-
-font-size:1rem;
-
-}
-
-footer{
-
-margin-top:70px;
-
-}
-
-}
-
-/*==================================================
-BUILD 3
-MANUSCRIPT POLISH
-==================================================*/
-
-
-/*=========================================
-HEADER
-=========================================*/
-
-.hero{
-
-position:relative;
-
-padding-bottom:30px;
-
-}
-
-.hero::after{
-
-content:"";
-
-display:block;
-
-width:140px;
-
-height:1px;
-
-background:var(--bronze);
-
-margin:35px auto 0;
-
-opacity:.8;
-
-}
-
-
-/*=========================================
-INTRO EMPHASIS
-=========================================*/
-
-.intro strong{
+footer h3{
 
 font-family:var(--font-heading);
 
-font-weight:500;
+letter-spacing:4px;
 
-color:var(--paper);
-
-letter-spacing:1px;
+margin-bottom:12px;
 
 }
 
+.quote{
 
-/*=========================================
-ACCORDION
-=========================================*/
+max-width:620px;
 
-.accordion{
+margin:26px auto 0;
 
-background:transparent;
+font-style:italic;
 
-border:1px solid var(--border);
-
-}
-
-.accordion-header{
-
-min-height:76px;
+line-height:2;
 
 }
 
-.accordion-title{
+.quote-author{
 
-text-transform:uppercase;
+margin-top:18px;
 
-}
-
-.accordion:hover{
-
-border-color:var(--bronze);
-
-background:rgba(166,124,82,.025);
-
-}
-
-
-/*=========================================
-ACTIVE STATE
-=========================================*/
-
-.accordion.active{
-
-border-color:var(--bronze);
-
-}
-
-.accordion.active .accordion-header{
-
-border-bottom:1px solid rgba(166,124,82,.18);
-
-}
-
-.accordion.active .accordion-title{
+letter-spacing:3px;
 
 color:var(--bronze);
 
 }
 
 
-/*=========================================
-CONTENT
-=========================================*/
-
-.accordion-content{
-
-background:rgba(255,255,255,.01);
-
-}
-
-.accordion-content p{
-
-padding-top:18px;
-
-padding-bottom:6px;
-
-max-width:680px;
-
-}
-
 
 /*=========================================
-QUOTE
-=========================================*/
-
-.quote{
-
-letter-spacing:1px;
-
-}
-
-.quote-author{
-
-font-family:var(--font-heading);
-
-}
-
-
-/*=========================================
-READING RHYTHM
-=========================================*/
-
-.intro p,
-
-.accordion-content p{
-
-font-weight:300;
-
-}
-
-
-/*=========================================
-MOBILE
-=========================================*/
-
-@media(max-width:768px){
-
-.hero::after{
-
-width:90px;
-
-}
-
-.accordion-header{
-
-padding:22px 20px;
-
-min-height:auto;
-
-}
-
-.accordion-content{
-
-padding-left:20px;
-
-padding-right:20px;
-
-}
-
-}
-
-/*==================================================
-BUILD 4
-FINAL LOCK
-==================================================*/
-
-
-/*=========================================
-SUBTLE BACKGROUND
-=========================================*/
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-background:
-
-radial-gradient(
-
-circle at center,
-
-rgba(166,124,82,.025),
-
-transparent 72%);
-
-opacity:.65;
-
-z-index:-1;
-
-}
-
-
-/*=========================================
-CHAPTER TITLE
-=========================================*/
-
-.hero h1{
-
-position:relative;
-
-display:inline-block;
-
-padding-bottom:18px;
-
-}
-
-.hero h1::after{
-
-content:"";
-
-position:absolute;
-
-left:50%;
-
-bottom:0;
-
-width:0;
-
-height:1px;
-
-background:var(--bronze);
-
-transform:translateX(-50%);
-
-animation:titleLine 1.2s ease forwards;
-
-}
-
-@keyframes titleLine{
-
-to{
-
-width:100%;
-
-}
-
-}
-
-
-/*=========================================
-SECTION SPACING
-=========================================*/
-
-.intro{
-
-margin-top:70px;
-
-margin-bottom:90px;
-
-}
-
-.principles{
-
-margin-top:90px;
-
-margin-bottom:90px;
-
-}
-
-
-/*=========================================
-ACTIVE ACCORDION
-=========================================*/
-
-.accordion.active{
-
-background:
-
-rgba(166,124,82,.035);
-
-}
-
-.accordion.active .accordion-icon{
-
-color:var(--bronze-light);
-
-}
-
-
-/*=========================================
-FOOTER SIGNATURE
-=========================================*/
-
-footer{
-
-position:relative;
-
-}
-
-footer::before{
-
-content:"";
-
-display:block;
-
-width:80px;
-
-height:1px;
-
-background:var(--bronze);
-
-margin:0 auto 35px;
-
-}
-
-
-/*=========================================
-BOTTOM NAVIGATION
+NAVIGATION
 =========================================*/
 
 .chapter-nav{
@@ -553,9 +288,9 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-top:100px;
+margin-top:70px;
 
-padding-top:50px;
+padding-top:28px;
 
 border-top:1px solid var(--border);
 
@@ -567,7 +302,7 @@ font-family:var(--font-heading);
 
 letter-spacing:2px;
 
-transition:.35s ease;
+transition:.3s;
 
 }
 
@@ -578,19 +313,43 @@ color:var(--bronze);
 }
 
 
-/*=========================================
-MOBILE
-=========================================*/
 
+/*=========================================
+RESPONSIVE
+=========================================
 @media(max-width:768px){
+
+.hero h1{
+
+font-size:2.2rem;
+
+letter-spacing:2px;
+
+}
+
+.hero h2{
+
+font-size:1.9rem;
+
+}
+
+.intro p{
+
+text-align:left;
+
+}
+
+.accordion-header{
+
+padding:20px;
+
+}
 
 .chapter-nav{
 
 flex-direction:column;
 
 gap:24px;
-
-text-align:center;
 
 }
 
