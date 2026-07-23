@@ -384,3 +384,19 @@ scale(1.03);
 
 }
 
+.fade-out{
+
+opacity:0;
+
+transition:.7s;
+
+}
+
+
+
+.paused *{
+
+animation-play-state:paused !important;
+
+}
+
