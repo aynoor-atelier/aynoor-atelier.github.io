@@ -46,11 +46,21 @@ margin:28px auto;
 
 .hero .roman{
 
-font-size:.90rem;
+display:block;
 
-letter-spacing:6px;
+width:100%;
 
-margin:0 0 18px;
+text-align:center;
+
+font-family:'Montserrat',sans-serif;
+
+font-size:.82rem;
+
+letter-spacing:8px;
+
+text-transform:uppercase;
+
+margin:0 auto 22px;
 
 color:var(--bronze);
 
@@ -254,23 +264,39 @@ margin-bottom:12px;
 
 .quote{
 
-max-width:620px;
+max-width:760px;
 
-margin:26px auto 0;
+margin:80px auto;
+
+text-align:center;
+
+font-family:'Cinzel',serif;
 
 font-style:italic;
 
-line-height:2;
+font-size:2rem;
+
+line-height:1.8;
+
+letter-spacing:1px;
+
+color:#E6DDD2;
 
 }
 
 .quote-author{
 
-margin-top:18px;
+margin-top:22px;
+
+font-family:'Montserrat',sans-serif;
+
+font-size:.9rem;
 
 letter-spacing:3px;
 
 color:var(--bronze);
+
+text-transform:uppercase;
 
 }
 
