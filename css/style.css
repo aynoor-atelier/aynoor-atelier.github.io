@@ -1,34 +1,31 @@
-/*=========================================
+/*==================================================
 AYNOOR ATELIER
-VERSION V
 STYLE.CSS
-=========================================*/
+VERSION VI
+==================================================*/
 
 
 :root{
 
 --bg:#050505;
 
---cover:#111111;
+--cover:#121212;
 
---cover-dark:#080808;
+--cover-dark:#090909;
 
---paper:#F6F1E6;
+--paper:#F6F2E9;
 
 --gold:#C9A24D;
 
---gold-soft:#E6C87A;
+--gold-soft:#E8CF8B;
 
---text:#F4F0E8;
+--text:#F5F1EA;
 
---shadow:rgba(0,0,0,.55);
+--shadow:rgba(0,0,0,.65);
 
---radius:22px;
-
---speed:.9s;
+--radius:18px;
 
 }
-
 
 
 *{
@@ -42,26 +39,43 @@ box-sizing:border-box;
 }
 
 
-
 html{
 
 font-size:16px;
 
-scroll-behavior:smooth;
-
 }
 
 
-
 body{
+
+height:100vh;
+
+overflow:hidden;
 
 background:var(--bg);
 
 font-family:"Montserrat",sans-serif;
 
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
 color:var(--text);
 
-overflow:hidden;
+}
+
+/*=========================================
+MUSEUM
+=========================================*/
+
+
+.museum{
+
+width:100%;
 
 height:100vh;
 
@@ -73,10 +87,12 @@ align-items:center;
 
 position:relative;
 
+overflow:hidden;
+
 }
 
 /*=========================================
-AMBIENT LIGHT
+SPOTLIGHT
 =========================================*/
 
 
@@ -88,25 +104,38 @@ inset:0;
 
 pointer-events:none;
 
+z-index:1;
+
 background:
 
-radial-gradient(circle at center,
+radial-gradient(
 
-rgba(201,162,77,.10),
+circle at center,
 
-transparent 55%),
+rgba(201,162,77,.12),
 
-radial-gradient(circle at center,
+transparent 28%
 
-rgba(255,255,255,.02),
+);
 
-transparent 70%);
+transition:
 
-filter:blur(20px);
+background .12s linear;
 
-animation:glow 7s ease-in-out infinite;
+}
 
-z-index:0;
+/*=========================================
+BOOK CONTAINER
+=========================================*/
+
+
+.book-container{
+
+position:relative;
+
+z-index:10;
+
+perspective:2400px;
 
 }
 
@@ -115,31 +144,15 @@ BOOK
 =========================================*/
 
 
-.book-container{
-
-position:relative;
-
-z-index:2;
-
-perspective:2200px;
-
-}
-
-
-
 .book{
 
 position:relative;
 
-display:flex;
+width:380px;
 
-align-items:center;
+height:600px;
 
-justify-content:center;
-
-width:min(92vw,520px);
-
-height:min(82vh,760px);
+transform-style:preserve-3d;
 
 }
 
@@ -156,25 +169,27 @@ inset:0;
 
 background:
 
-linear-gradient(145deg,
+linear-gradient(
 
-#181818,
+145deg,
 
-#090909);
+#1A1A1A,
 
-border-radius:22px;
+#070707);
+
+border-radius:18px;
 
 overflow:hidden;
 
 transform-origin:left center;
 
-transition:transform var(--speed);
-
 box-shadow:
 
-0 30px 80px rgba(0,0,0,.70),
+0 40px 90px rgba(0,0,0,.75),
 
-0 0 60px rgba(201,162,77,.10);
+0 0 60px rgba(201,162,77,.08);
+
+z-index:5;
 
 }
 
@@ -184,15 +199,15 @@ content:"";
 
 position:absolute;
 
-left:-18px;
+left:-16px;
 
-top:18px;
+top:20px;
 
-bottom:18px;
+bottom:20px;
 
 width:18px;
 
-border-radius:14px 0 0 14px;
+border-radius:12px 0 0 12px;
 
 background:
 
@@ -200,27 +215,28 @@ linear-gradient(
 
 90deg,
 
-#050505,
+#060606,
 
-#2B2B2B,
+#353535,
 
-#080808);
-
-box-shadow:
-
-inset -2px 0 6px rgba(255,255,255,.05);
+#0A0A0A);
 
 }
+
+/*=========================================
+FRAME
+=========================================*/
+
 
 .cover-frame{
 
 position:absolute;
 
-inset:26px;
+inset:24px;
 
 border:2px solid var(--gold);
 
-border-radius:18px;
+border-radius:12px;
 
 display:flex;
 
@@ -242,11 +258,9 @@ circle,
 
 rgba(255,255,255,.02),
 
-transparent 65%);
+transparent 75%
 
-box-shadow:
-
-inset 0 0 50px rgba(201,162,77,.05);
+);
 
 }
 
@@ -256,13 +270,56 @@ content:"";
 
 position:absolute;
 
-inset:12px;
+inset:10px;
 
 border:1px solid rgba(201,162,77,.35);
 
-border-radius:12px;
+border-radius:8px;
 
-pointer-events:none;
+}
+
+/*=========================================
+RESPONSIVE
+=========================================*/
+
+
+@media(max-width:992px){
+
+.book{
+
+width:330px;
+
+height:525px;
+
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+.book{
+
+width:280px;
+
+height:445px;
+
+}
+
+}
+
+
+
+@media(max-width:480px){
+
+.book{
+
+width:245px;
+
+height:390px;
+
+}
 
 }
 
@@ -272,12 +329,16 @@ COVER CONTENT
 
 .cover-logo{
 
-width:72px;
+width:78px;
 
-margin-bottom:26px;
+margin-bottom:24px;
+
+user-select:none;
+
+pointer-events:none;
 
 filter:
-drop-shadow(0 0 10px rgba(201,162,77,.30));
+drop-shadow(0 0 12px rgba(201,162,77,.35));
 
 }
 
@@ -286,20 +347,21 @@ drop-shadow(0 0 10px rgba(201,162,77,.30));
 
 font-family:"Cinzel",serif;
 
-font-size:3.4rem;
-
-letter-spacing:7px;
+font-size:3.25rem;
 
 font-weight:600;
 
-text-transform:uppercase;
+letter-spacing:8px;
 
 color:var(--gold);
 
-margin-bottom:10px;
+text-transform:uppercase;
+
+margin-bottom:8px;
 
 text-shadow:
-0 0 16px rgba(201,162,77,.20);
+
+0 0 18px rgba(201,162,77,.18);
 
 }
 
@@ -308,15 +370,17 @@ text-shadow:
 
 font-family:"Cinzel",serif;
 
-font-size:1.55rem;
+font-size:1.35rem;
+
+font-weight:500;
 
 letter-spacing:10px;
 
-font-weight:400;
-
 text-transform:uppercase;
 
-margin-bottom:34px;
+margin-bottom:32px;
+
+color:var(--text);
 
 }
 
@@ -325,34 +389,42 @@ margin-bottom:34px;
 
 font-family:"Cinzel",serif;
 
+font-size:1.08rem;
+
 font-style:italic;
 
-font-size:1.25rem;
+letter-spacing:1px;
 
-opacity:.92;
+opacity:.88;
 
-margin-bottom:34px;
+margin-bottom:28px;
 
 }
 
 
 .gold-line{
 
-width:120px;
+width:130px;
 
 height:1px;
 
-margin:0 auto 34px;
+margin:0 auto 30px;
 
 background:
+
 linear-gradient(
+
 90deg,
+
 transparent,
+
 var(--gold),
+
 transparent);
 
 box-shadow:
-0 0 10px rgba(201,162,77,.45);
+
+0 0 14px rgba(201,162,77,.35);
 
 }
 
@@ -361,7 +433,7 @@ box-shadow:
 
 font-family:"Cinzel",serif;
 
-font-size:1.18rem;
+font-size:1rem;
 
 line-height:2;
 
@@ -369,7 +441,7 @@ letter-spacing:3px;
 
 text-transform:uppercase;
 
-margin-bottom:42px;
+margin-bottom:36px;
 
 }
 
@@ -378,13 +450,13 @@ margin-bottom:42px;
 
 font-family:"Cinzel",serif;
 
-font-size:1.45rem;
+font-size:1.3rem;
 
-letter-spacing:4px;
+letter-spacing:5px;
 
 color:var(--gold);
 
-margin-bottom:12px;
+margin-bottom:8px;
 
 }
 
@@ -393,13 +465,13 @@ margin-bottom:12px;
 
 font-family:"Cinzel",serif;
 
-font-size:1.15rem;
+font-size:1rem;
 
 letter-spacing:4px;
 
 color:var(--gold-soft);
 
-margin-bottom:42px;
+margin-bottom:38px;
 
 }
 
@@ -415,11 +487,11 @@ width:92px;
 
 cursor:pointer;
 
-transition:.45s;
+transition:.45s ease;
 
 filter:
 
-drop-shadow(0 0 14px rgba(201,162,77,.45));
+drop-shadow(0 0 16px rgba(201,162,77,.45));
 
 }
 
@@ -432,7 +504,7 @@ scale(1.08);
 
 filter:
 
-drop-shadow(0 0 24px rgba(201,162,77,.65));
+drop-shadow(0 0 28px rgba(201,162,77,.70));
 
 }
 
@@ -443,7 +515,7 @@ margin-top:18px;
 
 font-family:"Cinzel",serif;
 
-font-size:.92rem;
+font-size:.82rem;
 
 letter-spacing:5px;
 
@@ -456,7 +528,7 @@ color:var(--gold-soft);
 
 
 /*=========================================
-WELCOME PAGE
+PAGE
 =========================================*/
 
 .page{
@@ -465,13 +537,13 @@ position:absolute;
 
 inset:0;
 
-border-radius:22px;
+border-radius:18px;
 
 overflow:hidden;
 
 background:transparent;
 
-z-index:-1;
+z-index:1;
 
 }
 
@@ -482,7 +554,7 @@ position:absolute;
 
 inset:0;
 
-border-radius:22px;
+border-radius:18px;
 
 display:flex;
 
@@ -492,7 +564,7 @@ justify-content:center;
 
 align-items:center;
 
-padding:70px;
+padding:55px;
 
 text-align:center;
 
@@ -502,15 +574,13 @@ linear-gradient(
 
 180deg,
 
-#FBF7EF,
+#FBF8F1,
 
-#F4EEDF);
+#F2ECE0);
 
 box-shadow:
 
-inset 0 0 60px rgba(201,162,77,.10),
-
-0 30px 60px rgba(0,0,0,.30);
+inset 0 0 60px rgba(201,162,77,.08);
 
 }
 
@@ -523,15 +593,13 @@ position:absolute;
 
 inset:0;
 
-border-radius:22px;
-
 pointer-events:none;
 
 background:
 
 radial-gradient(circle,
 
-rgba(255,255,255,.45),
+rgba(255,255,255,.40),
 
 transparent 70%);
 
@@ -544,13 +612,40 @@ opacity:.45;
 
 font-family:"Cinzel",serif;
 
-font-size:3rem;
+font-size:2.6rem;
 
 letter-spacing:5px;
 
-color:#1C1C1C;
+color:#222;
 
-margin-bottom:26px;
+margin-bottom:28px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+.paper-line{
+
+width:110px;
+
+height:1px;
+
+margin-bottom:35px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+var(--gold),
+
+transparent);
 
 }
 
@@ -559,13 +654,17 @@ margin-bottom:26px;
 
 font-family:"Cinzel",serif;
 
-font-size:1.22rem;
+font-size:1.08rem;
 
 line-height:2;
 
-color:#40392F;
+color:#38332B;
 
-max-width:520px;
+margin-bottom:10px;
+
+position:relative;
+
+z-index:2;
 
 }
 
@@ -577,9 +676,9 @@ ENTER BUTTON
 
 .enter-button{
 
-margin-top:55px;
+margin-top:45px;
 
-padding:18px 52px;
+padding:16px 42px;
 
 border:1px solid var(--gold);
 
@@ -587,19 +686,21 @@ border-radius:999px;
 
 font-family:"Cinzel",serif;
 
-font-size:1rem;
+font-size:.95rem;
 
 letter-spacing:4px;
 
-text-transform:uppercase;
-
 text-decoration:none;
+
+text-transform:uppercase;
 
 color:var(--gold);
 
-background:transparent;
-
 transition:.35s;
+
+position:relative;
+
+z-index:2;
 
 }
 
@@ -612,75 +713,67 @@ color:#111;
 
 box-shadow:
 
-0 0 24px rgba(201,162,77,.35);
+0 0 26px rgba(201,162,77,.35);
 
 }
 
 
 
 /*=========================================
-MOBILE
+RESPONSIVE CONTENT
 =========================================*/
 
 @media(max-width:768px){
 
-.book{
-
-width:88vw;
-
-height:74vh;
-
-}
-
-.cover-frame{
-
-padding:32px;
-
-}
-
 .cover h1{
 
-font-size:2.5rem;
+font-size:2.4rem;
+
+letter-spacing:5px;
 
 }
 
 .cover h2{
 
-font-size:1.15rem;
+font-size:1rem;
 
-letter-spacing:7px;
+letter-spacing:6px;
+
+}
+
+.cover-logo{
+
+width:62px;
 
 }
 
 .tagline{
 
-font-size:1rem;
+font-size:.95rem;
 
 }
 
 .motto{
 
-font-size:.95rem;
+font-size:.88rem;
 
 }
 
 .paper{
 
-padding:42px;
+padding:34px;
 
 }
 
 .paper h2{
 
-font-size:2.2rem;
+font-size:2rem;
 
 }
 
 .paper p{
 
-font-size:1rem;
-
-line-height:1.9;
+font-size:.95rem;
 
 }
 
@@ -688,15 +781,15 @@ line-height:1.9;
 
 width:100%;
 
-padding:17px;
+padding:15px;
 
-font-size:.92rem;
+font-size:.85rem;
 
 }
 
 .seal{
 
-width:78px;
+width:72px;
 
 }
 
