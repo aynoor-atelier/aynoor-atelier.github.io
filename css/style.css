@@ -1,22 +1,47 @@
-/*==================================================
-AYNOOR ATELIER V4
+/*=========================================
+AYNOOR ATELIER
+VERSION V
 STYLE.CSS
-==================================================*/
+=========================================*/
 
-/*==============================
-RESET
-==============================*/
 
-*,
-*::before,
-*::after{
+:root{
+
+--bg:#050505;
+
+--cover:#111111;
+
+--cover-dark:#080808;
+
+--paper:#F6F1E6;
+
+--gold:#C9A24D;
+
+--gold-soft:#E6C87A;
+
+--text:#F4F0E8;
+
+--shadow:rgba(0,0,0,.55);
+
+--radius:22px;
+
+--speed:.9s;
+
+}
+
+
+
+*{
 
 margin:0;
+
 padding:0;
 
 box-sizing:border-box;
 
 }
+
+
 
 html{
 
@@ -26,116 +51,17 @@ scroll-behavior:smooth;
 
 }
 
+
+
 body{
 
-min-height:100vh;
+background:var(--bg);
+
+font-family:"Montserrat",sans-serif;
+
+color:var(--text);
 
 overflow:hidden;
-
-font-family:
-"Cormorant Garamond",
-serif;
-
-background:#090909;
-
-color:#F5EFE2;
-
-}
-
-/*==============================
-ROOT
-==============================*/
-
-:root{
-
---black:#090909;
-
---black-soft:#151515;
-
---gold:#D4AF37;
-
---gold-light:#F2D77C;
-
---paper:#F5EFE2;
-
---paper-dark:#E7DCC8;
-
---shadow:
-rgba(0,0,0,.45);
-
---transition:
-
-.5s ease;
-
-}
-
-/*==============================
-BACKGROUND
-==============================*/
-
-body{
-
-background:
-
-radial-gradient(
-
-circle at center,
-
-#1b1b1b,
-
-#090909 70%);
-
-}
-
-
-/* Ambient */
-
-.background{
-
-position:fixed;
-
-inset:0;
-
-z-index:-10;
-
-background:
-
-radial-gradient(
-
-circle,
-
-rgba(212,175,55,.08),
-
-transparent 60%);
-
-}
-
-
-/* Vignette */
-
-.vignette{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-box-shadow:
-
-inset 0 0 180px rgba(0,0,0,.9);
-
-z-index:-8;
-
-}
-
-/*==============================
-SCENE
-==============================*/
-
-.scene{
-
-width:100%;
 
 height:100vh;
 
@@ -145,44 +71,128 @@ justify-content:center;
 
 align-items:center;
 
-perspective:2600px;
+position:relative;
 
 }
 
-/*==============================
+/*=========================================
+AMBIENT LIGHT
+=========================================*/
+
+
+.ambient-light{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+
+radial-gradient(circle at center,
+
+rgba(201,162,77,.10),
+
+transparent 55%),
+
+radial-gradient(circle at center,
+
+rgba(255,255,255,.02),
+
+transparent 70%);
+
+filter:blur(20px);
+
+animation:glow 7s ease-in-out infinite;
+
+z-index:0;
+
+}
+
+/*=========================================
 BOOK
-==============================*/
+=========================================*/
+
+
+.book-container{
+
+position:relative;
+
+z-index:2;
+
+perspective:2200px;
+
+}
+
+
 
 .book{
 
 position:relative;
 
-width:430px;
+display:flex;
 
-height:640px;
+align-items:center;
 
-transform-style:preserve-3d;
+justify-content:center;
+
+width:min(92vw,520px);
+
+height:min(82vh,760px);
 
 }
 
+/*=========================================
+COVER
+=========================================*/
 
-/* Spine */
 
-.spine{
+.cover{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(145deg,
+
+#181818,
+
+#090909);
+
+border-radius:22px;
+
+overflow:hidden;
+
+transform-origin:left center;
+
+transition:transform var(--speed);
+
+box-shadow:
+
+0 30px 80px rgba(0,0,0,.70),
+
+0 0 60px rgba(201,162,77,.10);
+
+}
+
+.cover::before{
+
+content:"";
 
 position:absolute;
 
 left:-18px;
 
-top:10px;
+top:18px;
 
-bottom:10px;
+bottom:18px;
 
-width:24px;
+width:18px;
 
-border-radius:
-
-10px 0 0 10px;
+border-radius:14px 0 0 14px;
 
 background:
 
@@ -192,485 +202,262 @@ linear-gradient(
 
 #050505,
 
-#2e2e2e,
+#2B2B2B,
 
-#090909);
-
-box-shadow:
-
-inset -3px 0 6px rgba(255,255,255,.05);
-
-}
-
-/*==============================
-LEATHER COVER
-==============================*/
-
-.cover{
-
-position:absolute;
-
-inset:0;
-
-z-index:20;
-
-border-radius:12px;
-
-overflow:hidden;
-
-background:
-
-linear-gradient(
-145deg,
-#1b1b1b 0%,
-#111111 25%,
-#181818 50%,
-#0c0c0c 75%,
-#1a1a1a 100%);
-
-border:1px solid rgba(212,175,55,.18);
+#080808);
 
 box-shadow:
 
-0 35px 70px rgba(0,0,0,.55),
-
-inset 0 0 40px rgba(255,255,255,.02),
-
-inset 0 0 80px rgba(0,0,0,.45);
-
-transform-origin:left center;
-
-backface-visibility:hidden;
+inset -2px 0 6px rgba(255,255,255,.05);
 
 }
 
-
-/* Leather Grain */
-
-.cover::before{
-
-content:"";
+.cover-frame{
 
 position:absolute;
 
-inset:0;
+inset:26px;
 
-opacity:.08;
+border:2px solid var(--gold);
 
-background:
-
-repeating-radial-gradient(
-
-circle at 20% 30%,
-
-rgba(255,255,255,.10) 0,
-
-rgba(255,255,255,.10) 1px,
-
-transparent 2px,
-
-transparent 8px);
-
-pointer-events:none;
-
-}
-
-
-/* Light Reflection */
-
-.cover::after{
-
-content:"";
-
-position:absolute;
-
-top:0;
-
-left:-45%;
-
-width:60%;
-
-height:100%;
-
-background:
-
-linear-gradient(
-
-90deg,
-
-transparent,
-
-rgba(255,255,255,.05),
-
-transparent);
-
-transform:skewX(-18deg);
-
-pointer-events:none;
-
-}
-
-/*==============================
-GOLD FRAME
-==============================*/
-
-.gold-frame{
-
-position:absolute;
-
-top:24px;
-
-left:24px;
-
-right:24px;
-
-bottom:24px;
-
-border:2px solid rgba(212,175,55,.9);
-
-border-radius:8px;
-
-pointer-events:none;
-
-box-shadow:
-
-0 0 12px rgba(212,175,55,.15),
-
-inset 0 0 12px rgba(212,175,55,.08);
-
-}
-
-
-/* Inner Frame */
-
-.gold-frame::before{
-
-content:"";
-
-position:absolute;
-
-top:10px;
-
-left:10px;
-
-right:10px;
-
-bottom:10px;
-
-border:1px solid rgba(212,175,55,.35);
-
-border-radius:5px;
-
-}
-
-/*==============================
-SECTION 8
-LOGO + TYPOGRAPHY
-==============================*/
-
-/* Cover Content */
-
-.cover-content{
-
-position:absolute;
-
-inset:0;
+border-radius:18px;
 
 display:flex;
 
 flex-direction:column;
 
-justify-content:flex-start;
+justify-content:center;
 
 align-items:center;
 
-padding:48px 38px;
+padding:40px;
 
 text-align:center;
 
-z-index:5;
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(255,255,255,.02),
+
+transparent 65%);
+
+box-shadow:
+
+inset 0 0 50px rgba(201,162,77,.05);
+
+}
+
+.cover-frame::after{
+
+content:"";
+
+position:absolute;
+
+inset:12px;
+
+border:1px solid rgba(201,162,77,.35);
+
+border-radius:12px;
+
+pointer-events:none;
+
+}
+
+/*=========================================
+COVER CONTENT
+=========================================*/
+
+.cover-logo{
+
+width:72px;
+
+margin-bottom:26px;
+
+filter:
+drop-shadow(0 0 10px rgba(201,162,77,.30));
 
 }
 
 
-/* Logo */
-
-.logo{
-
-width:88px;
-
-height:auto;
-
-margin-bottom:28px;
-
-user-select:none;
-
--webkit-user-drag:none;
-
-}
-
-
-/* Company */
-
-.cover-content h1{
+.cover h1{
 
 font-family:"Cinzel",serif;
 
-font-size:2.25rem;
+font-size:3.4rem;
+
+letter-spacing:7px;
 
 font-weight:600;
 
-letter-spacing:5px;
-
-line-height:1.15;
+text-transform:uppercase;
 
 color:var(--gold);
 
-text-transform:uppercase;
+margin-bottom:10px;
 
 text-shadow:
-
-0 0 10px rgba(212,175,55,.18);
+0 0 16px rgba(201,162,77,.20);
 
 }
 
 
-/* Atelier */
+.cover h2{
 
-.cover-content h1 span{
+font-family:"Cinzel",serif;
 
-display:block;
-
-margin-top:8px;
-
-font-size:.92rem;
-
-font-weight:500;
+font-size:1.55rem;
 
 letter-spacing:10px;
 
-color:var(--paper);
+font-weight:400;
+
+text-transform:uppercase;
+
+margin-bottom:34px;
 
 }
 
-
-/* Tagline */
 
 .tagline{
 
-margin-top:28px;
-
-font-family:"Cormorant Garamond",serif;
-
-font-size:1.18rem;
+font-family:"Cinzel",serif;
 
 font-style:italic;
 
-letter-spacing:1px;
+font-size:1.25rem;
 
-color:rgba(245,239,226,.92);
+opacity:.92;
+
+margin-bottom:34px;
 
 }
 
 
-/* Divider */
+.gold-line{
 
-.divider{
-
-width:110px;
+width:120px;
 
 height:1px;
 
-margin:30px 0;
+margin:0 auto 34px;
 
 background:
-
 linear-gradient(
-
 90deg,
-
 transparent,
-
 var(--gold),
-
 transparent);
+
+box-shadow:
+0 0 10px rgba(201,162,77,.45);
 
 }
 
-
-/* Motto */
 
 .motto{
 
-display:flex;
-
-flex-direction:column;
-
-gap:8px;
-
-}
-
-
-.motto p{
-
 font-family:"Cinzel",serif;
 
-font-size:.78rem;
+font-size:1.18rem;
+
+line-height:2;
 
 letter-spacing:3px;
 
 text-transform:uppercase;
 
-color:var(--paper);
+margin-bottom:42px;
 
 }
 
 
-/* Edition */
+.volume{
 
-.edition{
+font-family:"Cinzel",serif;
 
-margin-top:38px;
+font-size:1.45rem;
 
-display:flex;
+letter-spacing:4px;
 
-flex-direction:column;
+color:var(--gold);
 
-gap:8px;
+margin-bottom:12px;
 
 }
 
 
-.edition p{
+.year{
+
+font-family:"Cinzel",serif;
+
+font-size:1.15rem;
+
+letter-spacing:4px;
+
+color:var(--gold-soft);
+
+margin-bottom:42px;
+
+}
+
+
+
+/*=========================================
+ROYAL SEAL
+=========================================*/
+
+.seal{
+
+width:92px;
+
+cursor:pointer;
+
+transition:.45s;
+
+filter:
+
+drop-shadow(0 0 14px rgba(201,162,77,.45));
+
+}
+
+
+.seal:hover{
+
+transform:
+
+scale(1.08);
+
+filter:
+
+drop-shadow(0 0 24px rgba(201,162,77,.65));
+
+}
+
+
+.seal-text{
+
+margin-top:18px;
 
 font-family:"Cinzel",serif;
 
 font-size:.92rem;
 
-letter-spacing:2px;
-
-color:var(--gold-light);
-
-}
-
-/*==============================
-SECTION 9
-ROYAL WAX SEAL
-==============================*/
-
-.seal-area{
-
-margin-top:auto;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
-
-gap:18px;
-
-padding-bottom:32px;
-
-}
-
-
-/* Seal Button */
-
-.seal-button{
-
-width:96px;
-
-height:96px;
-
-border:none;
-
-outline:none;
-
-cursor:pointer;
-
-background:none;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-transition:
-
-transform .35s ease;
-
-}
-
-
-/* Seal Image */
-
-.seal-button img{
-
-width:100%;
-
-height:100%;
-
-display:block;
-
-user-select:none;
-
--webkit-user-drag:none;
-
-filter:
-
-drop-shadow(0 8px 14px rgba(0,0,0,.45));
-
-}
-
-
-/* Hover */
-
-.seal-button:hover{
-
-transform:
-
-scale(1.05);
-
-}
-
-
-/* Click */
-
-.seal-button:active{
-
-transform:
-
-scale(.96);
-
-}
-
-
-/* Caption */
-
-.seal-text{
-
-font-family:"Cinzel",serif;
-
-font-size:.78rem;
-
-letter-spacing:3px;
+letter-spacing:5px;
 
 text-transform:uppercase;
 
-color:var(--gold-light);
-
-opacity:.88;
+color:var(--gold-soft);
 
 }
 
-/*==============================
-SECTION 10
+
+
+/*=========================================
 WELCOME PAGE
-==============================*/
+=========================================*/
 
 .page{
 
@@ -678,38 +465,57 @@ position:absolute;
 
 inset:0;
 
+border-radius:22px;
+
+overflow:hidden;
+
+background:transparent;
+
+z-index:-1;
+
+}
+
+
+.paper{
+
+position:absolute;
+
+inset:0;
+
+border-radius:22px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+padding:70px;
+
+text-align:center;
+
 background:
 
 linear-gradient(
 
 180deg,
 
-#f9f4ea,
+#FBF7EF,
 
-#efe4cf);
-
-border-radius:12px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-padding:48px;
-
-z-index:10;
+#F4EEDF);
 
 box-shadow:
 
-inset 0 0 35px rgba(0,0,0,.08);
+inset 0 0 60px rgba(201,162,77,.10),
+
+0 30px 60px rgba(0,0,0,.30);
 
 }
 
 
-/* Paper Texture */
-
-.page::before{
+.paper::before{
 
 content:"";
 
@@ -717,263 +523,132 @@ position:absolute;
 
 inset:0;
 
-opacity:.05;
-
-background:
-
-repeating-linear-gradient(
-
-0deg,
-
-transparent 0,
-
-transparent 4px,
-
-rgba(0,0,0,.08) 5px);
+border-radius:22px;
 
 pointer-events:none;
 
-}
+background:
 
+radial-gradient(circle,
 
-/* Content */
+rgba(255,255,255,.45),
 
-.page-content{
+transparent 70%);
 
-position:relative;
-
-z-index:2;
-
-max-width:320px;
-
-text-align:center;
+opacity:.45;
 
 }
 
 
-/* Title */
-
-.page-content h2{
+.paper h2{
 
 font-family:"Cinzel",serif;
 
-font-size:2rem;
+font-size:3rem;
 
-letter-spacing:4px;
+letter-spacing:5px;
 
-color:#1b1b1b;
+color:#1C1C1C;
 
-margin-bottom:22px;
-
-}
-
-
-/* Divider */
-
-.page-divider{
-
-width:90px;
-
-height:1px;
-
-margin:0 auto 26px;
-
-background:
-
-linear-gradient(
-
-90deg,
-
-transparent,
-
-var(--gold),
-
-transparent);
+margin-bottom:26px;
 
 }
 
 
-/* Welcome */
+.paper p{
 
-.welcome-text{
+font-family:"Cinzel",serif;
 
-font-size:1.2rem;
+font-size:1.22rem;
 
-line-height:1.8;
+line-height:2;
 
-color:#3b352d;
+color:#40392F;
 
-margin-bottom:36px;
+max-width:520px;
 
 }
 
-/*==============================
-SECTION 11
+
+
+/*=========================================
 ENTER BUTTON
-==============================*/
+=========================================*/
 
 .enter-button{
 
-display:inline-flex;
+margin-top:55px;
 
-justify-content:center;
+padding:18px 52px;
 
-align-items:center;
-
-padding:16px 38px;
-
-border:1px solid rgba(212,175,55,.65);
+border:1px solid var(--gold);
 
 border-radius:999px;
 
-background:
-
-linear-gradient(
-180deg,
-rgba(212,175,55,.10),
-rgba(212,175,55,.03));
-
-color:var(--gold);
-
 font-family:"Cinzel",serif;
 
-font-size:.85rem;
+font-size:1rem;
 
-letter-spacing:2px;
+letter-spacing:4px;
 
 text-transform:uppercase;
 
-cursor:pointer;
+text-decoration:none;
 
-transition:
+color:var(--gold);
 
-all .35s ease;
+background:transparent;
+
+transition:.35s;
 
 }
 
 
 .enter-button:hover{
 
-background:
+background:var(--gold);
 
-linear-gradient(
-180deg,
-rgba(212,175,55,.18),
-rgba(212,175,55,.08));
-
-transform:
-
-translateY(-2px);
+color:#111;
 
 box-shadow:
 
-0 12px 24px rgba(0,0,0,.18),
-
-0 0 18px rgba(212,175,55,.18);
+0 0 24px rgba(201,162,77,.35);
 
 }
 
 
-.enter-button:active{
 
-transform:
-
-translateY(0) scale(.98);
-
-}
-
-/*==============================
-TABLET
-==============================*/
-
-@media(max-width:992px){
-
-.book{
-
-width:380px;
-
-height:565px;
-
-}
-
-.cover-content{
-
-padding:42px 30px;
-
-}
-
-.logo{
-
-width:76px;
-
-}
-
-.cover-content h1{
-
-font-size:2rem;
-
-}
-
-.tagline{
-
-font-size:1.05rem;
-
-}
-
-}
-
-
-/*==============================
+/*=========================================
 MOBILE
-==============================*/
+=========================================*/
 
-@media(max-width:600px){
-
-.scene{
-
-padding:20px;
-
-}
+@media(max-width:768px){
 
 .book{
 
-width:92vw;
+width:88vw;
 
-max-width:380px;
-
-height:78vh;
-
-max-height:620px;
+height:74vh;
 
 }
 
-.cover-content{
+.cover-frame{
 
-padding:34px 22px;
-
-}
-
-.logo{
-
-width:68px;
-
-margin-bottom:22px;
+padding:32px;
 
 }
 
-.cover-content h1{
+.cover h1{
 
-font-size:1.65rem;
-
-letter-spacing:3px;
+font-size:2.5rem;
 
 }
 
-.cover-content h1 span{
+.cover h2{
 
-font-size:.82rem;
+font-size:1.15rem;
 
-letter-spacing:6px;
+letter-spacing:7px;
 
 }
 
@@ -981,57 +656,31 @@ letter-spacing:6px;
 
 font-size:1rem;
 
-margin-top:22px;
+}
+
+.motto{
+
+font-size:.95rem;
 
 }
 
-.divider{
+.paper{
 
-margin:24px 0;
-
-width:90px;
+padding:42px;
 
 }
 
-.motto p{
+.paper h2{
 
-font-size:.70rem;
-
-letter-spacing:2px;
+font-size:2.2rem;
 
 }
 
-.edition{
+.paper p{
 
-margin-top:28px;
+font-size:1rem;
 
-}
-
-.page{
-
-padding:32px 24px;
-
-}
-
-.page-content h2{
-
-font-size:1.6rem;
-
-}
-
-.welcome-text{
-
-font-size:1.05rem;
-
-line-height:1.7;
-
-}
-
-.seal-button{
-
-width:82px;
-
-height:82px;
+line-height:1.9;
 
 }
 
@@ -1039,9 +688,15 @@ height:82px;
 
 width:100%;
 
-padding:15px;
+padding:17px;
 
-font-size:.78rem;
+font-size:.92rem;
+
+}
+
+.seal{
+
+width:78px;
 
 }
 
