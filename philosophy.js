@@ -1,47 +1,68 @@
-const cards=document.querySelectorAll(".card");
+/*==================================================
+AYNOOR ATELIER
+PHILOSOPHY.JS
+CHAPTER I
+==================================================*/
 
-const observer=new IntersectionObserver(entries=>{
 
-entries.forEach(entry=>{
+document.addEventListener("DOMContentLoaded",()=>{
 
-if(entry.isIntersecting){
+/*=========================================
+PAGE TITLE
+=========================================*/
 
-entry.target.animate([
+document.title="Our Philosophy | Aynoor Atelier";
 
-{
 
-opacity:0,
+/*=========================================
+ACTIVE CHAPTER
+=========================================*/
 
-transform:"translateY(40px)"
+document.body.setAttribute(
 
-},
+"data-chapter",
 
-{
+"philosophy"
 
-opacity:1,
+);
 
-transform:"translateY(0)"
+
+/*=========================================
+INITIAL REVEAL
+=========================================*/
+
+const hero=document.querySelector(".hero");
+
+if(hero){
+
+hero.classList.add("show");
 
 }
 
-],{
 
-duration:800,
+/*=========================================
+INTRO REVEAL
+=========================================*/
 
-fill:"forwards"
+const intro=document.querySelector(".intro");
 
-});
+if(intro){
+
+intro.classList.add("show");
 
 }
 
-});
 
-});
+/*=========================================
+CHAPTER READY
+=========================================*/
 
-cards.forEach(card=>{
+console.log(
 
-card.style.opacity="0";
+"%cChapter I Loaded",
 
-observer.observe(card);
+"color:#A67C52;font-size:15px;font-family:Cinzel,serif;"
+
+);
 
 });
