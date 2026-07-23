@@ -1,49 +1,19 @@
-/*==================================================
-AYNOOR ATELIER V4
+/*=========================================
+AYNOOR ATELIER
+VERSION V
 MAIN.JS
-==================================================*/
+=========================================*/
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const cover=document.getElementById("cover");
+
+const seal=document.getElementById("seal");
+
+let opened=false;
 
 
-/*==============================
-ELEMENTS
-==============================*/
-
-const book = document.getElementById("book");
-
-const cover = document.getElementById("cover");
-
-const page = document.getElementById("page");
-
-const sealButton =
-document.getElementById("sealButton");
-
-const enterButton =
-document.getElementById("enterButton");
-
-
-/*==============================
-STATE
-==============================*/
-
-let opened = false;
-
-
-/*==============================
-INITIAL LOAD
-==============================*/
-
-window.addEventListener("load", ()=>{
-
-page.style.opacity="0";
-
-page.style.pointerEvents="none";
-
-});
-
-
-/*==============================
-OPEN MANUSCRIPT
-==============================*/
+/* Open Book */
 
 function openBook(){
 
@@ -51,220 +21,70 @@ if(opened) return;
 
 opened=true;
 
-
-/* Break Seal */
-
-sealButton.style.pointerEvents="none";
-
-sealButton.style.animation=
-
-"sealBreak .8s forwards";
-
-
-/* Open Cover */
-
-setTimeout(()=>{
-
 cover.classList.add("open");
 
-},450);
 
+/* Soft Page Sound */
 
-/* Reveal Page */
+const sound=new Audio("assets/audio/page-flip.mp3");
 
-setTimeout(()=>{
+sound.volume=.15;
 
-page.style.opacity="1";
-
-page.style.pointerEvents="auto";
-
-page.classList.add("show");
-
-},1200);
+sound.play().catch(()=>{});
 
 }
 
 
-/*==============================
-SEAL CLICK
-==============================*/
+/* Seal Click */
 
-sealButton.addEventListener(
-
-"click",
-
-openBook
-
-);
-
-/*==================================================
-SECTION 3
-ENTER BUTTON
-==================================================*/
+seal.addEventListener("click",openBook);
 
 
-/*==============================
-ENTER WEBSITE
-==============================*/
+/* Keyboard */
 
-function enterWorld(){
+document.addEventListener("keydown",(e)=>{
 
-document.body.style.pointerEvents="none";
-
-document.body.style.transition="opacity .9s ease";
-
-document.body.style.opacity="0";
-
-
-setTimeout(()=>{
-
-window.location.href="home.html";
-
-},900);
-
-}
-
-
-enterButton.addEventListener(
-
-"click",
-
-enterWorld
-
-);
-
-
-/*==============================
-KEYBOARD
-==============================*/
-
-document.addEventListener(
-
-"keydown",
-
-(event)=>{
-
-if(event.code==="Enter"){
-
-if(opened){
-
-enterWorld();
-
-}else{
+if(e.code==="Space"||e.key==="Enter"){
 
 openBook();
 
 }
 
-}
-
-});
-
-/*==================================================
-SECTION 4
-MOBILE SUPPORT
-==================================================*/
-
-
-/* Prevent Double Tap */
-
-sealButton.addEventListener(
-
-"touchstart",
-
-()=>{
-
-sealButton.style.transform="scale(.96)";
-
-},
-
-{passive:true}
-
-);
-
-
-sealButton.addEventListener(
-
-"touchend",
-
-()=>{
-
-sealButton.style.transform="";
-
-},
-
-{passive:true}
-
-);
-
-
-enterButton.addEventListener(
-
-"touchstart",
-
-()=>{
-
-enterButton.style.transform="scale(.98)";
-
-},
-
-{passive:true}
-
-);
-
-
-enterButton.addEventListener(
-
-"touchend",
-
-()=>{
-
-enterButton.style.transform="";
-
-},
-
-{passive:true}
-
-);
-
-/*==================================================
-SECTION 5
-SAFETY
-==================================================*/
-
-
-window.addEventListener(
-
-"contextmenu",
-
-(event)=>{
-
-event.preventDefault();
-
 });
 
 
-window.addEventListener(
+/* Double Click Cover */
 
-"dragstart",
+cover.addEventListener("dblclick",openBook);
 
-(event)=>{
 
-event.preventDefault();
+
+
+/* Mouse Light */
+
+document.addEventListener("mousemove",(e)=>{
+
+const light=document.querySelector(".ambient-light");
+
+const x=e.clientX/window.innerWidth*100;
+
+const y=e.clientY/window.innerHeight*100;
+
+light.style.background=
+
+`radial-gradient(circle at ${x}% ${y}%,
+rgba(201,162,77,.12),
+transparent 45%)`;
 
 });
 
 
 console.log(
 
-"%cAYNOOR ATELIER",
+"%cAynoor Atelier Version V",
 
-"color:#D4AF37;font-size:18px;font-weight:bold;"
-
-);
-
-console.log(
-
-"Version IV Loaded Successfully."
+"color:#C9A24D;font-size:18px;font-family:Cinzel;"
 
 );
+
+});
