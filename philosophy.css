@@ -117,32 +117,209 @@ color:#d8d1ca;
 
 footer{
 
-margin-top:100px;
+margin-top:120px;
 
 padding-top:50px;
 
-border-top:1px solid rgba(166,124,82,.3);
+border-top:1px solid rgba(166,124,82,.25);
 
 text-align:center;
 
 }
 
+
 footer p{
 
-font-family:Cinzel,serif;
+font-family:"Cinzel",serif;
 
-font-size:28px;
+font-size:34px;
 
-line-height:1.6;
+line-height:1.7;
 
-margin-bottom:20px;
+max-width:700px;
+
+margin:auto;
 
 }
+
 
 footer span{
 
+display:block;
+
+margin-top:25px;
+
+font-family:"Montserrat",sans-serif;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
 color:#A67C52;
 
-letter-spacing:2px;
+font-size:13px;
 
 }
+
+/*=========================================
+MANUSCRIPT HEADER
+=========================================*/
+
+.page-header{
+
+text-align:center;
+
+margin-bottom:90px;
+
+}
+
+
+.manuscript-title{
+
+font-family:"Cinzel",serif;
+
+font-size:14px;
+
+letter-spacing:8px;
+
+color:#A67C52;
+
+text-transform:uppercase;
+
+margin-bottom:15px;
+
+}
+
+
+.page-header h1{
+
+font-family:"Cinzel",serif;
+
+font-size:58px;
+
+font-weight:600;
+
+letter-spacing:4px;
+
+color:#F3EFE7;
+
+margin-bottom:18px;
+
+}
+
+
+.volume{
+
+font-family:"Montserrat",sans-serif;
+
+letter-spacing:6px;
+
+font-size:13px;
+
+text-transform:uppercase;
+
+color:#b79a73;
+
+}
+
+
+.divider{
+
+width:140px;
+
+height:1px;
+
+background:#A67C52;
+
+margin:45px auto 0;
+
+}
+
+
+/*=========================================
+CHAPTER TITLE
+=========================================*/
+
+.chapter-title{
+
+text-align:center;
+
+margin-bottom:100px;
+
+}
+
+
+.chapter-title span{
+
+font-family:"Cinzel",serif;
+
+font-size:22px;
+
+color:#A67C52;
+
+display:block;
+
+margin-bottom:18px;
+
+}
+
+
+.chapter-title h2{
+
+font-family:"Cinzel",serif;
+
+font-size:42px;
+
+font-weight:600;
+
+margin-bottom:35px;
+
+letter-spacing:3px;
+
+}
+
+
+.chapter-title p{
+
+font-family:"Cinzel",serif;
+
+font-size:28px;
+
+line-height:1.8;
+
+max-width:700px;
+
+margin:auto;
+
+color:#F3EFE7;
+
+}
+
+.institution-divider{
+
+text-align:center;
+
+font-size:18px;
+
+color:#A67C52;
+
+margin:70px 0;
+
+letter-spacing:12px;
+
+}
+
+.card-number{
+
+font-family:"Cinzel",serif;
+
+font-size:18px;
+
+color:#A67C52;
+
+margin-bottom:15px;
+
+letter-spacing:5px;
+
+}
+
