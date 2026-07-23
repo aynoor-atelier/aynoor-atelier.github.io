@@ -1,71 +1,113 @@
-/*=========================================
+/*==================================================
+AYNOOR ATELIER
 ANIMATION.CSS
-VERSION V
+==================================================*/
+
+
+/*=========================================
+BOOK BREATHING
 =========================================*/
 
+@keyframes bookFloat{
 
-/* Ambient Glow */
+0%,100%{
 
-@keyframes glow{
+transform:
+translateY(0px);
+
+}
+
+50%{
+
+transform:
+translateY(-10px);
+
+}
+
+}
+
+.book{
+
+animation:
+bookFloat 8s ease-in-out infinite;
+
+}
+
+
+
+/*=========================================
+AMBIENT LIGHT
+=========================================*/
+
+@keyframes ambientPulse{
 
 0%,100%{
 
 opacity:.75;
-transform:scale(1);
 
 }
 
 50%{
 
 opacity:1;
-transform:scale(1.04);
 
 }
 
 }
 
+.scene::before{
 
-/* Floating Book */
+animation:
+ambientPulse 10s ease-in-out infinite;
 
-@keyframes floatBook{
+}
+
+
+
+/*=========================================
+SEAL BREATHING
+=========================================*/
+
+@keyframes sealGlow{
 
 0%,100%{
 
-transform:translateY(0px);
+transform:scale(1);
+
+filter:
+drop-shadow(0 0 14px rgba(201,162,77,.25));
 
 }
 
 50%{
 
-transform:translateY(-8px);
+transform:scale(1.05);
+
+filter:
+drop-shadow(0 0 26px rgba(201,162,77,.55));
 
 }
 
 }
 
+.seal{
 
-.book{
-
-animation:floatBook 8s ease-in-out infinite;
-
-}
-
-
-
-/* Logo */
-
-.cover-logo{
-
-animation:logoGlow 4s ease-in-out infinite;
+animation:
+sealGlow 3.8s ease-in-out infinite;
 
 }
+
+
+
+/*=========================================
+LOGO GLOW
+=========================================*/
 
 @keyframes logoGlow{
 
 0%,100%{
 
 filter:
-
 drop-shadow(0 0 8px rgba(201,162,77,.20));
 
 }
@@ -73,72 +115,80 @@ drop-shadow(0 0 8px rgba(201,162,77,.20));
 50%{
 
 filter:
-
-drop-shadow(0 0 18px rgba(201,162,77,.45));
-
-}
+drop-shadow(0 0 18px rgba(201,162,77,.40));
 
 }
 
+}
 
+.logo{
 
-/* Gold Line */
-
-.gold-line{
-
-animation:goldPulse 5s ease infinite;
+animation:
+logoGlow 5s ease-in-out infinite;
 
 }
 
-@keyframes goldPulse{
+
+
+/*=========================================
+GOLD DIVIDER
+=========================================*/
+
+@keyframes dividerGlow{
 
 0%,100%{
 
-opacity:.5;
-width:120px;
+opacity:.55;
 
 }
 
 50%{
 
 opacity:1;
-width:150px;
 
 }
 
 }
 
+.divider,
 
+.page-line{
 
-/* Seal */
-
-.seal{
-
-animation:sealPulse 3.5s ease infinite;
-
-}
-
-@keyframes sealPulse{
-
-0%,100%{
-
-transform:scale(1);
+animation:
+dividerGlow 4s ease-in-out infinite;
 
 }
 
-50%{
+/*==================================================
+CINEMATIC OPENING
+==================================================*/
 
-transform:scale(1.04);
+
+/* Cover */
+
+.cover{
+
+transition:
+
+transform 1.2s cubic-bezier(.22,.80,.18,1),
+
+box-shadow 1s ease;
+
+transform-origin:left center;
+
+transform-style:preserve-3d;
+
+backface-visibility:hidden;
+
+will-change:transform;
 
 }
 
-}
 
 
+/* Book Open */
 
-/* Cover Opening */
-
-.cover.open{
+.book.open .cover{
 
 transform:
 
@@ -146,79 +196,93 @@ rotateY(-168deg);
 
 box-shadow:
 
--45px 20px 90px rgba(0,0,0,.70);
+-40px 18px 90px rgba(0,0,0,.75);
 
 }
 
 
 
-/* Paper Reveal */
+/*=========================================
+PAGE
+=========================================*/
 
-.paper{
+.page{
 
 opacity:0;
 
 transform:
 
-translateX(30px);
+translateX(26px);
 
 transition:
 
-opacity .9s ease,
+opacity .75s ease,
 
-transform .9s ease;
+transform .90s ease;
 
 }
 
 
 
-.cover.open + .page .paper{
+/* Reveal */
+
+.book.open .page{
 
 opacity:1;
 
-transform:
-
-translateX(0);
+transform:none;
 
 }
 
 
 
-/* Welcome */
+/*=========================================
+TEXT
+=========================================*/
 
-.paper h2,
+.page h3,
 
-.paper p,
+.page p,
 
-.enter-button{
+#enterVault{
 
 opacity:0;
 
-transform:translateY(25px);
+transform:
 
-transition:all .7s ease;
-
-}
-
-
-
-.cover.open + .page h2{
-
-opacity:1;
-
-transform:none;
-
-transition-delay:.55s;
+translateY(22px);
 
 }
 
 
 
-.cover.open + .page p:nth-of-type(1){
+/* Title */
+
+.book.open .page h3{
 
 opacity:1;
 
 transform:none;
+
+transition:
+
+all .65s ease;
+
+transition-delay:.60s;
+
+}
+
+
+
+/* Line */
+
+.book.open .page-line{
+
+opacity:1;
+
+transition:
+
+opacity .60s ease;
 
 transition-delay:.75s;
 
@@ -226,11 +290,17 @@ transition-delay:.75s;
 
 
 
-.cover.open + .page p:nth-of-type(2){
+/* Paragraph */
+
+.book.open .page p{
 
 opacity:1;
 
 transform:none;
+
+transition:
+
+all .70s ease;
 
 transition-delay:.95s;
 
@@ -238,24 +308,79 @@ transition-delay:.95s;
 
 
 
-.cover.open + .page p:nth-of-type(3){
+/* Button */
+
+.book.open #enterVault{
 
 opacity:1;
 
 transform:none;
 
-transition-delay:1.15s;
+transition:
+
+all .70s ease;
+
+transition-delay:1.25s;
 
 }
 
 
 
-.cover.open + .page .enter-button{
+/*=========================================
+GOLD REFLECTION
+=========================================*/
 
-opacity:1;
+@keyframes leatherSweep{
 
-transform:none;
+0%{
 
-transition-delay:1.35s;
+left:-170%;
 
 }
+
+100%{
+
+left:180%;
+
+}
+
+}
+
+
+
+.book.open .cover::after{
+
+animation:
+
+leatherSweep
+
+1.8s ease forwards;
+
+}
+
+
+
+/*=========================================
+BUTTON
+=========================================*/
+
+#enterVault{
+
+transition:
+
+all .35s ease;
+
+}
+
+
+
+#enterVault:hover{
+
+transform:
+
+translateY(-2px)
+
+scale(1.03);
+
+}
+
