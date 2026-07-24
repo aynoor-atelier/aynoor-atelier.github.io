@@ -1,538 +1,91 @@
-/* ==========================================
-   AYNOOR ATELIER
-   STYLE.CSS
-   PART 1
-========================================== */
+/*====================================================
+
+AYNOOR ATELIER
+STYLE.CSS
+
+PART 1
+RESET + ROOT + SCENE
+
+====================================================*/
+
+
+/*=============================
+RESET
+=============================*/
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
 }
 
 html{
-    width:100%;
-    height:100%;
-    scroll-behavior:smooth;
+
+width:100%;
+
+height:100%;
+
+scroll-behavior:smooth;
+
 }
 
 body{
 
-    width:100%;
-    height:100vh;
+width:100%;
 
-    overflow:hidden;
+height:100vh;
 
-    background:#060606;
+overflow:hidden;
 
-    font-family:'Cormorant Garamond',serif;
+background:#050505;
 
-    color:#f6f2e7;
+font-family:"Cormorant Garamond",serif;
+
+color:#F5F1E8;
 
 }
 
-/* ===========================
-   Spotlight Variables
-=========================== */
+
+/*=============================
+ROOT
+=============================*/
 
 :root{
 
---gold:#d5b15c;
+--gold:#D4B06A;
 
---gold-soft:#9e7d39;
+--gold-soft:#A98A4D;
 
---paper:#f5f0e5;
+--paper:#F7F3EA;
 
---shadow:rgba(0,0,0,.75);
+--black:#080808;
+
+--shadow:rgba(0,0,0,.65);
+
+/* Mathematics */
+
+--book-height:90vh;
+
+--book-ratio:.704;
 
 }
 
-/* ===========================
-   Scene
-=========================== */
+
+/*=============================
+SCENE
+=============================*/
 
 .scene{
 
-    position:relative;
+position:relative;
 
-    width:100vw;
+width:100vw;
 
-    height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    overflow:hidden;
-
-}
-
-/* ===========================
-   Spotlight Layer
-=========================== */
-
-.spotlight{
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:999;
-
-    background:
-    radial-gradient(
-    circle at var(--x,50%) var(--y,50%),
-    rgba(255,218,120,.12) 0%,
-    rgba(255,190,70,.06) 16%,
-    rgba(0,0,0,0) 28%);
-
-}
-
-/* ===========================
-   Book Container
-=========================== */
-
-.book{
-
-    position:relative;
-
-    width:min(90vw,430px);
-
-    aspect-ratio:3/4.25;
-
-    perspective:2600px;
-
-    transform-style:preserve-3d;
-
-}
-
-/* ===========================
-   Spine
-=========================== */
-
-.spine{
-
-    position:absolute;
-
-    left:-4%;
-
-    top:2%;
-
-    width:6%;
-
-    height:96%;
-
-    border-radius:18px 0 0 18px;
-
-    background:
-
-    linear-gradient(
-    90deg,
-    #111,
-    #202020,
-    #0f0f0f);
-
-    box-shadow:
-
-    inset -3px 0 5px rgba(255,255,255,.05),
-
-    inset 4px 0 10px rgba(0,0,0,.8);
-
-    z-index:1;
-
-}
-
-/* ==========================================
-   LEATHER COVER
-========================================== */
-
-.cover{
-
-    position:absolute;
-
-    inset:0;
-
-    overflow:hidden;
-
-    border-radius:18px;
-
-    z-index:5;
-
-    transform-origin:left center;
-
-    background:
-
-    linear-gradient(
-
-    145deg,
-
-    #1a1a1a 0%,
-
-    #131313 35%,
-
-    #0d0d0d 70%,
-
-    #050505 100%);
-
-    box-shadow:
-
-    0 25px 60px rgba(0,0,0,.75),
-
-    inset 0 0 40px rgba(255,255,255,.02),
-
-    inset 0 -25px 35px rgba(0,0,0,.45);
-
-}
-
-/* ==========================================
-   NOISE
-========================================== */
-
-.cover-noise{
-
-    position:absolute;
-
-    inset:0;
-
-    background:url("noise.png");
-
-    background-size:240px;
-
-    background-repeat:repeat;
-
-    opacity:.14;
-
-    mix-blend-mode:soft-light;
-
-    pointer-events:none;
-
-}
-
-/* ==========================================
-   GOLD FRAME
-========================================== */
-
-.cover-border{
-
-    position:absolute;
-
-    inset:24px;
-
-    border:2px solid rgba(213,177,92,.95);
-
-    border-radius:12px;
-
-    box-shadow:
-
-    inset 0 0 12px rgba(255,215,120,.08),
-
-    0 0 8px rgba(213,177,92,.08);
-
-}
-
-/* ==========================================
-   INNER FRAME
-========================================== */
-
-.cover-inner{
-
-    position:absolute;
-
-    inset:38px;
-
-    border:1px solid rgba(213,177,92,.30);
-
-    border-radius:8px;
-
-}
-
-/* ==========================================
-   LEATHER EDGE
-========================================== */
-
-.cover::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    border-radius:18px;
-
-    border:1px solid rgba(255,255,255,.04);
-
-    pointer-events:none;
-
-}
-
-/* ==========================================
-   LEATHER VIGNETTE
-========================================== */
-
-.cover::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    border-radius:18px;
-
-    background:
-
-    radial-gradient(
-
-    circle,
-
-    transparent 45%,
-
-    rgba(0,0,0,.22) 100%);
-
-    pointer-events:none;
-
-}
-
-/* ==========================================
-   PAGE
-========================================== */
-
-.page{
-
-    position:absolute;
-
-    inset:0;
-
-    border-radius:18px;
-
-    background:var(--paper);
-
-    overflow:hidden;
-
-    z-index:2;
-
-    box-shadow:
-
-    inset 0 0 35px rgba(0,0,0,.05);
-
-}
-
-/* ==========================================
-   COVER CONTENT
-========================================== */
-
-.cover{
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:clamp(2rem,6vw,3.5rem);
-
-}
-
-/* ==========================================
-   LOGO
-========================================== */
-
-.logo{
-
-    width:clamp(58px,16vw,82px);
-
-    height:auto;
-
-    margin-bottom:1.4rem;
-
-    object-fit:contain;
-
-    user-select:none;
-
-    filter:drop-shadow(0 0 12px rgba(213,177,92,.18));
-
-}
-
-/* ==========================================
-   TITLE
-========================================== */
-
-.cover h1{
-
-    font-family:"Cinzel",serif;
-
-    font-size:clamp(2.3rem,7vw,3.4rem);
-
-    font-weight:600;
-
-    letter-spacing:.28em;
-
-    color:var(--gold);
-
-    line-height:1;
-
-    margin-bottom:.45rem;
-
-}
-
-.cover h2{
-
-    font-family:"Cinzel",serif;
-
-    font-size:clamp(.85rem,2vw,1.15rem);
-
-    font-weight:500;
-
-    letter-spacing:.60em;
-
-    color:#F6F2E7;
-
-    margin-bottom:1.8rem;
-
-}
-
-/* ==========================================
-   CHRONICLE
-========================================== */
-
-.chronicle{
-
-    font-size:clamp(.95rem,2vw,1.2rem);
-
-    font-style:italic;
-
-    color:#D8D1C5;
-
-    margin-bottom:1.2rem;
-
-}
-
-/* ==========================================
-   GOLD LINE
-========================================== */
-
-.gold-line{
-
-    width:34%;
-
-    height:1px;
-
-    margin-bottom:1.4rem;
-
-    background:
-
-    linear-gradient(
-
-    90deg,
-
-    transparent,
-
-    var(--gold),
-
-    transparent);
-
-}
-
-/* ==========================================
-   CUSTODIANSHIP
-========================================== */
-
-.custody{
-
-    font-family:"Cinzel",serif;
-
-    font-size:clamp(.72rem,1.6vw,.92rem);
-
-    letter-spacing:.18em;
-
-    line-height:1.9;
-
-    color:#F3F0E7;
-
-    margin-bottom:1.8rem;
-
-}
-
-/* ==========================================
-   VOLUME
-========================================== */
-
-.volume{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:.45rem;
-
-    margin-bottom:1.8rem;
-
-    font-family:"Cinzel",serif;
-
-    font-size:clamp(.70rem,1.5vw,.85rem);
-
-    letter-spacing:.28em;
-
-    color:var(--gold);
-
-}
-
-/* ==========================================
-   SEAL
-========================================== */
-
-.seal{
-
-    width:clamp(64px,18vw,92px);
-
-    height:auto;
-
-    margin-bottom:1rem;
-
-    cursor:pointer;
-
-    user-select:none;
-
-    transition:.35s;
-
-}
-
-.seal:hover{
-
-    transform:scale(1.05);
-
-}
-
-/* ==========================================
-   FOOTER
-========================================== */
-
-.break{
-
-    font-family:"Cinzel",serif;
-
-    font-size:clamp(.58rem,1.3vw,.72rem);
-
-    letter-spacing:.34em;
-
-    color:#D6C18A;
-
-}
-
-/*=========================================
-WELCOME PAGE
-=========================================*/
-
-.page{
+height:100vh;
 
 display:flex;
 
@@ -540,55 +93,106 @@ justify-content:center;
 
 align-items:center;
 
-padding:clamp(2rem,5vw,3rem);
+overflow:hidden;
+
+}
+
+
+/*=============================
+SPOTLIGHT
+=============================*/
+
+.spotlight{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:999;
 
 background:
 
-linear-gradient(
+radial-gradient(
 
-180deg,
+circle at var(--x,50%)
 
-#F8F4EC,
+var(--y,50%),
 
-#F3EDE2);
+rgba(255,220,120,.12) 0%,
 
-}
+rgba(255,200,90,.06) 14%,
 
-.page-content{
+transparent 30%
 
-width:100%;
-
-max-width:290px;
-
-text-align:center;
+);
 
 }
 
 
+/*=============================
+BOOK GEOMETRY
+=============================*/
 
-.page h2{
+.book{
 
-font-family:"Cinzel",serif;
+position:relative;
 
-font-size:clamp(1.7rem,4vw,2.3rem);
+/* Mathematics */
 
-letter-spacing:.22em;
+height:var(--book-height);
 
-color:#2F2A24;
+width:calc(
 
-margin-bottom:1.5rem;
+var(--book-height)
+
+*
+
+var(--book-ratio)
+
+);
+
+max-height:980px;
+
+max-width:690px;
+
+min-height:560px;
+
+min-width:394px;
+
+perspective:2800px;
+
+transform-style:preserve-3d;
+
+filter:
+
+drop-shadow(
+
+0 35px 60px rgba(0,0,0,.55)
+
+);
 
 }
 
 
+/*=============================
+SPINE
+=============================*/
 
-.page-line{
+.spine{
 
-width:110px;
+position:absolute;
 
-height:1px;
+left:-3%;
 
-margin:0 auto 2rem;
+top:2%;
+
+height:96%;
+
+width:5%;
+
+border-radius:18px 0 0 18px;
 
 background:
 
@@ -596,303 +200,22 @@ linear-gradient(
 
 90deg,
 
-transparent,
+#111,
 
-var(--gold),
+#222,
 
-transparent);
+#0A0A0A
 
-}
+);
 
+box-shadow:
 
+inset -2px 0 4px rgba(255,255,255,.06),
 
-.page p{
+inset 2px 0 10px rgba(0,0,0,.8);
 
-font-size:clamp(.95rem,2vw,1.18rem);
-
-line-height:1.85;
-
-color:#4A443C;
-
-margin-bottom:2.3rem;
+z-index:1;
 
 }
 
 
-
-#enterVault{
-
-padding:14px 34px;
-
-border:1px solid var(--gold);
-
-border-radius:999px;
-
-background:transparent;
-
-font-family:"Cinzel",serif;
-
-font-size:.72rem;
-
-letter-spacing:.30em;
-
-color:var(--gold-soft);
-
-cursor:pointer;
-
-transition:.35s;
-
-}
-
-
-
-#enterVault:hover{
-
-background:var(--gold);
-
-color:#111;
-
-transform:translateY(-2px);
-
-}
-
-
-
-/*=========================================
-BOOK SHADOW
-=========================================*/
-
-.book{
-
-filter:
-
-drop-shadow(
-
-0 38px 65px rgba(0,0,0,.55));
-
-}
-
-
-/* ==========================================================
-   STYLE.CSS — PART 5
-   FINAL RESPONSIVE SCALE + Z-INDEX + CLICK FIX
-========================================================== */
-
-/* ---------- Book Scale ---------- */
-
-.book{
-
-    width:min(92vw,560px);
-    height:auto;
-
-    aspect-ratio:3/4.25;
-
-    max-height:94vh;
-
-    transform-style:preserve-3d;
-
-    position:relative;
-
-    overflow:visible;
-
-}
-
-
-/* ---------- Cover ---------- */
-
-.cover{
-
-    width:100%;
-    height:100%;
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-
-/* ---------- All Content ---------- */
-
-.logo,
-.title,
-.subtitle,
-.quote,
-.volume,
-.roman,
-.break-text,
-.seal{
-
-    position:relative;
-
-    z-index:50;
-
-}
-
-
-/* ---------- Seal ---------- */
-
-.seal{
-
-    cursor:pointer;
-
-    pointer-events:auto;
-
-    touch-action:manipulation;
-
-    user-select:none;
-
-    -webkit-user-select:none;
-
-    z-index:999;
-
-}
-
-
-/* ---------- Spotlight ---------- */
-
-.spotlight{
-
-    pointer-events:none;
-
-    z-index:8;
-
-}
-
-
-/* ---------- Glow ---------- */
-
-.book::after{
-
-    pointer-events:none;
-
-}
-
-
-/* ---------- Desktop ---------- */
-
-@media (min-width:1200px){
-
-.book{
-
-    width:min(46vw,640px);
-
-    max-height:92vh;
-
-}
-
-}
-
-
-/* ---------- Laptop ---------- */
-
-@media (992px <= width <= 1199px){
-
-.book{
-
-    width:min(54vw,560px);
-
-}
-
-}
-
-
-/* ---------- Tablet ---------- */
-
-@media (768px <= width <= 991px){
-
-.book{
-
-    width:min(72vw,500px);
-
-}
-
-}
-
-/* ==========================
-
-@media (max-width:768px){
-
-.book{
-    width:min(92vw,420px);
-    aspect-ratio:0.70;
-}
-
-.book-content{
-    padding:9% 9% 12%;
-    justify-content:space-between;
-}
-
-.logo-top{
-    width:34px;
-    margin-bottom:8px;
-}
-
-.title{
-    font-size:3rem;
-}
-
-.subtitle{
-    font-size:0.9rem;
-    letter-spacing:.45em;
-}
-
-.tagline{
-    margin:18px 0 26px;
-}
-
-.volume{
-    margin-top:24px;
-}
-
-.seal{
-    position:relative;
-    bottom:auto;
-    left:auto;
-    transform:none;
-
-    width:70px;
-
-    margin:30px auto 18px;
-}
-
-.break-text{
-    position:relative;
-    bottom:auto;
-    left:auto;
-    transform:none;
-
-    margin-top:8px;
-
-    font-size:.72rem;
-    letter-spacing:.35em;
-}
-}
-
-
-/* ---------- Small Mobile ---------- */
-
-@media (max-width:430px){
-
-.book{
-
-    width:94vw;
-
-    max-width:none;
-
-}
-
-}
-
-
-/* ---------- Ultra Small ---------- */
-
-@media (max-width:360px){
-
-.book{
-
-    width:96vw;
-
-}
-
-}
