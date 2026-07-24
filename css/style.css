@@ -131,7 +131,7 @@ body{
 
     overflow:hidden;
 
-    border-radius:24px;
+    border-radius:28px;
 
     background:
 
@@ -266,12 +266,13 @@ body{
 
     position:absolute;
 
-    top:42px;
-    left:50%;
+    margin-top:34px;
+
+    margin-bottom:18px;
 
     transform:translateX(-50%);
 
-    width:82px;
+    width:58px;
 
     height:auto;
 
@@ -295,7 +296,7 @@ body{
 
     text-align:center;
 
-    font-family:"Cormorant Garamond",serif;
+    font-family:"Cinzel",serif;
 
     font-size:58px;
 
@@ -318,8 +319,9 @@ body{
 
     position:absolute;
 
-    top:222px;
-    left:50%;
+    margin-top:10px;
+
+    margin-bottom:42px;
 
     transform:translateX(-50%);
 
@@ -348,7 +350,8 @@ body{
 
     top:320px;
     left:50%;
-
+margin:0;
+  
     transform:translateX(-50%);
 
     width:100%;
@@ -358,8 +361,6 @@ body{
     font-family:"Cormorant Garamond",serif;
 
     font-size:24px;
-
-    font-style:italic;
 
     color:#d6c8a6;
 
@@ -372,8 +373,7 @@ body{
 
     position:absolute;
 
-    top:345px;
-    left:50%;
+  margin:26px auto 34px;
 
     transform:translateX(-50%);
 
@@ -410,7 +410,7 @@ body{
     position:absolute;
 
     top:372px;
-    left:50%;
+    margin-bottom:34px;
 
     transform:translateX(-50%);
 
@@ -424,13 +424,13 @@ body{
 
 .cover-text p{
 
-    margin:10px 0;
+    margin:8px 0;
 
     font-family:"Cinzel",serif;
 
-    font-size:14px;
+    font-size:15px;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
     color:#d2bc8b;
 
@@ -443,7 +443,7 @@ body{
 
     position:absolute;
 
-    bottom:145px;
+    margin-bottom:22px;
     left:50%;
 
     transform:translateX(-50%);
@@ -468,7 +468,7 @@ body{
 
     font-family:"Cinzel",serif;
 
-    font-size:13px;
+    font-size:15px;
 
     letter-spacing:5px;
 
@@ -484,8 +484,9 @@ body{
     position:absolute;
 
     left:50%;
-    bottom:68px;
-
+    
+margin-bottom:22px;
+  
     transform:translateX(-50%);
 
     width:90px;
@@ -502,7 +503,7 @@ body{
 
 .seal{
 
-    width:68px;
+    width:78px;
     height:auto;
 
     display:block;
@@ -520,8 +521,9 @@ body{
 
     position:absolute;
 
-    bottom:28px;
-    left:50%;
+    margin-top:auto;
+
+    margin-bottom:18px;
 
     transform:translateX(-50%);
 white-space:nowrap;
@@ -531,7 +533,7 @@ white-space:nowrap;
 
     font-family:"Cinzel",serif;
 
-    font-size:11px;
+    font-size:12px;
 
     letter-spacing:4px;
 
@@ -659,96 +661,81 @@ white-space:nowrap;
 
 /* ---------- RESPONSIVE ---------- */
 
-@media(max-width:600px){
+@media(max-width:768px){
 
 .book{
 
-  width:340px;
-    height:520px;
-  
-    aspect-ratio:430/620;
+    width:310px;
+
+    height:470px;
 
 }
 
 .logo{
 
-    width:52px;
+    width:42px;
+
+    margin-top:26px;
 
 }
 
 .cover h1{
 
-    font-size:46px;
-
-    top:110px;
+    font-size:42px;
 
 }
 
 .cover h2{
 
-    top:182px;
+    font-size:13px;
 
-    font-size:18px;
+    letter-spacing:8px;
+
+    margin-bottom:30px;
 
 }
 
 .chronicle{
 
-    top:258px;
-
-    font-size:21px;
+    font-size:16px;
 
 }
 
 .gold-line{
 
-    top:312px;
+    width:120px;
+
+    margin:18px auto 24px;
 
 }
 
-.cover-text{
+.cover-text p{
 
-    top:338px;
-
-}
-
-.volume{
-
-    top:420px;
-
-}
-
-.seal-wrapper{
-
-    bottom:55px;
-
-}
-
-.break{
-
-    bottom:18px;
-
-    font-size:10px;
+    font-size:11px;
 
     letter-spacing:3px;
 
 }
 
-.page-content{
+.volume span{
 
-    width:84%;
-
-}
-
-.page-content h2{
-
-    font-size:28px;
+    font-size:11px;
 
 }
 
-.page-content p{
+.seal{
 
-    font-size:17px;
+    width:56px;
+
+}
+
+.break{
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-bottom:12px;
 
 }
 
