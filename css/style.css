@@ -89,7 +89,7 @@ body{
     position:relative;
 
     width:430px;
-    height:680px;
+    height:620px;
 
     transform-style:preserve-3d;
 
@@ -131,7 +131,7 @@ body{
 
     overflow:hidden;
 
-    border-radius:28px;
+    border-radius:24px;
 
     background:
 
@@ -261,97 +261,157 @@ body{
 
 
 /* ---------- LOGO ---------- */
+
 .logo{
+
     position:absolute;
-    top:46px;
+
+    top:52px;
     left:50%;
+
     transform:translateX(-50%);
-    width:58px;
+
+    width:60px;
+
     height:auto;
+
     z-index:20;
+
 }
+
 
 /* ---------- AYNOOR ---------- */
+
 .cover h1{
+
     position:absolute;
-    top:132px;
+
+    top:122px;
     left:50%;
+
     transform:translateX(-50%);
+
     width:100%;
-    text-align:center;
 
-    font-family:"Cinzel",serif;
-    font-size:58px;
-    font-weight:600;
-    letter-spacing:7px;
-
-    color:#f8f4ec;
-    text-shadow:0 0 12px rgba(255,255,255,.08);
-}
-
-/* ---------- ATELIER ---------- */
-.cover h2{
-    position:absolute;
-    top:222px;
-    left:50%;
-    transform:translateX(-50%);
-    width:100%;
-    text-align:center;
-
-    font-family:"Cinzel",serif;
-    font-size:20px;
-    font-weight:500;
-    letter-spacing:12px;
-
-    color:var(--gold);
-}
-
-/* ---------- MOTTO ---------- */
-.chronicle{
-    position:absolute;
-    top:320px;
-    left:50%;
-    transform:translateX(-50%);
-    width:100%;
     text-align:center;
 
     font-family:"Cormorant Garamond",serif;
+
+    font-size:58px;
+
+    font-weight:600;
+
+    letter-spacing:7px;
+
+    color:#f8f4ec;
+
+    text-shadow:
+
+    0 0 12px rgba(255,255,255,.08);
+
+}
+
+
+/* ---------- ATELIER ---------- */
+
+.cover h2{
+
+    position:absolute;
+
+    top:204px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    text-align:center;
+
+    font-family:"Cinzel",serif;
+
+    font-size:20px;
+
+    font-weight:500;
+
+    letter-spacing:12px;
+
+    color:var(--gold);
+
+}
+
+
+/* ---------- MOTTO ---------- */
+
+.chronicle{
+
+    position:absolute;
+
+    top:286px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    text-align:center;
+
+    font-family:"Cormorant Garamond",serif;
+
     font-size:24px;
+
     font-style:italic;
 
     color:#d6c8a6;
+
 }
+
 
 /* ---------- GOLD LINE ---------- */
 
 .gold-line{
+
     position:absolute;
-    top:392px;
+
+    top:345px;
     left:50%;
+
     transform:translateX(-50%);
 
     width:180px;
+
     height:1px;
 
     background:
+
     linear-gradient(
-        90deg,
-        transparent,
-        var(--gold),
-        transparent
+
+    90deg,
+
+    transparent,
+
+    var(--gold),
+
+    transparent
+
     );
+
 }
 
 /*==================================================
+  PART 3
+  LOWER COVER CONTENT
+==================================================*/
 
-/* ---------- PHILOSOPHY ---------- 
+
+/* ---------- PHILOSOPHY ---------- */
 
 .cover-text{
 
     position:absolute;
 
-    top:420px;
+    top:372px;
     left:50%;
+
     transform:translateX(-50%);
 
     width:100%;
@@ -359,21 +419,23 @@ body{
     text-align:center;
 
     z-index:20;
-}
 
+}
 
 .cover-text p{
 
-    margin:12px 0;
+    margin:10px 0;
 
-    font-family:"Cinzel", serif;
+    font-family:"Cinzel",serif;
 
-    font-size:15px;
+    font-size:14px;
 
-    letter-spacing:4px;
+    letter-spacing:3px;
 
     color:#d2bc8b;
+
 }
+
 
 /* ---------- VOLUME ---------- */
 
@@ -381,7 +443,7 @@ body{
 
     position:absolute;
 
-    top:505px;
+    top:455px;
     left:50%;
 
     transform:translateX(-50%);
@@ -390,9 +452,9 @@ body{
 
     text-align:center;
 
-    z-index:15;
-}
+    z-index:20;
 
+}
 
 .volume span{
 
@@ -400,14 +462,16 @@ body{
 
     margin:8px 0;
 
-    font-family:"Cinzel", serif;
+    font-family:"Cinzel",serif;
 
-    font-size:15px;
+    font-size:13px;
 
     letter-spacing:5px;
 
     color:var(--gold);
+
 }
+
 
 /* ---------- SEAL ---------- */
 
@@ -415,8 +479,8 @@ body{
 
     position:absolute;
 
-    top:90px;
     left:50%;
+    bottom:62px;
 
     transform:translateX(-50%);
 
@@ -428,25 +492,31 @@ body{
     justify-content:center;
     align-items:center;
 
-    z-index:20;
-}
+    z-index:30;
 
+}
 
 .seal{
 
-    width:78px;
+    width:90px;
+    height:auto;
 
-    filter:drop-shadow(0 6px 15px rgba(0,0,0,.45));
+    display:block;
+
+    filter:
+
+    drop-shadow(0 6px 15px rgba(0,0,0,.45));
+
 }
 
-/* ---------- FOOTER 
+
+/* ---------- FOOTER ---------- */
 
 .break{
 
     position:absolute;
 
-    bottom:35px;
-
+    bottom:22px;
     left:50%;
 
     transform:translateX(-50%);
@@ -455,17 +525,16 @@ body{
 
     text-align:center;
 
-    white-space:nowrap;
+    font-family:"Cinzel",serif;
 
-    font-family:"Cinzel", serif;
-
-    font-size:12px;
+    font-size:11px;
 
     letter-spacing:4px;
 
     color:#b99858;
 
     z-index:20;
+
 }
 
 /*==================================================
@@ -590,77 +659,93 @@ body{
 
 .book{
 
-    width:310px;
+    width:min(92vw,430px);
 
-    height:470px;
+    height:auto;
+
+    aspect-ratio:430/620;
 
 }
 
 .logo{
 
-    width:42px;
-
-    margin-top:26px;
+    width:52px;
 
 }
 
 .cover h1{
 
-    font-size:42px;
+    font-size:46px;
+
+    top:110px;
 
 }
 
 .cover h2{
 
-    font-size:13px;
+    top:182px;
 
-    letter-spacing:8px;
-
-    margin-bottom:30px;
+    font-size:18px;
 
 }
 
 .chronicle{
 
-    font-size:16px;
+    top:258px;
+
+    font-size:21px;
 
 }
 
 .gold-line{
 
-    width:120px;
-
-    margin:18px auto 24px;
+    top:312px;
 
 }
 
-.cover-text p{
+.cover-text{
 
-    font-size:11px;
-
-    letter-spacing:3px;
+    top:338px;
 
 }
 
-.volume span{
+.volume{
 
-    font-size:11px;
+    top:420px;
 
 }
 
-.seal{
+.seal-wrapper{
 
-    width:56px;
+    bottom:55px;
 
 }
 
 .break{
 
-    font-size:9px;
+    bottom:18px;
+
+    font-size:10px;
 
     letter-spacing:3px;
 
-    margin-bottom:12px;
+}
+
+.page-content{
+
+    width:84%;
+
+}
+
+.page-content h2{
+
+    font-size:28px;
+
+}
+
+.page-content p{
+
+    font-size:17px;
 
 }
 
@@ -733,18 +818,6 @@ body{
 
 }
 
-}
-
-.seal-wrapper{
-    top:55px;
-}
-
-.volume{
-    top:20px;
-}
-
-.cover-text{
-    top:350px;
 }
 
 
