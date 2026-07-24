@@ -894,53 +894,63 @@ width:430px;
 }
 
 /* ==========================
-   MOBILE FINAL FIX
-========================== */
 
 @media (max-width:768px){
 
 .book{
-    width:min(92vw,430px);
-    aspect-ratio:0.68/1;
+    width:min(92vw,420px);
+    aspect-ratio:0.70;
 }
 
 .book-content{
-    inset:6%;
+    padding:9% 9% 12%;
+    justify-content:space-between;
 }
 
-.logo{
-    top:3.5%;
-    width:42px;
+.logo-top{
+    width:34px;
+    margin-bottom:8px;
 }
 
 .title{
-    margin-top:14%;
-    font-size:clamp(2.7rem,10vw,4rem);
+    font-size:3rem;
 }
 
 .subtitle{
-    margin-top:4%;
+    font-size:0.9rem;
+    letter-spacing:.45em;
 }
 
-.quote{
-    margin-top:12%;
+.tagline{
+    margin:18px 0 26px;
 }
 
 .volume{
-    margin-top:12%;
+    margin-top:24px;
 }
 
 .seal{
-    bottom:14%;
-    width:82px;
+    position:relative;
+    bottom:auto;
+    left:auto;
+    transform:none;
+
+    width:70px;
+
+    margin:30px auto 18px;
 }
 
 .break-text{
-    bottom:4%;
-    font-size:.95rem;
+    position:relative;
+    bottom:auto;
+    left:auto;
+    transform:none;
+
+    margin-top:8px;
+
+    font-size:.72rem;
     letter-spacing:.35em;
 }
-
 }
 
 
