@@ -232,6 +232,14 @@ linear-gradient(
 
 }
 
+.cover{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+
 /*=====================================================
   SECTION 2
   LEATHER + GOLD FRAME
@@ -481,8 +489,8 @@ LOGO
 
 position:absolute;
 
-top:42px;
-left:50%;
+   margin-top:70px;
+    margin-bottom:55px;
 
 transform:translateX(-50%);
 
@@ -513,7 +521,7 @@ left:50%;
 
 transform:translateX(-50%);
 
-margin:0;
+margin-bottom:12px;
 
 font-family:"Cinzel",serif;
 
@@ -549,7 +557,7 @@ left:50%;
 
 transform:translateX(-50%);
 
-margin:0;
+margin-bottom:70px;
 
 font-family:"Cinzel",serif;
 
@@ -579,11 +587,11 @@ position:absolute;
 top:280px;
 left:50%;
 
+  margin-bottom:12px
+
 transform:translateX(-50%);
 
 font-size:16px;
-
-font-style:italic;
 
 font-weight:400;
 
@@ -641,8 +649,8 @@ CUSTODIANSHIP
 
 position:absolute;
 
-top:340px;
-left:50%;
+margin-top:45px;
+    margin-bottom:20px;
 
 transform:translateX(-50%);
 
@@ -670,28 +678,23 @@ VOLUME
 ==============================*/
 
 .volume{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 
-position:absolute;
+    gap:14px;
 
-left:50%;
-bottom:120px;
+    margin-top:45px;
 
-transform:translateX(-50%);
+    font-family:'Cinzel',serif;
 
-display:flex;
+    letter-spacing:5px;
 
-gap:18px;
+    color:#c6a15b;
+}
 
-font-size:12px;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-color:#C8A55A;
-
-z-index:20;
-
+.volume span{
+    display:block;
 }
 
 
@@ -736,8 +739,8 @@ ROYAL SEAL
 
 position:absolute;
 
-left:50%;
-bottom:72px;
+margin-top:45px;
+    margin-bottom:55px;
 
 transform:translateX(-50%);
 
@@ -1161,6 +1164,10 @@ bottom:66px;
 font-size:10px;
 
 letter-spacing:2px;
+  
+  margin-top:auto;
+  
+    margin-bottom:35px;
 
 }
 
