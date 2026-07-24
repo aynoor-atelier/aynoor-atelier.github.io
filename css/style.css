@@ -344,87 +344,127 @@ body{
 
 /*==================================================
 
-/* ---------- PHILOSOPHY ---------- */
+/* ---------- PHILOSOPHY ---------- 
 
 .cover-text{
+
     position:absolute;
-    top:480px;
+
+    top:420px;
     left:50%;
     transform:translateX(-50%);
+
     width:100%;
+
     text-align:center;
+
     z-index:20;
 }
 
+
 .cover-text p{
-    margin:8px 0;
+
+    margin:12px 0;
+
     font-family:"Cinzel", serif;
+
     font-size:15px;
+
     letter-spacing:4px;
+
     color:#d2bc8b;
 }
 
 /* ---------- VOLUME ---------- */
 
 .volume{
+
     position:absolute;
-    top:25px;
+
+    top:505px;
     left:50%;
+
     transform:translateX(-50%);
-    display:flex;
-    flex-direction:column;
-    gap:8px;
+
     width:100%;
+
     text-align:center;
-    z-index:8;
+
+    z-index:15;
 }
 
 
 .volume span{
+
     display:block;
+
     margin:8px 0;
+
     font-family:"Cinzel", serif;
+
     font-size:15px;
+
     letter-spacing:5px;
+
     color:var(--gold);
 }
 
 /* ---------- SEAL ---------- */
 
 .seal-wrapper{
+
     position:absolute;
-    top:70px;
+
+    top:90px;
     left:50%;
+
     transform:translateX(-50%);
+
     width:90px;
     height:90px;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
+
     z-index:20;
 }
 
+
 .seal{
+
     width:78px;
-    height:auto;
-    display:block;
+
     filter:drop-shadow(0 6px 15px rgba(0,0,0,.45));
 }
 
-/* ---------- FOOTER ---------- */
+/* ---------- FOOTER 
 
 .break{
+
     position:absolute;
-    margin-top:auto;
-    margin-bottom:18px;
+
+    bottom:35px;
+
+    left:50%;
+
     transform:translateX(-50%);
-    white-space:nowrap;
+
     width:100%;
+
     text-align:center;
+
+    white-space:nowrap;
+
     font-family:"Cinzel", serif;
+
     font-size:12px;
+
     letter-spacing:4px;
+
     color:#b99858;
+
     z-index:20;
 }
 
