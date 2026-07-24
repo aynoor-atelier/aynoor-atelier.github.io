@@ -261,286 +261,170 @@ body{
 
 
 /* ---------- LOGO ---------- */
-
 .logo{
-
     position:absolute;
-
-    margin-top:34px;
-
-    margin-bottom:18px;
-
+    top:46px;
+    left:50%;
     transform:translateX(-50%);
-
     width:58px;
-
     height:auto;
-
     z-index:20;
-
 }
 
-
 /* ---------- AYNOOR ---------- */
-
 .cover h1{
-
     position:absolute;
-
     top:132px;
     left:50%;
-
     transform:translateX(-50%);
-
     width:100%;
-
     text-align:center;
 
     font-family:"Cinzel",serif;
-
     font-size:58px;
-
     font-weight:600;
-
     letter-spacing:7px;
 
     color:#f8f4ec;
-
-    text-shadow:
-
-    0 0 12px rgba(255,255,255,.08);
-
+    text-shadow:0 0 12px rgba(255,255,255,.08);
 }
 
-
 /* ---------- ATELIER ---------- */
-
 .cover h2{
-
     position:absolute;
-
-    margin-top:10px;
-
-    margin-bottom:42px;
-
+    top:222px;
+    left:50%;
     transform:translateX(-50%);
-
     width:100%;
-
     text-align:center;
 
     font-family:"Cinzel",serif;
-
     font-size:20px;
-
     font-weight:500;
-
     letter-spacing:12px;
 
     color:var(--gold);
-
 }
 
-
 /* ---------- MOTTO ---------- */
-
 .chronicle{
-
     position:absolute;
-
     top:320px;
     left:50%;
-margin:0;
-  
     transform:translateX(-50%);
-
     width:100%;
-
     text-align:center;
 
     font-family:"Cormorant Garamond",serif;
-
     font-size:24px;
+    font-style:italic;
 
     color:#d6c8a6;
-
 }
-
 
 /* ---------- GOLD LINE ---------- */
 
 .gold-line{
-
     position:absolute;
-
-  margin:26px auto 34px;
-
+    top:392px;
+    left:50%;
     transform:translateX(-50%);
 
     width:180px;
-
     height:1px;
 
     background:
-
     linear-gradient(
-
-    90deg,
-
-    transparent,
-
-    var(--gold),
-
-    transparent
-
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
     );
-
 }
 
 /*==================================================
-  PART 3
-  LOWER COVER CONTENT
-==================================================*/
-
 
 /* ---------- PHILOSOPHY ---------- */
 
 .cover-text{
-
     position:absolute;
-
     top:372px;
     margin-bottom:34px;
-
     transform:translateX(-50%);
-
     width:100%;
-
     text-align:center;
-
     z-index:20;
-
 }
 
 .cover-text p{
-
     margin:8px 0;
-
-    font-family:"Cinzel",serif;
-
+    font-family:"Cinzel", serif;
     font-size:15px;
-
     letter-spacing:4px;
-
     color:#d2bc8b;
-
 }
-
 
 /* ---------- VOLUME ---------- */
 
 .volume{
-
     position:absolute;
-
     margin-bottom:22px;
     left:50%;
-
     transform:translateX(-50%);
-  
     display:flex;
     flex-direction:column;
     gap:8px;
-
     width:100%;
-
     text-align:center;
-
     z-index:8;
-
 }
 
 .volume span{
-
     display:block;
-
     margin:8px 0;
-
-    font-family:"Cinzel",serif;
-
+    font-family:"Cinzel", serif;
     font-size:15px;
-
     letter-spacing:5px;
-
     color:var(--gold);
-
 }
-
 
 /* ---------- SEAL ---------- */
 
 .seal-wrapper{
-
     position:absolute;
-
     left:50%;
-    
-margin-bottom:22px;
-  
+    margin-bottom:22px;
     transform:translateX(-50%);
-
     width:90px;
     height:90px;
-
     display:flex;
-
     justify-content:center;
     align-items:center;
-
     z-index:10;
-
 }
 
 .seal{
-
     width:78px;
     height:auto;
-
     display:block;
-
-    filter:
-
-    drop-shadow(0 6px 15px rgba(0,0,0,.45));
-
+    filter:drop-shadow(0 6px 15px rgba(0,0,0,.45));
 }
-
 
 /* ---------- FOOTER ---------- */
 
 .break{
-
     position:absolute;
-
     margin-top:auto;
-
     margin-bottom:18px;
-
     transform:translateX(-50%);
-white-space:nowrap;
+    white-space:nowrap;
     width:100%;
-
     text-align:center;
-
-    font-family:"Cinzel",serif;
-
+    font-family:"Cinzel", serif;
     font-size:12px;
-
     letter-spacing:4px;
-
     color:#b99858;
-
     z-index:20;
-
 }
 
 /*==================================================
