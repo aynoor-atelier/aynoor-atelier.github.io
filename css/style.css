@@ -271,7 +271,7 @@ body{
 
     transform:translateX(-50%);
 
-    width:60px;
+    width:80px;
 
     height:auto;
 
@@ -497,6 +497,17 @@ body{
 }
 
 .seal{
+  position:absolute;
+
+    bottom:-38px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:90px;
+    height:90px;
+
+    z-index:20;
 
     width:90px;
     height:auto;
@@ -516,12 +527,14 @@ body{
 
     position:absolute;
 
-    bottom:22px;
+    bottom:-55px;
     left:50%;
 
     transform:translateX(-50%);
 
     width:100%;
+  
+  white-space:nowrap;
 
     text-align:center;
 
@@ -533,7 +546,7 @@ body{
 
     color:#b99858;
 
-    z-index:20;
+    z-index:10;
 
 }
 
