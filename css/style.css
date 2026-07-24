@@ -756,3 +756,184 @@ width:430px;
 }
 
 }
+
+/* ==========================================================
+   STYLE.CSS — PART 5
+   FINAL RESPONSIVE SCALE + Z-INDEX + CLICK FIX
+========================================================== */
+
+/* ---------- Book Scale ---------- */
+
+.book{
+
+    width:min(92vw,560px);
+    height:auto;
+
+    aspect-ratio:3/4.25;
+
+    max-height:94vh;
+
+    transform-style:preserve-3d;
+
+    position:relative;
+
+    overflow:visible;
+
+}
+
+
+/* ---------- Cover ---------- */
+
+.cover{
+
+    width:100%;
+    height:100%;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+/* ---------- All Content ---------- */
+
+.logo,
+.title,
+.subtitle,
+.quote,
+.volume,
+.roman,
+.break-text,
+.seal{
+
+    position:relative;
+
+    z-index:50;
+
+}
+
+
+/* ---------- Seal ---------- */
+
+.seal{
+
+    cursor:pointer;
+
+    pointer-events:auto;
+
+    touch-action:manipulation;
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+    z-index:999;
+
+}
+
+
+/* ---------- Spotlight ---------- */
+
+.spotlight{
+
+    pointer-events:none;
+
+    z-index:8;
+
+}
+
+
+/* ---------- Glow ---------- */
+
+.book::after{
+
+    pointer-events:none;
+
+}
+
+
+/* ---------- Desktop ---------- */
+
+@media (min-width:1200px){
+
+.book{
+
+    width:min(46vw,640px);
+
+    max-height:92vh;
+
+}
+
+}
+
+
+/* ---------- Laptop ---------- */
+
+@media (992px <= width <= 1199px){
+
+.book{
+
+    width:min(54vw,560px);
+
+}
+
+}
+
+
+/* ---------- Tablet ---------- */
+
+@media (768px <= width <= 991px){
+
+.book{
+
+    width:min(72vw,500px);
+
+}
+
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:767px){
+
+.book{
+
+    width:92vw;
+
+    max-width:420px;
+
+    max-height:92vh;
+
+}
+
+}
+
+
+/* ---------- Small Mobile ---------- */
+
+@media (max-width:430px){
+
+.book{
+
+    width:94vw;
+
+    max-width:none;
+
+}
+
+}
+
+
+/* ---------- Ultra Small ---------- */
+
+@media (max-width:360px){
+
+.book{
+
+    width:96vw;
+
+}
+
+}
