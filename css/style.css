@@ -893,58 +893,52 @@ width:430px;
 
 }
 
-
 /* ==========================
    MOBILE FINAL FIX
 ========================== */
 
-@media (max-width:767px){
+@media (max-width:768px){
 
 .book{
-    width:95vw;
-    max-width:430px;
-    max-height:96vh;
+    width:min(92vw,430px);
+    aspect-ratio:0.68/1;
 }
 
-/* Logo */
+.book-content{
+    inset:6%;
+}
+
 .logo{
-    top:3.8%;
+    top:3.5%;
     width:42px;
 }
 
-/* Title */
 .title{
-    margin-top:16%;
+    margin-top:14%;
+    font-size:clamp(2.7rem,10vw,4rem);
 }
 
-/* Seal */
+.subtitle{
+    margin-top:4%;
+}
+
+.quote{
+    margin-top:12%;
+}
+
+.volume{
+    margin-top:12%;
+}
+
 .seal{
+    bottom:14%;
     width:82px;
-    bottom:10%;
 }
 
-/* BREAK THE ROYAL SEAL */
 .break-text{
-
-    bottom:4.5%;
-
-    font-size:.9rem;
-
-    letter-spacing:.22em;
-
-}
-
-/* Inner Border */
-.inner-border{
-
-    top:4.5%;
-
-    bottom:4.5%;
-
-    left:5.5%;
-
-    right:5.5%;
-
+    bottom:4%;
+    font-size:.95rem;
+    letter-spacing:.35em;
 }
 
 }
