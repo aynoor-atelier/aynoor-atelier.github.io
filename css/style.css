@@ -89,7 +89,7 @@ body{
     position:relative;
 
     width:430px;
-    height:620px;
+    height:680px;
 
     transform-style:preserve-3d;
 
@@ -266,12 +266,12 @@ body{
 
     position:absolute;
 
-    top:52px;
+    top:42px;
     left:50%;
 
     transform:translateX(-50%);
 
-    width:60px;
+    width:82px;
 
     height:auto;
 
@@ -286,7 +286,7 @@ body{
 
     position:absolute;
 
-    top:122px;
+    top:132px;
     left:50%;
 
     transform:translateX(-50%);
@@ -318,7 +318,7 @@ body{
 
     position:absolute;
 
-    top:204px;
+    top:222px;
     left:50%;
 
     transform:translateX(-50%);
@@ -346,7 +346,7 @@ body{
 
     position:absolute;
 
-    top:286px;
+    top:320px;
     left:50%;
 
     transform:translateX(-50%);
