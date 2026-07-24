@@ -1,1 +1,371 @@
+/*==================================================
+AYNOOR ATELIER
 
+ANIMATION.CSS
+
+PART 1
+==================================================*/
+
+
+/*=========================
+BREATHING BOOK
+=========================*/
+
+.book{
+
+animation:
+
+bookFloat 7s ease-in-out infinite;
+
+}
+
+
+@keyframes bookFloat{
+
+0%{
+
+transform:
+translateY(0px);
+
+}
+
+50%{
+
+transform:
+translateY(-8px);
+
+}
+
+100%{
+
+transform:
+translateY(0px);
+
+}
+
+}
+
+
+/*=========================
+GOLD SHIMMER
+=========================*/
+
+.gold-frame{
+
+animation:
+
+goldGlow 4s ease-in-out infinite;
+
+}
+
+@keyframes goldGlow{
+
+0%{
+
+box-shadow:
+
+0 0 4px rgba(201,166,88,.10);
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 16px rgba(201,166,88,.28);
+
+}
+
+100%{
+
+box-shadow:
+
+0 0 4px rgba(201,166,88,.10);
+
+}
+
+}
+
+
+/*=========================
+LOGO
+=========================*/
+
+.logo{
+
+animation:
+
+logoFloat 5s ease-in-out infinite;
+
+}
+
+@keyframes logoFloat{
+
+0%{
+
+transform:
+
+translateX(-50%)
+translateY(0);
+
+}
+
+50%{
+
+transform:
+
+translateX(-50%)
+translateY(-3px);
+
+}
+
+100%{
+
+transform:
+
+translateX(-50%)
+translateY(0);
+
+}
+
+}
+
+
+/*=========================
+SEAL
+=========================*/
+
+.seal{
+
+animation:
+
+sealBreath 3.5s ease-in-out infinite;
+
+}
+
+@keyframes sealBreath{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.03);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+
+/*=========================
+SPOTLIGHT
+=========================*/
+
+.spotlight{
+
+animation:
+
+spotMove 14s linear infinite;
+
+}
+
+@keyframes spotMove{
+
+0%{
+
+transform:
+translate(-5%,-3%);
+
+}
+
+50%{
+
+transform:
+translate(5%,4%);
+
+}
+
+100%{
+
+transform:
+translate(-5%,-3%);
+
+}
+
+}
+
+/*==================================================
+AYNOOR ATELIER
+ANIMATION.CSS
+PART 2
+==================================================*/
+
+/*=========================
+BOOK HOVER
+=========================*/
+
+.book:hover{
+
+    transform:
+    translateY(-10px)
+    rotateX(2deg);
+
+    transition:.6s ease;
+
+}
+
+
+/*=========================
+COVER HOVER
+=========================*/
+
+.book:hover .cover{
+
+    box-shadow:
+
+    0 40px 80px rgba(0,0,0,.55),
+
+    0 0 35px rgba(200,164,92,.18);
+
+}
+
+
+/*=========================
+LOGO GLOW
+=========================*/
+
+.logo:hover{
+
+    filter:
+
+    drop-shadow(0 0 8px rgba(255,220,150,.35))
+    drop-shadow(0 0 18px rgba(200,164,92,.30));
+
+}
+
+
+/*=========================
+TITLE SHINE
+=========================*/
+
+.cover h1{
+
+    animation:titleGlow 5s ease-in-out infinite;
+
+}
+
+@keyframes titleGlow{
+
+0%,100%{
+
+text-shadow:
+
+0 0 6px rgba(255,255,255,.06);
+
+}
+
+50%{
+
+text-shadow:
+
+0 0 16px rgba(255,255,255,.16),
+
+0 0 28px rgba(200,164,92,.14);
+
+}
+
+}
+
+
+/*=========================
+SEAL HOVER
+=========================*/
+
+.seal{
+
+transition:
+
+transform .35s ease,
+filter .35s ease;
+
+}
+
+.seal:hover{
+
+transform:
+
+scale(1.08);
+
+filter:
+
+drop-shadow(0 0 18px rgba(200,164,92,.45));
+
+}
+
+
+/*=========================
+BUTTON
+=========================*/
+
+#enterVault{
+
+transition:
+
+all .35s ease;
+
+}
+
+#enterVault:hover{
+
+transform:
+
+translateY(-2px);
+
+}
+
+
+/*=========================
+PAGE FADE
+=========================*/
+
+.page{
+
+opacity:0;
+
+transition:
+
+opacity .8s ease;
+
+}
+
+.book.open .page{
+
+opacity:1;
+
+}
+
+
+/*=========================
+REDUCED MOTION
+=========================*/
+
+@media (prefers-reduced-motion: reduce){
+
+*{
+
+animation:none !important;
+
+transition:none !important;
+
+}
+
+}
