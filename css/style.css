@@ -625,3 +625,120 @@ transform:translateX(-50%);
     margin-bottom:2%;
 }
 
+/* ==========================================
+   PART 4 — COVER CONTENT POSITIONING
+========================================== */
+
+.book-content{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    padding:7% 9%;
+}
+
+/* ---------- Logo ---------- */
+
+.logo{
+    width:11%;
+    max-width:60px;
+    margin-top:2%;
+}
+
+/* ---------- Title ---------- */
+
+.title{
+    margin-top:5%;
+
+    font-size:clamp(2rem,6vw,4rem);
+
+    letter-spacing:.45em;
+
+    text-align:center;
+}
+
+/* ---------- Subtitle ---------- */
+
+.subtitle{
+
+    margin-top:1%;
+
+    font-size:clamp(.8rem,1.5vw,1.2rem);
+
+    letter-spacing:.55em;
+
+    text-align:center;
+}
+
+/* ---------- Quote ---------- */
+
+.quote{
+
+    margin-top:10%;
+
+    font-size:clamp(1rem,2vw,1.5rem);
+
+    text-align:center;
+
+    font-style:italic;
+}
+
+/* ---------- Break Text ---------- */
+
+.break-text{
+
+    margin-top:7%;
+
+    text-align:center;
+
+    line-height:1.8;
+
+    letter-spacing:.12em;
+
+    font-size:clamp(.9rem,1.7vw,1.2rem);
+}
+
+/* ---------- Volume ---------- */
+
+.volume{
+
+    margin-top:10%;
+
+    text-align:center;
+
+    letter-spacing:.45em;
+
+    line-height:2;
+
+    font-size:clamp(.9rem,1.5vw,1.15rem);
+}
+
+/* ---------- Seal ---------- */
+
+.seal{
+
+    width:18%;
+
+    max-width:95px;
+
+    margin-top:auto;
+
+    margin-bottom:6%;
+}
+
+/* ---------- Bottom Text ---------- */
+
+.seal-text{
+
+    text-align:center;
+
+    letter-spacing:.35em;
+
+    font-size:clamp(.7rem,1vw,.95rem);
+
+    margin-bottom:2%;
+}
+
