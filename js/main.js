@@ -1,26 +1,34 @@
-// Function to Open Book & Play Sound
 function openArchiveBook() {
-    console.log("Wax seal clicked!");
+    console.log("Seal Clicked!");
 
-    const book = document.getElementById("book");
+    // Audio Trigger
     const sealSound = document.getElementById("sealSound");
-
-    // 1. Play Audio
     if (sealSound) {
         sealSound.currentTime = 0;
-        sealSound.play().catch(err => console.log("Audio notice:", err));
+        sealSound.play().catch(err => console.log("Sound error:", err));
     }
 
-    // 2. Open 3D Cover Animation
-    if (book) {
-        book.classList.add("open");
-        console.log("Book opened!");
+    // Book Elements Search
+    const bookById = document.getElementById("book");
+    const bookByClass = document.querySelector(".book");
+    const bookWrapper = document.querySelector(".book-wrapper") || document.querySelector(".archive-book");
+
+    const targetBook = bookById || bookByClass || bookWrapper;
+
+    if (targetBook) {
+        // Toggle open class
+        targetBook.classList.add("open");
+        
+        // Direct inline CSS force (Backup)
+        targetBook.style.transform = "rotateY(-180deg)";
+        
+        console.log("Class 'open' added to:", targetBook);
     } else {
-        console.error("Book element missing!");
+        alert("CRITICAL ERROR: JS ko HTML me book wala div nahi mila! HTML check karo.");
     }
 }
 
-// Vault Button Event Handler
+// Vault Navigation
 document.addEventListener("DOMContentLoaded", () => {
     const enterVaultBtn = document.getElementById("enterVault");
     const pageSound = document.getElementById("pageSound");
