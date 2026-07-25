@@ -8,21 +8,13 @@
 
 }
 
-.cover{
-
-    transform-origin:left center;
-
-    transition:
-    transform 1.4s cubic-bezier(.22,.61,.36,1),
-    box-shadow .6s ease;
-
+.cover {
+    transition: transform 1.4s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 1.4s ease;
 }
 
-.book.open .cover{
-
-    transform:
-    rotateY(-165deg);
-
+.book.open .cover {
+    transform: rotateY(-135deg); /* Opens like a real physical hardcover manuscript */
+    box-shadow: -15px 0 30px rgba(0, 0, 0, 0.8);
 }
 
 
