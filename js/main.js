@@ -1,76 +1,64 @@
-// Audio Engine Unlock Tracker
+// Browser Audio Unlock Logic
 let isAudioUnlocked = false;
 
-function unlockAudioEngine() {
+function unlockAudio() {
     if (isAudioUnlocked) return;
-
+    
     const sealSound = document.getElementById("sealSound");
     const pageSound = document.getElementById("pageSound");
 
-    [sealSound, pageSound].forEach(audio => {
-        if (audio) {
-            audio.play().then(() => {
-                audio.pause();
-                audio.currentTime = 0;
+    [sealSound, pageSound].forEach(sound => {
+        if (sound) {
+            sound.play().then(() => {
+                sound.pause();
+                sound.currentTime = 0;
             }).catch(() => {});
         }
     });
 
     isAudioUnlocked = true;
-    console.log("Audio Unlocked!");
-
-    window.removeEventListener("click", unlockAudioEngine);
-    window.removeEventListener("touchstart", unlockAudioEngine);
+    window.removeEventListener("touchstart", unlockAudio);
+    window.removeEventListener("click", unlockAudio);
 }
 
-// User Action Unlocks Audio
-window.addEventListener("click", unlockAudioEngine);
-window.addEventListener("touchstart", unlockAudioEngine);
+window.addEventListener("touchstart", unlockAudio);
+window.addEventListener("click", unlockAudio);
 
-// Global Function for Wax Seal Click
+// Original Open Functionality
 function openArchiveBook() {
-    console.log("Seal Clicked!");
-    
     const book = document.getElementById("book");
     const sealSound = document.getElementById("sealSound");
 
-    // 1. Play Sound
     if (sealSound) {
         sealSound.currentTime = 0;
-        sealSound.play().catch(err => console.log("Seal Audio Error:", err));
+        sealSound.play().catch(() => {});
     }
 
-    // 2. Open Book Animation
     if (book) {
         book.classList.add("open");
-    } else {
-        console.error("Book element not found!");
     }
 }
 
-// Event Listeners Binding
+// Event Binding
 document.addEventListener("DOMContentLoaded", () => {
     const sealTrigger = document.getElementById("sealTrigger");
     const enterVaultBtn = document.getElementById("enterVault");
     const pageSound = document.getElementById("pageSound");
 
-    // Bind Seal Click
     if (sealTrigger) {
-        sealTrigger.onclick = openArchiveBook; // Direct inline assignment for 100% reliability
+        sealTrigger.addEventListener("click", openArchiveBook);
     }
 
-    // Bind Vault Button Click
     if (enterVaultBtn) {
-        enterVaultBtn.addEventListener("click", (e) => {
+        enterVaultBtn.addEventListener("click", () => {
             if (pageSound) {
                 pageSound.currentTime = 0;
                 pageSound.play().catch(() => {});
             }
-            
-            // Smooth delay for sound before opening home.html
             setTimeout(() => {
                 window.location.href = "home.html";
             }, 300);
         });
     }
 });
+
