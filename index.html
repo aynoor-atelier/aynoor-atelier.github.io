@@ -1,206 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYNOOR Atelier — Capital of Chronicles</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<title>AYNOOR ATELIER</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="css/style.css">
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animation.css">
-
 </head>
-
 <body>
 
-<div class="spotlight"></div>
-
-<main class="scene">
-
-<section class="book" id="book">
-
-<div class="spine"></div>
-
-<div class="book-shell">
-
-<!-- ========================= -->
-<!-- FRONT COVER -->
-<!-- ========================= -->
-
-<article class="cover">
-
-<div class="gold-frame"></div>
-
-<div class="inner-frame"></div>
-
-<div class="cover-content">
-
-<!-- LOGO -->
-
-<div class="brand-logo-container">
-
-<img
-src="logo.png"
-alt="AYNOOR"
-class="logo">
-
-</div>
-
-<!-- TITLE -->
-
-<div class="title-group">
-
-<h1 class="brand-title">
-AYNOOR
-</h1>
-
-<h2 class="brand-subtitle">
-ATELIER
-</h2>
-
-</div>
-
-<!-- MOTTO -->
-
-<div class="motto-group">
-
-<p class="chronicle">
-
-Capital of Chronicles
-
-</p>
-
-<div class="gold-line"></div>
-
-</div>
-
-<!-- PHILOSOPHY -->
-
-<div class="custody-group">
-
-<p class="custody-text">
-
-NOT ACQUISITION.
-
-</p>
-
-<p class="custody-text">
-
-CUSTODIANSHIP.
-
-</p>
-
-</div>
-
-<!-- VOLUME -->
-
-<div class="volume-group">
-
-<p class="volume-title">
-
-VOLUME I
-
-</p>
-
-<p class="roman-year">
-
-MMXXVI
-
-</p>
-
-</div>
-
-<!-- SEAL -->
-
-<div class="seal-wrapper">
-
-<img
-src="seal.png"
-alt="Royal Seal"
-class="seal"
-id="sealTrigger">
-
-</div>
-
-<!-- FOOTER -->
-
-<p class="break-text">
-
-BREAK THE ROYAL SEAL
-
-</p>
-
-</div>
-
-</article>
-
-<!-- ========================= -->
-<!-- FIRST PAGE -->
-<!-- ========================= -->
-
-<article class="page">
-
-<div class="page-content">
-
-<h2 class="welcome-title">
-
-WELCOME
-
-</h2>
-
-<div class="page-line"></div>
-
-<p class="archival-quote">
-
-Every Chronicle begins with a single page.
-
-<br><br>
-
-You are entering
-
-The Capital of Chronicles.
-
-</p>
-
-<button
-class="vault-btn"
-id="enterVault">
-
-ENTER THE VAULT
-
-</button>
-
-</div>
-
-</article>
-
-</div>
-
-</section>
-
-</main>
-
-<audio id="sealSound">
-
-<source src="seal.mp3" type="audio/mpeg">
-
-</audio>
-
-<audio id="pageSound">
-
-<source src="page.mp3" type="audio/mpeg">
-
-</audio>
-
-<script src="js/main.js"></script>
-
+    <!-- Atmospheric Vignette & Lighting -->
+    <div class="spotlight"></div>
+
+    <!-- Main Canvas -->
+    <main class="scene">
+        <section class="book" id="book">
+            
+            <!-- Realistic 3D Leather Spine -->
+            <div class="spine">
+                <span class="spine-ridge"></span>
+                <span class="spine-ridge"></span>
+                <span class="spine-ridge"></span>
+            </div>
+
+            <!-- Page Stack (Realistic Multi-Page Edge Effect) -->
+            <div class="page-stack"></div>
+
+            <!-- Inner Manuscript Page -->
+            <article class="page">
+                <div class="page-texture"></div>
+                <div class="page-content">
+                    <h2 class="welcome-title">WELCOME</h2>
+                    <div class="page-line"></div>
+                    <p class="archival-quote">
+                        Every Chronicle begins with a single page.<br><br>
+                        You are not entering a website.<br><br>
+                        You are entering <strong>The Capital of Chronicles</strong>.
+                    </p>
+                    <button id="enterVault" class="vault-btn">ENTER THE VAULT</button>
+                </div>
+            </article>
+
+            <!-- Front Leather Cover (Turns on Spine Axis) -->
+            <article class="cover" id="cover">
+                <div class="leather-overlay"></div>
+                <div class="bevel-edge"></div>
+                <div class="gold-frame"></div>
+                <div class="inner-frame"></div>
+
+                <!-- Brand Monogram -->
+                <div class="brand-logo-container">
+                    <img src="logo.png" class="logo" alt="AYNOOR Monogram">
+                </div>
+
+                <!-- Main Titles -->
+                <div class="title-group">
+                    <h1 class="brand-title">AYNOOR</h1>
+                    <h2 class="brand-subtitle">ATELIER</h2>
+                </div>
+
+                <!-- Chronicle Motto -->
+                <div class="motto-group">
+                    <p class="chronicle">Capital of Chronicles</p>
+                    <div class="gold-line"></div>
+                </div>
+
+                <!-- Custodial Philosophy -->
+                <div class="custody-group">
+                    <p class="custody-text">NOT ACQUISITION.</p>
+                    <p class="custody-text">CUSTODIANSHIP.</p>
+                </div>
+
+                <!-- Volume & Roman Year -->
+                <div class="volume-group">
+                    <span class="volume-title">VOLUME I</span>
+                    <span class="roman-year">MMXXVI</span>
+                </div>
+
+                <!-- Royal Wax Seal -->
+                <div class="seal-wrapper">
+                    <img src="seal.png" class="seal" id="sealTrigger" alt="Royal Seal">
+                </div>
+
+                <!-- Footer Callout -->
+                <p class="break-text">BREAK THE ROYAL SEAL</p>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- Audio Elements -->
+    <audio id="sealSound" preload="auto">
+        <source src="seal.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="pageSound" preload="auto">
+        <source src="seal.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/main.js"></script>
 </body>
-
 </html>
