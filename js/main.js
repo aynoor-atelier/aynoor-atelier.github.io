@@ -39,3 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+const updateSpotlight = (e) => {
+  const x = e.touches ? e.touches[0].clientX : e.clientX;
+  const y = e.touches ? e.touches[0].clientY : e.clientY;
+  document.documentElement.style.setProperty('--x', `${x}px`);
+  document.documentElement.style.setProperty('--y', `${y}px`);
+};
+
+window.addEventListener('mousemove', updateSpotlight);
+window.addEventListener('touchmove', updateSpotlight);
