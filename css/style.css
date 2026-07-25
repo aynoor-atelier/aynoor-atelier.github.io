@@ -275,7 +275,7 @@ body{
     justify-content:center;
     align-items:center;
 
-    z-index:2;
+    z-index:1;
 
     box-shadow:
 
@@ -477,7 +477,8 @@ body{
 
     overflow:hidden;
 
-    z-index:5;
+    z-index:10;
+   pointer-events:auto;
 
     transform-origin:left center;
 
@@ -803,14 +804,20 @@ body{
 .seal-wrapper{
 
     margin-top:6px;
+   position:relative;
+    z-index:999
 
 }
 
 .seal{
 
+   position:relative;
+   
     width:92px;
 
     display:block;
+   z-index:1000;
+    pointer-events:auto;
 
     cursor:pointer;
 
