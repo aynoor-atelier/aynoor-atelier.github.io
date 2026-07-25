@@ -565,7 +565,7 @@ body{
 
 .logo{
 
-    width:68px;
+    width:80px;
 
     display:block;
 
@@ -622,7 +622,7 @@ body{
     height:1px;
 
     margin-top:14px;
-
+position: centre
     background:
 
         linear-gradient(
@@ -699,7 +699,7 @@ body{
 
 .seal{
 
-    width:82px;
+    width:140px;
 
     cursor:pointer;
 
@@ -719,6 +719,8 @@ body{
     letter-spacing:4px;
 
     color:#d0af66;
+
+   margin-bottom:24px;
 
        }
 
