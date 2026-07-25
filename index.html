@@ -16,6 +16,23 @@
 </head>
 <body>
 
+    <style>
+    /* Direct Hardcoded Animation Fallback */
+    .book {
+        transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+        transform-style: preserve-3d !important;
+    }
+    .cover {
+        transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+        transform-origin: left center !important;
+    }
+    .book.open .cover {
+        transform: rotateY(-140deg) !important;
+        pointer-events: none !important;
+    }
+</style>
+
+
     <!-- Atmospheric Vignette & Lighting -->
     <div class="spotlight"></div>
 
@@ -85,10 +102,10 @@
 </div>
 
 
-                <!-- Royal Wax Seal with Direct Onclick -->
-<div class="seal-wrapper" style="position: relative; z-index: 9999; cursor: pointer;">
-    <img src="seal.png" class="seal" id="sealTrigger" onclick="openArchiveBook()" alt="Royal Seal">
+                <div class="seal-wrapper" style="position: relative; z-index: 99999; cursor: pointer;">
+    <img src="seal.png" class="seal" id="sealTrigger" onclick="document.getElementById('book').classList.add('open');" alt="Royal Seal">
 </div>
+
 
 
                 <!-- Footer Callout -->
