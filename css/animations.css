@@ -1,52 +1,26 @@
-/* ==========================================================
-   AYNOOR ATELIER - DARK TONE 3D ANIMATION
-========================================================== */
+/* ==========================================================================
+AYNOOR ATELIER ANIMATION SYSTEM
+========================================================================== */
 
-/* ---------------- Book Container ---------------- */
-.book {
-    transform-style: preserve-3d;
-    transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.book.open {
-    animation: none;
-    transform: scale(1.05) translateY(-8px);
-}
-
-/* ---------------- Leather Cover Flip ---------------- */
 .cover {
-    transform-origin: left center;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-    transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 1.8s ease;
+    transition: transform 1.4s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 1.4s ease;
     will-change: transform;
 }
 
+/* Opening state */
 .book.open .cover {
-    transform: rotateY(-162deg);
-    box-shadow: -35px 0 50px rgba(0, 0, 0, 0.7);
-}
-
-/* Hide seal when cover is opened */
-.book.open .seal-wrapper {
-    opacity: 0;
+    transform: rotateY(-140deg);
+    box-shadow: -15px 0 30px rgba(0, 0, 0, 0.8);
     pointer-events: none;
-    transition: opacity 0.4s ease;
+    z-index: 1 !important;
 }
 
-/* ---------------- Manuscript Page Reveal ---------------- */
-.page {
-    transform-origin: left center;
-    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+/* Seamless Hide of Page-Stack when Book opens */
+.book.open .page-stack {
+    opacity: 0 !important;
+    display: none !important;
 }
 
-.page-content {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
-}
-
-.book.open .page-content {
-    opacity: 1;
-    transform: translateY(0);
+.book.open .page {
+    z-index: 5 !important;
 }
