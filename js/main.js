@@ -1,40 +1,38 @@
+// Function to Open Book & Play Seal Sound
 function openArchiveBook() {
-    console.log("Seal Clicked!");
+    console.log("Wax Seal Clicked!");
 
-    // Audio Trigger
+    // 1. Audio Playback
     const sealSound = document.getElementById("sealSound");
     if (sealSound) {
         sealSound.currentTime = 0;
-        sealSound.play().catch(err => console.log("Sound error:", err));
+        sealSound.play().catch(err => console.log("Audio notice:", err));
     }
 
-    // Book Elements Search
-    const bookById = document.getElementById("book");
-    const bookByClass = document.querySelector(".book");
-    const bookWrapper = document.querySelector(".book-wrapper") || document.querySelector(".archive-book");
-
-    const targetBook = bookById || bookByClass || bookWrapper;
-
-    if (targetBook) {
-        // Toggle open class
-        targetBook.classList.add("open");
-        
-        // Direct inline CSS force (Backup)
-        targetBook.style.transform = "rotateY(-180deg)";
-        
-        console.log("Class 'open' added to:", targetBook);
+    // 2. Add 'open' class to Main Book Container
+    const book = document.getElementById("book") || document.querySelector(".book");
+    if (book) {
+        book.classList.add("open");
+        console.log("Class 'open' added successfully!");
     } else {
-        alert("CRITICAL ERROR: JS ko HTML me book wala div nahi mila! HTML check karo.");
+        console.error("Book element missing!");
     }
 }
 
-// Vault Navigation
+// Global Event Listeners
 document.addEventListener("DOMContentLoaded", () => {
+    // Seal Click Listener
+    const sealTrigger = document.getElementById("sealTrigger");
+    if (sealTrigger) {
+        sealTrigger.addEventListener("click", openArchiveBook);
+    }
+
+    // Vault Navigation Listener
     const enterVaultBtn = document.getElementById("enterVault");
     const pageSound = document.getElementById("pageSound");
 
     if (enterVaultBtn) {
-        enterVaultBtn.addEventListener("click", () => {
+        enterVaultBtn.addEventListener("click", (e) => {
             if (pageSound) {
                 pageSound.currentTime = 0;
                 pageSound.play().catch(() => {});
