@@ -1,160 +1,118 @@
-.cover {
-    transition: transform 1.4s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 1.4s ease;
+/* ==========================================================
+   AYNOOR BOOK ANIMATION
+========================================================== */
+
+.book{
+    transform-style: preserve-3d;
+    perspective:2000px;
 }
+
+/* ==============================
+   Cover
+============================== */
+
+.cover{
+    transform-origin:left center;
+    transform-style:preserve-3d;
+
+    transition:
+        transform 1.45s cubic-bezier(.22,.61,.36,1),
+        box-shadow .8s ease;
+
+    will-change:transform;
+}
+
+/* ==============================
+   Book Opening
+============================== */
 
 .book.open .cover{
 
-animation:royalOpen 2.2s
-cubic-bezier(.22,.8,.18,1)
-forwards;
+    transform:
+        rotateY(-145deg);
 
+    box-shadow:
+        -18px 0 35px rgba(0,0,0,.65),
+        0 0 20px rgba(0,0,0,.25);
+
+    pointer-events:none;
 }
 
-@keyframes royalOpen{
-
-0%{
-
-transform:
-rotateY(0deg)
-translateX(0)
-translateZ(0);
-
-box-shadow:
-0 10px 20px rgba(0,0,0,.6);
-
-}
-
-15%{
-
-transform:
-rotateY(-12deg)
-translateZ(8px);
-
-}
-
-35%{
-
-transform:
-rotateY(-42deg)
-translateZ(16px);
-
-}
-
-60%{
-
-transform:
-rotateY(-92deg)
-translateZ(22px);
-
-}
-
-80%{
-
-transform:
-rotateY(-128deg)
-translateZ(16px);
-
-}
-
-100%{
-
-transform:
-rotateY(-148deg)
-translateZ(0);
-
-box-shadow:
--35px 0 50px rgba(0,0,0,.65);
-
-}
-
-}
+/* ==============================
+   Page Visibility
+============================== */
 
 .page{
-
-opacity:.92;
-
-transition:
-
-opacity 1.2s ease,
-
-transform 1.2s ease;
-
+    opacity:.96;
+    transition:opacity .5s ease;
 }
 
 .book.open .page{
-
-opacity:1;
-
-animation:
-pageReveal 1.8s ease forwards;
-
+    opacity:1;
 }
 
-@keyframes pageReveal{
+/* ==============================
+   Seal Animation
+============================== */
 
-0%{
+.seal{
 
-transform:
-translateY(18px);
-
-filter:blur(3px);
-
+    transition:
+        transform .35s ease,
+        filter .35s ease;
 }
 
-40%{
+.seal:hover{
 
-transform:
-translateY(6px);
+    transform:
+        scale(1.06);
 
+    filter:
+        drop-shadow(0 8px 18px rgba(0,0,0,.75));
 }
 
-100%{
+.seal:active{
 
-transform:
-translateY(0);
-
-filter:blur(0);
-
+    transform:
+        scale(.94);
 }
 
+/* ==============================
+   Enter Button
+============================== */
+
+.vault-btn{
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease,
+        box-shadow .3s ease;
 }
 
-.book{
+.vault-btn:hover{
 
-transition:
-transform 1.8s ease;
+    transform:translateY(-2px);
 
+    box-shadow:
+        0 8px 18px rgba(197,160,89,.35);
 }
 
-.book.open{
+.vault-btn:active{
 
-animation:
-cameraMove 2.2s ease forwards;
-
+    transform:scale(.97);
 }
 
-@keyframes cameraMove{
+/* ==============================
+   Respect reduced motion
+============================== */
 
-0%{
+@media (prefers-reduced-motion:reduce){
 
-transform:
-scale(.92);
+    .cover,
+    .seal,
+    .vault-btn{
 
+        transition:none;
+    }
 }
-
-35%{
-
-transform:
-scale(.98);
-
-}
-
-100%{
-
-transform:
-scale(1);
-
-}
-
-}
-
