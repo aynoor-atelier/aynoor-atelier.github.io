@@ -1,25 +1,8 @@
-/* Smooth Cover Flip Animation */
 .cover {
-    transition: transform 1.4s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 1.4s ease !important;
+    transition: transform 1.4s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 1.4s ease;
 }
 
 .book.open .cover {
-    transform: rotateY(-140deg) !important;
-    pointer-events: none !important;
+    transform: rotateY(-135deg);
     box-shadow: -15px 0 30px rgba(0, 0, 0, 0.8);
-}
-
-/* Breathing Effect without overwriting Book Open Rotations */
-@keyframes bookBreathe {
-  0%, 100% {
-    transform: translateY(0px) rotateX(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotateX(2deg);
-  }
-}
-
-/* Breathing applies ONLY when book is closed */
-.book:not(.open) {
-  animation: bookBreathe 4.5s ease-in-out infinite;
 }
