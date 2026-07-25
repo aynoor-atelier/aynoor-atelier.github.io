@@ -1,5 +1,5 @@
 /* ==========================================================================
-                            AYNOOR ATELIER
+                            AYNOOR ATELIER (FIXED)
    ========================================================================== */
 
 :root {
@@ -37,7 +37,7 @@ body {
     align-items: center;
 }
 
-/* Atmospheric Interactive Lighting */
+/* Fix Spotlight Gradient Overflow */
 .spotlight-overlay {
     position: fixed;
     top: 0;
@@ -47,11 +47,10 @@ body {
     pointer-events: none;
     z-index: 99;
     background: radial-gradient(
-        600px circle at var(--x) var(--y), 
-        rgba(255, 255, 255, 0.12), 
-        rgba(3, 3, 2, 0.96) 80%
+        400px circle at var(--x) var(--y), 
+        rgba(255, 255, 255, 0.08), 
+        rgba(3, 3, 2, 0.92) 80%
     );
-    transition: background 0.05s ease;
 }
 
 .scene {
@@ -63,36 +62,38 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 15px;
-}
-
-/* Desktop Scale Enhancement (70% Larger) */
-@media (min-width: 1024px) {
-  .main-container {
-    transform: scale(1.4); /* Scaled safely to 1.4x so book doesn't bleed out of screen height */
-    transform-origin: center center;
-    transition: transform 0.3s ease;
-  }
+    padding: 20px;
 }
 
 /* --------------------------------------------------------------------------
-   THE BOOK CONTAINER
+   THE BOOK CONTAINER (MOBILE FIRST - PROPER PERFECT FIT)
    -------------------------------------------------------------------------- */
 .book {
-    width: 92vw;
-    max-width: 430px;
-    height: 86vh;
-    max-height: 720px;
+    width: 360px;            /* Fixed width so it never shrinks */
+    height: 620px;           /* Proper mobile height */
+    max-width: 90vw;         /* Fallback for ultra small screens */
+    max-height: 85vh;
     position: relative;
     transform-style: preserve-3d;
     box-shadow: var(--vault-shadow);
     border-radius: 4px 12px 12px 4px;
 }
 
-/* 3D Depth & Textures */
-.3d-depth, .seal-button, .logo {
+/* --------------------------------------------------------------------------
+   DESKTOP ONLY SCALING (Laptops/Monitors)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .main-container {
+    transform: scale(1.35);  /* Clean 35% boost for Desktop screens */
+    transform-origin: center center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3D DEPTH & METALLIC FINISH
+   -------------------------------------------------------------------------- */
+.seal-button, .logo {
   filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.7));
-  transition: transform 0.3s ease;
 }
 
 .book-page {
@@ -292,7 +293,7 @@ body {
 
 .brand-title {
     font-family: var(--font-heading);
-    font-size: 2.3rem;
+    font-size: 2.2rem;
     letter-spacing: 8px;
     font-weight: 700;
     line-height: 1;
@@ -300,14 +301,14 @@ body {
 
 .brand-subtitle {
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 9px;
     margin-top: 6px;
 }
 
 .chronicle {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .motto-group {
@@ -326,7 +327,7 @@ body {
 }
 
 .custody-text {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     letter-spacing: 3px;
     color: #a0a0a0;
     line-height: 1.7;
@@ -335,13 +336,13 @@ body {
 
 .volume-title {
     font-family: var(--font-heading);
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     letter-spacing: 3px;
 }
 
 .roman-year {
     font-family: var(--font-heading);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     letter-spacing: 4px;
 }
 
@@ -352,10 +353,10 @@ body {
 }
 
 .seal {
-    width: 92px;
-    height: 92px;
+    width: 85px;
+    height: 85px;
     cursor: pointer;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .seal:hover {
@@ -364,7 +365,7 @@ body {
 
 .break-text {
     font-family: var(--font-heading);
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     letter-spacing: 3px;
     margin-bottom: 2px;
 }
