@@ -35,6 +35,7 @@
     --gold-glow: 0 0 15px rgba(212, 175, 55, 0.35);
 }
 
+
 /* --------------------------------------------------------------------------
    2. RESET & BASE CANVAS
    -------------------------------------------------------------------------- */
@@ -89,8 +90,10 @@ body {
    3. THE CODEX (BOOK CONTAINER & SPINE)
    -------------------------------------------------------------------------- */
 .book {
-    width: 360px;
-    height: 620px;
+    width: 90vw;          
+    max-width: 420px;       
+    height: 82vh;    
+    max-height: 700px;
     position: relative;
     transform-style: preserve-3d;
     box-shadow: var(--vault-shadow);
@@ -166,7 +169,7 @@ body {
 }
 
 .logo {
-    width: 50px;
+    width: 60px;
     height: auto;
     filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
 }
@@ -179,7 +182,7 @@ body {
 
 .brand-title {
     font-family: var(--font-heading);
-    font-size: 2.3rem;
+    font-size: 2.8rem;
     letter-spacing: 7px;
     background: var(--gold-foil);
     -webkit-background-clip: text;
@@ -272,8 +275,8 @@ body {
 }
 
 .seal {
-    width: 68px;
-    height: 68px;
+    width: 78px;
+    height: 78px;
     cursor: pointer;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
     object-fit: contain;
