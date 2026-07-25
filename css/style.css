@@ -1,1095 +1,393 @@
 /* ==========================================================
-   V0 FOUNDATION
-   PHASE A
-   RESET + ROOT + SCENE
+   AYNOOR ATELIER - 3D ENGINE & FOUNDATION CSS
+   FIXED: 3D Layering, Stacking Context & Perspective
 ========================================================== */
 
-/* ---------------- Root ---------------- */
+/* ---------------- Root Variables ---------------- */
+:root {
+    --bg: #050505;
+    --gold: #d4af37;
+    --gold-light: #f2dc8c;
+    --gold-dark: #8f6d24;
 
-:root{
+    --cover-dark: #0d0b09;
+    --cover-mid: #17130f;
+    --cover-light: #2d2418;
 
-    --bg:#050505;
+    --paper: #f5efe5;
+    --paper-edge: #d8cdb8;
 
-    --gold:#d4af37;
-    --gold-light:#f2dc8c;
-    --gold-dark:#8f6d24;
+    --shadow-heavy: 0 40px 80px rgba(0, 0, 0, .65);
+    --shadow-soft: 0 10px 25px rgba(0, 0, 0, .25);
 
-    --cover-dark:#0d0b09;
-    --cover-mid:#17130f;
-    --cover-light:#2d2418;
-
-    --paper:#f5efe5;
-    --paper-edge:#d8cdb8;
-
-    --shadow-heavy:
-    0 40px 80px rgba(0,0,0,.65);
-
-    --shadow-soft:
-    0 10px 25px rgba(0,0,0,.25);
-
-    --heading:'Cinzel',serif;
-    --body:'Montserrat',sans-serif;
-
+    --heading: 'Cinzel', serif;
+    --body: 'Montserrat', sans-serif;
 }
-
 
 /* ---------------- Reset ---------------- */
-
-*{
-
-    margin:0;
-    padding:0;
-
-    box-sizing:border-box;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html,
-body{
-
-    width:100%;
-    height:100%;
-
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
-body{
-
-    overflow:hidden;
-
-    background:var(--bg);
-
-    font-family:var(--body);
-
+body {
+    overflow: hidden;
+    background: var(--bg);
+    font-family: var(--body);
 }
 
-
-/* ---------------- Atmosphere ---------------- */
-
-.spotlight{
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
+/* ---------------- Atmosphere / Spotlight ---------------- */
+.spotlight {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
     background:
-
-    radial-gradient(
-
-        circle at center,
-
-        rgba(212,175,55,.08),
-
-        transparent 30%
-
-    ),
-
-    radial-gradient(
-
-        circle,
-
-        transparent 35%,
-
-        rgba(0,0,0,.88) 100%
-
-    );
-
+        radial-gradient(circle at center, rgba(212, 175, 55, .08), transparent 30%),
+        radial-gradient(circle, transparent 35%, rgba(0, 0, 0, .88) 100%);
 }
 
-
-/* ---------------- Scene ---------------- */
-
-.scene{
-
-    width:100%;
-    height:100%;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    perspective:2400px;
-
+/* ---------------- 3D Scene Viewport ---------------- */
+.scene {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 2000px; /* 3D Perspective Depth */
+    position: relative;
+    z-index: 2;
 }
 
-
-/* ---------------- Book ---------------- */
-
-.book{
-
-    position:relative;
-
-    width:min(92vw,460px);
-
-    height:min(88vh,720px);
-
-    transform-style:preserve-3d;
-
+/* ---------------- Book Master Container ---------------- */
+.book {
+    position: relative;
+    width: min(92vw, 460px);
+    height: min(88vh, 720px);
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
+    filter: drop-shadow(0 35px 50px rgba(0, 0, 0, 0.7));
 }
 
+.book:hover {
+    transform: translateY(-8px) rotateX(4deg) rotateY(-2deg);
+}
 
-/* ---------------- Spine ---------------- */
+/* ---------------- 3D Spine ---------------- */
+.spine {
+    position: absolute;
+    left: -18px;
+    top: 0;
+    width: 22px;
+    height: 100%;
+    border-radius: 8px 0 0 8px;
+    background: linear-gradient(90deg, #040404, #231b12, #564122, #231b12, #050505);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    z-index: 10;
+    transform: translateZ(-5px);
+    box-shadow: inset -2px 0 4px rgba(0, 0, 0, .7);
+}
 
-.spine{
+.spine-ridge {
+    height: 6px;
+    background: linear-gradient(180deg, #111, #6f5630, #111);
+}
 
-    position:absolute;
+/* ---------------- Page Stack (Pages Depth Edge) ---------------- */
+.page-stack {
+    position: absolute;
+    top: 8px;
+    right: -10px;
+    width: 14px;
+    height: calc(100% - 16px);
+    border-radius: 0 6px 6px 0;
+    background: repeating-linear-gradient(180deg, #f3eadb 0px, #e6dcc8 2px, #f8f4eb 4px);
+    transform: translateZ(-2px);
+    box-shadow: inset 2px 0 6px rgba(0,0,0,0.3);
+}
 
-    left:-18px;
-    top:0;
+/* ---------------- Manuscript Inner Page ---------------- */
+.page {
+    position: absolute;
+    inset: 4px;
+    background: var(--paper);
+    border-radius: 4px 10px 10px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transform: translateZ(1px); /* Stacked behind cover */
+    box-shadow: inset 20px 0 28px rgba(0,0,0,.14), inset -2px 0 6px rgba(0,0,0,.05);
+}
 
-    width:22px;
-    height:100%;
-
-    border-radius:8px 0 0 8px;
-
+.page-texture {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .18;
     background:
-
-    linear-gradient(
-
-        90deg,
-
-        #040404,
-
-        #231b12,
-
-        #564122,
-
-        #231b12,
-
-        #050505
-
-    );
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-evenly;
-
-    z-index:20;
-
-    box-shadow:
-
-    inset -2px 0 4px rgba(0,0,0,.7);
-
+        repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(0,0,0,.02) 4px),
+        radial-gradient(circle, rgba(255,255,255,.45), transparent 70%);
 }
 
-.spine-ridge{
+.page-content {
+    position: relative;
+    z-index: 5;
+    width: 82%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-    height:6px;
+.welcome-title {
+    font-family: var(--heading);
+    font-size: 2rem;
+    letter-spacing: 8px;
+    color: #1d1812;
+}
 
+.page-line {
+    width: 72px;
+    height: 1px;
+    margin: 24px 0;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.archival-quote {
+    font-family: var(--heading);
+    font-size: .95rem;
+    line-height: 2;
+    color: #42382b;
+    margin-bottom: 38px;
+}
+
+.vault-btn {
+    padding: 14px 34px;
+    border-radius: 50px;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: #6d531d;
+    font-family: var(--heading);
+    font-size: .78rem;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: background .3s, color .3s, transform .3s;
+}
+
+.vault-btn:hover {
+    background: var(--gold);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ---------------- 3D Leather Cover ---------------- */
+.cover {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    border-radius: 6px 12px 12px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 42px 28px 26px;
     background:
-
-    linear-gradient(
-
-        180deg,
-
-        #111,
-
-        #6f5630,
-
-        #111
-
-    );
-
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.05), transparent 35%),
+        radial-gradient(circle at 70% 80%, rgba(0,0,0,.25), transparent 45%),
+        radial-gradient(circle at 50% 25%, #312518 0%, #1b140e 45%, #090705 100%);
+    
+    /* CRITICAL 3D SETTINGS */
+    transform-origin: left center; /* Hinged on the left spine */
+    transform-style: preserve-3d;  /* Enables 3D for child elements */
+    backface-visibility: hidden;   /* Prevents glitches when flipped */
+    box-shadow: inset 0 0 35px rgba(0,0,0,.75), 8px 0 18px rgba(0,0,0,.35);
+    transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-
-/* ---------------- Page Stack ---------------- */
-
-.page-stack{
-
-    position:absolute;
-
-    top:8px;
-    right:-10px;
-
-    width:12px;
-    height:calc(100% - 16px);
-
-    border-radius:0 6px 6px 0;
-
-    background:
-
-    repeating-linear-gradient(
-
-        180deg,
-
-        #f3eadb 0px,
-
-        #e6dcc8 2px,
-
-        #f8f4eb 4px
-
-    );
-
-   }
-
-
-/* ==========================================================
-   V0 FOUNDATION
-   PHASE B
-   MANUSCRIPT PAGE
-==========================================================*/
-
-/* -------------------------
-   Main Page
---------------------------*/
-
-.page{
-
-    position:absolute;
-
-    inset:4px;
-
-    background:var(--paper);
-
-    border-radius:4px 10px 10px 4px;
-
-    overflow:hidden;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    z-index:2;
-
-    box-shadow:
-
-        inset 20px 0 28px rgba(0,0,0,.14),
-
-        inset -2px 0 6px rgba(0,0,0,.05);
-
+.leather-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .12;
+    border-radius: inherit;
+    background: repeating-radial-gradient(circle, rgba(255,255,255,.08) 0, rgba(255,255,255,.02) 2px, transparent 5px);
 }
 
-
-/* -------------------------
-   Paper Texture
---------------------------*/
-
-.page-texture{
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-
-    opacity:.18;
-
-    background:
-
-        repeating-linear-gradient(
-
-            0deg,
-
-            transparent 0px,
-
-            transparent 3px,
-
-            rgba(0,0,0,.02) 4px
-
-        ),
-
-        radial-gradient(
-
-            circle,
-
-            rgba(255,255,255,.45),
-
-            transparent 70%
-
-        );
-
+/* ---------------- 3D Floating Frames & Bevels ---------------- */
+.bevel-edge {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255,255,255,.05);
+    transform: translateZ(5px); /* Lifted off leather */
 }
 
-
-/* -------------------------
-   Content Wrapper
---------------------------*/
-
-.page-content{
-
-    position:relative;
-
-    z-index:5;
-
-    width:82%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
+.gold-frame {
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(212,175,55,.55);
+    box-shadow: 0 0 10px rgba(212,175,55,.08), inset 0 0 8px rgba(212,175,55,.04);
+    transform: translateZ(12px); /* 3D Depth Layer 1 */
 }
 
-
-/* -------------------------
-   Welcome Title
---------------------------*/
-
-.welcome-title{
-
-    font-family:var(--heading);
-
-    font-size:2rem;
-
-    letter-spacing:8px;
-
-    color:#1d1812;
-
+.inner-frame {
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(212,175,55,.18);
+    opacity: .8;
+    transform: translateZ(18px); /* 3D Depth Layer 2 */
 }
 
-
-/* -------------------------
-   Gold Divider
---------------------------*/
-
-.page-line{
-
-    width:72px;
-
-    height:1px;
-
-    margin:24px 0;
-
-    background:
-
-    linear-gradient(
-
-        90deg,
-
-        transparent,
-
-        var(--gold),
-
-        transparent
-
-    );
-
+/* ---------------- 3D Floating Content Elements ---------------- */
+.brand-logo-container {
+    position: relative;
+    z-index: 5;
+    transform: translateZ(35px); /* Pop out in 3D */
 }
 
-
-/* -------------------------
-   Quote
---------------------------*/
-
-.archival-quote{
-
-    font-family:var(--heading);
-
-    font-size:.95rem;
-
-    line-height:2;
-
-    color:#42382b;
-
-    margin-bottom:38px;
-
+.logo {
+    width: 110px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,.8)) drop-shadow(0 0 8px rgba(212,175,55,.18));
 }
 
-
-/* -------------------------
-   Button
---------------------------*/
-
-.vault-btn{
-
-    padding:14px 34px;
-
-    border-radius:50px;
-
-    border:1px solid var(--gold);
-
-    background:transparent;
-
-    color:#6d531d;
-
-    font-family:var(--heading);
-
-    font-size:.78rem;
-
-    letter-spacing:3px;
-
-    cursor:pointer;
-
+.title-group {
+    position: relative;
+    z-index: 5;
+    transform: translateZ(30px);
 }
 
-/* ==========================================================
-   V0 FOUNDATION
-   PHASE C
-   LEATHER COVER
-==========================================================*/
-
-/* -------------------------
-   Cover
---------------------------*/
-
-.cover{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:10;
-
-    border-radius:6px 12px 12px 6px;
-
-    overflow:hidden;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:42px 28px 26px;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 25%,
-            var(--cover-light) 0%,
-            var(--cover-mid) 48%,
-            var(--cover-dark) 100%
-        );
-
-    transform-origin:left center;
-
-    transform-style:preserve-3d;
-
+.brand-title {
+    font-family: var(--heading);
+    font-size: 2.3rem;
+    letter-spacing: 8px;
+    background: linear-gradient(180deg, #fff7c7, #e8ca6e, #bf953f, #8f6d24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 1px 2px rgba(255,255,255,.08);
 }
 
-
-/* -------------------------
-   Leather Texture
---------------------------*/
-
-.leather-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-
-    opacity:.12;
-
-    background:
-
-        repeating-radial-gradient(
-
-            circle,
-
-            rgba(255,255,255,.08) 0,
-
-            rgba(255,255,255,.02) 2px,
-
-            transparent 5px
-
-        );
-
+.brand-subtitle {
+    margin-top: 8px;
+    font-family: var(--heading);
+    font-size: 1rem;
+    letter-spacing: 8px;
+    color: #d7ba73;
 }
 
-
-/* -------------------------
-   Border
---------------------------*/
-
-.bevel-edge{
-
-    position:absolute;
-
-    inset:0;
-
-    border-radius:inherit;
-
-    border:1px solid rgba(255,255,255,.05);
-
+.motto-group {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateZ(25px);
 }
 
-.gold-frame{
-
-    position:absolute;
-
-    inset:12px;
-
-    border:1px solid rgba(212,175,55,.55);
-
+.chronicle {
+    font-family: var(--heading);
+    color: #d0af66;
 }
 
-.inner-frame{
-
-    position:absolute;
-
-    inset:18px;
-
-    border:1px solid rgba(212,175,55,.18);
-
+.gold-line {
+    width: 90px;
+    height: 1px;
+    margin: 14px auto 0;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-
-/* -------------------------
-   Content Layers
---------------------------*/
-
-.brand-logo-container,
-.title-group,
-.motto-group,
-.custody-group,
-.volume-group,
-.seal-wrapper,
-.break-text{
-
-    position:relative;
-
-    z-index:5;
-
+.custody-group {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transform: translateZ(20px);
 }
 
-
-/* -------------------------
-   Logo
---------------------------*/
-
-.logo{
-
-    width:110px;      
-
-    height:auto;
-
-    display:block;
-
-    margin:0 auto;
-
-    filter:
-        drop-shadow(0 5px 12px rgba(0,0,0,.80));
-
+.custody-text {
+    font-size: .72rem;
+    color: #bdbdbd;
+    letter-spacing: 3px;
 }
 
-
-/* -------------------------
-   Titles
---------------------------*/
-
-.brand-title{
-
-    font-family:var(--heading);
-
-    font-size:2.3rem;
-
-    letter-spacing:8px;
-
-    color:var(--gold-light);
-
+.volume-group {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    transform: translateZ(25px);
 }
 
-.brand-subtitle{
-
-    margin-top:8px;
-
-    font-family:var(--heading);
-
-    font-size:1rem;
-
-    letter-spacing:8px;
-
-    color:#d7ba73;
-
+.volume-title {
+    font-family: var(--heading);
+    color: #d8b96d;
 }
 
-
-/* -------------------------
-   Motto
---------------------------*/
-
-.chronicle{
-
-    font-family:var(--heading);
-
-    color:#d0af66;
-
+.roman-year {
+    margin-top: 5px;
+    color: #9f8450;
 }
 
-.motto-group{
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
+/* ---------------- Royal Seal (Maximum 3D Depth) ---------------- */
+.seal-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-top: 8px;
+    transform: translateZ(45px); /* Highest 3D Layer */
 }
 
-.gold-line{
-
-    width:90px;
-
-    height:1px;
-
-    margin:14px auto 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--gold),
-            transparent
-        );
-
+.seal {
+    width: 140px;
+    cursor: pointer;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,.75));
+    transition: transform .35s ease, filter .35s ease;
 }
 
-
-/* -------------------------
-   Philosophy
---------------------------*/
-
-.custody-group{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:4px;
-
+.seal:hover {
+    transform: scale(1.08) rotate(4deg) translateZ(10px);
+    filter: drop-shadow(0 0 18px rgba(212,175,55,.6));
 }
 
-.custody-text{
-
-    font-size:.72rem;
-
-    color:#bdbdbd;
-
-    letter-spacing:3px;
-
+.break-text {
+    position: relative;
+    z-index: 5;
+    font-family: var(--heading);
+    font-size: .62rem;
+    letter-spacing: 4px;
+    color: #d0af66;
+    margin-bottom: 24px;
+    transform: translateZ(20px);
 }
 
-
-/* -------------------------
-   Volume
---------------------------*/
-
-.volume-group{
-
-    text-align:center;
-
-}
-
-.volume-title{
-
-    font-family:var(--heading);
-
-    color:#d8b96d;
-
-}
-
-.roman-year{
-
-    margin-top:5px;
-
-    color:#9f8450;
-
-}
-
-
-/* -------------------------
-   Seal
---------------------------*/
-
-.seal-wrapper{
-
-    margin-top:8px;
-
-}
-
-.seal{
-
-    width:140px;
-
-    cursor:pointer;
-
-}
-
-
-/* -------------------------
-   Footer
---------------------------*/
-
-.break-text{
-
-    font-family:var(--heading);
-
-    font-size:.62rem;
-
-    letter-spacing:4px;
-
-    color:#d0af66;
-
-   margin-bottom:24px;
-
-       }
-
-/* ==========================================================
-   V0 FOUNDATION
-   PHASE D
-   LUXURY FINISH
-==========================================================*/
-
-
-/* --------------------------
-   Book Shadow
----------------------------*/
-
-.book{
-
-    filter:
-
-        drop-shadow(0 45px 60px rgba(0,0,0,.45));
-
-}
-
-
-/* --------------------------
-   Cover Shadow
----------------------------*/
-
-.cover{
-
-    box-shadow:
-
-        inset 0 0 35px rgba(0,0,0,.75),
-
-        8px 0 18px rgba(0,0,0,.35);
-
-}
-
-
-/* --------------------------
-   Gold Title
----------------------------*/
-
-.brand-title{
-
-    background:
-
-        linear-gradient(
-
-            180deg,
-
-            #fff7c7,
-
-            #e8ca6e,
-
-            #bf953f,
-
-            #8f6d24
-
-        );
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-}
-
-
-/* --------------------------
-   Seal
----------------------------*/
-
-.seal{
-
-    transition:
-
-        transform .35s ease,
-
-        filter .35s ease;
-
-}
-
-.seal:hover{
-
-    transform:
-
-        scale(1.08)
-
-        rotate(4deg);
-
-    filter:
-
-        drop-shadow(0 0 14px rgba(212,175,55,.45));
-
-}
-
-
-/* --------------------------
-   Button
----------------------------*/
-
-.vault-btn{
-
-    transition:
-
-        background .3s,
-
-        color .3s,
-
-        transform .3s;
-
-}
-
-.vault-btn:hover{
-
-    background:var(--gold);
-
-    color:white;
-
-    transform:translateY(-2px);
-
-}
-
-
-/* --------------------------
-   Responsive
----------------------------*/
-
+/* ---------------- Responsive Styles ---------------- */
 @media(max-width:768px){
-
-.logo{
-
-    width:105px;
-
-}
-
-.brand-title{
-
-    font-size:1.9rem;
-
-}
-
-.brand-subtitle{
-
-    font-size:.85rem;
-
-}
-
-.seal{
-
-    width:85px;
-
-}
-
-.welcome-title{
-
-    font-size:1.6rem;
-
-}
-
-.archival-quote{
-
-    font-size:.82rem;
-
-}
-
+    .logo { width: 105px; }
+    .brand-title { font-size: 1.9rem; }
+    .brand-subtitle { font-size: .85rem; }
+    .seal { width: 85px; }
+    .welcome-title { font-size: 1.6rem; }
+    .archival-quote { font-size: .82rem; }
 }
 
 @media(max-width:420px){
-
-.cover{
-
-    padding:34px 20px 24px;
-
+    .cover { padding: 34px 20px 24px; }
+    .brand-title { font-size: 1.65rem; }
+    .brand-subtitle { font-size: .75rem; }
+    .logo { width: 90px; }
+    .seal { width: 75px; }
 }
-
-.brand-title{
-
-    font-size:1.65rem;
-
-}
-
-.brand-subtitle{
-
-    font-size:.75rem;
-
-}
-
-.logo{
-
-    width:90px;
-
-}
-
-.seal{
-
-    width:75px;
-
-}
-
-}
-
-/* ==========================================================
-   V0 — PHASE E
-   LUXURY DEPTH & REALISM
-========================================================== */
-
-
-/* ==========================
-   Premium Book Depth
-========================== */
-
-.book{
-
-    transform-style:preserve-3d;
-
-    transition:
-        transform .6s ease,
-        filter .6s ease;
-
-}
-
-
-/* ==========================
-   Leather Richness
-========================== */
-
-.cover{
-
-    background:
-        radial-gradient(circle at 30% 20%,
-        rgba(255,255,255,.05),
-        transparent 35%),
-
-        radial-gradient(circle at 70% 80%,
-        rgba(0,0,0,.25),
-        transparent 45%),
-
-        radial-gradient(circle at 50% 25%,
-        #312518 0%,
-        #1b140e 45%,
-        #090705 100%);
-
-}
-
-
-/* ==========================
-   Gold Border Glow
-========================== */
-
-.gold-frame{
-
-    box-shadow:
-
-        0 0 10px rgba(212,175,55,.08),
-
-        inset 0 0 8px rgba(212,175,55,.04);
-
-}
-
-
-/* ==========================
-   Inner Frame Softness
-========================== */
-
-.inner-frame{
-
-    opacity:.8;
-
-}
-
-
-/* ==========================
-   Page Edge Upgrade
-========================== */
-
-.page-stack{
-
-    filter:
-
-        brightness(1.02)
-
-        contrast(1.05);
-
-}
-
-
-/* ==========================
-   Book Hover Lift
-========================== */
-
-.book:hover{
-
-    transform:
-
-        translateY(-6px)
-
-        scale(1.005);
-
-}
-
-
-/* ==========================
-   Luxury Logo Light
-========================== */
-
-.logo{
-
-    filter:
-
-        drop-shadow(0 6px 14px rgba(0,0,0,.8))
-
-        drop-shadow(0 0 8px rgba(212,175,55,.18));
-
-}
-
-
-/* ==========================
-   Gold Text Polish
-========================== */
-
-.brand-title{
-
-    text-shadow:
-
-        0 1px 2px rgba(255,255,255,.08);
-
-}
-
-
-/* ==========================
-   Premium Seal Shadow
-========================== */
-
-.seal{
-
-    filter:
-
-        drop-shadow(0 8px 16px rgba(0,0,0,.75));
-
-}
-
-
-/* ==========================
-   Soft Ambient Shadow
-========================== */
-
-.book::after{
-
-    opacity:.55;
-
-}
-
