@@ -1,87 +1,38 @@
-let isAudioUnlocked = false;
-
-// Mobile Web Audio Unlocker
-function unlockAudioEngine() {
-    if (isAudioUnlocked) return;
-
-    const sealSound = document.getElementById("sealSound");  
-    const pageSound = document.getElementById("pageSound");  
-
-    [sealSound, pageSound].forEach(audio => {  
-        if (audio) {  
-            audio.play().then(() => {  
-                audio.pause();  
-                audio.currentTime = 0;  
-            }).catch(() => {});  
-        }  
-    });  
-
-    isAudioUnlocked = true;  
-    window.removeEventListener("click", unlockAudioEngine);  
-    window.removeEventListener("touchstart", unlockAudioEngine);
-}
-
-window.addEventListener("click", unlockAudioEngine);
-window.addEventListener("touchstart", unlockAudioEngine);
-
-// Open Book & Play Sound Handler
+// Function to Open Book & Play Sound
 function openArchiveBook() {
-    const book = document.getElementById("book");
+    console.log("Seal Clicked! Triggering Animation...");
+
+    // 1. Play Seal Audio
     const sealSound = document.getElementById("sealSound");
+    if (sealSound) {
+        sealSound.currentTime = 0;
+        sealSound.play().catch(err => console.log("Audio Error:", err));
+    }
 
-    // Play Seal Sound Immediately
-    if (sealSound) {  
-        sealSound.currentTime = 0;  
-        sealSound.play().catch(err => console.warn("Audio play blocked:", err));  
-    }  
-
-    // Flip Open Cover
-    if (book) {  
-        book.classList.add("open");  
+    // 2. Trigger CSS Animation
+    const book = document.getElementById("book") || document.querySelector(".book");
+    if (book) {
+        book.classList.add("open");
+        console.log("Animation class '.open' added!");
+    } else {
+        alert("Error: HTML mein book element nahi mila!");
     }
 }
 
-// Global Event Listeners Setup
+// Vault Navigation Logic
 document.addEventListener("DOMContentLoaded", () => {
-    const sealWrapper = document.getElementById("sealTrigger");
-    const sealImg = document.querySelector(".seal");
     const enterVaultBtn = document.getElementById("enterVault");
     const pageSound = document.getElementById("pageSound");
 
-    // Direct Click Bindings for Both Wrapper & Image directly
-    if (sealWrapper) {  
-        sealWrapper.addEventListener("click", openArchiveBook);  
-    }  
-    if (sealImg) {
-        sealImg.addEventListener("click", openArchiveBook);
-    }
-
-    // Vault Button Direct Routing with Sound Effect
-    if (enterVaultBtn) {  
-        enterVaultBtn.addEventListener("click", (e) => {  
-            e.preventDefault();  
-
-            if (pageSound) {  
-                pageSound.currentTime = 0;  
-                let redirected = false;  
-
-                const goToNextPage = () => {  
-                    if (!redirected) {  
-                        redirected = true;  
-                        window.location.href = "home.html";  
-                    }  
-                };  
-
-                pageSound.play().then(() => {  
-                    setTimeout(goToNextPage, 350);  
-                }).catch(() => {  
-                    goToNextPage();  
-                });  
-
-                setTimeout(goToNextPage, 500);  
-            } else {  
-                window.location.href = "home.html";  
-            }  
-        });  
+    if (enterVaultBtn) {
+        enterVaultBtn.addEventListener("click", () => {
+            if (pageSound) {
+                pageSound.currentTime = 0;
+                pageSound.play().catch(() => {});
+            }
+            setTimeout(() => {
+                window.location.href = "home.html";
+            }, 300);
+        });
     }
 });
