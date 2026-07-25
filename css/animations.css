@@ -117,7 +117,3 @@
     }
 }
 
-/* Page Stack Hide Logic */
-.book.open .page-stack {
-    display: none;
-}
