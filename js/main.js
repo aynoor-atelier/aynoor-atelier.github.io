@@ -1,38 +1,49 @@
-// Function to Open Book & Play Sound
-function openArchiveBook() {
-    console.log("Seal Clicked! Triggering Animation...");
-
-    // 1. Play Seal Audio
+// Open Archive Book Function (Global)
+window.openArchiveBook = function() {
+    const book = document.getElementById("book");
     const sealSound = document.getElementById("sealSound");
-    if (sealSound) {
-        sealSound.currentTime = 0;
-        sealSound.play().catch(err => console.log("Audio Error:", err));
-    }
 
-    // 2. Trigger CSS Animation
-    const book = document.getElementById("book") || document.querySelector(".book");
-    if (book) {
-        book.classList.add("open");
-        console.log("Animation class '.open' added!");
-    } else {
-        alert("Error: HTML mein book element nahi mila!");
-    }
-}
+    if (sealSound) {  
+        sealSound.currentTime = 0;  
+        sealSound.play().catch(err => console.warn("Audio play issue:", err));  
+    }  
 
-// Vault Navigation Logic
+    if (book) {  
+        book.classList.add("open");  
+    }
+};
+
+// Vault Navigation
 document.addEventListener("DOMContentLoaded", () => {
     const enterVaultBtn = document.getElementById("enterVault");
     const pageSound = document.getElementById("pageSound");
 
-    if (enterVaultBtn) {
-        enterVaultBtn.addEventListener("click", () => {
-            if (pageSound) {
-                pageSound.currentTime = 0;
-                pageSound.play().catch(() => {});
-            }
-            setTimeout(() => {
-                window.location.href = "home.html";
-            }, 300);
-        });
+    if (enterVaultBtn) {  
+        enterVaultBtn.addEventListener("click", (e) => {  
+            e.preventDefault();  
+
+            if (pageSound) {  
+                pageSound.currentTime = 0;  
+                let redirected = false;  
+
+                const goToNextPage = () => {  
+                    if (!redirected) {  
+                        redirected = true;  
+                        window.location.href = "home.html";  
+                    }  
+                };  
+
+                pageSound.play().then(() => {  
+                    setTimeout(goToNextPage, 350);  
+                }).catch(() => {  
+                    goToNextPage();  
+                });  
+
+                setTimeout(goToNextPage, 500);  
+            } else {  
+                window.location.href = "home.html";  
+            }  
+        });  
     }
 });
+
