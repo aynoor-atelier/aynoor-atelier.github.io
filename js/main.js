@@ -1,6 +1,6 @@
 let isAudioUnlocked = false;
 
-// Unlock mobile audio engine on first interaction
+// Mobile Web Audio Unlocker
 function unlockAudioEngine() {
     if (isAudioUnlocked) return;
 
@@ -24,31 +24,39 @@ function unlockAudioEngine() {
 window.addEventListener("click", unlockAudioEngine);
 window.addEventListener("touchstart", unlockAudioEngine);
 
-// Open Archive Book Handler
+// Open Book & Play Sound Handler
 function openArchiveBook() {
     const book = document.getElementById("book");
     const sealSound = document.getElementById("sealSound");
 
+    // Play Seal Sound Immediately
     if (sealSound) {  
         sealSound.currentTime = 0;  
-        sealSound.play().catch(err => console.warn("Seal sound blocked/missing:", err));  
+        sealSound.play().catch(err => console.warn("Audio play blocked:", err));  
     }  
 
+    // Flip Open Cover
     if (book) {  
         book.classList.add("open");  
     }
 }
 
-// Event Listeners Setup
+// Global Event Listeners Setup
 document.addEventListener("DOMContentLoaded", () => {
-    const sealTrigger = document.getElementById("sealTrigger");
+    const sealWrapper = document.getElementById("sealTrigger");
+    const sealImg = document.querySelector(".seal");
     const enterVaultBtn = document.getElementById("enterVault");
     const pageSound = document.getElementById("pageSound");
 
-    if (sealTrigger) {  
-        sealTrigger.addEventListener("click", openArchiveBook);  
+    // Direct Click Bindings for Both Wrapper & Image directly
+    if (sealWrapper) {  
+        sealWrapper.addEventListener("click", openArchiveBook);  
     }  
+    if (sealImg) {
+        sealImg.addEventListener("click", openArchiveBook);
+    }
 
+    // Vault Button Direct Routing with Sound Effect
     if (enterVaultBtn) {  
         enterVaultBtn.addEventListener("click", (e) => {  
             e.preventDefault();  
@@ -65,12 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 };  
 
                 pageSound.play().then(() => {  
-                    setTimeout(goToNextPage, 400);  
+                    setTimeout(goToNextPage, 350);  
                 }).catch(() => {  
                     goToNextPage();  
                 });  
 
-                setTimeout(goToNextPage, 600);  
+                setTimeout(goToNextPage, 500);  
             } else {  
                 window.location.href = "home.html";  
             }  
