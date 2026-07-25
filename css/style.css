@@ -12,6 +12,8 @@
     --font-body: 'Montserrat', sans-serif;
     
     --vault-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), 0 10px 25px rgba(0, 0, 0, 0.8);
+    --x: 50vw;
+    --y: 50vh;
 }
 
 * {
@@ -35,28 +37,42 @@ body {
     align-items: center;
 }
 
-/* Atmospheric Lighting */
-.spotlight {
+/* Atmospheric Interactive Lighting */
+.spotlight-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(circle at 50% 40%, rgba(35, 27, 16, 0.5) 0%, rgba(3, 3, 2, 0.98) 75%);
     pointer-events: none;
-    z-index: 1;
+    z-index: 99;
+    background: radial-gradient(
+        600px circle at var(--x) var(--y), 
+        rgba(255, 255, 255, 0.12), 
+        rgba(3, 3, 2, 0.96) 80%
+    );
+    transition: background 0.05s ease;
 }
 
 .scene {
     position: relative;
     z-index: 10;
-    perspective: 2000px; /* Enhanced 3D depth perspective */
+    perspective: 2000px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
     padding: 15px;
+}
+
+/* Desktop Scale Enhancement (70% Larger) */
+@media (min-width: 1024px) {
+  .main-container {
+    transform: scale(1.4); /* Scaled safely to 1.4x so book doesn't bleed out of screen height */
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -71,6 +87,27 @@ body {
     transform-style: preserve-3d;
     box-shadow: var(--vault-shadow);
     border-radius: 4px 12px 12px 4px;
+}
+
+/* 3D Depth & Textures */
+.3d-depth, .seal-button, .logo {
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.7));
+  transition: transform 0.3s ease;
+}
+
+.book-page {
+  box-shadow: 
+    -5px 0 15px rgba(0, 0, 0, 0.15),
+    10px 15px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+.metallic-text {
+  background: var(--gold-foil);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.8));
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
@@ -100,7 +137,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   PAGE STACK (Paper Thickness on Right Edge)
+   PAGE STACK
    -------------------------------------------------------------------------- */
 .page-stack {
     position: absolute;
@@ -121,7 +158,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   REALISTIC AGED MANUSCRIPT PAGE
+   PAGE
    -------------------------------------------------------------------------- */
 .page {
     position: absolute;
@@ -146,7 +183,6 @@ body {
 
 .welcome-title {
     font-family: var(--font-heading);
-    color: #1a1610;
     font-size: 1.8rem;
     letter-spacing: 6px;
 }
@@ -187,7 +223,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   HIGH-LUXURY LEATHER COVER
+   COVER
    -------------------------------------------------------------------------- */
 .cover {
     position: absolute;
@@ -204,13 +240,12 @@ body {
     align-items: center;
     text-align: center;
     z-index: 5;
-    transform-origin: left center; /* Fixed axis for realistic book flip */
+    transform-origin: left center;
     transform-style: preserve-3d;
     backface-visibility: hidden;
     box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.95), 5px 0 15px rgba(0,0,0,0.6);
 }
 
-/* Leather Texture Simulation Overlay */
 .leather-overlay {
     position: absolute;
     top: 0;
@@ -223,42 +258,28 @@ body {
     z-index: 1;
 }
 
-/* Beveled Golden Edge Highlight */
-.bevel-edge {
+.bevel-edge, .gold-frame, .inner-frame {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 1px solid rgba(212, 175, 55, 0.25);
-    border-radius: 4px 10px 10px 4px;
     pointer-events: none;
     z-index: 2;
+}
+
+.bevel-edge {
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 4px 10px 10px 4px;
 }
 
 .gold-frame {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
     border: 1px solid rgba(197, 160, 89, 0.45);
-    pointer-events: none;
-    z-index: 2;
 }
 
 .inner-frame {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
+    top: 14px; left: 14px; right: 14px; bottom: 14px;
     border: 1px solid rgba(197, 160, 89, 0.2);
-    pointer-events: none;
-    z-index: 2;
 }
 
-/* Branding & Content Styling */
 .brand-logo-container, .title-group, .motto-group, .custody-group, .volume-group, .seal-wrapper, .break-text {
     position: relative;
     z-index: 4;
@@ -267,38 +288,29 @@ body {
 .logo {
     width: 68px;
     height: auto;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.9)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
 }
 
 .brand-title {
     font-family: var(--font-heading);
     font-size: 2.3rem;
     letter-spacing: 8px;
-    background: var(--gold-foil);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-weight: 700;
     line-height: 1;
-    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.95));
 }
 
 .brand-subtitle {
     font-family: var(--font-heading);
     font-size: 1rem;
     letter-spacing: 9px;
-    color: var(--gold-secondary);
     margin-top: 6px;
 }
 
 .chronicle {
     font-family: var(--font-heading);
     font-size: 0.9rem;
-    color: #b39352;
 }
 
 .motto-group {
-    position: relative;
-    z-index: 4;
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -308,7 +320,6 @@ body {
 
 .gold-line {
     width: 80px;
-  position: centre;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold-secondary), transparent);
     margin: 14px 0 0 0;
@@ -325,15 +336,19 @@ body {
 .volume-title {
     font-family: var(--font-heading);
     font-size: 0.88rem;
-    color: var(--gold-secondary);
     letter-spacing: 3px;
 }
 
 .roman-year {
     font-family: var(--font-heading);
     font-size: 0.82rem;
-    color: #8c7038;
     letter-spacing: 4px;
+}
+
+.seal-wrapper {
+    position: relative;
+    z-index: 100 !important;
+    pointer-events: auto;
 }
 
 .seal {
@@ -341,32 +356,15 @@ body {
     height: 92px;
     cursor: pointer;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
-    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.95)) drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
 }
 
-
-.seal-wrapper {
-    position: relative;
-    z-index: 100 !important;
-    pointer-events: auto 
-}
 .seal:hover {
     transform: scale(1.08) rotate(3deg);
-    filter: drop-shadow(0 12px 25px rgba(0,0,0,0.98)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
 }
 
 .break-text {
     font-family: var(--font-heading);
     font-size: 0.6rem;
     letter-spacing: 3px;
-    color: var(--gold-secondary);
     margin-bottom: 2px;
-}
-
-@media (min-width: 1024px) {
-  .main-container {
-    transform: scale(1.7);
-    transform-origin: center center;
-    transition: transform 0.3s ease;
-  }
 }
