@@ -309,6 +309,7 @@ body {
 
 .gold-line {
     width: 80px;
+  position: centre;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold-secondary), transparent);
     margin: 14px 0 0 0;
