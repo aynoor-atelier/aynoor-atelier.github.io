@@ -56,3 +56,35 @@
 
     opacity:1;
 }
+
+/* =========================
+    LUXURY IDLE
+========================= */
+
+.book:not(.open){
+
+animation:bookIdle 5s ease-in-out infinite;
+
+}
+
+@keyframes bookIdle{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-4px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
