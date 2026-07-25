@@ -6,17 +6,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AYNOOR Atelier</title>
-
-<!-- Fonts -->
+<title>AYNOOR ATELIER</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/animation.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -36,36 +33,40 @@
 <!-- FRONT COVER -->
 <!-- ========================= -->
 
-<article class="cover" id="cover">
+<article class="cover">
 
 <div class="gold-frame"></div>
+
 <div class="inner-frame"></div>
 
 <div class="cover-content">
 
+<!-- LOGO -->
+
 <div class="brand-logo-container">
 
-<img src="logo.png"
-class="logo"
-alt="AYNOOR">
+<img
+src="logo.png"
+alt="AYNOOR"
+class="logo">
 
 </div>
+
+<!-- TITLE -->
 
 <div class="title-group">
 
 <h1 class="brand-title">
-
 AYNOOR
-
 </h1>
 
 <h2 class="brand-subtitle">
-
 ATELIER
-
 </h2>
 
 </div>
+
+<!-- MOTTO -->
 
 <div class="motto-group">
 
@@ -79,17 +80,13 @@ Capital of Chronicles
 
 </div>
 
+<!-- PHILOSOPHY -->
+
 <div class="custody-group">
 
 <p class="custody-text">
 
 NOT ACQUISITION.
-
-</p>
-
-<p class="custody-text">
-
-VOLUME I
 
 </p>
 
@@ -101,25 +98,37 @@ CUSTODIANSHIP.
 
 </div>
 
+<!-- VOLUME -->
+
 <div class="volume-group">
 
-<span class="roman-year">
+<p class="volume-title">
+
+VOLUME I
+
+</p>
+
+<p class="roman-year">
 
 MMXXVI
 
-</span>
+</p>
 
 </div>
+
+<!-- SEAL -->
 
 <div class="seal-wrapper">
 
 <img
 src="seal.png"
+alt="Royal Seal"
 class="seal"
-id="sealTrigger"
-alt="Royal Seal">
+id="sealTrigger">
 
 </div>
+
+<!-- FOOTER -->
 
 <p class="break-text">
 
@@ -135,7 +144,7 @@ BREAK THE ROYAL SEAL
 <!-- FIRST PAGE -->
 <!-- ========================= -->
 
-<article class="page" id="page">
+<article class="page">
 
 <div class="page-content">
 
@@ -153,17 +162,15 @@ Every Chronicle begins with a single page.
 
 <br><br>
 
-You are not entering a website.
+You are entering
 
-<br>
-
-You are entering a living archive.
+The Capital of Chronicles.
 
 </p>
 
 <button
-id="enterVault"
-class="vault-btn">
+class="vault-btn"
+id="enterVault">
 
 ENTER THE VAULT
 
@@ -181,17 +188,17 @@ ENTER THE VAULT
 
 <audio id="sealSound">
 
-<source src="seal.mp3" type="audio/mpeg">
+<source src="audio/seal.mp3" type="audio/mpeg">
 
 </audio>
 
 <audio id="pageSound">
 
-<source src="page.mp3" type="audio/mpeg">
+<source src="audio/page.mp3" type="audio/mpeg">
 
 </audio>
 
-<script src="js/main.js"></script>
+<script src="main.js"></script>
 
 </body>
 
