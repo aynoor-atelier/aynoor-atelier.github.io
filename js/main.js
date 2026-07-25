@@ -15,6 +15,11 @@ function openArchiveBook() {
     if (book) {
         // Standard CSS class addition
         book.classList.add("open");
+
+            // Hide page stack when book opens
+    const stack = document.querySelector(".page-stack");
+        if (stack) stack.style.display = "none";
+
     }
 
     // Force Open (Jab CSS class miss ho jaye to ye backup kaam karega)
