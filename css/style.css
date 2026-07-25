@@ -1284,3 +1284,797 @@ circle at center,
 
 }
 
+/* ==========================================================
+   PHASE F-2
+   REAL 3D COVER
+========================================================== */
+
+/* Cover becomes 3D object */
+
+.cover{
+
+    position:absolute;
+
+    inset:0;
+
+    transform-style:preserve-3d;
+
+    transform-origin:left center;
+
+    perspective:2000px;
+
+}
+
+/* ------------------------
+   FRONT SIDE
+------------------------ */
+
+.cover-front{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:6px 12px 12px 6px;
+
+    backface-visibility:hidden;
+
+    overflow:hidden;
+
+    background:inherit;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:42px 28px 26px;
+
+}
+
+/* ------------------------
+   BACK SIDE
+------------------------ */
+
+.cover-back{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:6px 12px 12px 6px;
+
+    transform:rotateY(180deg);
+
+    backface-visibility:hidden;
+
+    overflow:hidden;
+
+}
+
+/* ------------------------
+   INSIDE LEATHER
+------------------------ */
+
+.inside-leather{
+
+    width:100%;
+
+    height:100%;
+
+    background:
+
+    radial-gradient(circle at center,
+
+    #332417 0%,
+
+    #21170f 60%,
+
+    #120d09 100%);
+
+    box-shadow:
+
+    inset 0 0 45px rgba(0,0,0,.65);
+
+}
+
+/* ------------------------
+   COVER THICKNESS
+------------------------ */
+
+.cover::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:8px;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #120d08,
+
+        #5b4324,
+
+        #20160d
+
+    );
+
+    transform:
+
+        rotateY(90deg)
+
+        translateZ(4px);
+
+}
+
+/* ------------------------
+   COVER SHADOW
+------------------------ */
+
+.cover::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    box-shadow:
+
+    0 0 35px rgba(0,0,0,.45);
+
+    pointer-events:none;
+
+}
+
+/* ==========================================================
+   PHASE F3
+   PAGE REVEAL AFTER COVER OPENS
+==========================================================*/
+
+/* Initial hidden page */
+
+.page{
+
+    opacity:0;
+
+    transform:
+        translateX(-25px)
+        scale(.96);
+
+    transition:
+        opacity .9s ease,
+        transform 1.1s ease;
+
+}
+
+
+/* When book opens */
+
+.book.open .page{
+
+    opacity:1;
+
+    transform:
+        translateX(0)
+        scale(1);
+
+}
+
+
+/* Slight book depth */
+
+.book.open{
+
+    transform:
+        translateY(-4px)
+        rotateX(1deg);
+
+    transition:
+        transform 1.2s ease;
+
+}
+
+
+/* Cover shadow while opening */
+
+.book.open .cover{
+
+    box-shadow:
+        -30px 0 45px rgba(0,0,0,.55),
+        0 0 30px rgba(0,0,0,.18);
+
+}
+
+
+/* Page glow */
+
+.book.open .page{
+
+    box-shadow:
+
+        inset 20px 0 28px rgba(0,0,0,.15),
+
+        0 0 25px rgba(255,248,230,.18);
+
+}
+
+
+/* Welcome content appears smoothly */
+
+.page-content{
+
+    opacity:0;
+
+    transform:
+        translateY(18px);
+
+    transition:
+
+        opacity .8s ease .45s,
+
+        transform .8s ease .45s;
+
+}
+
+.book.open .page-content{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+/* ==========================================================
+   PHASE F4
+   HARDCOVER DEPTH + REAL OPENING
+==========================================================*/
+
+/* Book keeps original position */
+
+.book{
+
+    transition:
+        transform 1.25s cubic-bezier(.22,.61,.36,1),
+        filter 1s ease;
+
+}
+
+
+/* Open Book */
+
+.book.open{
+
+    transform:
+        translateY(-6px)
+        rotateX(2deg)
+        rotateZ(-1deg);
+
+}
+
+
+/* Cover lifts naturally */
+
+.book.open .cover{
+
+    transform:
+        rotateY(-150deg)
+        translateZ(2px);
+
+}
+
+
+/* Inner page depth */
+
+.page{
+
+    transform-origin:left center;
+
+    z-index:2;
+
+}
+
+
+/* Page feels inside book */
+
+.book.open .page{
+
+    transform:
+
+        translateX(10px)
+
+        translateZ(-2px)
+
+        scale(1);
+
+}
+
+
+/* Paper stack becomes visible */
+
+.book.open .page-stack{
+
+    opacity:1;
+
+    transform:
+
+        translateX(2px);
+
+}
+
+
+/* Soft inner shadow */
+
+.book.open .page::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        rgba(0,0,0,.18),
+
+        transparent 20%
+
+    );
+
+}
+
+
+/* Premium floating shadow */
+
+.book.open{
+
+    filter:
+
+    drop-shadow(0 70px 70px rgba(0,0,0,.55))
+
+    drop-shadow(0 15px 20px rgba(0,0,0,.25));
+
+}
+
+
+/* Slight leather brightness */
+
+.book.open .cover-front{
+
+    filter:
+
+        brightness(.95);
+
+}
+
+
+/* Inside leather */
+
+.book.open .inside-leather{
+
+    filter:
+
+        brightness(1.05);
+
+}
+
+/* ==========================================================
+   PHASE F5
+   LUXURY PAPER PHYSICS
+==========================================================*/
+
+/* ---------------------------------
+   Premium paper
+----------------------------------*/
+
+.page{
+
+    overflow:hidden;
+
+    border-radius:4px 10px 10px 4px;
+
+    background:
+        radial-gradient(circle at center,
+        #fffdf9 0%,
+        #f8f2e8 55%,
+        #eee3d1 100%);
+
+}
+
+
+/* ---------------------------------
+   Paper curve near spine
+----------------------------------*/
+
+.page::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:40px;
+    height:100%;
+
+    pointer-events:none;
+
+    background:
+
+        linear-gradient(
+            90deg,
+
+            rgba(0,0,0,.16),
+
+            rgba(0,0,0,.08),
+
+            transparent 80%
+        );
+
+}
+
+
+/* ---------------------------------
+   Gold reflection
+----------------------------------*/
+
+.page::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-40%;
+    left:-60%;
+
+    width:80%;
+    height:180%;
+
+    pointer-events:none;
+
+    background:
+
+        linear-gradient(
+
+            110deg,
+
+            transparent,
+
+            rgba(255,255,255,.18),
+
+            transparent
+
+        );
+
+    transform:rotate(12deg);
+
+    opacity:.35;
+
+}
+
+
+/* ---------------------------------
+   Page stack realism
+----------------------------------*/
+
+.page-stack{
+
+    transition:
+
+        transform 1.2s ease,
+
+        opacity 1s ease;
+
+}
+
+
+.book.open .page-stack{
+
+    transform:
+
+        translateX(3px)
+
+        scaleY(.995);
+
+}
+
+
+/* ---------------------------------
+   Book depth while opened
+----------------------------------*/
+
+.book.open .page{
+
+    box-shadow:
+
+        inset 24px 0 24px rgba(0,0,0,.12),
+
+        inset -2px 0 6px rgba(0,0,0,.05),
+
+        0 8px 16px rgba(0,0,0,.10);
+
+}
+
+
+/* ---------------------------------
+   Content floating
+----------------------------------*/
+
+.page-content{
+
+    position:relative;
+
+    z-index:3;
+
+}
+
+.page-content>*{
+
+    transition:
+
+        transform .9s ease,
+
+        opacity .9s ease;
+
+}
+
+
+.book.open .page-content>*{
+
+    transform:translateY(0);
+
+    opacity:1;
+
+}
+
+
+/* ---------------------------------
+   Soft luxury lighting
+----------------------------------*/
+
+.book.open .spotlight{
+
+    filter:
+
+        brightness(1.08);
+
+}
+
+/* ==========================================================
+   PHASE F6
+   LUXURY FINISH
+==========================================================*/
+
+
+/* -------------------------
+   Smooth Book Animation
+--------------------------*/
+
+.book{
+
+    transition:
+
+        transform 1.5s cubic-bezier(.23,.82,.32,1),
+
+        filter 1.2s ease;
+
+}
+
+
+/* -------------------------
+   Premium Open Position
+--------------------------*/
+
+.book.open{
+
+    transform:
+
+        translateY(-8px)
+
+        rotateX(3deg)
+
+        rotateZ(-1deg)
+
+        scale(1.01);
+
+}
+
+
+/* -------------------------
+   Cover Weight
+--------------------------*/
+
+.book.open .cover{
+
+    transform:
+
+        rotateY(-152deg)
+
+        translateZ(4px);
+
+}
+
+
+/* -------------------------
+   Cover Shadow
+--------------------------*/
+
+.book.open .cover{
+
+    box-shadow:
+
+        -30px 0 55px rgba(0,0,0,.55),
+
+        0 0 30px rgba(0,0,0,.15);
+
+}
+
+
+/* -------------------------
+   Leather Glow
+--------------------------*/
+
+.cover-front{
+
+    transition:
+
+        filter 1s ease;
+
+}
+
+.book.open .cover-front{
+
+    filter:
+
+        brightness(.93)
+
+        contrast(1.05);
+
+}
+
+
+/* -------------------------
+   Inner Leather
+--------------------------*/
+
+.inside-leather{
+
+    transition:
+
+        filter 1s ease;
+
+}
+
+.book.open .inside-leather{
+
+    filter:
+
+        brightness(1.08);
+
+}
+
+
+/* -------------------------
+   Page Floating
+--------------------------*/
+
+.book.open .page{
+
+    transform:
+
+        translateX(12px)
+
+        translateZ(-3px)
+
+        scale(1);
+
+}
+
+
+/* -------------------------
+   Luxury Hover
+--------------------------*/
+
+.book:not(.open):hover{
+
+    transform:
+
+        translateY(-5px);
+
+}
+
+
+/* -------------------------
+   Soft Floating Animation
+--------------------------*/
+
+@keyframes luxuryFloat{
+
+0%{
+
+transform:
+
+translateY(0px);
+
+}
+
+50%{
+
+transform:
+
+translateY(-3px);
+
+}
+
+100%{
+
+transform:
+
+translateY(0px);
+
+}
+
+}
+
+.book:not(.open){
+
+animation:
+
+luxuryFloat 6s ease-in-out infinite;
+
+}
+
+
+/* -------------------------
+   Gold Reflection
+--------------------------*/
+
+.cover-front::after{
+
+    animation:
+
+        goldSweep 7s linear infinite;
+
+}
+
+
+/* -------------------------
+   Performance
+--------------------------*/
+
+.book,
+.cover,
+.page,
+.cover-front,
+.cover-back{
+
+    backface-visibility:hidden;
+
+    transform-style:preserve-3d;
+
+   }
+
