@@ -1,1 +1,934 @@
+/* ==========================================================
+   V0 FOUNDATION
+   PHASE A
+   RESET + ROOT + SCENE
+========================================================== */
+
+/* ---------------- Root ---------------- */
+
+:root{
+
+    --bg:#050505;
+
+    --gold:#d4af37;
+    --gold-light:#f2dc8c;
+    --gold-dark:#8f6d24;
+
+    --cover-dark:#0d0b09;
+    --cover-mid:#17130f;
+    --cover-light:#2d2418;
+
+    --paper:#f5efe5;
+    --paper-edge:#d8cdb8;
+
+    --shadow-heavy:
+    0 40px 80px rgba(0,0,0,.65);
+
+    --shadow-soft:
+    0 10px 25px rgba(0,0,0,.25);
+
+    --heading:'Cinzel',serif;
+    --body:'Montserrat',sans-serif;
+
+}
+
+
+/* ---------------- Reset ---------------- */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+}
+
+body{
+
+    overflow:hidden;
+
+    background:var(--bg);
+
+    font-family:var(--body);
+
+}
+
+
+/* ---------------- Atmosphere ---------------- */
+
+.spotlight{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+    radial-gradient(
+
+        circle at center,
+
+        rgba(212,175,55,.08),
+
+        transparent 30%
+
+    ),
+
+    radial-gradient(
+
+        circle,
+
+        transparent 35%,
+
+        rgba(0,0,0,.88) 100%
+
+    );
+
+}
+
+
+/* ---------------- Scene ---------------- */
+
+.scene{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    perspective:2400px;
+
+}
+
+
+/* ---------------- Book ---------------- */
+
+.book{
+
+    position:relative;
+
+    width:min(92vw,460px);
+
+    height:min(88vh,720px);
+
+    transform-style:preserve-3d;
+
+}
+
+
+/* ---------------- Spine ---------------- */
+
+.spine{
+
+    position:absolute;
+
+    left:-18px;
+    top:0;
+
+    width:22px;
+    height:100%;
+
+    border-radius:8px 0 0 8px;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #040404,
+
+        #231b12,
+
+        #564122,
+
+        #231b12,
+
+        #050505
+
+    );
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-evenly;
+
+    z-index:20;
+
+    box-shadow:
+
+    inset -2px 0 4px rgba(0,0,0,.7);
+
+}
+
+.spine-ridge{
+
+    height:6px;
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        #111,
+
+        #6f5630,
+
+        #111
+
+    );
+
+}
+
+
+/* ---------------- Page Stack ---------------- */
+
+.page-stack{
+
+    position:absolute;
+
+    top:8px;
+    right:-10px;
+
+    width:12px;
+    height:calc(100% - 16px);
+
+    border-radius:0 6px 6px 0;
+
+    background:
+
+    repeating-linear-gradient(
+
+        180deg,
+
+        #f3eadb 0px,
+
+        #e6dcc8 2px,
+
+        #f8f4eb 4px
+
+    );
+
+}
+
+/* ==========================================================
+   V0 FOUNDATION
+   PHASE B
+   MANUSCRIPT PAGE
+==========================================================*/
+
+/* -------------------------
+   Main Page
+--------------------------*/
+
+.page{
+
+    position:absolute;
+
+    inset:4px;
+
+    background:var(--paper);
+
+    border-radius:4px 10px 10px 4px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:2;
+
+    box-shadow:
+
+        inset 20px 0 28px rgba(0,0,0,.14),
+
+        inset -2px 0 6px rgba(0,0,0,.05);
+
+}
+
+
+/* -------------------------
+   Paper Texture
+--------------------------*/
+
+.page-texture{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.18;
+
+    background:
+
+        repeating-linear-gradient(
+
+            0deg,
+
+            transparent 0px,
+
+            transparent 3px,
+
+            rgba(0,0,0,.02) 4px
+
+        ),
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255,255,255,.45),
+
+            transparent 70%
+
+        );
+
+}
+
+
+/* -------------------------
+   Content Wrapper
+--------------------------*/
+
+.page-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:82%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+}
+
+
+/* -------------------------
+   Welcome Title
+--------------------------*/
+
+.welcome-title{
+
+    font-family:var(--heading);
+
+    font-size:2rem;
+
+    letter-spacing:8px;
+
+    color:#1d1812;
+
+}
+
+
+/* -------------------------
+   Gold Divider
+--------------------------*/
+
+.page-line{
+
+    width:72px;
+
+    height:1px;
+
+    margin:24px 0;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        var(--gold),
+
+        transparent
+
+    );
+
+}
+
+
+/* -------------------------
+   Quote
+--------------------------*/
+
+.archival-quote{
+
+    font-family:var(--heading);
+
+    font-size:.95rem;
+
+    line-height:2;
+
+    color:#42382b;
+
+    margin-bottom:38px;
+
+}
+
+
+/* -------------------------
+   Button
+--------------------------*/
+
+.vault-btn{
+
+    padding:14px 34px;
+
+    border-radius:50px;
+
+    border:1px solid var(--gold);
+
+    background:transparent;
+
+    color:#6d531d;
+
+    font-family:var(--heading);
+
+    font-size:.78rem;
+
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================================
+   V0 FOUNDATION
+   PHASE C
+   LEATHER COVER
+==========================================================*/
+
+/* -------------------------
+   Cover
+--------------------------*/
+
+.cover{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:10;
+
+    border-radius:6px 12px 12px 6px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:42px 28px 26px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 25%,
+            var(--cover-light) 0%,
+            var(--cover-mid) 48%,
+            var(--cover-dark) 100%
+        );
+
+    transform-origin:left center;
+
+    transform-style:preserve-3d;
+
+}
+
+
+/* -------------------------
+   Leather Texture
+--------------------------*/
+
+.leather-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.12;
+
+    background:
+
+        repeating-radial-gradient(
+
+            circle,
+
+            rgba(255,255,255,.08) 0,
+
+            rgba(255,255,255,.02) 2px,
+
+            transparent 5px
+
+        );
+
+}
+
+
+/* -------------------------
+   Border
+--------------------------*/
+
+.bevel-edge{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+.gold-frame{
+
+    position:absolute;
+
+    inset:12px;
+
+    border:1px solid rgba(212,175,55,.55);
+
+}
+
+.inner-frame{
+
+    position:absolute;
+
+    inset:18px;
+
+    border:1px solid rgba(212,175,55,.18);
+
+}
+
+
+/* -------------------------
+   Content Layers
+--------------------------*/
+
+.brand-logo-container,
+.title-group,
+.motto-group,
+.custody-group,
+.volume-group,
+.seal-wrapper,
+.break-text{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+/* -------------------------
+   Logo
+--------------------------*/
+
+.logo{
+
+    width:68px;
+
+    display:block;
+
+}
+
+
+/* -------------------------
+   Titles
+--------------------------*/
+
+.brand-title{
+
+    font-family:var(--heading);
+
+    font-size:2.3rem;
+
+    letter-spacing:8px;
+
+    color:var(--gold-light);
+
+}
+
+.brand-subtitle{
+
+    margin-top:8px;
+
+    font-family:var(--heading);
+
+    font-size:1rem;
+
+    letter-spacing:8px;
+
+    color:#d7ba73;
+
+}
+
+
+/* -------------------------
+   Motto
+--------------------------*/
+
+.chronicle{
+
+    font-family:var(--heading);
+
+    color:#d0af66;
+
+}
+
+.gold-line{
+
+    width:80px;
+
+    height:1px;
+
+    margin-top:14px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+}
+
+
+/* -------------------------
+   Philosophy
+--------------------------*/
+
+.custody-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.custody-text{
+
+    font-size:.72rem;
+
+    color:#bdbdbd;
+
+    letter-spacing:3px;
+
+}
+
+
+/* -------------------------
+   Volume
+--------------------------*/
+
+.volume-group{
+
+    text-align:center;
+
+}
+
+.volume-title{
+
+    font-family:var(--heading);
+
+    color:#d8b96d;
+
+}
+
+.roman-year{
+
+    margin-top:5px;
+
+    color:#9f8450;
+
+}
+
+
+/* -------------------------
+   Seal
+--------------------------*/
+
+.seal-wrapper{
+
+    margin-top:8px;
+
+}
+
+.seal{
+
+    width:82px;
+
+    cursor:pointer;
+
+}
+
+
+/* -------------------------
+   Footer
+--------------------------*/
+
+.break-text{
+
+    font-family:var(--heading);
+
+    font-size:.62rem;
+
+    letter-spacing:4px;
+
+    color:#d0af66;
+
+}
+
+/* ==========================================================
+   V0 FOUNDATION
+   PHASE D
+   LUXURY FINISH
+==========================================================*/
+
+
+/* --------------------------
+   Book Shadow
+---------------------------*/
+
+.book{
+
+    filter:
+
+        drop-shadow(0 45px 60px rgba(0,0,0,.45));
+
+}
+
+
+/* --------------------------
+   Cover Shadow
+---------------------------*/
+
+.cover{
+
+    box-shadow:
+
+        inset 0 0 35px rgba(0,0,0,.75),
+
+        8px 0 18px rgba(0,0,0,.35);
+
+}
+
+
+/* --------------------------
+   Premium Logo
+---------------------------*/
+
+.logo{
+
+    filter:
+
+        drop-shadow(0 5px 12px rgba(0,0,0,.80));
+
+}
+
+
+/* --------------------------
+   Gold Title
+---------------------------*/
+
+.brand-title{
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #fff7c7,
+
+            #e8ca6e,
+
+            #bf953f,
+
+            #8f6d24
+
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+/* --------------------------
+   Seal
+---------------------------*/
+
+.seal{
+
+    transition:
+
+        transform .35s ease,
+
+        filter .35s ease;
+
+}
+
+.seal:hover{
+
+    transform:
+
+        scale(1.08)
+
+        rotate(4deg);
+
+    filter:
+
+        drop-shadow(0 0 14px rgba(212,175,55,.45));
+
+}
+
+
+/* --------------------------
+   Button
+---------------------------*/
+
+.vault-btn{
+
+    transition:
+
+        background .3s,
+
+        color .3s,
+
+        transform .3s;
+
+}
+
+.vault-btn:hover{
+
+    background:var(--gold);
+
+    color:white;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* --------------------------
+   Responsive
+---------------------------*/
+
+@media(max-width:768px){
+
+.logo{
+
+    width:58px;
+
+}
+
+.brand-title{
+
+    font-size:1.9rem;
+
+}
+
+.brand-subtitle{
+
+    font-size:.85rem;
+
+}
+
+.seal{
+
+    width:72px;
+
+}
+
+.welcome-title{
+
+    font-size:1.6rem;
+
+}
+
+.archival-quote{
+
+    font-size:.82rem;
+
+}
+
+}
+
+@media(max-width:420px){
+
+.cover{
+
+    padding:34px 20px 24px;
+
+}
+
+.brand-title{
+
+    font-size:1.65rem;
+
+}
+
+.brand-subtitle{
+
+    font-size:.75rem;
+
+}
+
+.logo{
+
+    width:52px;
+
+}
+
+.seal{
+
+    width:64px;
+
+}
+
+}
 
