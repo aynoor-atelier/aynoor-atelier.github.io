@@ -1,53 +1,29 @@
-// Browser Audio Unlock Logic
-let isAudioUnlocked = false;
-
-function unlockAudio() {
-    if (isAudioUnlocked) return;
-    
-    const sealSound = document.getElementById("sealSound");
-    const pageSound = document.getElementById("pageSound");
-
-    [sealSound, pageSound].forEach(sound => {
-        if (sound) {
-            sound.play().then(() => {
-                sound.pause();
-                sound.currentTime = 0;
-            }).catch(() => {});
-        }
-    });
-
-    isAudioUnlocked = true;
-    window.removeEventListener("touchstart", unlockAudio);
-    window.removeEventListener("click", unlockAudio);
-}
-
-window.addEventListener("touchstart", unlockAudio);
-window.addEventListener("click", unlockAudio);
-
-// Original Open Functionality
+// Function to Open Book & Play Sound
 function openArchiveBook() {
+    console.log("Wax seal clicked!");
+
     const book = document.getElementById("book");
     const sealSound = document.getElementById("sealSound");
 
+    // 1. Play Audio
     if (sealSound) {
         sealSound.currentTime = 0;
-        sealSound.play().catch(() => {});
+        sealSound.play().catch(err => console.log("Audio notice:", err));
     }
 
+    // 2. Open 3D Cover Animation
     if (book) {
         book.classList.add("open");
+        console.log("Book opened!");
+    } else {
+        console.error("Book element missing!");
     }
 }
 
-// Event Binding
+// Vault Button Event Handler
 document.addEventListener("DOMContentLoaded", () => {
-    const sealTrigger = document.getElementById("sealTrigger");
     const enterVaultBtn = document.getElementById("enterVault");
     const pageSound = document.getElementById("pageSound");
-
-    if (sealTrigger) {
-        sealTrigger.addEventListener("click", openArchiveBook);
-    }
 
     if (enterVaultBtn) {
         enterVaultBtn.addEventListener("click", () => {
@@ -61,4 +37,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-
