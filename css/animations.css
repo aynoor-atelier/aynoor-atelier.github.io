@@ -1,71 +1,25 @@
+/* Smooth Cover Flip Animation */
 .cover {
-    transition: transform 1.4s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 1.4s ease;
+    transition: transform 1.4s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 1.4s ease !important;
 }
 
 .book.open .cover {
-    transform: rotateY(-135deg);
+    transform: rotateY(-140deg) !important;
+    pointer-events: none !important;
     box-shadow: -15px 0 30px rgba(0, 0, 0, 0.8);
 }
 
-/* Seal Button & Elements Drop Shadow */
-.seal-button, .logo {
-  box-shadow: 
-    0 10px 20px rgba(0, 0, 0, 0.4),
-    0 6px 6px rgba(0, 0, 0, 0.2),
-    inset 0 2px 3px rgba(255, 255, 255, 0.3); /* Subtle top inner light */
-  transform: translateZ(10px);
-}
-
-/* Book Page Depth */
-.book-page {
-  box-shadow: 
-    -5px 0 15px rgba(0, 0, 0, 0.15),
-    10px 15px 25px rgba(0, 0, 0, 0.5);
-  border-radius: 2px;
-}
-
-.spotlight-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 99;
-  background: radial-gradient(
-    600px circle at var(--x, 50%) var(--y, 50%), 
-    rgba(255, 255, 255, 0.15), 
-    rgba(0, 0, 0, 0.85) 80%
-  );
-  transition: background 0.05s ease;
-}
-
-.metallic-text {
-  background: linear-gradient(
-    135deg, 
-    #bf953f 0%, 
-    #fcf6ba 25%, 
-    #b38728 50%, 
-    #fbf5b7 75%, 
-    #aa771c 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.6));
-  font-weight: bold;
-}
-
+/* Breathing Effect without overwriting Book Open Rotations */
 @keyframes bookBreathe {
   0%, 100% {
-    transform: translateY(0px) scale(1) rotateX(5deg);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    transform: translateY(0px) rotateX(0deg);
   }
   50% {
-    transform: translateY(-8px) scale(1.02) rotateX(2deg);
-    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.6);
+    transform: translateY(-8px) rotateX(2deg);
   }
 }
 
-.book {
-  animation: bookBreathe 4s ease-in-out infinite;
+/* Breathing applies ONLY when book is closed */
+.book:not(.open) {
+  animation: bookBreathe 4.5s ease-in-out infinite;
 }
