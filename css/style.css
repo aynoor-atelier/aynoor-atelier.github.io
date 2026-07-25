@@ -266,6 +266,12 @@ transform-style:preserve-3d;
 .page{
 
     position:absolute;
+   
+   transition:
+
+opacity 1.2s,
+
+transform 1.5s;
 
     inset:4px;
 
@@ -649,6 +655,10 @@ transform-style:preserve-3d;
 
 .brand-title{
 
+   position:relative;
+
+overflow:hidden;
+
     margin-top:10px;
 
     font-family:var(--heading);
@@ -678,6 +688,50 @@ transform-style:preserve-3d;
     -webkit-background-clip:text;
 
     -webkit-text-fill-color:transparent;
+
+}
+
+.brand-title::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-150%;
+
+width:60%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.7),
+
+transparent
+
+);
+
+transform:skewX(-25deg);
+
+animation:goldSweep 5s linear infinite;
+
+}
+
+@keyframes goldSweep{
+
+100%{
+
+left:180%;
+
+}
 
 }
 
@@ -815,29 +869,28 @@ transform-style:preserve-3d;
 
 .seal{
 
-   position:relative;
-   
-    width:92px;
+transition:
 
-    display:block;
-   z-index:1000;
-    pointer-events:auto;
+transform .4s,
 
-    cursor:pointer;
-
-    transition:.35s;
-
-    filter:
-
-    drop-shadow(0 8px 18px rgba(0,0,0,.90));
+filter .4s;
 
 }
 
 .seal:hover{
 
-    transform:scale(1.08);
+transform:
+
+scale(1.12)
+
+rotate(4deg);
+
+filter:
+
+drop-shadow(0 0 18px rgba(212,175,55,.7));
 
 }
+
 
 
 /* ==========================
@@ -1157,5 +1210,19 @@ translateX(520%)
 rotate(18deg);
 
 }
+
+}
+
+body{
+
+transition:
+
+background 2s ease;
+
+}
+
+body.opening{
+
+background:#010101;
 
 }
