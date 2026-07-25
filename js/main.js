@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pageSound = document.getElementById("pageSound");
 
+   console.log(book);
+console.log(seal);
+
     let opened = false;
 
     /* ----------------------------------------
@@ -67,9 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
        Seal Click
     ---------------------------------------- */
 
-    seal.addEventListener("click", () => {
-    book.classList.add("open");
-});
+   seal.addEventListener("click", openBook);
+
+   if (seal) {
+    seal.addEventListener("click", openBook);
+   }
 
     /* ----------------------------------------
        Enter Vault
