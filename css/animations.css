@@ -1,168 +1,52 @@
 /* ==========================================================
-   AYNOOR ATELIER - 3D ANIMATIONS & CINEMATIC EFFECTS
-   FIXED: Smooth 3D Flip, Keyframe Overrides & Stacking Context
+   AYNOOR ATELIER - DARK TONE 3D ANIMATION
 ========================================================== */
 
-/* ---------------- Camera Intro & Atmosphere ---------------- */
-.scene {
-    animation: cameraIntro 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes cameraIntro {
-    0% {
-        transform: scale(0.92);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.spotlight {
-    animation: spotlightMove 12s ease-in-out infinite;
-    transition: opacity 1.5s ease, filter 1.5s ease;
-}
-
-@keyframes spotlightMove {
-    0% { transform: translateX(-40px); }
-    50% { transform: translateX(40px); }
-    100% { transform: translateX(-40px); }
-}
-
-/* ---------------- Idle Book Hover ---------------- */
-.book:not(.open) {
-    animation: bookIdle 5s ease-in-out infinite;
-}
-
-@keyframes bookIdle {
-    0% { transform: translateY(0px) rotateX(0deg); }
-    50% { transform: translateY(-6px) rotateX(2deg); }
-    100% { transform: translateY(0px) rotateX(0deg); }
-}
-
-/* ---------------- ROYAL OPENING (Book Master Container) ---------------- */
+/* ---------------- Book Container ---------------- */
 .book {
-    transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1), filter 2s ease;
+    transform-style: preserve-3d;
+    transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .book.open {
-    animation: none; /* Disables idle floating when open */
-    transform: scale(1.12) translateY(-10px) rotateX(2deg);
-    filter: drop-shadow(0 80px 120px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 35px rgba(212, 175, 55, 0.12));
+    animation: none;
+    transform: scale(1.05) translateY(-8px);
 }
 
-.book.open ~ .spotlight {
-    opacity: 0.95;
-    filter: brightness(1.1);
-}
-
-/* ---------------- 3D Hardcover Flip Animation ---------------- */
+/* ---------------- Leather Cover Flip ---------------- */
 .cover {
     transform-origin: left center;
     transform-style: preserve-3d;
-    transition: transform 2.2s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 2s ease, filter 2s ease;
+    backface-visibility: hidden;
+    transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 1.8s ease;
     will-change: transform;
 }
 
-/* Cover Thickness Spine Hinge */
-.cover::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 100%;
-    background: linear-gradient(90deg, #0a0806, #3b2c1b, #120d09);
-    transform-origin: left;
-    pointer-events: none;
-}
-
-/* Golden Reflection Sweep across cover during open */
-.cover::after {
-    content: "";
-    position: absolute;
-    top: -30%;
-    left: -120%;
-    width: 60%;
-    height: 170%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .18), rgba(255, 240, 190, .22), transparent);
-    transform: rotate(16deg);
-    pointer-events: none;
-    opacity: 0;
-}
-
 .book.open .cover {
-    transform: rotateY(-163deg);
-    filter: brightness(0.92);
-    box-shadow: -50px 0 70px rgba(0, 0, 0, 0.65), inset -8px 0 14px rgba(255, 255, 255, .05), inset 12px 0 18px rgba(0, 0, 0, .30);
+    transform: rotateY(-162deg);
+    box-shadow: -35px 0 50px rgba(0, 0, 0, 0.7);
 }
 
-.book.open .cover::after {
-    opacity: 1;
-    animation: coverReflection 2.3s ease forwards;
+/* Hide seal when cover is opened */
+.book.open .seal-wrapper {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
 }
 
-@keyframes coverReflection {
-    from { left: -120%; }
-    to { left: 170%; }
-}
-
-/* ---------------- Spine & Page Stack Reactions ---------------- */
-.book.open .spine {
-    filter: brightness(0.8) contrast(1.1);
-    transition: filter 1.8s ease;
-}
-
-.book.open .page-stack {
-    transform: translateX(3px) translateZ(-2px);
-    transition: transform 1.6s cubic-bezier(.22, .8, .18, 1);
-    filter: brightness(1.05);
-}
-
-/* ---------------- Inner Manuscript Page Reveal & Breath ---------------- */
+/* ---------------- Manuscript Page Reveal ---------------- */
 .page {
     transform-origin: left center;
-    transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 1.8s ease, background 1.8s ease;
+    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.book.open .page {
-    border-right: 1px solid rgba(215, 202, 181, .45);
-    background: radial-gradient(circle at center, #fffefb 0%, #f8f1e5 60%, #ece0cf 100%);
-    animation: pageBreath 5s ease-in-out infinite 2.2s;
-}
-
-@keyframes pageBreath {
-    0% { transform: translateX(0) scale(1); }
-    50% { transform: translateX(1px) scale(1.002); }
-    100% { transform: translateX(0) scale(1); }
-}
-
-/* Page Content Text Fade-In Delay */
 .page-content {
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
 }
 
 .book.open .page-content {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.8s;
 }
-
-/* ---------------- Seal & Decorative Micro-Animations ---------------- */
-.book.open .seal-wrapper {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-.book.open .gold-frame {
-    box-shadow: 0 0 14px rgba(212, 175, 55, 0.15), inset 0 0 12px rgba(212, 175, 55, 0.08);
-}
-
-.book.open .logo {
-    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.28)) drop-shadow(0 8px 18px rgba(0, 0, 0, .75));
-}
-
