@@ -1,44 +1,47 @@
-function openArchiveBook() {
-    console.log("Wax Seal Clicked!");
+/* ==========================================================
+   AYNOOR ATELIER - ARCHIVAL BOOK INTERACTION LOGIC
+   FIXED: Inline CSS Conflicts, Audio Execution & Clean Class Toggles
+========================================================== */
 
-    // 1. Play Seal Sound
+function openArchiveBook() {
+    console.log("Wax Seal Clicked - Unlocking Vault...");
+
+    // 1. Audio Playback Sync
     const sealSound = document.getElementById("sealSound");
+    const pageSound = document.getElementById("pageSound");
+
     if (sealSound) {
         sealSound.currentTime = 0;
-        sealSound.play().catch(err => console.log("Audio notice:", err));
+        sealSound.play().catch(err => console.warn("Audio autoplay blocked by browser:", err));
     }
 
-    // 2. Target Book Elements
+    // Play paper flip sound slightly after seal breaks
+    setTimeout(() => {
+        if (pageSound) {
+            pageSound.currentTime = 0;
+            pageSound.play().catch(() => {});
+        }
+    }, 400);
+
+    // 2. Pure CSS Driven 3D Open State Trigger
     const book = document.getElementById("book") || document.querySelector(".book");
-    const cover = document.querySelector(".cover") || document.querySelector(".book-cover") || document.querySelector("article.page");
-
+    
     if (book) {
-        // Standard CSS class addition
+        // Class-based trigger keeps CSS keyframes & 3D translateZ fully intact
         book.classList.add("open");
-
-            // Hide page stack when book opens
-    const stack = document.querySelector(".page-stack");
-        if (stack) stack.style.display = "none";
-
-    }
-
-    // Force Open (Jab CSS class miss ho jaye to ye backup kaam karega)
-    if (cover) {
-        cover.style.transform = "rotateY(-180deg)";
-        cover.style.transition = "transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)";
-    } else if (book) {
-        book.style.transform = "rotateY(-180deg)";
-        book.style.transition = "transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)";
     }
 }
 
-// Event Binding
+// ---------------- Event Listeners Initialization ----------------
 document.addEventListener("DOMContentLoaded", () => {
+    
+    // Royal Seal Trigger Binding
     const sealTrigger = document.getElementById("sealTrigger");
     if (sealTrigger) {
         sealTrigger.addEventListener("click", openArchiveBook);
     }
 
+    // Vault Button Redirection Listener
     const enterVaultBtn = document.getElementById("enterVault");
     const pageSound = document.getElementById("pageSound");
 
@@ -48,9 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 pageSound.currentTime = 0;
                 pageSound.play().catch(() => {});
             }
+
+            // Smooth transition before redirecting
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.6s ease';
+
             setTimeout(() => {
-                window.location.href = "home.html";
-            }, 300);
+                // Change "home.html" to your actual main landing/vault URL
+                window.location.href = "home.html"; 
+            }, 600);
         });
     }
 });
