@@ -102,16 +102,25 @@ body {
 }
 
 /* ---------------- Page Stack (Pages Depth Edge) ---------------- */
+
 .page-stack {
     position: absolute;
     top: 8px;
     right: -10px;
-    width: 14px;
+    width: 12px;
     height: calc(100% - 16px);
     border-radius: 0 6px 6px 0;
-    background: repeating-linear-gradient(180deg, #f3eadb 0px, #e6dcc8 2px, #f8f4eb 4px);
-    transform: translateZ(-2px);
-    box-shadow: inset 2px 0 6px rgba(0,0,0,0.3);
+    
+    /* Vertical paper lines pattern (|||||) */
+    background: repeating-linear-gradient(
+        90deg,
+        #f3eadb 0px,
+        #e6dcc8 1px,
+        #c8beaa 2px,
+        #f8f4eb 3px
+    );
+    z-index: 1;
+    box-shadow: inset 2px 0 4px rgba(0,0,0,0.3);
 }
 
 /* ---------------- Manuscript Inner Page ---------------- */
@@ -222,6 +231,14 @@ body {
     opacity: .12;
     border-radius: inherit;
     background: repeating-radial-gradient(circle, rgba(255,255,255,.08) 0, rgba(255,255,255,.02) 2px, transparent 5px);
+}
+
+/* Decorative overlays click block na karein */
+.leather-overlay,
+.bevel-edge,
+.gold-frame,
+.inner-frame {
+    pointer-events: none !important;
 }
 
 /* ---------------- 3D Floating Frames & Bevels ---------------- */
@@ -344,18 +361,18 @@ body {
 }
 
 /* ---------------- Royal Seal (Maximum 3D Depth) ---------------- */
+
 .seal-wrapper {
     position: relative;
-    z-index: 10;
+    z-index: 100 !important;
     margin-top: 8px;
-    transform: translateZ(45px); /* Highest 3D Layer */
+    pointer-events: auto !important;
 }
 
 .seal {
     width: 140px;
-    cursor: pointer;
-    filter: drop-shadow(0 8px 16px rgba(0,0,0,.75));
-    transition: transform .35s ease, filter .35s ease;
+    cursor: pointer !important;
+    pointer-events: auto !important;
 }
 
 .seal:hover {
