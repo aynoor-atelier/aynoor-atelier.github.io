@@ -67,10 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
        Seal Click
     ---------------------------------------- */
 
-    if (seal) {
-
-        seal.addEventListener("click", openBook);
-    }
+    seal.addEventListener("click", () => {
+    book.classList.add("open");
+});
 
     /* ----------------------------------------
        Enter Vault
