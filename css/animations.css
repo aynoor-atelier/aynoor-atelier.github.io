@@ -46,15 +46,19 @@
 
 .page{
 
-    opacity:.65;
+transition:
 
-    transition:
-    opacity 1.3s ease;
+opacity 1.2s,
+
+transform 1.5s;
+
 }
 
 .book.open .page{
 
     opacity:1;
+      transform:translateX(10px);
+
 }
 
 /* =========================
