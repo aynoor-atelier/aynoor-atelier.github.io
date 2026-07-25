@@ -1001,6 +1001,51 @@ drop-shadow(0 0 18px rgba(212,175,55,.7));
 
 }
 
+.cover::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:50%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.08),
+
+transparent
+
+);
+
+transform:skewX(-20deg);
+
+animation:leatherLight 8s linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes leatherLight{
+
+100%{
+
+left:180%;
+
+}
+
+}
 
 /* ==========================
    HOVER
@@ -1221,8 +1266,23 @@ background 2s ease;
 
 }
 
-body.opening{
+body.open{
 
 background:#010101;
+
+}
+.book{
+
+filter:
+
+drop-shadow(0 40px 60px rgba(0,0,0,.65));
+
+}
+
+.book.open{
+
+filter:
+
+drop-shadow(0 80px 120px rgba(0,0,0,.85));
 
 }
