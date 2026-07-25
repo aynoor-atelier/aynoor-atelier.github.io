@@ -122,3 +122,33 @@ opacity:1;
 }
 
 }
+
+.spotlight{
+
+animation:
+
+spotlightMove 12s ease-in-out infinite;
+
+}
+
+@keyframes spotlightMove{
+
+0%{
+
+transform:translateX(-40px);
+
+}
+
+50%{
+
+transform:translateX(40px);
+
+}
+
+100%{
+
+transform:translateX(-40px);
+
+}
+
+}
