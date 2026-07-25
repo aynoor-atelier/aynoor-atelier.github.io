@@ -92,3 +92,33 @@ transform:translateY(0px);
 }
 
 }
+
+/* =========================
+   PHASE 6 - CINEMATIC
+========================= */
+
+.scene{
+
+animation:cameraIntro 2.8s ease forwards;
+
+}
+
+@keyframes cameraIntro{
+
+0%{
+
+transform:scale(.92);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
