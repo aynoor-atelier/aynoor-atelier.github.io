@@ -1,774 +1,168 @@
-/* =========================
-      ROYAL OPENING
-=========================== */
-
-.book{
-    transition:
-    transform 1.8s cubic-bezier(.22,.8,.18,1),
-    filter 1.8s ease;
-}
-
-.cover{
-
-    transform-origin:left center;
-
-    transition:
-    transform 2s cubic-bezier(.22,.8,.18,1),
-    box-shadow 2s ease;
-
-    will-change:transform;
-}
-
-/* Book Zoom */
-
-.book.open{
-
-    transform:
-    scale(1.18)
-    translateY(-16px);
-
-    filter:
-    drop-shadow(0 60px 90px rgba(0,0,0,.75));
-}
-
-/* Leather Cover */
-
-.book.open .cover{
-
-    transform:
-    rotateY(-158deg);
-
-    box-shadow:
-    -40px 0 60px rgba(0,0,0,.65);
-}
-
-/* Page Fade */
-
-.page{
-
-transition:
-
-opacity 1.2s,
-
-transform 1.5s;
-
-}
-
-.book.open .page{
-
-    opacity:1;
-      transform:translateX(10px);
-
-}
-
-/* =========================
-    LUXURY IDLE
-========================= */
-
-.book:not(.open){
-
-animation:bookIdle 5s ease-in-out infinite;
-
-}
-
-@keyframes bookIdle{
-
-0%{
-
-transform:translateY(0px);
-
-}
-
-50%{
-
-transform:translateY(-4px);
-
-}
-
-100%{
-
-transform:translateY(0px);
-
-}
-
-}
-
-/* =========================
-   PHASE 6 - CINEMATIC
-========================= */
-
-.scene{
-
-animation:cameraIntro 2.8s ease forwards;
-
-}
-
-@keyframes cameraIntro{
-
-0%{
-
-transform:scale(.92);
-
-opacity:0;
-
-}
-
-100%{
-
-transform:scale(1);
-
-opacity:1;
-
-}
-
-}
-
-.spotlight{
-
-animation:
-
-spotlightMove 12s ease-in-out infinite;
-
-}
-
-@keyframes spotlightMove{
-
-0%{
-
-transform:translateX(-40px);
-
-}
-
-50%{
-
-transform:translateX(40px);
-
-}
-
-100%{
-
-transform:translateX(-40px);
-
-}
-
-}
-
 /* ==========================================================
-   V0 — PHASE F-2
-   PAGE REVEAL & DEPTH
+   AYNOOR ATELIER - 3D ANIMATIONS & CINEMATIC EFFECTS
+   FIXED: Smooth 3D Flip, Keyframe Overrides & Stacking Context
 ========================================================== */
 
-
-/* --------------------------
-   Page starts hidden
----------------------------*/
-
-.page{
-
-    transform-origin:left center;
-
-    transform:
-        translateX(-28px)
-        scale(.97);
-
+/* ---------------- Camera Intro & Atmosphere ---------------- */
+.scene {
+    animation: cameraIntro 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-
-/* --------------------------
-   When book opens
----------------------------*/
-
-.book.open .page{
-
-    transform:
-        translateX(0)
-        scale(1);
-
-}
-
-
-/* --------------------------
-   Manuscript Glow
----------------------------*/
-
-.book.open .page{
-
-    box-shadow:
-
-        inset 20px 0 22px rgba(0,0,0,.14),
-
-        0 0 18px rgba(255,248,225,.18);
-
-}
-
-
-/* --------------------------
-   Book becomes alive
----------------------------*/
-
-.book.open{
-
-    animation:none;
-
-}
-
-
-/* --------------------------
-   Cover depth while opening
----------------------------*/
-
-.book.open .cover{
-
-    filter:
-
-        brightness(.94);
-
-}
-
-/* ==========================================================
-   V0 — PHASE F-3
-   HARDCOVER DEPTH
-========================================================== */
-
-
-/* --------------------------
-   Page Stack Reacts
----------------------------*/
-
-.book.open .page-stack{
-
-    transform:
-        translateX(3px);
-
-    transition:
-        transform 1.6s cubic-bezier(.22,.8,.18,1);
-
-}
-
-
-/* --------------------------
-   Cover Thickness
----------------------------*/
-
-.cover::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:0;
-
-    width:10px;
-
-    height:100%;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            #0a0806,
-            #3b2c1b,
-            #120d09
-        );
-
-    transform-origin:left;
-
-    pointer-events:none;
-
-}
-
-
-/* --------------------------
-   Page Edge Highlight
----------------------------*/
-
-.book.open .page{
-
-    border-right:
-
-        1px solid rgba(215,202,181,.45);
-
-}
-
-
-/* --------------------------
-   Luxury Opening Feel
----------------------------*/
-
-.book.open{
-
-    transform:
-
-        scale(1.14)
-
-        translateY(-12px);
-
-}
-
-
-/* --------------------------
-   Page Visibility Boost
----------------------------*/
-
-.book.open .page-content{
-
-    animation:
-
-        pageFadeIn .9s ease .6s both;
-
-}
-
-
-@keyframes pageFadeIn{
-
-    from{
-
-        opacity:0;
-
-        transform:
-
-            translateY(14px);
-
+@keyframes cameraIntro {
+    0% {
+        transform: scale(0.92);
+        opacity: 0;
     }
-
-    to{
-
-        opacity:1;
-
-        transform:
-
-            translateY(0);
-
+    100% {
+        transform: scale(1);
+        opacity: 1;
     }
-
 }
 
-/* ==========================================================
-   V0 — PHASE F-4
-   SPINE HINGE & CINEMATIC DEPTH
-========================================================== */
-
-
-/* --------------------------
-   Book keeps 3D depth
----------------------------*/
-
-.book{
-
-    transform-style:preserve-3d;
-
-    perspective:2200px;
-
+.spotlight {
+    animation: spotlightMove 12s ease-in-out infinite;
+    transition: opacity 1.5s ease, filter 1.5s ease;
 }
 
-
-/* --------------------------
-   Cover behaves like hardcover
----------------------------*/
-
-.cover{
-
-    transform-origin:left center;
-
-    transform-style:preserve-3d;
-
+@keyframes spotlightMove {
+    0% { transform: translateX(-40px); }
+    50% { transform: translateX(40px); }
+    100% { transform: translateX(-40px); }
 }
 
-
-/* --------------------------
-   Inside shadow while opening
----------------------------*/
-
-.book.open .cover{
-
-    box-shadow:
-
-        -55px 0 70px rgba(0,0,0,.55),
-
-        inset -8px 0 14px rgba(255,255,255,.05),
-
-        inset 12px 0 18px rgba(0,0,0,.30);
-
+/* ---------------- Idle Book Hover ---------------- */
+.book:not(.open) {
+    animation: bookIdle 5s ease-in-out infinite;
 }
 
-
-/* --------------------------
-   Spine becomes darker
----------------------------*/
-
-.book.open .spine{
-
-    filter:
-
-        brightness(.82)
-
-        contrast(1.08);
-
-    transition:
-
-        filter 1.5s ease;
-
+@keyframes bookIdle {
+    0% { transform: translateY(0px) rotateX(0deg); }
+    50% { transform: translateY(-6px) rotateX(2deg); }
+    100% { transform: translateY(0px) rotateX(0deg); }
 }
 
-
-/* --------------------------
-   Page stack reacts slightly
----------------------------*/
-
-.book.open .page-stack{
-
-    filter:
-
-        brightness(1.05);
-
+/* ---------------- ROYAL OPENING (Book Master Container) ---------------- */
+.book {
+    transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1), filter 2s ease;
 }
 
-
-/* --------------------------
-   Manuscript receives light
----------------------------*/
-
-.book.open .page{
-
-    background:
-
-        radial-gradient(
-
-            circle at center,
-
-            #fffefb 0%,
-
-            #f8f1e5 60%,
-
-            #ece0cf 100%
-
-        );
-
+.book.open {
+    animation: none; /* Disables idle floating when open */
+    transform: scale(1.12) translateY(-10px) rotateX(2deg);
+    filter: drop-shadow(0 80px 120px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 35px rgba(212, 175, 55, 0.12));
 }
 
-
-/* --------------------------
-   Premium cinematic feel
----------------------------*/
-
-.book.open{
-
-    transform:
-
-        scale(1.12)
-
-        translateY(-10px)
-
-        rotateX(2deg);
-
+.book.open ~ .spotlight {
+    opacity: 0.95;
+    filter: brightness(1.1);
 }
 
-/* ==========================================================
-   V0 — PHASE F-5
-   CINEMATIC LIGHT & GOLD MAGIC
-========================================================== */
-
-
-/* --------------------------
-   Book opens into light
----------------------------*/
-
-.book.open{
-
-    animation:
-
-        vaultLight 2.2s ease forwards;
-
+/* ---------------- 3D Hardcover Flip Animation ---------------- */
+.cover {
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 2.2s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 2s ease, filter 2s ease;
+    will-change: transform;
 }
 
-@keyframes vaultLight{
-
-    0%{
-
-        filter:
-        drop-shadow(0 40px 60px rgba(0,0,0,.65));
-
-    }
-
-    100%{
-
-        filter:
-        drop-shadow(0 70px 110px rgba(0,0,0,.82))
-        drop-shadow(0 0 30px rgba(212,175,55,.14));
-
-    }
-
+/* Cover Thickness Spine Hinge */
+.cover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(90deg, #0a0806, #3b2c1b, #120d09);
+    transform-origin: left;
+    pointer-events: none;
 }
 
-
-/* --------------------------
-   Golden reflection
----------------------------*/
-
-.book.open .cover::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:-30%;
-
-    left:-120%;
-
-    width:60%;
-
-    height:170%;
-
-    background:
-
-        linear-gradient(
-
-            90deg,
-
-            transparent,
-
-            rgba(255,255,255,.18),
-
-            rgba(255,240,190,.22),
-
-            transparent
-
-        );
-
-    transform:
-
-        rotate(16deg);
-
-    animation:
-
-        coverReflection 2.3s ease forwards;
-
-    pointer-events:none;
-
+/* Golden Reflection Sweep across cover during open */
+.cover::after {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: -120%;
+    width: 60%;
+    height: 170%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .18), rgba(255, 240, 190, .22), transparent);
+    transform: rotate(16deg);
+    pointer-events: none;
+    opacity: 0;
 }
 
-@keyframes coverReflection{
-
-    from{
-
-        left:-120%;
-
-    }
-
-    to{
-
-        left:170%;
-
-    }
-
+.book.open .cover {
+    transform: rotateY(-163deg);
+    filter: brightness(0.92);
+    box-shadow: -50px 0 70px rgba(0, 0, 0, 0.65), inset -8px 0 14px rgba(255, 255, 255, .05), inset 12px 0 18px rgba(0, 0, 0, .30);
 }
 
-
-/* --------------------------
-   Manuscript receives glow
----------------------------*/
-
-.book.open .page{
-
-    animation:
-
-        pageGlow 2s ease forwards;
-
+.book.open .cover::after {
+    opacity: 1;
+    animation: coverReflection 2.3s ease forwards;
 }
 
-@keyframes pageGlow{
-
-    from{
-
-        box-shadow:
-
-        inset 18px 0 24px rgba(0,0,0,.18);
-
-    }
-
-    to{
-
-        box-shadow:
-
-        inset 18px 0 24px rgba(0,0,0,.12),
-
-        0 0 28px rgba(255,248,225,.22);
-
-    }
-
+@keyframes coverReflection {
+    from { left: -120%; }
+    to { left: 170%; }
 }
 
-
-/* --------------------------
-   Logo glows slightly
----------------------------*/
-
-.book.open .logo{
-
-    filter:
-
-        drop-shadow(0 0 12px rgba(212,175,55,.28))
-
-        drop-shadow(0 8px 18px rgba(0,0,0,.75));
-
+/* ---------------- Spine & Page Stack Reactions ---------------- */
+.book.open .spine {
+    filter: brightness(0.8) contrast(1.1);
+    transition: filter 1.8s ease;
 }
 
-
-/* --------------------------
-   Seal settles naturally
----------------------------*/
-
-.book.open .seal-wrapper{
-
-    opacity:0;
-
-    transition:
-
-        opacity .45s ease;
-
+.book.open .page-stack {
+    transform: translateX(3px) translateZ(-2px);
+    transition: transform 1.6s cubic-bezier(.22, .8, .18, 1);
+    filter: brightness(1.05);
 }
 
-/* ==========================================================
-   V0 — PHASE F-6
-   GRAND FINALE
-========================================================== */
-
-
-/* ==========================
-   Smooth Open State
-========================== */
-
-.book.open{
-
-    transition:
-
-        transform 2.2s cubic-bezier(.19,1,.22,1),
-
-        filter 2s ease;
-
+/* ---------------- Inner Manuscript Page Reveal & Breath ---------------- */
+.page {
+    transform-origin: left center;
+    transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 1.8s ease, background 1.8s ease;
 }
 
-
-/* ==========================
-   Cover settles naturally
-========================== */
-
-.book.open .cover{
-
-    animation:
-
-        coverSettle .7s ease-out 1.45s forwards;
-
+.book.open .page {
+    border-right: 1px solid rgba(215, 202, 181, .45);
+    background: radial-gradient(circle at center, #fffefb 0%, #f8f1e5 60%, #ece0cf 100%);
+    animation: pageBreath 5s ease-in-out infinite 2.2s;
 }
 
-@keyframes coverSettle{
-
-    0%{
-
-        transform:rotateY(-165deg);
-
-    }
-
-    70%{
-
-        transform:rotateY(-161deg);
-
-    }
-
-    100%{
-
-        transform:rotateY(-163deg);
-
-    }
-
+@keyframes pageBreath {
+    0% { transform: translateX(0) scale(1); }
+    50% { transform: translateX(1px) scale(1.002); }
+    100% { transform: translateX(0) scale(1); }
 }
 
-
-/* ==========================
-   Page Breath
-========================== */
-
-.book.open .page{
-
-    animation:
-
-        pageBreath 5s ease-in-out infinite;
-
+/* Page Content Text Fade-In Delay */
+.page-content {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-@keyframes pageBreath{
-
-    0%{
-
-        transform:
-        translateX(0)
-        scale(1);
-
-    }
-
-    50%{
-
-        transform:
-        translateX(.8px)
-        scale(1.002);
-
-    }
-
-    100%{
-
-        transform:
-        translateX(0)
-        scale(1);
-
-    }
-
+.book.open .page-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
 }
 
-
-/* ==========================
-   Gold Frame Luxury Glow
-========================== */
-
-.book.open .gold-frame{
-
-    box-shadow:
-
-        0 0 14px rgba(212,175,55,.12),
-
-        inset 0 0 12px rgba(212,175,55,.08);
-
+/* ---------------- Seal & Decorative Micro-Animations ---------------- */
+.book.open .seal-wrapper {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
 }
 
-
-/* ==========================
-   Scene Focus
-========================== */
-
-.book.open ~ .spotlight{
-
-    opacity:.92;
-
-    filter:
-
-        brightness(1.08);
-
+.book.open .gold-frame {
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.15), inset 0 0 12px rgba(212, 175, 55, 0.08);
 }
 
-
-/* ==========================
-   Final Premium Finish
-========================== */
-
-.book.open{
-
-    filter:
-
-        drop-shadow(0 85px 130px rgba(0,0,0,.85))
-
-        drop-shadow(0 0 36px rgba(212,175,55,.10));
-
+.book.open .logo {
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.28)) drop-shadow(0 8px 18px rgba(0, 0, 0, .75));
 }
-
 
