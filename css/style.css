@@ -334,6 +334,11 @@ body {
     filter: drop-shadow(0 6px 14px rgba(0,0,0,0.95));
 }
 
+.seal-wrapper {
+    position: relative;
+    z-index: 100 !important;
+    pointer-events: auto 
+}
 .seal:hover {
     transform: scale(1.08) rotate(2deg);
     filter: drop-shadow(0 8px 20px rgba(0,0,0,0.95)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
