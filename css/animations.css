@@ -1,119 +1,58 @@
-/* ==========================================================
-   AYNOOR BOOK ANIMATION
-========================================================== */
+/* =========================
+      ROYAL OPENING
+=========================== */
 
 .book{
-    transform-style: preserve-3d;
-    perspective:2000px;
+    transition:
+    transform 1.8s cubic-bezier(.22,.8,.18,1),
+    filter 1.8s ease;
 }
 
-/* ==============================
-   Cover
-============================== */
-
 .cover{
+
     transform-origin:left center;
-    transform-style:preserve-3d;
 
     transition:
-        transform 1.45s cubic-bezier(.22,.61,.36,1),
-        box-shadow .8s ease;
+    transform 2s cubic-bezier(.22,.8,.18,1),
+    box-shadow 2s ease;
 
     will-change:transform;
 }
 
-/* ==============================
-   Book Opening
-============================== */
+/* Book Zoom */
+
+.book.open{
+
+    transform:
+    scale(1.14)
+    translateY(-10px);
+
+    filter:
+    drop-shadow(0 60px 90px rgba(0,0,0,.75));
+}
+
+/* Leather Cover */
 
 .book.open .cover{
 
     transform:
-        rotateY(-145deg);
+    rotateY(-158deg);
 
     box-shadow:
-        -18px 0 35px rgba(0,0,0,.65),
-        0 0 20px rgba(0,0,0,.25);
-
-    pointer-events:none;
+    -40px 0 60px rgba(0,0,0,.65);
 }
 
-/* ==============================
-   Page Visibility
-============================== */
+/* Page Fade */
 
 .page{
-    opacity:.96;
-    transition:opacity .5s ease;
+
+    opacity:.65;
+
+    transition:
+    opacity 1.3s ease;
 }
 
 .book.open .page{
+
     opacity:1;
 }
-
-/* ==============================
-   Seal Animation
-============================== */
-
-.seal{
-
-    transition:
-        transform .35s ease,
-        filter .35s ease;
-}
-
-.seal:hover{
-
-    transform:
-        scale(1.06);
-
-    filter:
-        drop-shadow(0 8px 18px rgba(0,0,0,.75));
-}
-
-.seal:active{
-
-    transform:
-        scale(.94);
-}
-
-/* ==============================
-   Enter Button
-============================== */
-
-.vault-btn{
-
-    transition:
-        transform .3s ease,
-        background .3s ease,
-        color .3s ease,
-        box-shadow .3s ease;
-}
-
-.vault-btn:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 8px 18px rgba(197,160,89,.35);
-}
-
-.vault-btn:active{
-
-    transform:scale(.97);
-}
-
-/* ==============================
-   Respect reduced motion
-============================== */
-
-@media (prefers-reduced-motion:reduce){
-
-    .cover,
-    .seal,
-    .vault-btn{
-
-        transition:none;
-    }
-}
-
