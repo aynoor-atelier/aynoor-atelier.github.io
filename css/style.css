@@ -1,412 +1,935 @@
 /* ==========================================================
-   AYNOOR ATELIER — 
-   ========================================================== */
+   V0 FOUNDATION
+   PHASE A
+   RESET + ROOT + SCENE
+========================================================== */
 
-/* ---------------- Root Variables ---------------- */
-:root {
-    --bg-void: #030302;
-    --gold: #d4af37;
-    --gold-soft: #c5a059;
-    --gold-dark: #8f6d24;
-    --cover-dark: #0b0907;
-    --cover-mid: #17120d;
-    --cover-light: #2b2116;
-    --page: #f5efe5;
-    --heading: 'Cinzel', serif;
-    --body: 'Montserrat', sans-serif;
+/* ---------------- Root ---------------- */
+
+:root{
+
+    --bg:#050505;
+
+    --gold:#d4af37;
+    --gold-light:#f2dc8c;
+    --gold-dark:#8f6d24;
+
+    --cover-dark:#0d0b09;
+    --cover-mid:#17130f;
+    --cover-light:#2d2418;
+
+    --paper:#f5efe5;
+    --paper-edge:#d8cdb8;
+
+    --shadow-heavy:
+    0 40px 80px rgba(0,0,0,.65);
+
+    --shadow-soft:
+    0 10px 25px rgba(0,0,0,.25);
+
+    --heading:'Cinzel',serif;
+    --body:'Montserrat',sans-serif;
+
 }
 
-/* ---------------- Global Reset ---------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* ---------------- Reset ---------------- */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: var(--bg-void);
-    font-family: var(--body);
-    transition: background 2s ease;
+html,
+body{
+
+    width:100%;
+    height:100%;
+
 }
 
-body.open {
-    background: #010101;
+body{
+
+    overflow:hidden;
+
+    background:var(--bg);
+
+    font-family:var(--body);
+
 }
 
-/* ---------------- Lighting Atmosphere ---------------- */
-.spotlight {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background: 
-        radial-gradient(circle at center, rgba(212, 175, 55, .10), transparent 35%),
-        radial-gradient(circle, transparent 30%, rgba(0, 0, 0, .88) 100%);
-    transition: all 1.5s ease;
+
+/* ---------------- Atmosphere ---------------- */
+
+.spotlight{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+    radial-gradient(
+
+        circle at center,
+
+        rgba(212,175,55,.08),
+
+        transparent 30%
+
+    ),
+
+    radial-gradient(
+
+        circle,
+
+        transparent 35%,
+
+        rgba(0,0,0,.88) 100%
+
+    );
+
 }
 
-.book.open ~ .spotlight {
-    filter: brightness(.85);
+
+/* ---------------- Scene ---------------- */
+
+.scene{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    perspective:2400px;
+
 }
 
-/* ---------------- 3D Scene Framework ---------------- */
-.scene {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 2400px;
-    position: relative;
-    z-index: 2;
+
+/* ---------------- Book ---------------- */
+
+.book{
+
+    position:relative;
+
+    width:min(92vw,460px);
+
+    height:min(88vh,720px);
+
+    transform-style:preserve-3d;
+
 }
 
-.book {
-    position: relative;
-    width: min(90vw, 480px);
-    height: min(88vh, 740px);
-    transform-style: preserve-3d;
-    filter: drop-shadow(0 40px 60px rgba(0,0,0,.75));
-    transition: filter 0.8s ease, transform 0.5s ease;
+
+/* ---------------- Spine ---------------- */
+
+.spine{
+
+    position:absolute;
+
+    left:-18px;
+    top:0;
+
+    width:22px;
+    height:100%;
+
+    border-radius:8px 0 0 8px;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #040404,
+
+        #231b12,
+
+        #564122,
+
+        #231b12,
+
+        #050505
+
+    );
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-evenly;
+
+    z-index:20;
+
+    box-shadow:
+
+    inset -2px 0 4px rgba(0,0,0,.7);
+
 }
 
-.book.open {
-    filter: drop-shadow(0 80px 120px rgba(0,0,0,.95));
+.spine-ridge{
+
+    height:6px;
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        #111,
+
+        #6f5630,
+
+        #111
+
+    );
+
 }
 
-.book:hover {
-    transform: translateY(-4px);
+
+/* ---------------- Page Stack ---------------- */
+
+.page-stack{
+
+    position:absolute;
+
+    top:8px;
+    right:-10px;
+
+    width:12px;
+    height:calc(100% - 16px);
+
+    border-radius:0 6px 6px 0;
+
+    background:
+
+    repeating-linear-gradient(
+
+        180deg,
+
+        #f3eadb 0px,
+
+        #e6dcc8 2px,
+
+        #f8f4eb 4px
+
+    );
+
+   }
+
+
+/* ==========================================================
+   V0 FOUNDATION
+   PHASE B
+   MANUSCRIPT PAGE
+==========================================================*/
+
+/* -------------------------
+   Main Page
+--------------------------*/
+
+.page{
+
+    position:absolute;
+
+    inset:4px;
+
+    background:var(--paper);
+
+    border-radius:4px 10px 10px 4px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:2;
+
+    box-shadow:
+
+        inset 20px 0 28px rgba(0,0,0,.14),
+
+        inset -2px 0 6px rgba(0,0,0,.05);
+
 }
 
-/* ---------------- Spine Styling ---------------- */
-.spine {
-    position: absolute;
-    left: -18px;
-    top: 0;
-    width: 22px;
-    height: 100%;
-    border-radius: 8px 0 0 8px;
-    background: linear-gradient(90deg, #050505, #231a10, #574225, #241a10, #070707);
-    box-shadow: inset -2px 0 4px rgba(0,0,0,.80), -6px 0 10px rgba(0,0,0,.45);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    z-index: 8;
+
+/* -------------------------
+   Paper Texture
+--------------------------*/
+
+.page-texture{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.18;
+
+    background:
+
+        repeating-linear-gradient(
+
+            0deg,
+
+            transparent 0px,
+
+            transparent 3px,
+
+            rgba(0,0,0,.02) 4px
+
+        ),
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255,255,255,.45),
+
+            transparent 70%
+
+        );
+
 }
 
-.spine-ridge {
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(180deg, #111, #6b542f, #111);
+
+/* -------------------------
+   Content Wrapper
+--------------------------*/
+
+.page-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:82%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
 }
 
-/* ---------------- Page Stack (Thickness) ---------------- */
-.page-stack {
-    position: absolute;
-    top: 6px;
-    right: -10px;
-    width: 12px;
-    height: calc(100% - 12px);
-    border-radius: 0 6px 6px 0;
-    background: repeating-linear-gradient(180deg, #ece3d2 0px, #ece3d2 2px, #d8cab2 3px, #f7f1e8 5px);
-    box-shadow: inset 3px 0 5px rgba(0,0,0,.18), 4px 0 10px rgba(0,0,0,.25);
-    z-index: 1;
-    transition: opacity 0.4s ease;
+
+/* -------------------------
+   Welcome Title
+--------------------------*/
+
+.welcome-title{
+
+    font-family:var(--heading);
+
+    font-size:2rem;
+
+    letter-spacing:8px;
+
+    color:#1d1812;
+
 }
 
-/* Instant Hide Stack on Book Open */
-.book.open .page-stack {
-    opacity: 0 !important;
-    display: none !important;
+
+/* -------------------------
+   Gold Divider
+--------------------------*/
+
+.page-line{
+
+    width:72px;
+
+    height:1px;
+
+    margin:24px 0;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        var(--gold),
+
+        transparent
+
+    );
+
 }
 
-/* ---------------- Inner Manuscript Page ---------------- */
-.page {
-    position: absolute;
-    inset: 4px;
-    border-radius: 4px 10px 10px 4px;
-    background: radial-gradient(circle at center, #fffdf9 0%, #f6efe4 65%, #ede2d0 100%);
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    box-shadow: inset 18px 0 24px rgba(0,0,0,.16), inset -2px 0 8px rgba(0,0,0,.06);
-    opacity: 0.96;
-    transition: opacity 0.5s ease;
+
+/* -------------------------
+   Quote
+--------------------------*/
+
+.archival-quote{
+
+    font-family:var(--heading);
+
+    font-size:.95rem;
+
+    line-height:2;
+
+    color:#42382b;
+
+    margin-bottom:38px;
+
 }
 
-.book.open .page {
-    opacity: 1;
-    z-index: 5 !important;
+
+/* -------------------------
+   Button
+--------------------------*/
+
+.vault-btn{
+
+    padding:14px 34px;
+
+    border-radius:50px;
+
+    border:1px solid var(--gold);
+
+    background:transparent;
+
+    color:#6d531d;
+
+    font-family:var(--heading);
+
+    font-size:.78rem;
+
+    letter-spacing:3px;
+
+    cursor:pointer;
+
 }
 
-.page-texture {
-    position: absolute;
-    inset: 0;
-    opacity: .18;
-    background: 
-        repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(0,0,0,.02) 4px),
-        radial-gradient(circle, rgba(255,255,255,.6), transparent 70%);
-    pointer-events: none;
+/* ==========================================================
+   V0 FOUNDATION
+   PHASE C
+   LEATHER COVER
+==========================================================*/
+
+/* -------------------------
+   Cover
+--------------------------*/
+
+.cover{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:10;
+
+    border-radius:6px 12px 12px 6px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:42px 28px 26px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 25%,
+            var(--cover-light) 0%,
+            var(--cover-mid) 48%,
+            var(--cover-dark) 100%
+        );
+
+    transform-origin:left center;
+
+    transform-style:preserve-3d;
+
 }
 
-.page-content {
-    position: relative;
-    z-index: 3;
-    width: 85%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+
+/* -------------------------
+   Leather Texture
+--------------------------*/
+
+.leather-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.12;
+
+    background:
+
+        repeating-radial-gradient(
+
+            circle,
+
+            rgba(255,255,255,.08) 0,
+
+            rgba(255,255,255,.02) 2px,
+
+            transparent 5px
+
+        );
+
 }
 
-.welcome-title {
-    font-family: var(--heading);
-    font-size: 2rem;
-    letter-spacing: 8px;
-    color: #1d1812;
+
+/* -------------------------
+   Border
+--------------------------*/
+
+.bevel-edge{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:inherit;
+
+    border:1px solid rgba(255,255,255,.05);
+
 }
 
-.page-line {
-    width: 70px;
-    height: 1px;
-    margin: 22px 0;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+.gold-frame{
+
+    position:absolute;
+
+    inset:12px;
+
+    border:1px solid rgba(212,175,55,.55);
+
 }
 
-.archival-quote {
-    font-family: var(--heading);
-    font-size: .95rem;
-    line-height: 2;
-    color: #43382a;
-    margin-bottom: 38px;
+.inner-frame{
+
+    position:absolute;
+
+    inset:18px;
+
+    border:1px solid rgba(212,175,55,.18);
+
 }
 
-.vault-btn {
-    padding: 14px 34px;
-    background: transparent;
-    border: 1px solid var(--gold);
-    border-radius: 50px;
-    color: #73571d;
-    font-family: var(--heading);
-    font-size: .78rem;
-    letter-spacing: 3px;
-    cursor: pointer;
-    transition: all .35s ease;
-    outline: none;
+
+/* -------------------------
+   Content Layers
+--------------------------*/
+
+.brand-logo-container,
+.title-group,
+.motto-group,
+.custody-group,
+.volume-group,
+.seal-wrapper,
+.break-text{
+
+    position:relative;
+
+    z-index:5;
+
 }
 
-.vault-btn:hover {
-    background: var(--gold);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(212,175,55,.28);
+
+/* -------------------------
+   Logo
+--------------------------*/
+
+.logo{
+
+    width:68px;
+
+    display:block;
+
 }
 
-/* ---------------- Solid Leather Cover Layout ---------------- */
-.cover {
-    position: absolute;
-    inset: 0;
-    border-radius: 6px 12px 12px 6px;
-    overflow: hidden;
-    z-index: 10;
-    pointer-events: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    padding: 42px 28px 26px;
-    /* Solid non-transparent Dark Leather Background */
-    background: #0a0806 !important;
-    background: radial-gradient(circle at 50% 25%, #2d2217 0%, #19130d 45%, #0a0806 100%) !important;
-    box-shadow: inset 0 0 35px rgba(0,0,0,.85), 8px 0 18px rgba(0,0,0,.45);
-    transform-origin: left center;
-    transform-style: preserve-3d;
-    backface-visibility: hidden !important;
-    -webkit-backface-visibility: hidden !important;
-    transition: transform 1.45s cubic-bezier(.22,.61,.36,1), box-shadow .8s ease;
-    will-change: transform;
+
+/* -------------------------
+   Titles
+--------------------------*/
+
+.brand-title{
+
+    font-family:var(--heading);
+
+    font-size:2.3rem;
+
+    letter-spacing:8px;
+
+    color:var(--gold-light);
+
 }
 
-/* Cover Opening Flip Action */
-.book.open .cover {
-    transform: rotateY(-145deg);
-    box-shadow: -18px 0 35px rgba(0,0,0,.65), 0 0 20px rgba(0,0,0,.25);
-    pointer-events: none;
-    z-index: 1 !important;
+.brand-subtitle{
+
+    margin-top:8px;
+
+    font-family:var(--heading);
+
+    font-size:1rem;
+
+    letter-spacing:8px;
+
+    color:#d7ba73;
+
 }
 
-.leather-overlay {
-    position: absolute;
-    inset: 0;
-    opacity: .12;
-    pointer-events: none;
-    background: repeating-radial-gradient(circle, rgba(255,255,255,.08) 0, rgba(255,255,255,.02) 2px, transparent 5px);
+
+/* -------------------------
+   Motto
+--------------------------*/
+
+.chronicle{
+
+    font-family:var(--heading);
+
+    color:#d0af66;
+
 }
 
-.bevel-edge {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    border: 1px solid rgba(255,255,255,.05);
-    box-shadow: inset 1px 1px 1px rgba(255,255,255,.06), inset -2px -2px 3px rgba(0,0,0,.55);
-    pointer-events: none;
+.gold-line{
+
+    width:80px;
+
+    height:1px;
+
+    margin-top:14px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
 }
 
-.gold-frame {
-    position: absolute;
-    inset: 12px;
-    border: 1px solid rgba(212,175,55,.55);
-    pointer-events: none;
+
+/* -------------------------
+   Philosophy
+--------------------------*/
+
+.custody-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
 }
 
-.inner-frame {
-    position: absolute;
-    inset: 18px;
-    border: 1px solid rgba(212,175,55,.18);
-    pointer-events: none;
+.custody-text{
+
+    font-size:.72rem;
+
+    color:#bdbdbd;
+
+    letter-spacing:3px;
+
 }
 
-/* Cover Text Elements */
-.brand-logo-container, .title-group, .motto-group, .custody-group, .volume-group, .seal-wrapper, .break-text {
-    position: relative;
-    z-index: 3;
+
+/* -------------------------
+   Volume
+--------------------------*/
+
+.volume-group{
+
+    text-align:center;
+
 }
 
-.logo {
-    width: 68px;
-    display: block;
-    margin: auto;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,.85)) drop-shadow(0 0 10px rgba(212,175,55,.18));
+.volume-title{
+
+    font-family:var(--heading);
+
+    color:#d8b96d;
+
 }
 
-.brand-title {
-    position: relative;
-    overflow: hidden;
-    margin-top: 8px;
-    font-family: var(--heading);
-    font-size: 2.2rem;
-    letter-spacing: 8px;
-    font-weight: 700;
-    background: linear-gradient(180deg, #fff8c9, #e6c768, #bf953f, #8b6920);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.roman-year{
+
+    margin-top:5px;
+
+    color:#9f8450;
+
 }
 
-.brand-subtitle {
-    margin-top: 6px;
-    font-family: var(--heading);
-    font-size: .92rem;
-    letter-spacing: 9px;
-    color: #d8bb70;
+
+/* -------------------------
+   Seal
+--------------------------*/
+
+.seal-wrapper{
+
+    margin-top:8px;
+
 }
 
-.chronicle {
-    font-family: var(--heading);
-    font-size: .88rem;
-    color: #cfae64;
+.seal{
+
+    width:82px;
+
+    cursor:pointer;
+
 }
 
-.gold-line {
-    width: 78px;
-    height: 1px;
-    margin: 12px auto 0;
-    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+
+/* -------------------------
+   Footer
+--------------------------*/
+
+.break-text{
+
+    font-family:var(--heading);
+
+    font-size:.62rem;
+
+    letter-spacing:4px;
+
+    color:#d0af66;
+
+       }
+
+/* ==========================================================
+   V0 FOUNDATION
+   PHASE D
+   LUXURY FINISH
+==========================================================*/
+
+
+/* --------------------------
+   Book Shadow
+---------------------------*/
+
+.book{
+
+    filter:
+
+        drop-shadow(0 45px 60px rgba(0,0,0,.45));
+
 }
 
-.custody-group {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+
+/* --------------------------
+   Cover Shadow
+---------------------------*/
+
+.cover{
+
+    box-shadow:
+
+        inset 0 0 35px rgba(0,0,0,.75),
+
+        8px 0 18px rgba(0,0,0,.35);
+
 }
 
-.custody-text {
-    font-size: .70rem;
-    color: #b9b9b9;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+
+/* --------------------------
+   Premium Logo
+---------------------------*/
+
+.logo{
+
+    filter:
+
+        drop-shadow(0 5px 12px rgba(0,0,0,.80));
+
 }
 
-.volume-group {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+
+/* --------------------------
+   Gold Title
+---------------------------*/
+
+.brand-title{
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #fff7c7,
+
+            #e8ca6e,
+
+            #bf953f,
+
+            #8f6d24
+
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
 }
 
-.volume-title {
-    font-family: var(--heading);
-    color: #d9b96a;
-    letter-spacing: 4px;
-    font-size: .85rem;
+
+/* --------------------------
+   Seal
+---------------------------*/
+
+.seal{
+
+    transition:
+
+        transform .35s ease,
+
+        filter .35s ease;
+
 }
 
-.roman-year {
-    font-family: var(--heading);
-    color: #9f8450;
-    letter-spacing: 5px;
-    font-size: .80rem;
+.seal:hover{
+
+    transform:
+
+        scale(1.08)
+
+        rotate(4deg);
+
+    filter:
+
+        drop-shadow(0 0 14px rgba(212,175,55,.45));
+
 }
 
-/* Wax Seal (Restored Visual Size) */
-.seal-wrapper {
-    margin-top: 6px;
-    position: relative;
-    z-index: 999;
+
+/* --------------------------
+   Button
+---------------------------*/
+
+.vault-btn{
+
+    transition:
+
+        background .3s,
+
+        color .3s,
+
+        transform .3s;
+
 }
 
-.seal {
-    width: 78px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-    transition: transform .35s ease, filter .35s ease;
+.vault-btn:hover{
+
+    background:var(--gold);
+
+    color:white;
+
+    transform:translateY(-2px);
+
 }
 
-.seal:hover {
-    transform: scale(1.08) rotate(3deg);
-    filter: drop-shadow(0 0 16px rgba(212,175,55,.6));
+
+/* --------------------------
+   Responsive
+---------------------------*/
+
+@media(max-width:768px){
+
+.logo{
+
+    width:58px;
+
 }
 
-.seal:active {
-    transform: scale(.94);
+.brand-title{
+
+    font-size:1.9rem;
+
 }
 
-.break-text {
-    margin-top: 6px;
-    font-family: var(--heading);
-    font-size: .60rem;
-    letter-spacing: 4px;
-    color: #d2b36c;
+.brand-subtitle{
+
+    font-size:.85rem;
+
 }
 
-/* ---------------- Responsive Fine-Tuning ---------------- */
-@media(max-width: 768px) {
-    .book { width: 92vw; }
-    .logo { width: 58px; }
-    .brand-title { font-size: 1.9rem; letter-spacing: 6px; }
-    .brand-subtitle { font-size: .85rem; letter-spacing: 7px; }
-    .seal { width: 72px; }
-    .welcome-title { font-size: 1.55rem; }
-    .archival-quote { font-size: .82rem; }
+.seal{
+
+    width:72px;
+
 }
 
-@media(max-width: 420px) {
-    .cover { padding: 34px 20px 22px; }
-    .logo { width: 52px; }
-    .brand-title { font-size: 1.65rem; }
-    .brand-subtitle { font-size: .78rem; }
-    .seal { width: 66px; }
+.welcome-title{
+
+    font-size:1.6rem;
+
 }
 
-/* ---------------- Reduced Motion Accessibility ---------------- */
-@media (prefers-reduced-motion: reduce) {
-    .cover, .seal, .vault-btn, .page {
-        transition: none !important;
-    }
+.archival-quote{
+
+    font-size:.82rem;
+
 }
+
+}
+
+@media(max-width:420px){
+
+.cover{
+
+    padding:34px 20px 24px;
+
+}
+
+.brand-title{
+
+    font-size:1.65rem;
+
+}
+
+.brand-subtitle{
+
+    font-size:.75rem;
+
+}
+
+.logo{
+
+    width:52px;
+
+}
+
+.seal{
+
+    width:64px;
+
+}
+
+}
+
