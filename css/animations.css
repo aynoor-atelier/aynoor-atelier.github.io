@@ -2,7 +2,159 @@
     transition: transform 1.4s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 1.4s ease;
 }
 
-.book.open .cover {
-    transform: rotateY(-135deg);
-    box-shadow: -15px 0 30px rgba(0, 0, 0, 0.8);
+.book.open .cover{
+
+animation:royalOpen 2.2s
+cubic-bezier(.22,.8,.18,1)
+forwards;
+
 }
+
+@keyframes royalOpen{
+
+0%{
+
+transform:
+rotateY(0deg)
+translateX(0)
+translateZ(0);
+
+box-shadow:
+0 10px 20px rgba(0,0,0,.6);
+
+}
+
+15%{
+
+transform:
+rotateY(-12deg)
+translateZ(8px);
+
+}
+
+35%{
+
+transform:
+rotateY(-42deg)
+translateZ(16px);
+
+}
+
+60%{
+
+transform:
+rotateY(-92deg)
+translateZ(22px);
+
+}
+
+80%{
+
+transform:
+rotateY(-128deg)
+translateZ(16px);
+
+}
+
+100%{
+
+transform:
+rotateY(-148deg)
+translateZ(0);
+
+box-shadow:
+-35px 0 50px rgba(0,0,0,.65);
+
+}
+
+}
+
+.page{
+
+opacity:.92;
+
+transition:
+
+opacity 1.2s ease,
+
+transform 1.2s ease;
+
+}
+
+.book.open .page{
+
+opacity:1;
+
+animation:
+pageReveal 1.8s ease forwards;
+
+}
+
+@keyframes pageReveal{
+
+0%{
+
+transform:
+translateY(18px);
+
+filter:blur(3px);
+
+}
+
+40%{
+
+transform:
+translateY(6px);
+
+}
+
+100%{
+
+transform:
+translateY(0);
+
+filter:blur(0);
+
+}
+
+}
+
+.book{
+
+transition:
+transform 1.8s ease;
+
+}
+
+.book.open{
+
+animation:
+cameraMove 2.2s ease forwards;
+
+}
+
+@keyframes cameraMove{
+
+0%{
+
+transform:
+scale(.92);
+
+}
+
+35%{
+
+transform:
+scale(.98);
+
+}
+
+100%{
+
+transform:
+scale(1);
+
+}
+
+}
+
