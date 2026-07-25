@@ -1,107 +1,52 @@
-/* ==========================================================
-   AYNOOR ATELIER
-   MAIN SCRIPT
-========================================================== */
-
 document.addEventListener("DOMContentLoaded", () => {
 
     const book = document.getElementById("book");
-
     const seal = document.getElementById("sealTrigger");
+
+    const sealSound = document.getElementById("sealSound");
+    const pageSound = document.getElementById("pageSound");
 
     const enterBtn = document.getElementById("enterVault");
 
-    const sealSound = document.getElementById("sealSound");
-
-    const pageSound = document.getElementById("pageSound");
-
-   console.log(book);
-console.log(seal);
-
     let opened = false;
 
-    /* ----------------------------------------
-       Unlock Audio (Mobile Browsers)
-    ---------------------------------------- */
+    // ---------- Seal Click ----------
 
-    function unlockAudio() {
+    seal.addEventListener("click", function (e) {
 
-        [sealSound, pageSound].forEach(audio => {
-
-            if (!audio) return;
-
-            audio.play()
-                .then(() => {
-                    audio.pause();
-                    audio.currentTime = 0;
-                })
-                .catch(() => {});
-        });
-
-        window.removeEventListener("touchstart", unlockAudio);
-        window.removeEventListener("click", unlockAudio);
-    }
-
-    window.addEventListener("touchstart", unlockAudio);
-    window.addEventListener("click", unlockAudio);
-
-    /* ----------------------------------------
-       Open Book
-    ---------------------------------------- */
-
-    function openBook() {
+        e.preventDefault();
 
         if (opened) return;
 
         opened = true;
 
         if (sealSound) {
-
-            sealSound.pause();
             sealSound.currentTime = 0;
-
-            sealSound.play().catch(() => {});
+            sealSound.play().catch(()=>{});
         }
 
         book.classList.add("open");
-    }
 
-    /* ----------------------------------------
-       Seal Click
-    ---------------------------------------- */
+    });
 
-   seal.addEventListener("click", openBook);
+    // ---------- Vault Button ----------
 
-   if (seal) {
-    seal.addEventListener("click", openBook);
-   }
+    enterBtn.addEventListener("click", function () {
 
-    /* ----------------------------------------
-       Enter Vault
-    ---------------------------------------- */
+        if(pageSound){
 
-    if (enterBtn) {
+            pageSound.currentTime=0;
 
-        enterBtn.addEventListener("click", () => {
+            pageSound.play().catch(()=>{});
 
-            if (pageSound) {
+        }
 
-                pageSound.pause();
+        setTimeout(()=>{
 
-                pageSound.currentTime = 0;
+            window.location.href="home.html";
 
-                pageSound.play().catch(() => {});
-            }
+        },700);
 
-            setTimeout(() => {
-
-                window.location.href = "home.html";
-
-            }, 500);
-
-        });
-
-    }
+    });
 
 });
-
