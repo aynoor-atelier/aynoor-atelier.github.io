@@ -1,375 +1,1198 @@
-/* ==========================================================================
-   AYNOOR ATELIER — CAPITAL OF CHRONICLES
-   Master Institutional Styling Architecture
-   Aesthetic Directive: Royal Vatican Archive / High-Jewelry Portfolio
-   ========================================================================== */
+/* ==========================================================
+   AYNOOR ATELIER
+   MASTER DESIGN SYSTEM v2
+========================================================== */
 
-/* --------------------------------------------------------------------------
-   1. GLOBAL SYSTEM VARIABLES
-   -------------------------------------------------------------------------- */
-:root {
-    /* Color Palette */
-    --bg-void: #030303;
-    --bg-surface: #0a0a0a;
-    --bg-leather-dark: #0f0d0a;
-    --bg-leather-light: #1c1813;
-    
-    /* Foil & Gold Gradients */
-    --gold-primary: #d4af37;
-    --gold-secondary: #c5a059;
-    --gold-muted: #8a6d2b;
-    --gold-deep: #594519;
-    --gold-foil: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-    --gold-foil-subtle: linear-gradient(145deg, #2a2214 0%, #4a3b1e 50%, #1d170c 100%);
-    
-    /* Dark Ambient Gradients */
-    --vignette: radial-gradient(circle at 50% 50%, rgba(20, 16, 10, 0.4) 0%, rgba(3, 3, 3, 0.98) 80%);
-    --spotlight: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 65%);
-    
-    /* Typography Standards */
-    --font-heading: 'Cinzel', serif;
-    --font-body: 'Montserrat', sans-serif;
-    
-    /* Structural Shadows */
-    --vault-shadow: 0 35px 80px rgba(0, 0, 0, 0.95), 0 0 25px rgba(197, 160, 89, 0.08);
-    --gold-glow: 0 0 15px rgba(212, 175, 55, 0.35);
+:root{
+
+--black:#030303;
+--surface:#0a0a0a;
+--cover:#11100d;
+--cover2:#1b1712;
+
+--gold:#d6b35a;
+--gold2:#b58d33;
+--gold3:#7c6021;
+--gold4:#f5e3a1;
+
+--white:#f6f3ec;
+
+--shadow:
+0 25px 70px rgba(0,0,0,.95),
+0 0 50px rgba(212,175,55,.05);
+
+--glow:
+0 0 12px rgba(212,175,55,.25);
+
+--radius:18px;
+
+}
+
+/* ======================================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,
+body{
+
+width:100%;
+height:100%;
+overflow:hidden;
+
+background:#000;
+
+font-family:"Montserrat",sans-serif;
+
+}
+
+/* ======================================================= */
+
+body{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+
+radial-gradient(circle at 50% 28%,
+rgba(212,175,55,.06),
+transparent 45%),
+
+radial-gradient(circle at center,
+#111 0%,
+#050505 60%,
+#000 100%);
+
+}
+
+/* ======================================================= */
+
+.scene{
+
+width:100%;
+height:100%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+perspective:2200px;
+
+padding:40px;
+
+}
+
+/* ======================================================= */
+
+.book{
+
+position:relative;
+
+width:min(88vw,420px);
+
+height:min(82vh,720px);
+
+transform-style:preserve-3d;
+
+transition:.9s;
+
+filter:drop-shadow(0 40px 80px rgba(0,0,0,.95));
+
+}
+
+/* ======================================================= */
+
+.book::before{
+
+content:"";
+
+position:absolute;
+
+inset:-25px;
+
+background:
+
+radial-gradient(circle,
+rgba(212,175,55,.08),
+transparent 70%);
+
+filter:blur(50px);
+
+z-index:-5;
+
+}
+
+/* ======================================================= */
+
+.spine{
+
+position:absolute;
+
+left:-15px;
+
+top:0;
+
+width:18px;
+
+height:100%;
+
+border-radius:12px 0 0 12px;
+
+background:
+
+linear-gradient(
+90deg,
+#000,
+#231c12 20%,
+#5d4821 45%,
+#2d2416 70%,
+#050505);
+
+box-shadow:
+
+inset -3px 0 6px rgba(255,255,255,.08),
+
+inset 2px 0 10px rgba(0,0,0,.9);
+
+z-index:5;
+
+}
+
+/* ======================================================= */
+
+.cover{
+
+position:relative;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+border-radius:var(--radius);
+
+background:
+
+linear-gradient(
+145deg,
+#1b1712 0%,
+#11100d 35%,
+#090909 100%);
+
+border:2px solid rgba(214,179,90,.55);
+
+box-shadow:
+
+inset 0 0 80px rgba(255,255,255,.02),
+
+inset 0 0 140px rgba(0,0,0,.85),
+
+0 15px 35px rgba(0,0,0,.8);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:42px 28px 26px;
+
+}
+
+/* ======================================================= */
+/* Leather texture */
+/* ======================================================= */
+
+.cover::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+url("https://www.transparenttextures.com/patterns/leather.png");
+
+opacity:.08;
+
+mix-blend-mode:soft-light;
+
+pointer-events:none;
+
+}
+
+/* ======================================================= */
+
+.cover::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(circle at 50% 25%,
+
+rgba(255,230,150,.08),
+
+transparent 55%);
+
+pointer-events:none;
+
 }
 
 
-/* --------------------------------------------------------------------------
-   2. RESET & BASE CANVAS
-   -------------------------------------------------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+/* ==========================================================
+   PART 2
+   LUXURY GOLD FRAME & COVER DETAILS
+========================================================== */
+
+/* ---------- Outer Royal Frame ---------- */
+
+.gold-frame{
+
+position:absolute;
+
+top:18px;
+left:18px;
+right:18px;
+bottom:18px;
+
+border:2px solid rgba(214,179,90,.72);
+
+border-radius:16px;
+
+pointer-events:none;
+
+box-shadow:
+
+0 0 0 1px rgba(255,230,170,.12),
+
+0 0 18px rgba(214,179,90,.08),
+
+inset 0 0 10px rgba(255,255,255,.02);
+
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: var(--bg-void);
-    color: #e5e5e5;
-    font-family: var(--font-body);
+
+/* ---------- Middle Frame ---------- */
+
+.gold-frame::before{
+
+content:"";
+
+position:absolute;
+
+top:14px;
+left:14px;
+right:14px;
+bottom:14px;
+
+border:1px solid rgba(214,179,90,.30);
+
+border-radius:12px;
+
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+/* ---------- Inner Reading Panel ---------- */
+
+.inner-frame{
+
+position:absolute;
+
+top:58px;
+left:38px;
+right:38px;
+bottom:64px;
+
+border-radius:22px;
+
+border:1px solid rgba(214,179,90,.22);
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(255,255,255,.015),
+
+rgba(0,0,0,.10)
+
+);
+
+pointer-events:none;
+
 }
 
-/* Background Atmospheric Lighting */
-.spotlight {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: var(--spotlight), var(--vignette);
-    pointer-events: none;
-    z-index: 1;
+
+/* ---------- Soft Gold Reflection ---------- */
+
+.cover .shine{
+
+position:absolute;
+
+top:-45%;
+
+left:-30%;
+
+width:70%;
+
+height:180%;
+
+transform:rotate(-22deg);
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.05),
+
+rgba(255,245,200,.08),
+
+transparent
+
+);
+
+pointer-events:none;
+
+animation:shineMove 8s linear infinite;
+
+opacity:.45;
+
 }
 
-.scene {
-    position: relative;
-    z-index: 10;
-    perspective: 1600px; /* High depth perspective */
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+
+/* ---------- Corner Glow ---------- */
+
+.cover .corner-light{
+
+position:absolute;
+
+width:180px;
+
+height:180px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(214,179,90,.08),
+
+transparent 70%
+
+);
+
+filter:blur(35px);
+
+pointer-events:none;
+
 }
 
-/* --------------------------------------------------------------------------
-   3. THE CODEX (BOOK CONTAINER & SPINE)
-   -------------------------------------------------------------------------- */
-.book {
-    width: 90vw;          
-    max-width: 420px;       
-    height: 82vh;    
-    max-height: 700px;
-    position: relative;
-    transform-style: preserve-3d;
-    box-shadow: var(--vault-shadow);
-    border-radius: 10px;
-    background-color: var(--bg-surface);
+.cover .corner-light.top{
+
+top:-70px;
+
+left:-70px;
+
 }
 
-/* Leather Bound 3D Spine */
-.spine {
-    position: absolute;
-    left: -14px;
-    top: 0;
-    width: 16px;
-    height: 100%;
-    background: linear-gradient(90deg, #020202 0%, #2e2413 40%, #47381d 50%, #17120a 80%, #080705 100%);
-    border-radius: 6px 0 0 6px;
-    box-shadow: inset -1px 0 3px rgba(0,0,0,0.8);
-    z-index: 5;
+.cover .corner-light.bottom{
+
+bottom:-70px;
+
+right:-70px;
+
 }
 
-/* --------------------------------------------------------------------------
-   4. FRONT COVER (ROYAL MANUSCRIPT)
-   -------------------------------------------------------------------------- */
-.cover {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(155deg, var(--bg-leather-light) 0%, var(--bg-leather-dark) 100%);
-    border: 2px solid var(--gold-secondary);
-    border-radius: 8px;
-    padding: 35px 25px 28px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Perfect space distribution */
-    align-items: center;
-    text-align: center;
-    position: relative;
-    z-index: 4;
-    overflow: hidden;
-    backface-visibility: hidden;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+
+/* ---------- Decorative Top Line ---------- */
+
+.cover .top-line{
+
+position:absolute;
+
+top:95px;
+
+left:80px;
+
+right:80px;
+
+height:1px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(214,179,90,.45),
+
+transparent
+
+);
+
+opacity:.55;
+
 }
 
-/* Filigree Double Gold Border */
-.gold-frame {
-    position: absolute;
-    top: 9px;
-    left: 9px;
-    right: 9px;
-    bottom: 9px;
-    border: 1px solid rgba(197, 160, 89, 0.45);
-    pointer-events: none;
-    z-index: 1;
+
+/* ---------- Decorative Bottom Line ---------- */
+
+.cover .bottom-line{
+
+position:absolute;
+
+bottom:95px;
+
+left:80px;
+
+right:80px;
+
+height:1px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(214,179,90,.45),
+
+transparent
+
+);
+
+opacity:.55;
+
 }
 
-.inner-frame {
-    position: absolute;
-    top: 13px;
-    left: 13px;
-    right: 13px;
-    bottom: 13px;
-    border: 1px solid rgba(197, 160, 89, 0.2);
-    pointer-events: none;
-    z-index: 1;
+
+/* ---------- Floating Dust ---------- */
+
+.cover::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background-image:
+
+radial-gradient(rgba(255,230,180,.12) 1px, transparent 1px);
+
+background-size:55px 55px;
+
+opacity:.05;
+
+pointer-events:none;
+
 }
 
-/* --------------------------------------------------------------------------
-   5. BRANDING & TYPOGRAPHY
-   -------------------------------------------------------------------------- */
-/* Logo Monogram */
-.brand-logo-container {
-    position: relative;
-    z-index: 3;
+
+/* ---------- Gold Breathing Glow ---------- */
+
+@keyframes borderGlow{
+
+0%{
+
+box-shadow:
+
+0 0 8px rgba(214,179,90,.08);
+
 }
 
-.logo {
-    width: 60px;
-    height: auto;
-    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+50%{
+
+box-shadow:
+
+0 0 22px rgba(214,179,90,.20);
+
 }
 
-/* Title Block */
-.title-group {
-    position: relative;
-    z-index: 3;
+100%{
+
+box-shadow:
+
+0 0 8px rgba(214,179,90,.08);
+
 }
 
-.brand-title {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
-    letter-spacing: 7px;
-    background: var(--gold-foil);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    line-height: 1;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.9));
 }
 
-.brand-subtitle {
-    font-family: var(--font-heading);
-    font-size: 1.05rem;
-    letter-spacing: 9px;
-    color: var(--gold-secondary);
-    margin-top: 6px;
-    font-weight: 400;
+.gold-frame{
+
+animation:borderGlow 6s ease-in-out infinite;
+
 }
 
-/* Motto & Divider Line */
-.motto-group {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+/* ---------- Moving Reflection ---------- */
+
+@keyframes shineMove{
+
+0%{
+
+transform:
+
+translateX(-220px)
+
+rotate(-22deg);
+
 }
 
-.chronicle {
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: 0.92rem;
-    color: #b39352;
-    letter-spacing: 1px;
+100%{
+
+transform:
+
+translateX(520px)
+
+rotate(-22deg);
+
 }
 
-.gold-line {
-    width: 65px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-secondary), transparent);
-    margin: 12px 0 0 0;
+   }
+
+/* ==========================================================
+   PART 3
+   TYPOGRAPHY • SPACING • HIERARCHY
+========================================================== */
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo{
+
+display:block;
+
+width:58px;
+
+height:auto;
+
+margin:10px auto 18px;
+
+filter:
+
+drop-shadow(0 3px 8px rgba(0,0,0,.8))
+
+drop-shadow(0 0 10px rgba(214,179,90,.20));
+
+z-index:10;
+
 }
 
-/* Custodial Philosophy Text */
-.custody-group {
-    position: relative;
-    z-index: 3;
+
+/* =========================
+   TITLE
+========================= */
+
+h1{
+
+font-family:"Cinzel",serif;
+
+font-size:3rem;
+
+font-weight:600;
+
+letter-spacing:.28em;
+
+text-align:center;
+
+line-height:1;
+
+margin-top:12px;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#f9edb0,
+
+#d7b15d,
+
+#8e6b2b
+
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+text-shadow:
+
+0 1px 2px rgba(0,0,0,.7);
+
 }
 
-.custody-text {
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    letter-spacing: 3px;
-    color: #a8a8a8;
-    line-height: 1.8;
-    font-weight: 400;
-    text-transform: uppercase;
+
+/* =========================
+   SUBTITLE
+========================= */
+
+h2{
+
+margin-top:12px;
+
+font-family:"Cinzel",serif;
+
+font-size:1rem;
+
+font-weight:400;
+
+letter-spacing:.70em;
+
+color:#d6b35a;
+
+text-align:center;
+
 }
 
-/* Volume & Roman Numeral Year */
-.volume-group {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+
+/* =========================
+   CHRONICLE
+========================= */
+
+.chronicle{
+
+margin-top:55px;
+
+font-family:"Cormorant Garamond",serif;
+
+font-style:italic;
+
+font-size:1rem;
+
+color:#b8944c;
+
+letter-spacing:.08em;
+
+text-align:center;
+
 }
 
-.volume-title {
-    font-family: var(--font-heading);
-    font-size: 0.88rem;
-    color: var(--gold-secondary);
-    letter-spacing: 3px;
+
+/* =========================
+   GOLD LINE
+========================= */
+
+.gold-line{
+
+width:130px;
+
+height:1px;
+
+margin:18px auto 0;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+#cfa54d,
+
+transparent
+
+);
+
 }
 
-.roman-year {
-    font-family: var(--font-heading);
-    font-size: 0.82rem;
-    color: #92753a;
-    letter-spacing: 4px;
+
+/* =========================
+   PHILOSOPHY
+========================= */
+
+.cover-text{
+
+margin-top:38px;
+
+font-family:"Montserrat",sans-serif;
+
+font-size:.80rem;
+
+font-weight:300;
+
+letter-spacing:.28em;
+
+line-height:2.3;
+
+text-align:center;
+
+text-transform:uppercase;
+
+color:#bdb7aa;
+
 }
 
-/* --------------------------------------------------------------------------
-   6. WAX SEAL & FOOTER CALLOUT
-   -------------------------------------------------------------------------- */
-.seal-wrapper {
-    position: relative;
-    z-index: 3;
-    margin: 2px 0;
+
+/* =========================
+   VOLUME
+========================= */
+
+.volume{
+
+margin-top:45px;
+
+text-align:center;
+
+font-family:"Cinzel",serif;
+
+font-size:.95rem;
+
+letter-spacing:.35em;
+
+color:#d8b45b;
+
 }
 
-.seal {
-    width: 78px;
-    height: 78px;
-    cursor: pointer;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
-    object-fit: contain;
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.8));
+
+/* =========================
+   YEAR
+========================= */
+
+.year{
+
+margin-top:12px;
+
+font-family:"Cinzel",serif;
+
+font-size:.82rem;
+
+letter-spacing:.40em;
+
+color:#8e7134;
+
+text-align:center;
+
 }
 
-.seal:hover {
-    transform: scale(1.1) rotate(3deg);
-    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.9)) drop-shadow(var(--gold-glow));
+
+/* =========================
+   SEAL
+========================= */
+
+.seal-wrapper{
+
+margin-top:28px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:50;
+
 }
 
-.break-text {
-    position: relative;
-    z-index: 3;
-    font-family: var(--font-heading);
-    font-size: 0.62rem;
-    letter-spacing: 3.5px;
-    color: var(--gold-secondary);
-    text-transform: uppercase;
-    opacity: 0.85;
+
+.seal{
+
+width:82px;
+
+height:auto;
+
+cursor:pointer;
+
+transition:.35s;
+
+filter:
+
+drop-shadow(0 8px 15px rgba(0,0,0,.8));
+
 }
 
-/* --------------------------------------------------------------------------
-   7. INNER WELCOME PAGE
-   -------------------------------------------------------------------------- */
-.page {
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, #fbf8f3 0%, #ebe3d5 100%);
-    color: #1a1a1a;
-    border-radius: 8px;
-    padding: 40px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+.seal:hover{
+
+transform:scale(1.08);
+
 }
 
-.welcome-title {
-    font-family: var(--font-heading);
-    color: #111;
-    font-size: 1.7rem;
-    letter-spacing: 5px;
+
+/* =========================
+   BREAK TEXT
+========================= */
+
+.break{
+
+margin-top:22px;
+
+font-family:"Cinzel",serif;
+
+font-size:.62rem;
+
+letter-spacing:.45em;
+
+color:#c49a46;
+
+text-align:center;
+
+text-transform:uppercase;
+
+opacity:.92;
+
 }
 
-.page-line {
-    width: 55px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #c5a059, transparent);
-    margin: 20px auto;
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#f5f0e5,
+
+#e7dfcf
+
+);
+
+border-radius:18px;
+
+z-index:2;
+
 }
 
-.archival-quote {
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    line-height: 1.9;
-    color: #3d3d3d;
-    margin-bottom: 35px;
+/* ==========================================================
+   PART 4
+   FINAL POLISH
+   BOOK DEPTH • PAGE EDGE • RESPONSIVE
+========================================================== */
+
+
+/* =============================
+   PAGE THICKNESS
+============================= */
+
+.page{
+
+transform:
+
+translateX(10px);
+
+box-shadow:
+
+inset 8px 0 12px rgba(0,0,0,.08);
+
 }
 
-.vault-btn {
-    background: transparent;
-    border: 1px solid var(--gold-secondary);
-    padding: 13px 32px;
-    border-radius: 30px;
-    color: #73571d;
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    cursor: pointer;
-    transition: all 0.35s ease;
+
+/* =============================
+   PAGE EDGE
+============================= */
+
+.page::before{
+
+content:"";
+
+position:absolute;
+
+top:14px;
+
+right:-8px;
+
+width:10px;
+
+height:96%;
+
+border-radius:0 8px 8px 0;
+
+background:
+
+repeating-linear-gradient(
+
+180deg,
+
+#f8f2e7 0px,
+
+#e8dfcf 2px,
+
+#d8ccb6 4px
+
+);
+
 }
 
-.vault-btn:hover {
-    background-color: var(--gold-secondary);
-    color: #ffffff;
-    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
+
+/* =============================
+   BOOK SHADOW
+============================= */
+
+.book{
+
+transition:
+
+transform .8s cubic-bezier(.2,.8,.2,1);
+
 }
 
-/* --------------------------------------------------------------------------
-   8. RESPONSIVE MOBILE SCALING
-   -------------------------------------------------------------------------- */
-@media (max-height: 670px) {
-    .book {
-        height: 550px;
-        width: 320px;
-    }
-    .brand-title { font-size: 2rem; }
-    .seal { width: 58px; height: 58px; }
+.book:hover{
+
+transform:
+
+translateY(-6px)
+
+rotateX(3deg)
+
+rotateY(-3deg);
+
 }
+
+
+/* =============================
+   COVER HOVER
+============================= */
+
+.cover{
+
+transition:
+
+all .8s ease;
+
+}
+
+.cover:hover{
+
+box-shadow:
+
+0 45px 90px rgba(0,0,0,.92),
+
+0 0 35px rgba(212,175,55,.08),
+
+inset 0 0 80px rgba(255,255,255,.03);
+
+}
+
+
+/* =============================
+   SEAL HOVER
+============================= */
+
+.seal{
+
+transition:
+
+transform .35s ease,
+
+filter .35s ease;
+
+}
+
+.seal:hover{
+
+transform:
+
+scale(1.08);
+
+filter:
+
+drop-shadow(0 12px 18px rgba(0,0,0,.85))
+
+drop-shadow(0 0 12px rgba(212,175,55,.30));
+
+}
+
+
+/* =============================
+   BUTTON
+============================= */
+
+button{
+
+padding:14px 34px;
+
+border-radius:50px;
+
+border:1px solid #c8a14f;
+
+background:transparent;
+
+color:#6e5620;
+
+font-family:"Cinzel",serif;
+
+letter-spacing:.25em;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+button:hover{
+
+background:#c8a14f;
+
+color:white;
+
+}
+
+
+/* =============================
+   MOBILE
+============================= */
+
+@media(max-width:768px){
+
+.book{
+
+width:92vw;
+
+height:132vw;
+
+max-height:none;
+
+}
+
+
+.logo{
+
+width:46px;
+
+}
+
+
+h1{
+
+font-size:2.15rem;
+
+letter-spacing:.22em;
+
+}
+
+
+h2{
+
+font-size:.82rem;
+
+letter-spacing:.45em;
+
+}
+
+
+.chronicle{
+
+font-size:.86rem;
+
+margin-top:42px;
+
+}
+
+
+.cover-text{
+
+font-size:.68rem;
+
+line-height:2;
+
+letter-spacing:.22em;
+
+}
+
+
+.volume{
+
+font-size:.82rem;
+
+margin-top:36px;
+
+}
+
+
+.year{
+
+font-size:.72rem;
+
+}
+
+
+.seal{
+
+width:68px;
+
+}
+
+
+.break{
+
+font-size:.55rem;
+
+letter-spacing:.28em;
+
+}
+
+}
+
+
+/* =============================
+   VERY SMALL DEVICES
+============================= */
+
+@media(max-width:380px){
+
+.book{
+
+width:95vw;
+
+height:138vw;
+
+}
+
+h1{
+
+font-size:1.8rem;
+
+}
+
+.logo{
+
+width:40px;
+
+}
+
+}
+
+
+/* =============================
+   END
+============================= */
