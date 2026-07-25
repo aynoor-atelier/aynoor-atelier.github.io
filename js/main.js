@@ -1,127 +1,103 @@
-let isAudioUnlocked = false;
+/* ==========================================================
+   AYNOOR ATELIER
+   MAIN SCRIPT
+========================================================== */
 
-// Function to unlock mobile browser audio engine on first screen interaction
-function unlockAudioEngine() {
-    if (isAudioUnlocked) return;
+document.addEventListener("DOMContentLoaded", () => {
+
+    const book = document.getElementById("book");
+
+    const seal = document.getElementById("sealTrigger");
+
+    const enterBtn = document.getElementById("enterVault");
 
     const sealSound = document.getElementById("sealSound");
+
     const pageSound = document.getElementById("pageSound");
 
-    [sealSound, pageSound].forEach(audio => {
-        if (audio) {
-            audio.play().then(() => {
-                audio.pause();
-                audio.currentTime = 0;
-            }).catch(() => {});
-        }
-    });
+    let opened = false;
 
-    isAudioUnlocked = true;
-    console.log("Audio Engine Unlocked!");
+    /* ----------------------------------------
+       Unlock Audio (Mobile Browsers)
+    ---------------------------------------- */
 
-    window.removeEventListener("click", unlockAudioEngine);
-    window.removeEventListener("touchstart", unlockAudioEngine);
-}
+    function unlockAudio() {
 
-window.addEventListener("click", unlockAudioEngine);
-window.addEventListener("touchstart", unlockAudioEngine);
+        [sealSound, pageSound].forEach(audio => {
 
-function openArchiveBook(){
+            if (!audio) return;
 
-const book=document.getElementById("book");
+            audio.play()
+                .then(() => {
+                    audio.pause();
+                    audio.currentTime = 0;
+                })
+                .catch(() => {});
+        });
 
-const seal=document.getElementById("sealTrigger");
-
-const sealSound=document.getElementById("sealSound");
-
-seal.style.pointerEvents="none";
-
-seal.animate([
-
-{
-
-transform:"scale(1)"
-
-},
-
-{
-
-transform:"scale(.92)"
-
-},
-
-{
-
-transform:"scale(1.18) rotate(6deg)"
-
-},
-
-{
-
-transform:"scale(0)"
-
-}
-
-],{
-
-duration:650,
-
-fill:"forwards",
-
-easing:"cubic-bezier(.22,.8,.18,1)"
-
-});
-
-sealSound.currentTime=0;
-
-sealSound.play();
-
-setTimeout(()=>{
-
-book.classList.add("open");
-
-},300);
-
-}
-
-// Vault Navigation & Sound Handler
-document.addEventListener("DOMContentLoaded", () => {
-    const sealTrigger = document.getElementById("sealTrigger");
-    const enterVaultBtn = document.getElementById("enterVault");
-    const pageSound = document.getElementById("pageSound");
-
-    if (sealTrigger) {
-        sealTrigger.addEventListener("click", openArchiveBook);
+        window.removeEventListener("touchstart", unlockAudio);
+        window.removeEventListener("click", unlockAudio);
     }
 
-    if (enterVaultBtn) {
-        enterVaultBtn.addEventListener("click", (e) => {
-            e.preventDefault(); // Navigation ko momentary pause karenge audio chalane ke liye
+    window.addEventListener("touchstart", unlockAudio);
+    window.addEventListener("click", unlockAudio);
+
+    /* ----------------------------------------
+       Open Book
+    ---------------------------------------- */
+
+    function openBook() {
+
+        if (opened) return;
+
+        opened = true;
+
+        if (sealSound) {
+
+            sealSound.pause();
+            sealSound.currentTime = 0;
+
+            sealSound.play().catch(() => {});
+        }
+
+        book.classList.add("open");
+    }
+
+    /* ----------------------------------------
+       Seal Click
+    ---------------------------------------- */
+
+    if (seal) {
+
+        seal.addEventListener("click", openBook);
+    }
+
+    /* ----------------------------------------
+       Enter Vault
+    ---------------------------------------- */
+
+    if (enterBtn) {
+
+        enterBtn.addEventListener("click", () => {
 
             if (pageSound) {
+
+                pageSound.pause();
+
                 pageSound.currentTime = 0;
-                let redirected = false;
 
-                const goToNextPage = () => {
-                    if (!redirected) {
-                        redirected = true;
-                        window.location.href = "home.html";
-                    }
-                };
-
-                // Play audio and redirect after playback
-                pageSound.play().then(() => {
-                    setTimeout(goToNextPage, 400); // Sound ka initial part sunayi dete hi redirect
-                }).catch(() => {
-                    goToNextPage(); // Playback fail ho to turant redirected
-                });
-
-                // Fallback timer
-                setTimeout(goToNextPage, 600);
-            } else {
-                window.location.href = "home.html";
+                pageSound.play().catch(() => {});
             }
+
+            setTimeout(() => {
+
+                window.location.href = "home.html";
+
+            }, 500);
+
         });
+
     }
+
 });
 
