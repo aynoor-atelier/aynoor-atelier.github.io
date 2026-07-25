@@ -117,13 +117,7 @@
     }
 }
 
-/* Hide Page Stack when Book is Opened */
+/* Page Stack Hide Logic */
 .book.open .page-stack {
-    display: none !important;
-}
-
-/* Align Inner Page cleanly to the right edge */
-.book.open .page {
-    border-radius: 6px 12px 12px 6px !important;
-    right: 0 !important;
+    display: none;
 }
