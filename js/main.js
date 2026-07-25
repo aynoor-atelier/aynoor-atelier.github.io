@@ -26,19 +26,62 @@ function unlockAudioEngine() {
 window.addEventListener("click", unlockAudioEngine);
 window.addEventListener("touchstart", unlockAudioEngine);
 
-// Open Archive Book Logic
-function openArchiveBook() {
-    const book = document.getElementById("book");
-    const sealSound = document.getElementById("sealSound");
+function openArchiveBook(){
 
-    if (sealSound) {
-        sealSound.currentTime = 0;
-        sealSound.play().catch(err => console.warn("Seal sound play issue:", err));
-    }
+const book=document.getElementById("book");
 
-    if (book) {
-        book.classList.add("open");
-    }
+const seal=document.getElementById("sealTrigger");
+
+const sealSound=document.getElementById("sealSound");
+
+seal.style.pointerEvents="none";
+
+seal.animate([
+
+{
+
+transform:"scale(1)"
+
+},
+
+{
+
+transform:"scale(.92)"
+
+},
+
+{
+
+transform:"scale(1.18) rotate(6deg)"
+
+},
+
+{
+
+transform:"scale(0)"
+
+}
+
+],{
+
+duration:650,
+
+fill:"forwards",
+
+easing:"cubic-bezier(.22,.8,.18,1)"
+
+});
+
+sealSound.currentTime=0;
+
+sealSound.play();
+
+setTimeout(()=>{
+
+book.classList.add("open");
+
+},300);
+
 }
 
 // Vault Navigation & Sound Handler
