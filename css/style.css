@@ -1155,3 +1155,21 @@ rotate(18deg);
 }
 
 }
+
+.cover{
+    pointer-events:auto !important;
+}
+
+.page{
+    pointer-events:none !important;
+}
+
+.page *{
+    pointer-events:none !important;
+}
+
+.seal{
+    pointer-events:auto !important;
+    position:relative;
+    z-index:999999;
+}
