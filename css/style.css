@@ -339,16 +339,6 @@ body {
     font-size: 0.6rem;
     letter-spacing: 3px;
     color: #d8b86d;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
 }
 
-/* Ensure Seal is always clickable above all cover elements */
-.leather-overlay, .bevel-edge, .gold-frame, .inner-frame {
-    pointer-events: none !important;
-}
-
-.seal-wrapper, .seal {
-    pointer-events: auto !important;
-    position: relative;
-    z-index: 99999 !important;
-}
