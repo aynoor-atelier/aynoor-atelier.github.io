@@ -1,6 +1,6 @@
 let isAudioUnlocked = false;
 
-// Audio Engine Pre-load for Mobile Browsers
+// Mobile Web Audio Unlocker
 function unlockAudioEngine() {
     if (isAudioUnlocked) return;
 
@@ -24,29 +24,42 @@ function unlockAudioEngine() {
 window.addEventListener("click", unlockAudioEngine);
 window.addEventListener("touchstart", unlockAudioEngine);
 
-// Open Archive Book Function (Force Triggering Animation)
+// Master Open Function
 window.openArchiveBook = function() {
     const book = document.getElementById("book");
+    const cover = document.getElementById("cover");
     const sealSound = document.getElementById("sealSound");
 
-    // 1. Play Sound
+    // 1. Play Sound Effect
     if (sealSound) {  
         sealSound.currentTime = 0;  
         sealSound.play().catch(err => console.warn("Audio play issue:", err));  
     }  
 
-    // 2. Force Apply 3D Open Animation via RequestAnimationFrame
-    if (book) {  
-        requestAnimationFrame(() => {
-            book.classList.add("open");
-        });
+    // 2. Class Toggle
+    if (book) {
+        book.classList.add("open");
+    }
+
+    // 3. Direct Brute Force Inline Transform on Cover
+    if (cover) {
+        cover.classList.add("turned");
+        cover.style.setProperty("transform", "rotateY(-140deg)", "important");
+        cover.style.setProperty("-webkit-transform", "rotateY(-140deg)", "important");
+        cover.style.setProperty("pointer-events", "none", "important");
+        cover.style.setProperty("z-index", "1", "important");
     }
 };
 
-// Vault Route Listener
+// Vault Navigation Handler
 document.addEventListener("DOMContentLoaded", () => {
+    const sealTrigger = document.getElementById("sealTrigger");
     const enterVaultBtn = document.getElementById("enterVault");
     const pageSound = document.getElementById("pageSound");
+
+    if (sealTrigger) {
+        sealTrigger.addEventListener("click", window.openArchiveBook);
+    }
 
     if (enterVaultBtn) {  
         enterVaultBtn.addEventListener("click", (e) => {  
