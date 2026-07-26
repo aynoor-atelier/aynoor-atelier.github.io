@@ -343,52 +343,36 @@ body {
 }
 
 /* ==========================================================
-   RESPONSIVE SCALING (MOBILE FULL-SCREEN + DESKTOP LARGE)
+             GRAND DESKTOP & MOBILE SCALING 
    ========================================================== */
 
-/* 1. Mobile Fix */
+/* 1. Mobile & Small Screens */
 @media (max-width: 768px) {
     .book {
         width: 92vw !important;
-        height: 88vh !important;
-        max-width: 480px !important;
-        max-height: 780px !important;
+        height: 86vh !important;
+        max-width: 450px !important;
+        max-height: 750px !important;
     }
 }
 
-/* 2. Desktop & Laptop Fix */
+/* 2. Desktop & Laptops */
 @media (min-width: 769px) {
     .book {
-        width: 480px !important;
-        height: 760px !important;
+        width: 42vw !important;          
+        height: 84vh !important;         
+        max-width: 650px !important;     
+        max-height: 900px !important;    
     }
+    
     .brand-title {
-        font-size: 2.8rem !important;
+        font-size: 3.5rem !important;
     }
     .brand-subtitle {
-        font-size: 1.15rem !important;
+        font-size: 1.3rem !important;
     }
     .seal {
-        width: 95px !important;
-    }
-    .welcome-title {
-        font-size: 2.3rem !important;
-    }
-    .archival-quote {
-        font-size: 1.05rem !important;
+        width: 115px !important;
     }
 }
 
-/* 3. Large Desktop / 2K Monitors */
-@media (min-width: 1440px) {
-    .book {
-        width: 540px !important;
-        height: 840px !important;
-    }
-    .brand-title {
-        font-size: 3.2rem !important;
-    }
-    .seal {
-        width: 108px !important;
-    }
-}
