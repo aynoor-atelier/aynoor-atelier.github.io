@@ -1,26 +1,33 @@
 /* ==========================================================================
-AYNOOR ATELIER ANIMATION SYSTEM
+AYNOOR ATELIER - DIRECT ANIMATION OVERRIDE
 ========================================================================== */
 
+/* 1. Base Cover Setup */
 .cover {
-    transition: transform 1.4s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 1.4s ease;
-    will-change: transform;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    transform-origin: left center !important;
+    transform-style: preserve-3d !important;
+    -webkit-transform-origin: left center !important;
+    -webkit-transform-style: preserve-3d !important;
 }
 
-/* Opening state */
+/* 2. Forced Turned Cover State */
+.cover.turned,
 .book.open .cover {
-    transform: rotateY(-140deg);
-    box-shadow: -15px 0 30px rgba(0, 0, 0, 0.8);
-    pointer-events: none;
+    transform: rotateY(-140deg) !important;
+    -webkit-transform: rotateY(-140deg) !important;
+    pointer-events: none !important;
     z-index: 1 !important;
+    box-shadow: -15px 0 30px rgba(0, 0, 0, 0.8) !important;
 }
 
-/* Seamless Hide of Page-Stack when Book opens */
-.book.open .page-stack {
+/* 3. Hide Page Stack & Elevate Inner Page */
+.book.open .page-stack,
+.cover.turned ~ .page-stack {
     opacity: 0 !important;
-    display: none !important;
+    visibility: hidden !important;
 }
 
 .book.open .page {
-    z-index: 5 !important;
+    z-index: 10 !important;
 }
