@@ -342,37 +342,60 @@ body {
     margin-bottom: 10px;
 }
 
+
 /* ==========================================================
-   MATHEMATICAL ASPECT RATIO SCALING (1 : 0.65 BOOK RATIO)
+   DESKTOP ONLY - PERFECT PROPORTIONAL FIT & INNER SCALING
    ========================================================== */
 
-/* 1. Mobile Calculation (Width-driven) */
-@media (max-width: 768px) {
-    .book {
-        width: 85vw !important;
-        height: min(80vh, calc(85vw / 0.65)) !important;
-        max-width: 420px !important;
-    }
-}
-
-/* 2. Desktop Calculation (80% Viewport Height) */
 @media (min-width: 769px) {
+    /* 1. Perfect Outer Book Dimensions */
     .book {
         height: 80vh !important;
-        width: calc(80vh * 0.65) !important; /* 52vh */
-        max-height: 900px !important;
-        max-width: 585px !important;
+        width: calc(80vh * 0.65) !important; /* 1:0.65 Golden Ratio */
+        max-height: 880px !important;
+        max-width: 572px !important;
     }
 
+    /* 2. Top Monogram Logo Fix */
+    .brand-logo, 
+    .logo-mark {
+        width: calc(80vh * 0.05) !important; /* Balanced top logo */
+        max-width: 42px !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* 3. Typography Proportions (Tightened so seal/logo stay in frame) */
     .brand-title {
-        font-size: calc(80vh * 0.055) !important;
+        font-size: calc(80vh * 0.042) !important; /* Clean Title */
+        letter-spacing: 0.2em !important;
+        line-height: 1.1 !important;
     }
 
     .brand-subtitle {
-        font-size: calc(80vh * 0.02) !important;
+        font-size: calc(80vh * 0.016) !important;
+        letter-spacing: 0.3em !important;
+        margin-top: 0.3rem !important;
+    }
+
+    .quote-text, 
+    .archival-quote {
+        font-size: calc(80vh * 0.013) !important;
+        letter-spacing: 0.15em !important;
+    }
+
+    /* 4. Royal Seal Size & Spacing */
+    .seal-wrapper {
+        margin-top: auto !important;
     }
 
     .seal {
-        width: calc(80vh * 0.12) !important;
+        width: calc(80vh * 0.08) !important; /* Balanced Seal Size */
+        max-width: 70px !important;
+        height: auto !important;
+    }
+
+    .seal-tagline {
+        font-size: calc(80vh * 0.011) !important;
+        letter-spacing: 0.25em !important;
     }
 }
