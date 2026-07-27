@@ -321,7 +321,7 @@ padding .35s ease;
 
 .accordion.active .accordion-content{
 
-max-height:500px;
+max-height:3000px;
 
 opacity:1;
 
