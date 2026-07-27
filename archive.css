@@ -416,3 +416,110 @@ text-align:center;
 }
 
 }
+
+/* ================================= */
+/* ARCHIVE LIGHTBOX */
+/* ================================= */
+
+.lightbox{
+
+position:fixed;
+inset:0;
+
+display:none;
+align-items:center;
+justify-content:center;
+
+background:rgba(8,8,8,.94);
+backdrop-filter:blur(8px);
+
+z-index:9999;
+
+padding:24px;
+
+animation:fadeLightbox .25s ease;
+
+}
+
+.lightbox.active{
+
+display:flex;
+
+}
+
+.lightbox-image{
+
+max-width:92%;
+max-height:88vh;
+
+border:1px solid rgba(201,170,113,.35);
+
+border-radius:12px;
+
+box-shadow:0 20px 60px rgba(0,0,0,.55);
+
+animation:zoomImage .25s ease;
+
+}
+
+.lightbox-close{
+
+position:absolute;
+
+top:24px;
+right:28px;
+
+font-size:2rem;
+
+cursor:pointer;
+
+color:#d7c8b3;
+
+transition:.25s;
+
+user-select:none;
+
+}
+
+.lightbox-close:hover{
+
+color:#c9aa71;
+transform:scale(1.1);
+
+}
+
+@keyframes fadeLightbox{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes zoomImage{
+
+from{
+
+transform:scale(.94);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
