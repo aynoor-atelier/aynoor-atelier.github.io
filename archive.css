@@ -615,3 +615,25 @@ opacity:1;
 }
 
 }
+
+/* ===== TEMP DEBUG ===== */
+
+.archive-info{
+
+display:block !important;
+
+visibility:visible !important;
+
+opacity:1 !important;
+
+}
+
+.archive-record{
+
+display:block !important;
+
+visibility:visible !important;
+
+opacity:1 !important;
+
+}
