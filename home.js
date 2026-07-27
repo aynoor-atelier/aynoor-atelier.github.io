@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
       HERO FADE
     ==============================*/
 
-    document.body.style.opacity = "0";
 
     requestAnimationFrame(() => {
 
