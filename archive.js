@@ -6,115 +6,66 @@ VOLUME V
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* Page Title */
+    /* Page Title & Chapter */
     document.title = "The Archive | Aynoor Atelier";
-
-    /* Active Chapter */
     document.body.dataset.chapter = "archive";
 
-    /* Hero Animation */
+    /* Hero & Intro Animations */
     const hero = document.querySelector(".hero");
-    if(hero){
-        hero.classList.add("show");
-    }
+    if(hero) hero.classList.add("show");
 
-    /* Intro Animation */
     const intro = document.querySelector(".intro");
-    if(intro){
-        intro.classList.add("show");
-    }
+    if(intro) intro.classList.add("show");
 
     /* ================================= */
-    /* ACCORDION OPEN / CLOSE FIX */
+    /* ACCORDION CLICK TOGGLE */
     /* ================================= */
-    const accordions = document.querySelectorAll(".accordion");
+    const headers = document.querySelectorAll(".accordion-header");
 
-    accordions.forEach(accordion => {
-        const header = accordion.querySelector(".accordion-header");
-        const content = accordion.querySelector(".accordion-content");
-
-        if(header && content) {
-            header.addEventListener("click", () => {
-                // Close all other accordions (Optional, comment out if you want multiple open)
-                accordions.forEach(item => {
-                    if(item !== accordion) {
-                        item.classList.remove("active");
-                        const itemContent = item.querySelector(".accordion-content");
-                        if(itemContent) itemContent.style.maxHeight = null;
-                    }
-                });
-
-                // Toggle Current Accordion
+    headers.forEach(header => {
+        header.addEventListener("click", () => {
+            const accordion = header.closest(".accordion");
+            if(accordion) {
                 accordion.classList.toggle("active");
-
-                if (accordion.classList.contains("active")) {
-                    // Set height dynamically with extra padding room for images & text
-                    content.style.maxHeight = (content.scrollHeight + 800) + "px";
-                } else {
-                    content.style.maxHeight = null;
-                }
-            });
-        }
-    });
-
-    /* Recalculate height when images load to avoid cutoffs */
-    const archiveImages = document.querySelectorAll(".archive-image");
-    archiveImages.forEach(img => {
-        img.addEventListener("load", () => {
-            const activeAccordion = img.closest(".accordion.active");
-            if(activeAccordion) {
-                const activeContent = activeAccordion.querySelector(".accordion-content");
-                if(activeContent) {
-                    activeContent.style.maxHeight = (activeContent.scrollHeight + 800) + "px";
-                }
             }
         });
     });
 
-    /* Ready Log */
-    console.log(
-        "%cVolume V Loaded - Accordion & Lightbox Active",
-        "color:#A67C52;font-size:15px;font-family:Cinzel,serif;"
-    );
-});
+    /* ================================= */
+    /* ARCHIVE LIGHTBOX */
+    /* ================================= */
+    const lightbox = document.getElementById("archiveLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.querySelector(".lightbox-close");
 
-/* ================================= */
-/* ARCHIVE LIGHTBOX */
-/* ================================= */
+    if(lightbox && lightboxImage && closeLightbox) {
 
-const lightbox = document.getElementById("archiveLightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const closeLightbox = document.querySelector(".lightbox-close");
+        document.querySelectorAll(".archive-image").forEach(image => {
+            image.addEventListener("click", (e) => {
+                e.stopPropagation(); // Prevents image click from toggling accordion
+                lightboxImage.src = image.src;
+                lightboxImage.alt = image.alt;
 
-if(lightbox && lightboxImage && closeLightbox) {
-
-    document.querySelectorAll(".archive-image").forEach(image => {
-        image.addEventListener("click", (e) => {
-            e.stopPropagation(); // Prevents clicking the image from toggling the accordion
-            lightboxImage.src = image.src;
-            lightboxImage.alt = image.alt;
-
-            lightbox.classList.add("active");
-            document.body.style.overflow = "hidden";
+                lightbox.classList.add("active");
+                document.body.style.overflow = "hidden";
+            });
         });
-    });
 
-    function hideLightbox() {
-        lightbox.classList.remove("active");
-        document.body.style.overflow = "";
+        function hideLightbox() {
+            lightbox.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+
+        closeLightbox.addEventListener("click", hideLightbox);
+
+        lightbox.addEventListener("click", (event) => {
+            if (event.target === lightbox) hideLightbox();
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") hideLightbox();
+        });
     }
 
-    closeLightbox.addEventListener("click", hideLightbox);
-
-    lightbox.addEventListener("click", (event) => {
-        if (event.target === lightbox) {
-            hideLightbox();
-        }
-    });
-
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            hideLightbox();
-        }
-    });
-}
+    console.log("%cVolume V Loaded - Accordion Fixed", "color:#A67C52;font-size:15px;font-family:Cinzel,serif;");
+});
