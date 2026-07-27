@@ -592,3 +592,19 @@ opacity:1;
 
 }
 
+/* FORCE ACCORDION DISPLAY FIX */
+.accordion.active .accordion-content {
+    display: block !important;
+    max-height: 5000px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding-top: 15px !important;
+    padding-bottom: 30px !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
