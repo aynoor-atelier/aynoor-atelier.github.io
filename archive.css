@@ -191,28 +191,26 @@ color:var(--bronze);
 CONTENT
 =========================================*/
 
-.accordion-content{
-
-background:rgba(255,255,255,.01);
-
+.accordion-content {
+    background: rgba(255, 255, 255, .01);
+    overflow: hidden; /* Necessary for accordion slide animation */
+    transition: max-height 0.4s ease-in-out, padding 0.3s ease;
+    padding: 0 24px; /* Padding left & right by default */
 }
 
-.accordion-content p{
-
-max-width:700px;
-
-padding-top:18px;
-
-padding-bottom:6px;
-
-font-size:1.02rem;
-
-font-weight:300;
-
-line-height:2.1;
-
+/* When accordion is active/open */
+.accordion.active .accordion-content {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    height: auto !important; /* Forces full height display */
 }
 
+.accordion-content p {
+    max-width: 100%;
+    font-size: 1.02rem;
+    font-weight: 300;
+    line-height: 1.9;
+}
 
 /*=========================================
 DIVIDER
@@ -350,93 +348,71 @@ width:100%;
 ARCHIVE CARD
 =========================================*/
 
-.archive-card{
-
-display:flex;
-
-flex-direction:column;
-
-gap:28px;
-
-padding-top:24px;
-
+.archive-card {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.archive-image{
-
-display:block;
-
-width:100%;
-
-height:auto;
-
-border:1px solid var(--border);
-
-border-radius:8px;
-
-cursor:pointer;
-
-transition:transform .35s ease,
-box-shadow .35s ease;
-
+.archive-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto; /* Keeps image proportions perfect without cutting off */
+    object-fit: contain;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform .35s ease, box-shadow .35s ease;
 }
 
-.archive-image:hover{
-
-transform:scale(1.01);
-
-box-shadow:0 12px 32px rgba(0,0,0,.35);
-
+.archive-image:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .35);
 }
 
-.archive-info{
-
-width:100%;
-
+.archive-info {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.archive-info h3{
-
-margin-bottom:18px;
-
-font-family:var(--font-heading);
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
+.archive-info h3 {
+    margin-top: 10px;
+    margin-bottom: 14px;
+    font-family: var(--font-heading);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    color: var(--gold, #c9aa71);
 }
 
-.archive-record{
-
-margin-top:26px;
-
-padding-top:18px;
-
-border-top:1px solid var(--border);
-
+.archive-record {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
 }
 
-.archive-record h4{
-
-margin-bottom:14px;
-
-font-family:var(--font-heading);
-
-letter-spacing:2px;
-
-color:var(--bronze);
-
+.archive-record h4 {
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+    letter-spacing: 2px;
+    color: var(--bronze);
+    font-size: 1.05rem;
 }
 
-.archive-record p{
-
-padding:0 !important;
-
-margin:10px 0;
-
-line-height:1.8;
-
+.archive-record p {
+    padding: 0 !important;
+    margin: 6px 0 !important;
+    line-height: 1.7;
+    font-size: 0.95rem;
 }
 
 /*=========================================
@@ -616,24 +592,3 @@ opacity:1;
 
 }
 
-/* ===== TEMP DEBUG ===== */
-
-.archive-info{
-
-display:block !important;
-
-visibility:visible !important;
-
-opacity:1 !important;
-
-}
-
-.archive-record{
-
-display:block !important;
-
-visibility:visible !important;
-
-opacity:1 !important;
-
-}
