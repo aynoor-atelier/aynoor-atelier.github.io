@@ -420,16 +420,23 @@ body {
     }
 }
 
-.page-content{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    height:100%;
-}
+@media (min-width: 769px) {
+  /* Dynamic Responsive adjustment inside page for Desktop */
+  .page {
+    padding: 45px 35px !important;
+  }
+  
+  .welcome-title {
+    font-size: 1.8rem !important;
+  }
+  
+  .archival-quote {
+    font-size: 0.9rem !important;
+    line-height: 2 !important;
+  }
 
-.page-content .motto-group{
-    margin-bottom: 50px;
+  .vault-btn {
+    padding: 14px 34px !important;
+    font-size: 0.78rem !important;
+  }
 }
-
