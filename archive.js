@@ -49,3 +49,56 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+
+/* ================================= */
+/* ARCHIVE LIGHTBOX */
+/* ================================= */
+
+const lightbox = document.getElementById("archiveLightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const closeLightbox = document.querySelector(".lightbox-close");
+
+document.querySelectorAll(".archive-image").forEach(image => {
+
+    image.addEventListener("click", () => {
+
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+
+        lightbox.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+function hideLightbox() {
+
+    lightbox.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+closeLightbox.addEventListener("click", hideLightbox);
+
+lightbox.addEventListener("click", (event) => {
+
+    if (event.target === lightbox) {
+
+        hideLightbox();
+
+    }
+
+});
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+
+        hideLightbox();
+
+    }
+
+});
