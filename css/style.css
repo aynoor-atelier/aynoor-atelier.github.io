@@ -145,45 +145,49 @@ body {
 }
 
 .welcome-title {
-    font-family: var(--font-heading);
-    color: #1a1610;
-    font-size: 1.8rem;
-    letter-spacing: 6px;
+  font-family: var(--font-heading);
+  color: #1a1610;
+  font-size: 1.6rem;
+  letter-spacing: 6px;
+  margin: 0;
 }
 
 .page-line {
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #c5a059, transparent);
-    margin: 22px auto;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c5a059, transparent);
+  margin: 15px auto;
 }
 
 .archival-quote {
-    font-family: var(--font-heading);
-    font-size: 0.92rem;
-    line-height: 2;
-    color: #3b3226;
-    margin-bottom: 35px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: #3b3226;
+  margin: auto 0; /* Vertical center push karega quote ko */
+  padding: 10px 0;
 }
 
 .vault-btn {
-    background: transparent;
-    border: 1px solid #c5a059;
-    padding: 13px 32px;
-    border-radius: 30px;
-    color: #5c451a;
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.35s ease;
+  background: transparent;
+  border: 1px solid #c5a059;
+  padding: 12px 28px;
+  border-radius: 30px;
+  color: #5c451a;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  margin-top: 15px;
+  flex-shrink: 0; /* Button ko kabhi vertical shrink nahi hone dega */
 }
 
 .vault-btn:hover {
-    background-color: #c5a059;
-    color: #ffffff;
-    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+  background-color: #c5a059;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
 }
 
 /* HIGH-LUXURY LEATHER COVER */
