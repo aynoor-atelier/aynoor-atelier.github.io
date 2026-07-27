@@ -1,5 +1,5 @@
 /* ==========================================================================
-AYNOOR ATELIER (EXACT ORIGINAL BRIGHT GOLD)
+                    AYNOOR ATELIER 
 ========================================================================== */
 
 :root {
@@ -115,24 +115,33 @@ body {
 
 /* MANUSCRIPT PAGE */
 .page {
-    position: absolute;
-    top: 4px;
-    left: 2px;
-    width: calc(100% - 4px);
-    height: calc(100% - 8px);
-    background-color: #f7f2e7;
-    background-image:
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, rgba(225, 212, 187, 0.6) 100%),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.015) 2px, rgba(0,0,0,0.015) 4px);
-    border-radius: 2px 8px 8px 2px;
-    padding: 40px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 3;
-    box-shadow: inset 18px 0 25px rgba(0, 0, 0, 0.18), inset -3px 0 8px rgba(0, 0, 0, 0.05);
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 8px);
+  background-color: #f7f2e7;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, rgba(225, 212, 187, 0.6) 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.015) 2px, rgba(0,0,0,0.015) 4px);
+  border-radius: 2px 8px 8px 2px;
+  padding: 35px 20px;
+  box-sizing: border-box;
+  z-index: 3;
+  box-shadow: inset 18px 0 25px rgba(0, 0, 0, 0.18), inset -3px 0 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Canvas ke bahar content leaking rokeyga */
+}
+
+.page-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Header top, quote middle, button bottom alignment */
+  align-items: center;
+  text-align: center;
+  padding: 15px 0;
+  box-sizing: border-box;
 }
 
 .welcome-title {
