@@ -125,29 +125,29 @@ body {
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, rgba(225, 212, 187, 0.6) 100%),
     repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.015) 2px, rgba(0,0,0,0.015) 4px);
   border-radius: 2px 8px 8px 2px;
-  padding: 35px 20px;
+  padding: 30px 20px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Hamesha vertical center rakhega */
+  align-items: center;
+  text-align: center;
   z-index: 3;
   box-shadow: inset 18px 0 25px rgba(0, 0, 0, 0.18), inset -3px 0 8px rgba(0, 0, 0, 0.05);
-  overflow: hidden; /* Canvas ke bahar content leaking rokeyga */
 }
 
 .page-content {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Header top, quote middle, button bottom alignment */
   align-items: center;
-  text-align: center;
-  padding: 15px 0;
-  box-sizing: border-box;
+  justify-content: center;
 }
 
 .welcome-title {
   font-family: var(--font-heading);
   color: #1a1610;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   letter-spacing: 6px;
   margin: 0;
 }
@@ -156,22 +156,21 @@ body {
   width: 60px;
   height: 1px;
   background: linear-gradient(90deg, transparent, #c5a059, transparent);
-  margin: 15px auto;
+  margin: 18px auto;
 }
 
 .archival-quote {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   line-height: 1.8;
   color: #3b3226;
-  margin: auto 0; /* Vertical center push karega quote ko */
-  padding: 10px 0;
+  margin: 15px 0 25px 0; /* Clear spacing before button */
 }
 
 .vault-btn {
   background: transparent;
   border: 1px solid #c5a059;
-  padding: 12px 28px;
+  padding: 13px 32px;
   border-radius: 30px;
   color: #5c451a;
   font-family: var(--font-heading);
@@ -180,8 +179,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.35s ease;
-  margin-top: 15px;
-  flex-shrink: 0; /* Button ko kabhi vertical shrink nahi hone dega */
+  display: inline-block;
 }
 
 .vault-btn:hover {
@@ -434,22 +432,23 @@ body {
 }
 
 @media (min-width: 769px) {
-  /* Dynamic Responsive adjustment inside page for Desktop */
-  .page {
-    padding: 45px 35px !important;
-  }
-  
+  /* Dynamic font scaling to prevent Desktop overlap or weird stretching */
   .welcome-title {
-    font-size: 1.8rem !important;
+    font-size: clamp(1.4rem, 2.5vh, 1.8rem) !important;
   }
-  
+
+  .page-line {
+    margin: clamp(10px, 2vh, 18px) auto !important;
+  }
+
   .archival-quote {
-    font-size: 0.9rem !important;
-    line-height: 2 !important;
+    font-size: clamp(0.75rem, 1.5vh, 0.92rem) !important;
+    line-height: 1.7 !important;
+    margin: clamp(10px, 2vh, 20px) 0 !important;
   }
 
   .vault-btn {
-    padding: 14px 34px !important;
-    font-size: 0.78rem !important;
+    padding: clamp(8px, 1.5vh, 13px) clamp(20px, 3vw, 32px) !important;
+    font-size: clamp(0.65rem, 1.2vh, 0.75rem) !important;
   }
 }
