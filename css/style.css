@@ -419,3 +419,32 @@ body {
         letter-spacing: 0.25em !important;
     }
 }
+
+/* ===== Desktop Welcome Page ===== */
+
+.page{
+    padding: 70px 45px !important;
+}
+
+.page-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.welcome-title{
+    margin-bottom:18px;
+}
+
+.page-line{
+    margin:20px 0 36px;
+}
+
+.archival-quote{
+    margin-bottom:70px;
+    max-width:360px;
+}
+
+.vault-btn{
+    margin-top:0;
+}
