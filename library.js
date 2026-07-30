@@ -1,26 +1,11 @@
 /*==================================================
-THE AYNOOR LIBRARY
+AYNOOR ATELIER
 LIBRARY.JS
-Version 1.0
+THE AYNOOR LIBRARY
 ==================================================*/
 
 
-/*=========================================
-DOM READY
-=========================================*/
-
 document.addEventListener("DOMContentLoaded",()=>{
-
-initLibrary();
-
-});
-
-
-/*=========================================
-LIBRARY INITIALIZE
-=========================================*/
-
-function initLibrary(){
 
 console.log(
 
@@ -30,71 +15,19 @@ console.log(
 
 );
 
-console.log(
-
-"Institutional Library Ready."
-
-);
-
-}
-
-
-/*=========================================
-ENTER THE LIBRARY
-=========================================*/
-
-const libraryButton=
-
-document.querySelector(".library-button");
-
-if(libraryButton){
-
-libraryButton.addEventListener("click",()=>{
-
-playPaperSound();
-
 });
 
-}
-
 
 /*=========================================
-KEYBOARD SUPPORT
+FUTURE READY
 =========================================*/
 
-document.addEventListener(
+window.Library={
 
-"keydown",
+version:"1.0",
 
-(event)=>{
+name:"The Aynoor Library",
 
-if(event.key==="Enter"){
+status:"Institutional Archive"
 
-const button=
-
-document.querySelector(".library-button");
-
-if(
-
-document.activeElement===button
-
-){
-
-button.click();
-
-}
-
-}
-
-);
-
-
-/*=========================================
-END
-=========================================*/
-
-console.log(
-
-"Library Interaction Loaded."
-
-);
+};
