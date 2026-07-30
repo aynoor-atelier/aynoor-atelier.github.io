@@ -1,0 +1,49 @@
+/*=========================================
+LIBRARY ENTRY
+=========================================*/
+
+.library-entry{
+
+text-align:center;
+
+padding:40px 0 70px;
+
+}
+
+.library-button{
+
+display:inline-block;
+
+padding:18px 54px;
+
+border:1px solid var(--bronze);
+
+font-family:var(--font-heading);
+
+font-size:.95rem;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:var(--bronze);
+
+text-decoration:none;
+
+transition:.35s ease;
+
+background:transparent;
+
+}
+
+.library-button:hover{
+
+background:var(--bronze);
+
+color:var(--bg);
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 30px rgba(166,124,82,.18);
+
+}
