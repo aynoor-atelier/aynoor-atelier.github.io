@@ -1,0 +1,222 @@
+/* =====================================================
+   THE AYNOOR LIBRARY
+   FOUNDING DECLARATION
+===================================================== */
+
+.document-page{
+    max-width:900px;
+    margin:auto;
+    padding:90px 24px 100px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.volume{
+    font-size:.72rem;
+    letter-spacing:6px;
+    color:#8f7758;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:3rem;
+    letter-spacing:3px;
+    font-weight:300;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.subtitle{
+    color:#b7aa96;
+    letter-spacing:2px;
+    font-size:.95rem;
+}
+
+.divider{
+    width:140px;
+    height:1px;
+    background:#8f7758;
+    margin:45px auto;
+    opacity:.6;
+}
+
+/* ========================= */
+
+.document-section{
+    margin-bottom:70px;
+}
+
+.document-section h2{
+
+    text-align:center;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-size:1.15rem;
+
+    margin-bottom:35px;
+
+    color:#efe4d3;
+
+}
+
+.document-section p{
+
+    font-size:1.06rem;
+
+    line-height:2;
+
+    color:#d3c9bb;
+
+    margin-bottom:22px;
+
+}
+
+blockquote{
+
+    text-align:center;
+
+    font-size:1.55rem;
+
+    line-height:1.9;
+
+    font-style:italic;
+
+    color:#f3ece3;
+
+    margin:35px auto;
+
+}
+
+/* ========================= */
+
+ol{
+
+    padding-left:22px;
+
+}
+
+ol li{
+
+    margin-bottom:35px;
+
+}
+
+ol strong{
+
+    display:block;
+
+    font-size:1.05rem;
+
+    color:#f4ede3;
+
+    margin-bottom:12px;
+
+    letter-spacing:1px;
+
+}
+
+/* ========================= */
+
+.document-status{
+
+    text-align:center;
+
+    padding:45px 0;
+
+    border-top:1px solid rgba(201,170,116,.18);
+
+    border-bottom:1px solid rgba(201,170,116,.18);
+
+}
+
+.document-status p{
+
+    margin:10px 0;
+
+    color:#c8baa6;
+
+}
+
+/* ========================= */
+
+.document-nav{
+
+    margin-top:70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.document-nav a{
+
+    text-decoration:none;
+
+    color:#b89b73;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+
+}
+
+.document-nav a:hover{
+
+    color:#fff;
+
+}
+
+/* ========================= */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:2.2rem;
+
+}
+
+blockquote{
+
+font-size:1.2rem;
+
+}
+
+.document-nav{
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+}
+
+.fade-section{
+
+opacity:0;
+
+transform:translateY(35px);
+
+transition:all .8s ease;
+
+}
+
+.fade-section.visible{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
