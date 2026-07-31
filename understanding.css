@@ -17,7 +17,7 @@ margin-bottom:80px;
 
 position:relative;
 
-padding-bottom:35px;
+padding-bottom:80px;
 
 }
 
@@ -80,6 +80,7 @@ font-size:1.08rem;
 line-height:2.1;
 
 font-weight:300;
+  max-width:780px;
 
 text-align:justify;
 
@@ -143,6 +144,28 @@ background:rgba(166,124,82,.03);
 
 }
 
+.accordion-content p{
+
+line-height:2;
+
+margin-bottom:24px;
+
+}
+
+.accordion-content p + p{
+
+margin-top:20px;
+
+}
+
+.footer{
+
+margin-top:120px;
+
+padding-top:70px;
+
+}
+
 /*=========================================
 RESPONSIVE
 =========================================*/
@@ -174,5 +197,4 @@ line-height:1.9;
 }
 
 }
-
 
