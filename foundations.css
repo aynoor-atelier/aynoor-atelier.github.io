@@ -1,7 +1,5 @@
 /*==================================================
 AYNOOR ATELIER
-FOUNDATIONS.CSS
-VOLUME II
 ==================================================*/
 
 
@@ -10,25 +8,89 @@ HERO
 =========================================*/
 
 .hero{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+
+text-align:center;
+
+max-width:900px;
+
+margin:0 auto 70px;
+
+padding-bottom:20px;
+
 }
 
 .hero h1{
-    width:100%;
-    text-align:center;
+
+font-family:var(--font-heading);
+
+font-size:3rem;
+
+letter-spacing:4px;
+
+font-weight:500;
+
+margin:0;
+
+}
+
+.hero .divider{
+
+width:120px;
+
+margin:28px auto;
+
 }
 
 .hero .roman{
 
-font-size:.9rem;
+display:block;
 
-letter-spacing:6px;
+width:100%;
+
+text-align:center;
+
+font-family:'Montserrat',sans-serif;
+
+font-size:.82rem;
+
+letter-spacing:8px;
+
+text-transform:uppercase;
+
+margin:0 auto 22px;
+
+color:var(--bronze);
 
 }
+
+.hero h2{
+
+font-family:var(--font-heading);
+
+font-size:2.4rem;
+
+letter-spacing:3px;
+
+font-weight:500;
+
+margin:0 0 22px;
+
+}
+
+.hero p{
+
+max-width:640px;
+
+margin:0 auto;
+
+font-size:1rem;
+
+line-height:1.9;
+
+font-weight:300;
+
+}
+
 
 
 /*=========================================
@@ -37,53 +99,41 @@ INTRODUCTION
 
 .intro{
 
-max-width:820px;
+max-width:760px;
 
-margin:0 auto;
+margin:70px auto;
 
 }
 
 .intro p{
 
-font-size:1.08rem;
+font-size:1.05rem;
 
-line-height:2.1;
+line-height:2;
+
+font-weight:300;
+
+margin-bottom:28px;
 
 text-align:justify;
 
 }
 
 
-/*=========================================
-FOUNDATIONS
-=========================================*/
-
-.principles{
-
-max-width:920px;
-
-margin:80px auto;
-
-display:flex;
-
-flex-direction:column;
-
-gap:20px;
-
-}
-
 
 /*=========================================
-ACCORDION
+PHILOSOPHY ACCORDIONS
 =========================================*/
 
 .accordion{
 
-background:transparent;
+margin-bottom:18px;
 
 border:1px solid var(--border);
 
-transition:var(--transition);
+background:transparent;
+
+transition:.35s;
 
 }
 
@@ -91,66 +141,100 @@ transition:var(--transition);
 
 border-color:var(--bronze);
 
-background:rgba(166,124,82,.03);
-
-}
-
-.accordion-header{
-
-min-height:76px;
-
-}
-
-.accordion-title{
-
-font-size:1.15rem;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
 }
 
 .accordion.active{
 
 border-color:var(--bronze);
 
+box-shadow:0 0 24px rgba(166,124,82,.08);
+
 }
 
-.accordion.active .accordion-title{
+
+
+.accordion-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:22px 28px;
+
+cursor:pointer;
+
+}
+
+
+
+.accordion-title{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+font-family:var(--font-heading);
+
+letter-spacing:2px;
+
+}
+
+
+
+.accordion-title .roman{
 
 color:var(--bronze);
 
+min-width:42px;
+
+font-size:1.2rem;
+
 }
+
+
+
+.foundation-label{
+
+display:block;
+
+margin-top:6px;
+
+font-family:var(--font-body);
+
+font-size:.72rem;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+opacity:.7;
+
+}
+
+
 
 .accordion-content{
 
-background:rgba(255,255,255,.01);
+padding:0 28px 24px;
 
 }
+
+
 
 .accordion-content p{
 
-padding-top:18px;
-
-padding-bottom:6px;
-
-max-width:680px;
-
 line-height:2;
 
-}
+font-size:1rem;
 
-
-/*=========================================
-DIVIDERS
-=========================================*/
-
-.manuscript-divider{
-
-margin:70px auto;
+font-weight:300;
 
 }
+
 
 
 /*=========================================
@@ -159,19 +243,58 @@ FOOTER
 
 footer{
 
-margin-top:100px;
+margin-top:90px;
+
+text-align:center;
+
+}
+
+footer h3{
+
+font-family:var(--font-heading);
+
+letter-spacing:4px;
+
+margin-bottom:12px;
+
+}
+
+.quote{
+
+max-width:760px;
+
+margin:80px auto;
+
+text-align:center;
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.8;
+
+letter-spacing:1px;
+
+color:#E6DDD2;
 
 }
 
 .quote-author{
 
-margin-top:20px;
+margin-top:22px;
 
-font-family:var(--font-heading);
+font-family:'Montserrat',sans-serif;
+
+font-size:.9rem;
 
 letter-spacing:3px;
 
+color:var(--bronze);
+
+text-transform:uppercase;
+
 }
+
 
 
 /*=========================================
@@ -186,9 +309,9 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-top:90px;
+margin-top:70px;
 
-padding-top:40px;
+padding-top:28px;
 
 border-top:1px solid var(--border);
 
@@ -200,7 +323,7 @@ font-family:var(--font-heading);
 
 letter-spacing:2px;
 
-transition:.35s ease;
+transition:.3s;
 
 }
 
@@ -211,23 +334,23 @@ color:var(--bronze);
 }
 
 
+
 /*=========================================
 RESPONSIVE
-=========================================*/
-
+=========================================
 @media(max-width:768px){
-
-.hero{
-
-margin-bottom:60px;
-
-}
 
 .hero h1{
 
-font-size:2.3rem;
+font-size:2.2rem;
 
 letter-spacing:2px;
+
+}
+
+.hero h2{
+
+font-size:1.9rem;
 
 }
 
@@ -235,17 +358,11 @@ letter-spacing:2px;
 
 text-align:left;
 
-font-size:1rem;
-
-line-height:1.9;
-
 }
 
 .accordion-header{
 
-padding:22px 20px;
-
-min-height:auto;
+padding:20px;
 
 }
 
@@ -254,257 +371,6 @@ min-height:auto;
 flex-direction:column;
 
 gap:24px;
-
-text-align:center;
-
-}
-
-}
-
-/*==================================================
-BUILD 2
-FOUNDATION POLISH
-==================================================*/
-
-
-/*=========================================
-CHAPTER HEADER
-=========================================*/
-
-.hero{
-
-position:relative;
-
-padding-bottom:35px;
-
-}
-
-.hero::after{
-
-content:"";
-
-display:block;
-
-width:140px;
-
-height:1px;
-
-background:var(--bronze);
-
-margin:35px auto 0;
-
-opacity:.85;
-
-}
-
-
-/*=========================================
-FOUNDATION TITLE
-=========================================*/
-
-.accordion-title{
-
-display:flex;
-
-align-items:center;
-
-gap:16px;
-
-}
-
-.accordion-title .roman{
-
-min-width:42px;
-
-font-size:1.25rem;
-
-color:var(--bronze);
-
-text-align:center;
-
-letter-spacing:2px;
-
-}
-
-
-/*=========================================
-FOUNDATION LABEL
-=========================================*/
-
-.foundation-label{
-
-display:block;
-
-margin-top:6px;
-
-font-size:.72rem;
-
-font-family:var(--font-body);
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-color:#9D907E;
-
-}
-
-
-/*=========================================
-ACTIVE FOUNDATION
-=========================================*/
-
-.accordion.active{
-
-background:rgba(166,124,82,.035);
-
-}
-
-.accordion.active .foundation-label{
-
-color:var(--bronze);
-
-}
-
-.accordion.active .accordion-icon{
-
-color:var(--bronze-light);
-
-}
-
-
-/*=========================================
-READING EXPERIENCE
-=========================================*/
-
-.accordion-content p{
-
-font-weight:300;
-
-font-size:1.02rem;
-
-line-height:2.1;
-
-}
-
-
-/*=========================================
-INTRO
-=========================================*/
-
-.intro{
-
-margin-top:70px;
-
-margin-bottom:90px;
-
-}
-
-.intro p{
-
-font-weight:300;
-
-}
-
-
-/*=========================================
-QUOTE
-=========================================*/
-
-.quote{
-
-max-width:720px;
-
-margin:auto;
-
-letter-spacing:1px;
-
-}
-
-
-/*=========================================
-FOOTER
-=========================================*/
-
-footer::before{
-
-content:"";
-
-display:block;
-
-width:80px;
-
-height:1px;
-
-background:var(--bronze);
-
-margin:0 auto 35px;
-
-opacity:.8;
-
-}
-
-
-/*=========================================
-HOVER
-=========================================*/
-
-.chapter-nav a{
-
-position:relative;
-
-}
-
-.chapter-nav a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-bottom:-8px;
-
-width:0;
-
-height:1px;
-
-background:var(--bronze);
-
-transition:.35s ease;
-
-}
-
-.chapter-nav a:hover::after{
-
-width:100%;
-
-}
-
-
-/*=========================================
-MOBILE
-=========================================*/
-
-@media(max-width:768px){
-
-.hero::after{
-
-width:90px;
-
-}
-
-.accordion-title{
-
-gap:12px;
-
-}
-
-.foundation-label{
-
-letter-spacing:2px;
-
-font-size:.68rem;
 
 }
 
