@@ -110,6 +110,11 @@ text-align:justify;
 
 }
 
+.document-body p{
+    margin: 0 0 1.8rem;
+    line-height: 2;
+    color: #d6d0c8;
+}
 
 /*=========================================
 ARTICLES
