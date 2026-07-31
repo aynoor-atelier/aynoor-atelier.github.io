@@ -49,13 +49,13 @@ body{
 
     letter-spacing:4px;
 
-    font-weight:400;
+    font-weight:300;
 
     text-transform:uppercase;
 
     margin:0;
 
-    color:#f1ebe3;
+    color:#f1eadf;
 
 }
 
@@ -99,7 +99,7 @@ body{
 
     font-weight:400;
 
-    color:#e5d9cb;
+    color:#d7b37a;
 
     margin-bottom:55px;
 
@@ -107,11 +107,11 @@ body{
 
 .document-section p{
 
-    color:#c7beb3;
+    color:#c2b6a5;
 
-    line-height:2.25;
+    line-height:2.2;
 
-    font-size:1.06rem;
+    font-size:1.08rem;
 
     text-align:justify;
 
@@ -129,7 +129,9 @@ blockquote{
 
     line-height:1.8;
 
-    color:white;
+    color:efe5d6;
+
+   max-width:760px;
 
     margin:50px auto;
 
@@ -149,9 +151,14 @@ ol li{
 
 ol strong{
 
-    color:#efe6da;
+    color:#eadcc6;
 
     font-weight:500;
+
+}
+ol p{
+
+    color:#b8ac99;
 
 }
 
