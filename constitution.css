@@ -79,41 +79,27 @@ PREAMBLE
 =========================================*/
 
 .intro{
-
-max-width:860px;
-
-margin:70px auto 90px;
-
+    max-width:860px;
+    margin:70px auto 90px;
 }
 
 .intro h2{
-
-text-align:center;
-
-margin-bottom:35px;
-
-letter-spacing:4px;
-
-text-transform:uppercase;
-
+    text-align:center;
+    margin-bottom:45px;
+    letter-spacing:4px;
+    text-transform:uppercase;
 }
 
 .intro p{
-
-font-size:1.06rem;
-
-line-height:2.15;
-
-font-weight:300;
-
-text-align:justify;
-
+    font-size:1.06rem;
+    line-height:2.1;
+    font-weight:300;
+    text-align:justify;
+    margin-bottom:22px;
 }
 
-.document-body p{
-    margin: 0 0 1.8rem;
-    line-height: 2;
-    color: #d6d0c8;
+.intro p:last-child{
+    margin-bottom:0;
 }
 
 /*=========================================
