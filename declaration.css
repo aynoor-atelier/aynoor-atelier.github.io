@@ -219,19 +219,15 @@ opacity:.7;
 
 .accordion-content{
 
-padding:0 28px 24px;
+background:rgba(255,255,255,.01);
 
 }
 
-
-
 .accordion-content p{
 
+padding:20px 0;
+
 line-height:2;
-
-font-size:1rem;
-
-font-weight:300;
 
 }
 
