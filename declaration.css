@@ -231,6 +231,48 @@ line-height:2;
 
 }
 
+.record{
+
+max-width:760px;
+
+margin:80px auto;
+
+padding:45px;
+
+border:1px solid var(--border);
+
+background:rgba(255,255,255,.02);
+
+}
+
+.record h2{
+
+text-align:center;
+
+margin-bottom:35px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+}
+
+.record p{
+
+margin:18px 0;
+
+line-height:1.9;
+
+}
+
+.record strong{
+
+color:var(--bronze);
+
+font-weight:500;
+
+}
+
 
 
 /*=========================================
