@@ -1,80 +1,121 @@
-/* =====================================================
-   THE AYNOOR LIBRARY
-   FOUNDING DECLARATION
-===================================================== */
+/* ==========================================
+   AYNOOR LIBRARY DOCUMENT SYSTEM
+==========================================*/
+
+body{
+
+    margin:0;
+    background:#0b0b0b;
+    color:#d9d0c5;
+
+    font-family:Georgia, serif;
+
+}
 
 .document-page{
-    max-width:900px;
+
+    width:min(900px,90%);
     margin:auto;
-    padding:90px 24px 100px;
+
+    padding:90px 0 80px;
+
 }
 
 .hero{
+
     text-align:center;
-    margin-bottom:70px;
+
+    margin-bottom:90px;
+
 }
 
 .volume{
-    font-size:.72rem;
-    letter-spacing:6px;
-    color:#8f7758;
+
+    font-size:.7rem;
+
+    letter-spacing:8px;
+
     text-transform:uppercase;
-    margin-bottom:18px;
+
+    color:#8c7358;
+
+    margin-bottom:22px;
+
 }
 
 .hero h1{
-    font-size:3rem;
-    letter-spacing:3px;
-    font-weight:300;
+
+    font-size:3.5rem;
+
+    letter-spacing:4px;
+
+    font-weight:400;
+
     text-transform:uppercase;
-    margin-bottom:18px;
+
+    margin:0;
+
+    color:#f1ebe3;
+
 }
 
 .subtitle{
-    color:#b7aa96;
+
+    margin-top:30px;
+
+    color:#b8a998;
+
     letter-spacing:2px;
-    font-size:.95rem;
+
 }
 
 .divider{
-    width:140px;
+
+    width:120px;
+
     height:1px;
-    background:#8f7758;
+
+    background:#8c7358;
+
     margin:45px auto;
-    opacity:.6;
+
 }
 
-/* ========================= */
-
 .document-section{
-    margin-bottom:70px;
+
+    margin:90px 0;
+
 }
 
 .document-section h2{
 
     text-align:center;
 
-    letter-spacing:4px;
+    font-size:1rem;
+
+    letter-spacing:6px;
 
     text-transform:uppercase;
 
-    font-size:1.15rem;
+    font-weight:400;
 
-    margin-bottom:35px;
+    color:#e5d9cb;
 
-    color:#efe4d3;
+    margin-bottom:55px;
 
 }
 
 .document-section p{
 
+    color:#c7beb3;
+
+    line-height:2.25;
+
     font-size:1.06rem;
 
-    line-height:2;
+    text-align:justify;
 
-    color:#d3c9bb;
-
-    margin-bottom:22px;
+    margin-bottom:26px;
 
 }
 
@@ -82,19 +123,17 @@ blockquote{
 
     text-align:center;
 
-    font-size:1.55rem;
-
-    line-height:1.9;
-
     font-style:italic;
 
-    color:#f3ece3;
+    font-size:2rem;
 
-    margin:35px auto;
+    line-height:1.8;
+
+    color:white;
+
+    margin:50px auto;
 
 }
-
-/* ========================= */
 
 ol{
 
@@ -110,85 +149,95 @@ ol li{
 
 ol strong{
 
-    display:block;
+    color:#efe6da;
 
-    font-size:1.05rem;
-
-    color:#f4ede3;
-
-    margin-bottom:12px;
-
-    letter-spacing:1px;
+    font-weight:500;
 
 }
-
-/* ========================= */
 
 .document-status{
 
     text-align:center;
 
-    padding:45px 0;
+    border-top:1px solid rgba(180,150,110,.18);
 
-    border-top:1px solid rgba(201,170,116,.18);
+    border-bottom:1px solid rgba(180,150,110,.18);
 
-    border-bottom:1px solid rgba(201,170,116,.18);
+    padding:45px;
+
+    margin-top:80px;
 
 }
 
 .document-status p{
 
-    margin:10px 0;
+    margin:12px 0;
 
-    color:#c8baa6;
+    color:#b8aa98;
 
 }
 
-/* ========================= */
-
 .document-nav{
-
-    margin-top:70px;
 
     display:flex;
 
     justify-content:space-between;
 
-    align-items:center;
+    margin-top:80px;
 
 }
 
 .document-nav a{
 
+    color:#b89263;
+
     text-decoration:none;
 
-    color:#b89b73;
-
-    letter-spacing:1px;
-
-    transition:.3s;
+    transition:.35s;
 
 }
 
 .document-nav a:hover{
 
-    color:#fff;
+    color:white;
 
 }
 
-/* ========================= */
+.fade-section{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:.8s;
+
+}
+
+.fade-section.visible{
+
+    opacity:1;
+
+    transform:none;
+
+}
 
 @media(max-width:768px){
 
 .hero h1{
 
-font-size:2.2rem;
+font-size:2.4rem;
 
 }
 
 blockquote{
 
-font-size:1.2rem;
+font-size:1.35rem;
+
+}
+
+.document-page{
+
+width:88%;
 
 }
 
@@ -198,25 +247,8 @@ flex-direction:column;
 
 gap:25px;
 
-}
+text-align:center;
 
 }
 
-.fade-section{
-
-opacity:0;
-
-transform:translateY(35px);
-
-transition:all .8s ease;
-
 }
-
-.fade-section.visible{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
