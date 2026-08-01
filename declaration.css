@@ -230,7 +230,31 @@ line-height:2;
 
     }
 
+/* ================================= */
+/* DOCUMENT STATUS */
+/* ================================= */
 
+.document-status{
+    margin:80px 0;
+}
+
+.document-status h2{
+    margin-bottom:32px;
+    font-size:1.6rem;
+    letter-spacing:.08em;
+}
+
+.document-status p{
+    margin:0 0 22px;
+    line-height:1.8;
+}
+
+.document-status strong{
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:.82rem;
+    opacity:.8;
+}
 
 /*=========================================
 FOOTER
