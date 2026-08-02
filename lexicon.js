@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.stopPropagation();
 
       const accordion = this.parentElement;
-      const content = accordion.querySelector(":scope > .accordion-content");
+      const content = accordion.children[1];
       const icon = this.querySelector(".accordion-icon");
 
       const isOpen = accordion.classList.contains("active");
@@ -21,15 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
       // close siblings
       const parent = accordion.parentElement;
 
-      parent.querySelectorAll(":scope > .accordion").forEach(item => {
+      Array.from(parent.children).filter(el => el.classList.contains("accordion"))
 
         if (item !== accordion) {
 
           item.classList.remove("active");
 
-          const c = item.querySelector(":scope > .accordion-content");
-
-          const i = item.querySelector(":scope > .accordion-header .accordion-icon");
+          const c = item.children[1];
+const i = item.children[0].querySelector(".accordion-icon");
 
           if (c) c.style.display = "none";
 
