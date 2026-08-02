@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // hide all accordion contents
-  document.querySelectorAll(".accordion-content").forEach(content => {
-    content.style.display = "none";
-  });
+  document.querySelectorAll(".accordion").forEach(acc => {
+    const content = acc.children[1];
+    if (content) {
+        content.style.display = "none";
+    }
+});
 
   // only direct headers
   document.querySelectorAll(".accordion > .accordion-header").forEach(header => {
