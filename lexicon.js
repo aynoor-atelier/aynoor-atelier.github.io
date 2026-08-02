@@ -1,63 +1,59 @@
+document.addEventListener("DOMContentLoaded", () => {
 
-/* ==========================================
-   AYNOOR ATELIER - LEXICON ISOLATED ENGINE
-   ========================================== */
+    const accordions = document.querySelectorAll(".accordion");
 
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Lexicon Multi-Level Engine Active.");
+    accordions.forEach((accordion) => {
 
-    // LEVEL 1: Alphabet Sections (Section A, B, C...)
-    const sectionHeaders = document.querySelectorAll(".lexicon-section-header");
+        const header = accordion.querySelector(":scope > .accordion-header");
+        const content = accordion.querySelector(":scope > .accordion-content");
+        const icon = accordion.querySelector(":scope > .accordion-header .accordion-icon");
 
-    sectionHeaders.forEach((header) => {
+        if (!header || !content) return;
+
+        // Initial State
+        content.style.display = "none";
+        icon.textContent = "▸";
+
         header.addEventListener("click", function (e) {
-            e.stopPropagation(); // Event ko parent tak hi simit rakho
 
-            const currentSection = this.parentElement;
+            e.stopPropagation();
 
-            // Toggle parent section (A, B, C)
-            currentSection.classList.toggle("active");
+            const parent = accordion.parentElement;
 
-            // Safeguard: Parent khulte hi saare child terms closed hi rahenge
-            const childTerms = currentSection.querySelectorAll(".lexicon-term-item");
-            childTerms.forEach((term) => {
-                // Ensure initial state stays collapsed unless individually clicked
-                if (!term.dataset.userOpened) {
-                    term.classList.remove("active");
+            // Close only sibling accordions
+            parent.querySelectorAll(":scope > .accordion").forEach((item) => {
+
+                if (item !== accordion) {
+
+                    item.classList.remove("active");
+
+                    const c = item.querySelector(":scope > .accordion-content");
+                    const i = item.querySelector(":scope > .accordion-header .accordion-icon");
+
+                    if (c) c.style.display = "none";
+                    if (i) i.textContent = "▸";
+
                 }
+
             });
-        });
-    });
 
-    // LEVEL 2: Sub-terms (01 Atelier, 02 Admission...)
-    const termHeaders = document.querySelectorAll(".lexicon-term-header");
+            // Toggle current
+            accordion.classList.toggle("active");
 
-    termHeaders.forEach((header) => {
-        header.addEventListener("click", function (e) {
-            e.stopPropagation(); // Parent section ko close hone se roko!
+            if (accordion.classList.contains("active")) {
 
-            const currentTerm = this.parentElement;
-            const parentSection = currentTerm.closest(".lexicon-section");
+                content.style.display = "block";
+                icon.textContent = "▾";
 
-            // Section ke andar baki terms ko close karo taaki ek time par 1 hi sub-term khula rahe
-            if (parentSection) {
-                const siblingTerms = parentSection.querySelectorAll(".lexicon-term-item");
-                siblingTerms.forEach((term) => {
-                    if (term !== currentTerm) {
-                        term.classList.remove("active");
-                        delete term.dataset.userOpened;
-                    }
-                });
-            }
-
-            // Target term ko toggle karo
-            currentTerm.classList.toggle("active");
-
-            if (currentTerm.classList.contains("active")) {
-                currentTerm.dataset.userOpened = "true";
             } else {
-                delete currentTerm.dataset.userOpened;
+
+                content.style.display = "none";
+                icon.textContent = "▸";
+
             }
+
         });
+
     });
+
 });
