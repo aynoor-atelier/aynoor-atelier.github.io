@@ -217,6 +217,49 @@ opacity:.7;
 
 .accordion-content{
 
+background:rgba(255,255,255,.01);
+}
+
+.accordion-content p{
+
+padding:20px 0;
+
+line-height:2;
+
+}
+
+/* =====================================
+LEXICON ENTRY
+===================================== */
+
+.lexicon-entry{
+
+margin-bottom:18px;
+
+border:1px solid var(--border);
+
+background:transparent;
+
+transition:.35s;
+
+}
+
+.lexicon-entry:hover{
+
+border-color:var(--bronze);
+
+}
+
+.lexicon-entry.active{
+
+border-color:var(--bronze);
+
+box-shadow:0 0 24px rgba(166,124,82,.08);
+
+}
+
+.lexicon-entry>.accordion-content{
+
 max-height:0;
 
 overflow:hidden;
@@ -231,19 +274,11 @@ padding .35s ease;
 
 }
 
-.accordion.active > .accordion-content{
+.lexicon-entry.active>.accordion-content{
 
 max-height:5000px;
 
 padding:0 28px 28px;
-
-}
-
-.accordion-content p{
-
-padding:20px 0;
-
-line-height:2;
 
 }
 
