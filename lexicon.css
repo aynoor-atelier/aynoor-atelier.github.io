@@ -248,19 +248,19 @@ LEXICON ENTRY
     box-shadow: 0 0 24px rgba(166, 124, 82, .08);
 }
 
+
 .accordion.active .lexicon-entry > .accordion-content {
     max-height: 0 !important;
     padding: 0 28px !important;
-    overflow: hidden !important;
     opacity: 0 !important;
-    transition: max-height .45s ease, opacity .35s ease, padding .35s ease;
+    overflow: hidden !important;
 }
 
-/* (.lexicon-entry) ACTIVE ho */
 .accordion.active .lexicon-entry.active > .accordion-content {
     max-height: 5000px !important;
     padding: 0 28px 28px !important;
     opacity: 1 !important;
+    transition: max-height 0.45s ease, opacity 0.35s ease, padding 0.35s ease !important;
 }
 
 
