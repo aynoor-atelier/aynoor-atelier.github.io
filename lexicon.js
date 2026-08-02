@@ -11,7 +11,7 @@ const entries=document.querySelectorAll(".lexicon-entry");
 
 entries.forEach((entry)=>{
 
-const header=entry.querySelector(":scope > .accordion-header");
+const header = entry.children[0];
 
 if(!header) return;
 
@@ -65,7 +65,7 @@ updateIcon(entry);
 
 function updateIcon(entry){
 
-const icon=entry.querySelector(":scope > .accordion-header .accordion-icon");
+const icon = entry.children[0].querySelector(".accordion-icon");
 
 if(!icon) return;
 
