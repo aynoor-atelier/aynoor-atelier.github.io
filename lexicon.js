@@ -1,54 +1,60 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const accordions = document.querySelectorAll(".accordion");
+    const headers = document.querySelectorAll(".accordion-header");
 
-    accordions.forEach((accordion) => {
-
-        const header = accordion.querySelector(":scope > .accordion-header");
-        const content = accordion.querySelector(":scope > .accordion-content");
-        const icon = accordion.querySelector(":scope > .accordion-header .accordion-icon");
-
-        if (!header || !content) return;
-
-        // Initial State
-        content.style.display = "none";
-        icon.textContent = "▸";
+    headers.forEach(header => {
 
         header.addEventListener("click", function (e) {
 
             e.stopPropagation();
 
-            const parent = accordion.parentElement;
+            const accordion = this.parentElement;
+            const content = accordion.querySelector(":scope > .accordion-content");
 
-            // Close only sibling accordions
-            parent.querySelectorAll(":scope > .accordion").forEach((item) => {
+            if (!content) return;
+
+            // Close sibling accordions
+            const parentContent = accordion.parentElement;
+
+            parentContent.querySelectorAll(":scope > .accordion").forEach(item => {
 
                 if (item !== accordion) {
 
                     item.classList.remove("active");
 
-                    const c = item.querySelector(":scope > .accordion-content");
-                    const i = item.querySelector(":scope > .accordion-header .accordion-icon");
+                    const siblingContent = item.querySelector(":scope > .accordion-content");
 
-                    if (c) c.style.display = "none";
-                    if (i) i.textContent = "▸";
+                    if (siblingContent) {
+                        siblingContent.style.maxHeight = null;
+                    }
+
+                    const icon = item.querySelector(":scope > .accordion-header .accordion-icon");
+
+                    if (icon) {
+                        icon.textContent = "▸";
+                    }
 
                 }
 
             });
 
-            // Toggle current
+            // Toggle current accordion
+
             accordion.classList.toggle("active");
+
+            const icon = accordion.querySelector(":scope > .accordion-header .accordion-icon");
 
             if (accordion.classList.contains("active")) {
 
-                content.style.display = "block";
-                icon.textContent = "▾";
+                content.style.maxHeight = content.scrollHeight + "px";
+
+                if (icon) icon.textContent = "▾";
 
             } else {
 
-                content.style.display = "none";
-                icon.textContent = "▸";
+                content.style.maxHeight = null;
+
+                if (icon) icon.textContent = "▸";
 
             }
 
