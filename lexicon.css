@@ -143,15 +143,13 @@ border-color:var(--bronze);
 
 }
 
-.accordion.active> .accordion-content{
-    display:block;
+.accordion.active{
 
 border-color:var(--bronze);
 
 box-shadow:0 0 24px rgba(166,124,82,.08);
 
 }
-
 
 
 .accordion-header{
@@ -218,12 +216,8 @@ opacity:.7;
 
 
 .accordion-content{
-display:none;
-    max-height:0;
 
-    overflow:hidden;
-
-    transition:max-height .45s ease;
+background:rgba(255,255,255,.01);
 
 }
 
