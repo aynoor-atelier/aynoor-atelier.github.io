@@ -216,7 +216,6 @@ opacity:.7;
 
 
 .accordion-content{
-    display:none;
     overflow:hidden;
     background:rgba(255,255,255,.01);
 }
