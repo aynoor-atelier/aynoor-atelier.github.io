@@ -216,8 +216,27 @@ opacity:.7;
 
 
 .accordion-content{
-    overflow:hidden;
-    background:rgba(255,255,255,.01);
+
+max-height:0;
+
+overflow:hidden;
+
+padding:0 28px;
+
+background:rgba(255,255,255,.01);
+
+transition:
+max-height .45s ease,
+padding .35s ease;
+
+}
+
+.accordion.active > .accordion-content{
+
+max-height:5000px;
+
+padding:0 28px 28px;
+
 }
 
 .accordion-content p{
