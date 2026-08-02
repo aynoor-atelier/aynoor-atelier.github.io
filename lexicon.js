@@ -1,3 +1,4 @@
+console.log("Lexicon JS Loaded");
 document.addEventListener("DOMContentLoaded",()=>{
 
 initLexicon();
@@ -5,7 +6,7 @@ initLexicon();
 });
 
 function initLexicon(){
-
+console.log("Init Lexicon");
 const entries=document.querySelectorAll(".lexicon-entry");
 
 entries.forEach((entry)=>{
@@ -17,7 +18,7 @@ if(!header) return;
 updateIcon(entry);
 
 header.addEventListener("click",(event)=>{
-
+console.log("Header Click");
 event.stopPropagation();
 
 const isOpen=entry.classList.contains("active");
