@@ -213,7 +213,7 @@ UPDATE ICON
 function updateAccordionIcon(accordion){
 
 const icon=
-accordion.querySelector(".accordion-icon");
+accordion.querySelector(":scope > .accordion-header .accordion-icon");
 
 if(!icon) return;
 
@@ -249,9 +249,14 @@ accordion.querySelector(":scope > .accordion-header");
 
 updateAccordionIcon(accordion);
 
-header.addEventListener("click",()=>{
+header.addEventListener("click",(event)=>{
+
+event.stopPropagation();
 
 const isOpen=
+accordion.classList.contains("active");
+
+...
 
 accordion.classList.contains("active");
 
