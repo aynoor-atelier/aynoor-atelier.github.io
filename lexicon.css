@@ -232,55 +232,37 @@ line-height:2;
 LEXICON ENTRY
 ===================================== */
 
-.lexicon-entry{
-
-margin-bottom:18px;
-
-border:1px solid var(--border);
-
-background:transparent;
-
-transition:.35s;
-
+.lexicon-entry {
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+    background: transparent;
+    transition: .35s;
 }
 
-.lexicon-entry:hover{
-
-border-color:var(--bronze);
-
+.lexicon-entry:hover {
+    border-color: var(--bronze);
 }
 
-.lexicon-entry.active{
-
-border-color:var(--bronze);
-
-box-shadow:0 0 24px rgba(166,124,82,.08);
-
+.lexicon-entry.active {
+    border-color: var(--bronze);
+    box-shadow: 0 0 24px rgba(166, 124, 82, .08);
 }
 
-.lexicon-entry>.accordion-content{
-
-max-height:0;
-
-overflow:hidden;
-
-padding:0 28px;
-
-background:rgba(255,255,255,.01);
-
-transition:
-max-height .45s ease,
-padding .35s ease;
-
+.accordion.active .lexicon-entry > .accordion-content {
+    max-height: 0 !important;
+    padding: 0 28px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    transition: max-height .45s ease, opacity .35s ease, padding .35s ease;
 }
 
-.lexicon-entry.active>.accordion-content{
-
-max-height:5000px;
-
-padding:0 28px 28px;
-
+/* (.lexicon-entry) ACTIVE ho */
+.accordion.active .lexicon-entry.active > .accordion-content {
+    max-height: 5000px !important;
+    padding: 0 28px 28px !important;
+    opacity: 1 !important;
 }
+
 
 /*=========================================
 FOOTER
