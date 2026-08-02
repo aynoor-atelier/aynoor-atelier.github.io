@@ -221,10 +221,6 @@ opacity:.7;
     background:rgba(255,255,255,.01);
 }
 
-.accordion.active > .accordion-content{
-    display:block;
-}
-
 .accordion-content p{
 
 padding:20px 0;
