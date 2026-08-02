@@ -180,15 +180,13 @@ ONLY ONE ACCORDION OPEN
 
 function closeOtherAccordions(current){
 
-const parent = current.parentElement;
-
-parent.querySelectorAll(":scope > .accordion.active").forEach((accordion)=>{
+document
+.querySelectorAll(".accordion.active")
+.forEach((accordion)=>{
 
 if(accordion!==current){
 
 accordion.classList.remove("active");
-  updateAccordionIcon(accordion);
-
 
 const icon=
 accordion.querySelector(".accordion-icon");
@@ -213,7 +211,7 @@ UPDATE ICON
 function updateAccordionIcon(accordion){
 
 const icon=
-accordion.querySelector(":scope > .accordion-header .accordion-icon");
+accordion.querySelector(".accordion-icon");
 
 if(!icon) return;
 
@@ -244,19 +242,15 @@ document.querySelectorAll(".accordion");
 
 accordions.forEach((accordion)=>{
 
-const header =
-accordion.querySelector(":scope > .accordion-header");
+const header=
+
+accordion.querySelector(".accordion-header");
 
 updateAccordionIcon(accordion);
 
-header.addEventListener("click",(event)=>{
-
-event.stopPropagation();
+header.addEventListener("click",()=>{
 
 const isOpen=
-accordion.classList.contains("active");
-
-...
 
 accordion.classList.contains("active");
 
