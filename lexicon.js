@@ -1,68 +1,69 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const accordions = document.querySelectorAll(".accordion");
-
-  // Hide all accordion contents on load
-  accordions.forEach(acc => {
+  // start with all accordion contents closed
+  document.querySelectorAll(".accordion").forEach(acc => {
     const content = acc.children[1];
-    const icon = acc.querySelector(":scope > .accordion-header .accordion-icon");
+    const icon = acc.children[0]?.querySelector(".accordion-icon");
+
     if (content) content.style.display = "none";
     if (icon) icon.textContent = "▸";
+    acc.classList.remove("active");
   });
 
-  // Attach click only to direct headers
-  document.querySelectorAll(".accordion > .accordion-header").forEach(header => {
-    header.addEventListener("click", function (e) {
-      e.stopPropagation();
+  function closeAccordion(acc) {
+    if (!acc) return;
 
-      const accordion = this.parentElement;
-      const content = accordion.children[1];
-      const icon = this.querySelector(".accordion-icon");
-      const isOpen = accordion.classList.contains("active");
+    acc.classList.remove("active");
 
-      // Close sibling accordions at same level
-      const parent = accordion.parentElement;
-      Array.from(parent.children)
-        .filter(el => el.classList && el.classList.contains("accordion"))
-        .forEach(item => {
-          if (item !== accordion) {
-            item.classList.remove("active");
+    const content = acc.children[1];
+    const icon = acc.children[0]?.querySelector(".accordion-icon");
 
-            const c = item.children[1];
-            const i = item.children[0].querySelector(".accordion-icon");
+    if (content) content.style.display = "none";
+    if (icon) icon.textContent = "▸";
 
-            if (c) c.style.display = "none";
-            if (i) i.textContent = "▸";
-
-            // Also close any nested accordions inside sibling
-            item.querySelectorAll(".accordion.active").forEach(nested => {
-              nested.classList.remove("active");
-              const nc = nested.children[1];
-              const ni = nested.children[0].querySelector(".accordion-icon");
-              if (nc) nc.style.display = "none";
-              if (ni) ni.textContent = "▸";
-            });
-          }
-        });
-
-      // Toggle current accordion
-      if (isOpen) {
-        accordion.classList.remove("active");
-        content.style.display = "none";
-        icon.textContent = "▸";
-
-        // Close nested accordions when parent closes
-        accordion.querySelectorAll(".accordion.active").forEach(nested => {
-          nested.classList.remove("active");
-          const nc = nested.children[1];
-          const ni = nested.children[0].querySelector(".accordion-icon");
-          if (nc) nc.style.display = "none";
-          if (ni) ni.textContent = "▸";
-        });
-      } else {
-        accordion.classList.add("active");
-        content.style.display = "block";
-        icon.textContent = "▾";
-      }
+    // close any nested open accordions inside this one
+    acc.querySelectorAll(".accordion.active").forEach(nested => {
+      nested.classList.remove("active");
+      const nestedContent = nested.children[1];
+      const nestedIcon = nested.children[0]?.querySelector(".accordion-icon");
+      if (nestedContent) nestedContent.style.display = "none";
+      if (nestedIcon) nestedIcon.textContent = "▸";
     });
+  }
+
+  function openAccordion(acc) {
+    if (!acc) return;
+
+    acc.classList.add("active");
+
+    const content = acc.children[1];
+    const icon = acc.children[0]?.querySelector(".accordion-icon");
+
+    if (content) content.style.display = "block";
+    if (icon) icon.textContent = "▾";
+  }
+
+  document.addEventListener("click", (e) => {
+    const header = e.target.closest(".accordion-header");
+    if (!header) return;
+
+    const accordion = header.parentElement;
+    if (!accordion || !accordion.classList.contains("accordion")) return;
+
+    const isOpen = accordion.classList.contains("active");
+    const parent = accordion.parentElement;
+
+    // close siblings at same level
+    Array.from(parent.children)
+      .filter(el => el.classList && el.classList.contains("accordion"))
+      .forEach(item => {
+        if (item !== accordion) closeAccordion(item);
+      });
+
+    // toggle current
+    if (isOpen) {
+      closeAccordion(accordion);
+    } else {
+      openAccordion(accordion);
+    }
   });
 });
