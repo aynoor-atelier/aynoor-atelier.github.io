@@ -218,26 +218,9 @@ opacity:.7;
 
 .accordion-content{
 
-max-height:0;
-overflow:hidden;
-opacity:0;
+background:rgba(255,255,255,.01
 
-padding:0 28px;
-
-background:rgba(255,255,255,.01);
-
-transition:
-max-height .45s ease,
-opacity .35s ease,
-padding .35s ease;
-
-}
-
-.accordion.active > .accordion-content{
-
-max-height:5000px;
-opacity:1;
-padding:0 28px 28px;
+);
 
 }
 
@@ -247,72 +230,6 @@ padding:20px 0;
 
 line-height:2;
 
-    }
-
-/*=========================================
-LEXICON SUB-TERMS (CHILD ITEMS)
-=========================================*/
-
-.lexicon-term-item {
-    margin: 14px 0;
-    border: 1px solid rgba(166, 124, 82, 0.15);
-    background: rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.lexicon-term-item:hover {
-    border-color: var(--bronze);
-}
-
-.lexicon-term-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 18px;
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    color: #E6DDD2;
-}
-
-/* Child item description default HIDDEN rahega */
-.lexicon-term-body {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    padding: 0 18px;
-    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
-}
-
-/* Jab child item active hoga tabhi open hoga */
-.lexicon-term-item.active {
-    border-color: var(--bronze);
-}
-
-.lexicon-term-item.active > .lexicon-term-body {
-    max-height: 1000px;
-    opacity: 1;
-    padding: 14px 18px 20px;
-}
-
-.lexicon-term-body p {
-    font-size: 0.92rem;
-    line-height: 1.8;
-    margin-bottom: 12px;
-    color: #C2B8AD;
-}
-
-/* Metadata Block Styling */
-.lexicon-metadata {
-    border-top: 1px dashed rgba(166, 124, 82, 0.25);
-    padding-top: 10px;
-    margin-top: 10px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 1px;
-    line-height: 1.6;
-    color: var(--bronze);
 }
 
 /*=========================================
