@@ -1,74 +1,36 @@
-console.log("Lexicon JS Loaded");
-document.addEventListener("DOMContentLoaded",()=>{
+/* ==========================================
+   AYNOOR ATELIER - LEXICON ISOLATED ENGINE
+   ========================================== */
 
-initLexicon();
+document.addEventListener("DOMContentLoaded", function () {
 
-});
+    // 1. PARENT ACCORDION (Section A, B, C...)
+    const parentHeaders = document.querySelectorAll(".accordion > .accordion-header");
 
-function initLexicon(){
-console.log("Init Lexicon");
-const entries=document.querySelectorAll(".lexicon-entry");
+    parentHeaders.forEach((header) => {
+        header.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const parent = this.parentElement;
+            
+            // Toggle Section A
+            parent.classList.toggle("active");
+        });
+    });
 
-entries.forEach((entry)=>{
+    // 2. CHILD ACCORDION (A-01, A-02...)
+    const childHeaders = document.querySelectorAll(".lexicon-entry > .accordion-header");
 
-const header = entry.children[0];
+    childHeaders.forEach((header) => {
+        header.addEventListener("click", function (e) {
+            // Very critical: Prevent parent section from listening to this click!
+            e.stopPropagation();
+            e.stopImmediatePropagation();
 
-if(!header) return;
+            const child = this.parentElement;
 
-updateIcon(entry);
-
-header.addEventListener("click",(event)=>{
-console.log("Header Click");
-event.stopPropagation();
-
-const isOpen=entry.classList.contains("active");
-
-closeOtherEntries(entry);
-
-if(isOpen){
-
-entry.classList.remove("active");
-
-}
-
-else{
-
-entry.classList.add("active");
-
-}
-
-updateIcon(entry);
+            // Toggle only this child
+            child.classList.toggle("active");
+        });
+    });
 
 });
-
-});
-
-}
-
-function closeOtherEntries(current){
-
-const container=current.parentElement;
-
-container.querySelectorAll(".lexicon-entry.active").forEach((entry)=>{
-
-if(entry!==current){
-
-entry.classList.remove("active");
-
-updateIcon(entry);
-
-}
-
-});
-
-}
-
-function updateIcon(entry){
-
-const icon = entry.children[0].querySelector(".accordion-icon");
-
-if(!icon) return;
-
-icon.textContent=entry.classList.contains("active")?"▾":"▸";
-
-}
