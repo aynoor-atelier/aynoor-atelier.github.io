@@ -199,8 +199,6 @@ font-size:1.2rem;
 
 .foundation-label{
 
-display:block;
-
 margin-top:6px;
 
 font-family:var(--font-body);
@@ -218,9 +216,11 @@ opacity:.7;
 
 .accordion-content{
 
-background:rgba(255,255,255,.01
+    max-height:0;
 
-);
+    overflow:hidden;
+
+    transition:max-height .45s ease;
 
 }
 
