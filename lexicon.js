@@ -1,64 +1,68 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const accordions = document.querySelectorAll(".accordion");
 
-  document.querySelectorAll(".accordion").forEach(acc => {
+  // Hide all accordion contents on load
+  accordions.forEach(acc => {
     const content = acc.children[1];
-    if (content) {
-        content.style.display = "none";
-    }
-});
+    const icon = acc.querySelector(":scope > .accordion-header .accordion-icon");
+    if (content) content.style.display = "none";
+    if (icon) icon.textContent = "▸";
+  });
 
-  // only direct headers
+  // Attach click only to direct headers
   document.querySelectorAll(".accordion > .accordion-header").forEach(header => {
-
     header.addEventListener("click", function (e) {
-
       e.stopPropagation();
 
       const accordion = this.parentElement;
       const content = accordion.children[1];
       const icon = this.querySelector(".accordion-icon");
-
       const isOpen = accordion.classList.contains("active");
 
-      // close siblings
+      // Close sibling accordions at same level
       const parent = accordion.parentElement;
+      Array.from(parent.children)
+        .filter(el => el.classList && el.classList.contains("accordion"))
+        .forEach(item => {
+          if (item !== accordion) {
+            item.classList.remove("active");
 
-      Array.from(parent.children).filter(el => el.classList.contains("accordion"))
+            const c = item.children[1];
+            const i = item.children[0].querySelector(".accordion-icon");
 
-        if (item !== accordion) {
+            if (c) c.style.display = "none";
+            if (i) i.textContent = "▸";
 
-          item.classList.remove("active");
+            // Also close any nested accordions inside sibling
+            item.querySelectorAll(".accordion.active").forEach(nested => {
+              nested.classList.remove("active");
+              const nc = nested.children[1];
+              const ni = nested.children[0].querySelector(".accordion-icon");
+              if (nc) nc.style.display = "none";
+              if (ni) ni.textContent = "▸";
+            });
+          }
+        });
 
-          const c = item.children[1];
-const i = item.children[0].querySelector(".accordion-icon");
-
-          if (c) c.style.display = "none";
-
-          if (i) i.textContent = "▸";
-        }
-
-      });
-
+      // Toggle current accordion
       if (isOpen) {
-
         accordion.classList.remove("active");
-
         content.style.display = "none";
-
         icon.textContent = "▸";
 
+        // Close nested accordions when parent closes
+        accordion.querySelectorAll(".accordion.active").forEach(nested => {
+          nested.classList.remove("active");
+          const nc = nested.children[1];
+          const ni = nested.children[0].querySelector(".accordion-icon");
+          if (nc) nc.style.display = "none";
+          if (ni) ni.textContent = "▸";
+        });
       } else {
-
         accordion.classList.add("active");
-
         content.style.display = "block";
-
         icon.textContent = "▾";
-
       }
-
     });
-
   });
-
 });
