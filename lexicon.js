@@ -1,69 +1,61 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // start with all accordion contents closed
-  document.querySelectorAll(".accordion").forEach(acc => {
-    const content = acc.children[1];
-    const icon = acc.children[0]?.querySelector(".accordion-icon");
 
-    if (content) content.style.display = "none";
-    if (icon) icon.textContent = "▸";
-    acc.classList.remove("active");
-  });
+    initLexiconEntries();
 
-  function closeAccordion(acc) {
-    if (!acc) return;
-
-    acc.classList.remove("active");
-
-    const content = acc.children[1];
-    const icon = acc.children[0]?.querySelector(".accordion-icon");
-
-    if (content) content.style.display = "none";
-    if (icon) icon.textContent = "▸";
-
-    // close any nested open accordions inside this one
-    acc.querySelectorAll(".accordion.active").forEach(nested => {
-      nested.classList.remove("active");
-      const nestedContent = nested.children[1];
-      const nestedIcon = nested.children[0]?.querySelector(".accordion-icon");
-      if (nestedContent) nestedContent.style.display = "none";
-      if (nestedIcon) nestedIcon.textContent = "▸";
-    });
-  }
-
-  function openAccordion(acc) {
-    if (!acc) return;
-
-    acc.classList.add("active");
-
-    const content = acc.children[1];
-    const icon = acc.children[0]?.querySelector(".accordion-icon");
-
-    if (content) content.style.display = "block";
-    if (icon) icon.textContent = "▾";
-  }
-
-  document.addEventListener("click", (e) => {
-    const header = e.target.closest(".accordion-header");
-    if (!header) return;
-
-    const accordion = header.parentElement;
-    if (!accordion || !accordion.classList.contains("accordion")) return;
-
-    const isOpen = accordion.classList.contains("active");
-    const parent = accordion.parentElement;
-
-    // close siblings at same level
-    Array.from(parent.children)
-      .filter(el => el.classList && el.classList.contains("accordion"))
-      .forEach(item => {
-        if (item !== accordion) closeAccordion(item);
-      });
-
-    // toggle current
-    if (isOpen) {
-      closeAccordion(accordion);
-    } else {
-      openAccordion(accordion);
-    }
-  });
 });
+
+function initLexiconEntries(){
+
+    const entries=document.querySelectorAll(".lexicon-entry");
+
+    entries.forEach((entry)=>{
+
+        const header=
+        entry.querySelector(":scope > .accordion-header");
+
+        if(!header) return;
+
+        updateEntryIcon(entry);
+
+        header.addEventListener("click",(event)=>{
+
+            event.stopPropagation();
+
+            const parent=
+            entry.parentElement;
+
+            parent.querySelectorAll(":scope > .lexicon-entry.active").forEach((other)=>{
+
+                if(other!==entry){
+
+                    other.classList.remove("active");
+
+                    updateEntryIcon(other);
+
+                }
+
+            });
+
+            entry.classList.toggle("active");
+
+            updateEntryIcon(entry);
+
+        });
+
+    });
+
+}
+
+function updateEntryIcon(entry){
+
+    const icon=
+    entry.querySelector(":scope > .accordion-header .accordion-icon");
+
+    if(!icon) return;
+
+    icon.textContent=
+    entry.classList.contains("active")
+    ? "−"
+    : "+";
+
+}
