@@ -2,11 +2,6 @@
 AYNOOR ATELIER
 ==================================================*/
 
-
-/*=========================================
-HERO
-=========================================*/
-
 .hero{
 
 text-align:center;
@@ -88,24 +83,6 @@ font-size:1rem;
 line-height:1.9;
 
 font-weight:300;
-
-}
-
-.hero::after{
-
-content:"";
-
-display:block;
-
-width:140px;
-
-height:1px;
-
-background:var(--bronze);
-
-margin:36px auto 0;
-
-opacity:.85;
 
 }
 
